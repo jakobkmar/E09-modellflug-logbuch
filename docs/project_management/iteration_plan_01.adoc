@@ -19,35 +19,36 @@ include::../_includes/default-attributes.inc.adoc[]
 
 == Wesentliche Ziele
 
-* Einrichtung einer gemeinsamen Kommunikationsplattform, 
-  aufstellen allgemeiner Kommunikationsregeln  
-* Zuweisung von Hauptverantwortlichen für Rollen 
-* Erstellung von github repository
-* Kontaktaufnahme mit Auftraggeber und Coach 
-* Terminvereinbarungen, 
+* Einrichtung einer gemeinsamen Kommunikationsplattform,
+  aufstellen allgemeiner Kommunikationsregeln
+* Zuweisung von Hauptverantwortlichen für Rollen
+* Erstellung des GitHub Repository und Projects
+* Kontaktaufnahme mit Auftraggeber und Coach
+* Terminvereinbarungen
 
 
 == Aufgabenzuordnung
 //Dieser Abschnitt sollte einen Verweis auf die Work Items List enthalten, die die für diese Iteration vorgesehenen Aufgaben dokumentiert sowie die Zuordnung dieser Aufgaben zu Teammitgliedern. Alternativ können die Aufgaben für die Iteration und die Zuordnung zu Teammitgliedern in nachfolgender Tabelle dokumentiert werden - je nach dem, was einfacher für die Projektbeteiligten einfacher zu finden ist.
 
-Die in dieser Iteration geplanten Aufgaben sind in der Work Items List dargestellt (hier Verweis einfügen).
+Die in dieser Iteration geplanten Aufgaben sind in der Work Items List dargestellt:
 
-_alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
-[%header, cols="3,1,1,1,2,1,1,1,1"]
+siehe *https://github.com/users/jakobkmar/projects/2/views/3?filterQuery=iteration%3A%22Iteration+1%22[Work Item List - Iteration 1]*
+
+_alternativ:_ Exportierte Daten aus dem Spreadsheet:
+
+[%header, cols="3,3,3,3,3,1,1"]
 |===
-| Aufgabe bzw. Beschreibung | Priorität | Schätzung der Größe (Punkte) |Status | Referenzen | geplante Iteration | Zugewiesen (Name) | Gearbeite Stunden | Schätzung der verbleibenden Stunden
-
-| Einrichtung einer gemeinsamen Kommunikationsplattform | x | 2 | 100% | x | 1 | Lucas | 1 | 0 
-| Rollenfindung | x | 1 | 100% | x | 1 | Alle | 1 | 0 
-| Erstellung von github repository | x | ? | 100% | x | 1 | Jakob | ? | 0 
-| Kontaktaufnahme mit Auftraggeber und Coach | x | 1 | 100% | x | 1 | Lucas | 1 | 0 
-| Terminvereinbarungen | x | 1 | 100% | x | 1 | Alle | 1 | 0 
-| Bearbeitung Iteration Plan  | x | 1 | 100% | x | 1 | Lucas | 1 | 0 
-| Bearbeitung Vision  | x | 120 | ? | x | 1-X | Analyse | 1 | ?
-| Einarbeitung in die fachlichen Bereiche des OpenUP  | x | 120 | ? | x | 1-2 | Alle | 1 | ?
-| Planung Teambuilding Event  | x | 4 | 50% | x | 1-2 | Alle | 1 | 1
+| Title | Assignees | Status | Priority | Iteration | gearbeitete Std. | verbleibende Std.
+| Einrichtung einer gemeinsamen Kommunikationsplattform (Discord) | Lucas | Done | 5 | Iteration 1 | 1 | 0
+| Rollenfindung | alle | Verification required | 8 | Iteration 1 | 1 | 0
+| Erstellung GitHub Repository und Project | Jakob | Done | 5 | Iteration 1 | 1.5 | 0
+| Kontaktaufnahme mit Auftraggeber und Coach | Lucas | In Progress | 8 | Iteration 1 | 1 | 0
+| Terminvereinbarungen | alle | Done | 9 | Iteration 1 | 1 | 0
+| Stakeholder vorläufig bestimmen | Felix | Done | 4 | Iteration 1 | 1 | 0
+| Bearbeitung Iteration Plan | Jakob, Lucas | In Progress | 5 | Iteration 1 | 1 | 0
+| Planung Teambuilding Event | alle | Todo | 6 | Iteration 1 | 1 | 1
+| Work Item List in GitHub Projects übetragen | Jakob | Done | 5 | Iteration 1 | 0.5 | 0
 |===
-
 
 == Probleme (optional)
 //Optional: Führen Sie alle Probleme auf, die in dieser Iteration adressiert werden sollen. Aktualisieren Sie den Status, wenn neue Probleme bei den täglichen / regelmäßigen Abstimmungen berichtet werden.
