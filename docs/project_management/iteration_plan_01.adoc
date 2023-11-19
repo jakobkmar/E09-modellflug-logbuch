@@ -12,20 +12,19 @@ include::../_includes/default-attributes.inc.adoc[]
 |===
 | Meilenstein | Datum
 
-| Beginn der Iteration | -
-| ... | -
-| Ende der Iteration | -
+| Beginn der Iteration | KW 45
+| Ende der Iteration | KW 47
 |===
 
 
 == Wesentliche Ziele
-//Nennen Sie 1-5 wesentliche Ziele für die Iteration.
 
-Beispiele:
-
-* Beheben der Usability-Probleme, die von Abteilung X berichtet wurden
-* Ausliefern der Hauptszenarios, die die Integration mit System Y zeigen
-* Present a technical demonstration (demo).
+* Einrichtung einer gemeinsamen Kommunikationsplattform, 
+  aufstellen allgemeiner Kommunikationsregeln  
+* Zuweisung von Hauptverantwortlichen für Rollen 
+* Erstellung von github repository
+* Kontaktaufnahme mit Auftraggeber und Coach 
+* Terminvereinbarungen, 
 
 
 == Aufgabenzuordnung
@@ -38,7 +37,15 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 |===
 | Aufgabe bzw. Beschreibung | Priorität | Schätzung der Größe (Punkte) |Status | Referenzen | geplante Iteration | Zugewiesen (Name) | Gearbeite Stunden | Schätzung der verbleibenden Stunden
 
-| x | x | x | x | x | x | x | x | x
+| Einrichtung einer gemeinsamen Kommunikationsplattform | x | 2 | 100% | x | 1 | Lucas | 1 | 0 
+| Rollenfindung | x | 1 | 100% | x | 1 | Alle | 1 | 0 
+| Erstellung von github repository | x | ? | 100% | x | 1 | Jakob | ? | 0 
+| Kontaktaufnahme mit Auftraggeber und Coach | x | 1 | 100% | x | 1 | Lucas | 1 | 0 
+| Terminvereinbarungen | x | 1 | 100% | x | 1 | Alle | 1 | 0 
+| Bearbeitung Iteration Plan  | x | 1 | 100% | x | 1 | Lucas | 1 | 0 
+| Bearbeitung Vision  | x | 120 | ? | x | 1-X | Analyse | 1 | ?
+| Einarbeitung in die fachlichen Bereiche des OpenUP  | x | 120 | ? | x | 1-2 | Alle | 1 | ?
+| Planung Teambuilding Event  | x | 4 | 50% | x | 1-2 | Alle | 1 | 1
 |===
 
 
@@ -49,7 +56,7 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 |===
 | Problem | Status | Notizen
 
-| x | x | x
+| Auftraggeber reagiert nicht | überwunden | Erste Reaktion des Auftraggebers erforderte mehrfache Anfragen via. E-Mail, Kommunikation jetzt (KW 46) stabil. 
 |===
 
 
