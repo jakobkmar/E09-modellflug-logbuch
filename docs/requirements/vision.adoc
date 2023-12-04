@@ -85,9 +85,10 @@ Beispiel Produkt:
 |===
 | Name | Beschreibung | Verantwortlichkeiten
 
-| [Benennung des Stakeholder-Typs.]
-| [Kurze Beschreibung des Stakeholders.]
-| [Fassen Sie die wesentlichen Verantwortlichkeiten des Stakeholder mit Bezug auf das zu entwickelnde System kurz zusammen, d.h. ihr besonderen Interessen. Beispiele: Dieser Stakeholder sorgt dafür, dass das System gewartet wird / dass die angezeigten Daten aktuell sind / überwacht den Projektfortschritt / usw.]
+| Piloten | Nutzer des Flugplatzes | Sie müssen jeden Flug im Logbuch am Ende ihrer Session vollständig eintragen
+| Mitarbeiter des Flugplatzes | verantwortliches Personal | sind Aufseher des Platzes und kontrollieren die Vollständigkeit der Logbücher; kontrollieren die Funktionsfähigkeit der Technik auf dem Flugplatz (Wetterstation, Datenbank, Login-Tool)
+| Forschende | Professoren einer Universität | können anhand der gesammelten digitalen und somit strukturierten Daten Studien anstellen
+| andere Flugplätze | Betreiber eines weiteren Flugplatzes | möchte auch ein digitales Logbuch implementieren oder nutzt es bereits und will beide Systeme koppeln, um Informationen live auszutauschen
 |===
 
 === Benutzerumgebung
