@@ -94,7 +94,7 @@ Beispiel Produkt:
 | extern  | Piloten des Flugplatz  | benutzt System  
 | extern  | Verwaltung des Flugplatz  | benutzt System und verwaltet es
 | extern  | Gäste auf dem Flugplatz  |     
-| extern  | Gemeinde des Ort Rossendorf  | könnte bei Einsicht profitieren (von zB der Übersichtlichkeit); geringerere Stromverbrauch ist auch für Gemeinde von Vorteil 
+| extern  | Gesetzgeber  | fordert die Führung des Logbuches für jeglichen Flugverkehr
 | intern  | Entwickler des Produkt/Studenten  | wollen SE bzw. Beleg bestehen; übersichtlicher Aufwand  
 | intern  | Coachs und Dozenten  | würden sich über gute Arbeit der Entwickler/Studenten freuen  
 |===
@@ -104,10 +104,15 @@ Beschreiben Sie die Arbeitsumgebung des Nutzers. Hier sind einige Anregungen:
 
 //Zutreffendes angeben, nicht zutreffendes streichen oder auskommentieren
 . Anzahl der Personen, die an der Erfüllung der Aufgabe beteiligt sind. Ändert sich das?
+mindestens eine Person; Mehrere möglich; kann sich ändern
 . Wie lange dauert die Bearbeitung der Aufgabe? Wie viel Zeit wird für jeden Arbeitsschritt benötigt? Ändert sich das?
+wenige Minuten
 . Gibt es besondere Umgebungsbedingungen, z.B. mobil, offline, Außeneinsatz, Touchbedienung, Nutzung durch seh- oder hörbeeinträchtigte Personen?
+mobil, outdoor, möglicherweise offline, Touchbedienung, Nutzung durch nicht technikaffine Nutzer
 . Welche Systemplattformen werden heute eingesetzt? Welche sind es ggf. zukünftig?
+Terminal; zukünftig eine Webapp
 . Welche anderen Anwendungen sind im Einsatz? Muss ihre Anwendung mit diesen integriert werden?
+Webserver mit Containern, 
 
 Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigramme, IT-Landschaft, ...) eingefügt werden, um die beteiligten Aufgaben und Rollen zu skizzieren.
 
@@ -124,7 +129,7 @@ Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigra
 | xx | 10 | Webserver auf dem proxmox Server des Vereins |
 | xx | 9 | Synchronisation zwischen Smartphone und Webserver | xx
 | xx | 10 | Benutzeroberfläche, über die sich Piloten ein- und austragen können | xx
-| xx | 10 | Datenbank zur Speicherung und Verwaltung der Lugbuchdaten | xx
+| xx | 10 | Datenbank zur Speicherung und Verwaltung der Logbuchdaten | xx
 | xx | 9 | sichere Kommunikation zwischen mobilen Endgeräten und Webserver sowie Schutz der Daten | xx
 | xx | 7 | Benutzeroberfläche und Backend-Logik zur Verwaltung des Logbuchs | xx
 | xx | 7 | Login/Authentifizierung | xx
