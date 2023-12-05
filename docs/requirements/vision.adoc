@@ -110,8 +110,17 @@ Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigra
 
 [%header, cols="4,1,4,1"]
 |===
-| Bedarf | Priorität | Features | Geplantes Release
-| xx | xx | xx | xx
+| Bedarf | Priorität | Features                                                               | Geplantes Release
+| xx     | xx        | Nutzer können sich mit Nutzernamen und Passwort anmelden               | xx
+|        |           | Administrator kann Nutzer bearbeiten und Webapp pflegen und bearbeiten |
+|        |           | Die Wichtigsten Daten des für das Logbuch können erfasst werden        |
+|        |           | Unwichhtigere Daten können in erweiterten Optionen erfasst werden      |
+|        |           | Sprache Deutsch                                                        |
+|        |           | Sprache Englisch                                                       |
+|        |           | Wetterdaten werden automazisch erfasst sobald Wetterstation online ist |
+|        |           | _Platzhalter rechtlich einzuhaltende Bedingungen_                      |
+|        |           | Funktionierendes Backend                                               |
+|        |           | Funktionierendes Frontend                                              |
 |===
 
 
