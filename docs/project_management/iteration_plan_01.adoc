@@ -62,36 +62,41 @@ _alternativ:_ Exportierte Daten aus dem Spreadsheet:
 
 
 == Bewertungskriterien
-//Eine kurze Beschreibung, wie Erfüllung die o.g. Ziele bewertet werden sollen.
 
-Beispiele:
-
-* 97% der Testfälle auf Systemebene sind erfolgreich.
-* Gemeinsame Inspektion des Iterations-Ergebnisses (Inkrement) mit den Abteilungen X und Y ergibt positive Rückmeldung.
-* Technische Präsentation / Demo erhält positive Rückmeldungen.
-
+- jeder ist erreichbar
+- jeder hat Zugriff auf das GitHub Repository
+- Kontakt mit Auftraggeber konnte hergestellt werden
 
 == Assessment
 //In diesem Abschnitt werden die Ergebnisse und Maßnahmen der Bewertung erfasst und kommuniziert. Die Bewertung wird üblicherweise am Ende jeder Iteration durchgeführt. Wenn Sie diese Bewertungen nicht machen, ist das Team möglicherweise nicht in der Lage, die eigene Arbeitsweise ("Way of Working") zu verbessern.
 
 [%header, cols="1,3"]
 |===
-| Assessment Ziel | Das kann die gesamte Iteration oder eine spezifische Komponente sein
+| Assessment Ziel | Iteration 1
 
-| Assessment Datum | ...
-| Teilnehmer | ...
-| Projektstatus	| Zum Beispiel ausgedrückt als rot, gelb oder grün.
+| Assessment Datum | 27.11.2023
+| Teilnehmer | ganzes Team
+| Projektstatus	| grün
 |===
 
-* Beurteilung im Vergleich zu den Zielen
-//Dokumentieren Sie, ob die angestrebten Ziele des Iterationsplans erreicht wurden.
+*Beurteilung im Vergleich zu den Zielen*
 
-* Geplante vs. erledigte Aufgaben
-//Zusammenfassung, ob alle für die Iteration geplanten Aufgaben bearbeitet wurden und welche Aufgaben verschoben oder hinzugefügt wurden.
+Das GitHub Repository und das Project inklusive der Work Item List wurden aufgesetzt. Die Links zu den jeweiligen Instanzen wurden mit dem Coach und Dozenten geteilt.
 
-* Beurteilung im Vergleich zu den Bewertungskriterien
-//Document whether you met the evaluation criteria as specified in the Iteration Plan.
-//Geben Sie an, ob Sie die o.g. Bewertungskriterien erfüllt haben. Das kann z.B. folgende Informationen enthalten: “Demo for Department X was well-received, with some concerns raised around usability,” or “495 test cases were automated with a 98% pass rate. 9 test cases were deferred because the corresponding Work Items were postponed.”
+Für alle Team- und Coachmeetings wurden Termine festgesetzt.
 
-* Andere Belange und Abweichungen
-//Führen Sie weitere Themen auf, für die eine Bewertung durchgeführt wurde. Beispiele sind Finanzen, Zeitabweichungen oder Feedback von Stakeholdern, die nicht bereits an anderer Stelle dokumentiert wurden.
+Für die Kommunikation wurde ein Discord-Server aufgesetzt, auf welchem jeder erreichbar ist. Die Kommunikation findet klar strukturiert in spezifischen Kanälen statt.
+
+Grundsätzlich wurden jedem Teilnehmer Rollen zugewiesen, Hauptverantwortliche sind geklärt. Mit der Aufgabenverteilung bleiben trotzdessen flexibel.
+
+*Geplante vs. erledigte Aufgaben*
+
+Es wurden alle nötigen Aufgaben erledigt. Der schriftlichen Dokumentation muss in Zukunft mehr Beachtung geschenkt werden, diese muss zu den meisten Schritten dazugehören.
+
+Verschoben wurde die Festsetzung eines Termins zum Teambuilding.
+
+*Beurteilung im Vergleich zu den Bewertungskriterien*
+
+Die Bewertungskriterien wurden erfüllt. Die erste Kontaktaufname mit dem Auftraggeber hat jedoch etwas länger gedauert, siehe "Probleme".
+
+Nachdem es etwas länger gedauert hatte bis jeder einen GitHub Account eingerichtet hat, ist es bis zum Ende der Iteration gelungen jeden als Collaborator einzuladen.
