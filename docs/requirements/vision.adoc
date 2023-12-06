@@ -1,18 +1,18 @@
 = Vision: {project-name}
-Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
+Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Laurin Wobeda <laurin.wobeda@stud.htw-dresden.de>
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
 
 
 == Einführung
-Der Zweck dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäten des Systems {project-system-name} zu sammeln, zu analysieren und zu definieren. Der Fokus liegt auf den Fähigkeiten, die von Stakeholdern und adressierten Nutzern benötigt werden, und der Begründung dieser Bedarfe. Die  Details, wie das System {project-system-name} diese Bedarfe erfüllt, werden in der Use-Case und Supplementary Specification beschrieben.
+Der Zweck dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäten des Systems {project-name} zu sammeln, zu analysieren und zu definieren. Der Fokus liegt auf den Fähigkeiten, die von Stakeholdern und adressierten Nutzern benötigt werden, und der Begründung dieser Bedarfe. Die  Details, wie das System {project-name} diese Bedarfe erfüllt, werden in der Use-Case und Supplementary Specification beschrieben.
 
 === Zweck
 Der Zweck dieses Dokuments ist es, die wesentlichen Anforderungen an das System aus Sicht und mit den Begriffen der künftigen Anwender zu beschreiben.
 
 === Gültigkeitsbereich (Scope)
-Dieses Visions-Dokument bezieht sich auf das System {project-system-name}, das von <Team> entwickelt wird. Das System wird es <Zielkunde/Auftraggeber> erlauben, <Hauptfunktionen> zu nutzen, um damit <Vorteile> zu erreichen / <Aufgabe> zu erleichtern / <Problem> zu lösen.
+Dieses Visions-Dokument bezieht sich auf das System {project-name}, das von <Team> entwickelt wird. Das System wird es <Zielkunde/Auftraggeber> erlauben, <Hauptfunktionen> zu nutzen, um damit <Vorteile> zu erreichen / <Aufgabe> zu erleichtern / <Problem> zu lösen.
 
 === Definitionen, Akronyme und Abkürzungen
 //Verweis passend zum Belegabgabe-Template se1_belegabgabe_t00.adoc
@@ -32,10 +32,13 @@ Siehe <<#glossary, Glossar>>.
 
 [cols="1,3"]
 |===
-| Das Problem | [beschreiben Sie das Problem]
-| betrifft | [die Stakeholder, die vom Problem betroffen sind]
-| die Auswirkung davon ist | [welche Auswirkungen hat das Problem?]
-| eine erfolgreiche Lösung wäre | Führen Sie einige wesentliche Vorteile einer erfolgreichen Lösung auf]
+| Das Problem | Auf dem Modelflugplatz besteht die bürokratische Maßnahme, bzw. Pflicht ein zetrales Logbuch für Piloten zu führen. Die bisherigen
+Bemühungen, dies effektiv umzusetzen, stellten sich als herausfordernd heraus, besonders unter
+Berücksichtigung des Energieverbrauchs der existierenden Wetterstationsinfrastruktur. Ein moderner Ansatz, der die Mobilität und Konnektivität von Smartphones nutzt und auf der effizienten
+Container-Technologie eines Proxmox-Servers basiert, kann hier eine nachhaltige Lösung bieten.
+| betrifft | ... die Piloten, die Verwaltung und Gäste des Modelflugplatz, die Gemeinde
+| die Auswirkung davon ist | ... ein hoher Stromverbrauch an kritischer Stelle und teilweise umständliches Loggen von Piloten und Flügen.
+| eine erfolgreiche Lösung wäre | ... mobiler, stromsparender, praktischer.
 |===
 
 ////
@@ -56,12 +59,12 @@ Beispiel:
 
 [cols="1,3"]
 |===
-| Für | [Zielkunde / Nutzer]
-| der / die | [Angabe des Bedarfs oder Chance]
-| Das Produkt / die Lösung ist ein | [Produktkategorie]
-| Die / Das | [Aussage zum Hauptvorteil / Alleinstellungsmerkmal]
-| Im Gegensatz zu | [wesentliche Lösungsalternative]
-| Unser Produkt | [Aussage zum Hauptunterschied]
+| Für | Modelflugplatz Rossendorf
+| der / die | ... eine effektivere Lösung für das logen von Piloten und Flügen benötigt.
+| Das Produkt / die Lösung ist eine | ... Applikation für Mobiltelefone...
+| Die / Das | ... sehr viel mobiler ist und weniger Strom verbraucht...
+| Im Gegensatz zu | ... dem bisher verwendeten stationären Terminal.
+| Unser Produkt | ... wäre praktischer durch erhöhte Mobilität und zudem stromsparender als die zuvorgekommene Implementation.
 |===
 
 ////
@@ -83,12 +86,13 @@ Beispiel Produkt:
 
 [%header, cols="1,3,3"]
 |===
-| Name | Beschreibung | Verantwortlichkeiten
-
-| Piloten | Nutzer des Flugplatzes | Sie müssen jeden Flug im Logbuch am Ende ihrer Session vollständig eintragen
-| Mitarbeiter des Flugplatzes | verantwortliches Personal | sind Aufseher des Platzes und kontrollieren die Vollständigkeit der Logbücher; kontrollieren die Funktionsfähigkeit der Technik auf dem Flugplatz (Wetterstation, Datenbank, Login-Tool)
-| Forschende | Professoren einer Universität | können anhand der gesammelten digitalen und somit strukturierten Daten Studien anstellen
-| andere Flugplätze | Betreiber eines weiteren Flugplatzes | möchte auch ein digitales Logbuch implementieren oder nutzt es bereits und will beide Systeme koppeln, um Informationen live auszutauschen
+| Typ | Beschreibung | Verantwortlichkeiten
+| extern  | Piloten des Flugplatz  | benutzt System  
+| extern  | Verwaltung des Flugplatz  | benutzt System und verwaltet es
+| extern  | Gäste auf dem Flugplatz  |     
+| extern  | Gesetzgeber  | fordert die Führung des Logbuches für jeglichen Flugverkehr
+| intern  | Coachs und Dozenten  | würden sich über gute Arbeit der Entwickler/Studenten freuen  
+| extern  | Betreiber eines weiteren Flugplatzes | möchte auch ein digitales Logbuch implementieren oder nutzt es bereits und will beide Systeme koppeln, um Informationen live auszutauschen
 |===
 
 === Benutzerumgebung
@@ -96,10 +100,15 @@ Beschreiben Sie die Arbeitsumgebung des Nutzers. Hier sind einige Anregungen:
 
 //Zutreffendes angeben, nicht zutreffendes streichen oder auskommentieren
 . Anzahl der Personen, die an der Erfüllung der Aufgabe beteiligt sind. Ändert sich das?
+mindestens eine Person; Mehrere möglich; kann sich ändern
 . Wie lange dauert die Bearbeitung der Aufgabe? Wie viel Zeit wird für jeden Arbeitsschritt benötigt? Ändert sich das?
+wenige Minuten
 . Gibt es besondere Umgebungsbedingungen, z.B. mobil, offline, Außeneinsatz, Touchbedienung, Nutzung durch seh- oder hörbeeinträchtigte Personen?
+mobil, outdoor, möglicherweise offline, Touchbedienung, Nutzung durch nicht technikaffine Nutzer
 . Welche Systemplattformen werden heute eingesetzt? Welche sind es ggf. zukünftig?
+Terminal; zukünftig eine Webapp
 . Welche anderen Anwendungen sind im Einsatz? Muss ihre Anwendung mit diesen integriert werden?
+Webserver mit Containern, 
 
 Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigramme, IT-Landschaft, ...) eingefügt werden, um die beteiligten Aufgaben und Rollen zu skizzieren.
 
@@ -111,17 +120,27 @@ Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigra
 
 [%header, cols="4,1,4,1"]
 |===
-| Bedarf | Priorität | Features                                                               | Geplantes Release
-| xx     | xx        | Nutzer können sich mit Nutzernamen und Passwort anmelden               | xx
-|        |           | Administrator kann Nutzer bearbeiten und Webapp pflegen und bearbeiten |
-|        |           | Die Wichtigsten Daten des für das Logbuch können erfasst werden        |
-|        |           | Unwichhtigere Daten können in erweiterten Optionen erfasst werden      |
-|        |           | Sprache Deutsch                                                        |
-|        |           | Sprache Englisch                                                       |
-|        |           | Wetterdaten werden automazisch erfasst sobald Wetterstation online ist |
-|        |           | _Platzhalter rechtlich einzuhaltende Bedingungen_                      |
-|        |           | Funktionierendes Backend                                               |
-|        |           | Funktionierendes Frontend                                              |
+| Bedarf | Priorität | Features | Geplantes Release
+| xx | 10 | mobiles, elektronisches Logbuch | xx
+| xx |  7 | Administrator kann Nutzer bearbeiten und Webapp pflegen und bearbeiten |
+| xx | 10 | Webserver auf dem proxmox Server des Vereins |
+| xx | 9  | Synchronisation zwischen Smartphone und Webserver | xx
+| xx | 10 | Benutzeroberfläche, über die sich Piloten ein- und austragen können | xx
+| xx | 10 | Datenbank zur Speicherung und Verwaltung der Logbuchdaten | xx
+| xx | 9  | sichere Kommunikation zwischen mobilen Endgeräten und Webserver sowie Schutz der Daten | xx
+| xx | 7  | Benutzeroberfläche und Backend-Logik zur Verwaltung des Logbuchs | xx
+| xx | 7  | Login/Authentifizierung | xx
+| xx | 5  | 2-Faktor-Authentifizierung | xx
+| xx | 4  | rollenbasierte Zugriffskontrolle | xx
+| xx | 4  | Passwortrichtlinien | xx
+| xx | 3  | Authentifizierungsprotokolle | xx
+| xx | 3  | Sessionverwaltung | xx
+| xx | 3  | Wiederherstellungsmöglichkeiten | xx
+| xx | 7  | Sprache Deutsch                                                        |
+| xx | 7  | Sprache Englisch                                                       |
+| xx | 2  | Wetterdaten werden automazisch erfasst sobald Wetterstation online ist |
+| xx | 5  | Funktionierendes Backend                                               |
+| xx | 5  | Funktionierendes Frontend                                              |
 |===
 
 
