@@ -86,17 +86,13 @@ Beispiel Produkt:
 
 [%header, cols="1,3,3"]
 |===
-| Name | Beschreibung | Verantwortlichkeiten
-
-| [Benennung des Stakeholder-Typs.]
-| [Kurze Beschreibung des Stakeholders.]
-| [Fassen Sie die wesentlichen Verantwortlichkeiten des Stakeholder mit Bezug auf das zu entwickelnde System kurz zusammen, d.h. ihr besonderen Interessen. Beispiele: Dieser Stakeholder sorgt dafür, dass das System gewartet wird / dass die angezeigten Daten aktuell sind / überwacht den Projektfortschritt / usw.]
+| Typ | Beschreibung | Verantwortlichkeiten
 | extern  | Piloten des Flugplatz  | benutzt System  
 | extern  | Verwaltung des Flugplatz  | benutzt System und verwaltet es
 | extern  | Gäste auf dem Flugplatz  |     
 | extern  | Gesetzgeber  | fordert die Führung des Logbuches für jeglichen Flugverkehr
-| intern  | Entwickler des Produkt/Studenten  | wollen SE bzw. Beleg bestehen; übersichtlicher Aufwand  
 | intern  | Coachs und Dozenten  | würden sich über gute Arbeit der Entwickler/Studenten freuen  
+| extern  | Betreiber eines weiteren Flugplatzes | möchte auch ein digitales Logbuch implementieren oder nutzt es bereits und will beide Systeme koppeln, um Informationen live auszutauschen
 |===
 
 === Benutzerumgebung
@@ -126,19 +122,25 @@ Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigra
 |===
 | Bedarf | Priorität | Features | Geplantes Release
 | xx | 10 | mobiles, elektronisches Logbuch | xx
+| xx |  7 | Administrator kann Nutzer bearbeiten und Webapp pflegen und bearbeiten |
 | xx | 10 | Webserver auf dem proxmox Server des Vereins |
-| xx | 9 | Synchronisation zwischen Smartphone und Webserver | xx
+| xx | 9  | Synchronisation zwischen Smartphone und Webserver | xx
 | xx | 10 | Benutzeroberfläche, über die sich Piloten ein- und austragen können | xx
 | xx | 10 | Datenbank zur Speicherung und Verwaltung der Logbuchdaten | xx
-| xx | 9 | sichere Kommunikation zwischen mobilen Endgeräten und Webserver sowie Schutz der Daten | xx
-| xx | 7 | Benutzeroberfläche und Backend-Logik zur Verwaltung des Logbuchs | xx
-| xx | 7 | Login/Authentifizierung | xx
-| xx | 5 | 2-Faktor-Authentifizierung | xx
-| xx | 4 | rollenbasierte Zugriffskontrolle | xx
-| xx | 4 | Passwortrichtlinien | xx
-| xx | 3 | Authentifizierungsprotokolle | xx
-| xx | 3 | Sessionverwaltung | xx
-| xx | 3 | Wiederherstellungsmöglichkeiten | xx
+| xx | 9  | sichere Kommunikation zwischen mobilen Endgeräten und Webserver sowie Schutz der Daten | xx
+| xx | 7  | Benutzeroberfläche und Backend-Logik zur Verwaltung des Logbuchs | xx
+| xx | 7  | Login/Authentifizierung | xx
+| xx | 5  | 2-Faktor-Authentifizierung | xx
+| xx | 4  | rollenbasierte Zugriffskontrolle | xx
+| xx | 4  | Passwortrichtlinien | xx
+| xx | 3  | Authentifizierungsprotokolle | xx
+| xx | 3  | Sessionverwaltung | xx
+| xx | 3  | Wiederherstellungsmöglichkeiten | xx
+| xx | 7  | Sprache Deutsch                                                        |
+| xx | 7  | Sprache Englisch                                                       |
+| xx | 2  | Wetterdaten werden automazisch erfasst sobald Wetterstation online ist |
+| xx | 5  | Funktionierendes Backend                                               |
+| xx | 5  | Funktionierendes Frontend                                              |
 |===
 
 
