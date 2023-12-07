@@ -11,8 +11,11 @@ include::../_includes/default-attributes.inc.adoc[]
 
 == Identifizierte Use Cases
 // Liste aller identifizierten Use Cases (priorisiert)
-* *UC01*: ...
-* *UC02*: ...
+* *UC01*: Pilot registrieren
+* *UC02*: Pilot anmelden
+* *UC03*: Protkoll anlegen
+* *UC04*: Protokoll einsehen
+* *UC05*: Flugleiter bestimmen
 
 
 == Use Case Diagramm
