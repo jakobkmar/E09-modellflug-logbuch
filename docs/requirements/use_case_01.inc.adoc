@@ -9,20 +9,22 @@ ifndef::main-document[include::../_includes/default-attributes.inc.adoc[]]
 
 === Kurzbeschreibung der Akteure
 
-==== <Akteur 1 Name>
+==== Admin
+Admin administriert die Software.
+Darunter fallen Aufgaben wie das registrieren neuer Piloten.
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
 
-<Vorbedingung 1>
+Die App muss mindestens im Prototypstadium sein.
+Ein Admin-Akteur muss existieren.
 
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
 
-. Der Use Case beginnt, wenn <akteur> <macht>…
-. <Standardablauf Schritt 1>
-. …
-. <Standardablauf Schritt n>
+. Der Use Case beginnt, wenn ein Admin einen Piloten-Account registrieren will.
+. Der Admin erstellt einen Account für Piloten
+. Ein Account für Piloten wurde erstellt
 . Der Use Case ist abgeschlossen.
 
 === Alternative Abläufe
@@ -58,3 +60,44 @@ Wenn <Akteur> im Schritt <x> des Standardablauf <etwas macht>, dann
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
 
 ==== <Besondere Anforderung 1>
+
+
+=== Use-Case-Diagramm
+
+.Use-Case_Diagramm: UC01PilotRegistriert
+[plantuml, "{diagramsdir}/UC01PilotRegistriert", svg]
+....
+@startuml
+left to right direction
+"Admin" as ac01
+package Webapp {
+    "UC01 Pilot registrieren" as (uc01)
+}
+ac01 --> uc01
+@enduml
+....
+
+.Use-Case_Diagramm: gesamte Solution
+[plantuml, "{diagramsdir}/gesamter Use-Case", svg]
+....
+@startuml
+left to right direction
+"Admin" as ac01
+"Pilot" as ac02
+package Webapp {
+    "UC01 Pilot registrieren" as (uc01)
+    "UC02 Login" as (uc02) 
+    "UC03 Protokoll wird erstellt" as (uc03)
+    "UC04 Protokoll wird gespeichert" as (uc04)
+    "UC Protokolle einsehen" as (uc90)
+    "UC Protokolle werden abgefragt" as (uc91)
+}
+ac01 --> uc01
+uc01 --> ac02
+ac02 --> uc02
+uc02 --> uc03
+uc03 --> uc04
+ac01 --> uc90
+uc90 --> uc91
+@enduml
+....
