@@ -2,7 +2,7 @@
 ifndef::main-document[include::../_includes/default-attributes.inc.adoc[]]
 
 
-== Use-Case: UC01 <use-case name>
+== Use-Case: UC01 Pilot registrieren
 
 === Kurzbeschreibung
 //<Kurze Beschreibung des Use Case>
@@ -10,8 +10,12 @@ ifndef::main-document[include::../_includes/default-attributes.inc.adoc[]]
 === Kurzbeschreibung der Akteure
 
 ==== Admin
-Admin administriert die Software.
+Admin administriert die Lösung.
 Darunter fallen Aufgaben wie das registrieren neuer Piloten.
+
+==== Pilot
+Pilot entsteht durch diesen Use-Case.
+Er ist der Standardnutzer der Lösung.
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
@@ -39,9 +43,11 @@ Wenn <Akteur> im Schritt <x> des Standardablauf <etwas macht>, dann
 //Nutzen Sie Unterabläufe, um wiederkehrende Schritte auszulagern
 
 ==== <Unterablauf 1>
-. <Unterablauf 1, Schritt 1>
-. …
-. <Unterablauf 1, Schritt n>
+. Admin betätigt Button "Account erstellen"
+. Accounterstellung öffnet sich
+. Admin gibt Daten ein (Name, Vorname, Flugleitererlaubnis, Tagesmitglied/Gast)
+. Admin betätigt Button "Accounterstellung abschließen"
+. Account wird vom System registiert
 
 === Wesentliche Szenarios
 //Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
@@ -54,7 +60,9 @@ Wenn <Akteur> im Schritt <x> des Standardablauf <etwas macht>, dann
 === Nachbedingungen
 //Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
 
-==== <Nachbedingung 1>
+==== Pilot ist erstellt
+Ein Pilotenaccount wurde für den Akteur Pilot erstellt.
+Der Account kann vom Akteur verwendet werden.
 
 === Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
@@ -70,34 +78,55 @@ Wenn <Akteur> im Schritt <x> des Standardablauf <etwas macht>, dann
 @startuml
 left to right direction
 "Admin" as ac01
-package Webapp {
+"Pilot" as ac02
+package Webapp-Frontend {
     "UC01 Pilot registrieren" as (uc01)
 }
-ac01 --> uc01
+package Webserver-Backend {
+    "UC92 Pilotenaccount wird gespeichert" as (uc92)
+}
+ac01 -d-> uc01
+uc01 -l-> ac02
+uc01 -d-> uc92
 @enduml
 ....
 
-.Use-Case_Diagramm: gesamte Solution
+.Use-Case_Diagramm: gesamte Lösung
 [plantuml, "{diagramsdir}/gesamter Use-Case", svg]
 ....
 @startuml
 left to right direction
 "Admin" as ac01
 "Pilot" as ac02
-package Webapp {
+package Webapp-Frontend {
     "UC01 Pilot registrieren" as (uc01)
-    "UC02 Login" as (uc02) 
-    "UC03 Protokoll wird erstellt" as (uc03)
-    "UC04 Protokoll wird gespeichert" as (uc04)
-    "UC Protokolle einsehen" as (uc90)
-    "UC Protokolle werden abgefragt" as (uc91)
+    "UC02 Pilot anmelden" as (uc02) 
+    "UC03 Protokoll anlegen" as (uc03)
+    "UC04 Protokolle einsehen" as (uc04)
+    "UC05 Flugleiter bestimmen" as (uc05)
+    "UC06 Pilot abmelden" as (uc06)
 }
-ac01 --> uc01
-uc01 --> ac02
-ac02 --> uc02
-uc02 --> uc03
-uc03 --> uc04
-ac01 --> uc90
-uc90 --> uc91
+
+package Webserver-Backend {
+    "UC90 Protokoll wird gespeichert" as (uc90)
+    "UC91 Protokolle werden abgefragt" as (uc91)
+    "UC92 Piloten-Account wird gespeichert" as (uc92)
+    "UC93 Flugleitung wird zugeteilt" as (uc93)
+}
+ac01 -d-> uc01
+ac01 -d-> uc04
+ac02 -d-> uc02
+ac02 -d-> uc06
+uc01 -u-> ac02
+uc01 -d-> uc92
+uc02 -r-> uc03
+uc02 -l-> uc05
+uc03 -d-> uc90
+uc04 -d-> uc91
+uc05 -d-> uc93
+uc06 -r-> uc05
+uc91 -r-> uc90
+uc92 -u-> uc02
+uc93 -u-> ac02
 @enduml
 ....
