@@ -17,6 +17,11 @@ Smartphone der Piloten"*.
 - [Work Item List](https://github.com/users/jakobkmar/projects/2/views/1?groupedBy%5BcolumnId%5D=65434722)
 - [Ursprüngliche README.md](readme_old.md)
 
+## Architecture
+
+<img src="docs/architecture/images/draft_informal.svg" width="100%"
+     alt="Architecture Diagram">
+
 ## Lizenz
 
 This repository is licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). Individual subdirectories may be subject to other free licenses.
