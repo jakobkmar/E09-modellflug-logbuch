@@ -10,7 +10,7 @@ Wetterstationsinfrastruktur.
 > Ein moder­ner Ansatz, der die Mobilität und Konnektivität von Smartphones nutzt und auf der effizienten Container-Technologie eines Proxmox-Servers basiert, kann hier eine nachhaltige Lösung bieten.
 
 Dieses Repository entsteht im Rahmen des Moduls Software Engineering I und II unter dem Thema *"Mobiles Logbuch für den Modellflugplatz des Mfc-Rossendorf mittels
-Smartphone der Piloten"*
+Smartphone der Piloten"*.
 
 ## Linkverzeichnis
 
@@ -19,4 +19,4 @@ Smartphone der Piloten"*
 
 ## Lizenz
 
-Die zu verwendende Lizenz muss noch ermittelt werden.
+This repository is licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). Individual subdirectories may be subject to other free licenses.
