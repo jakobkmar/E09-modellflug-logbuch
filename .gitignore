@@ -3,3 +3,10 @@
 # General
 .DS_Store
 *~
+
+# IDEs
+.vscode/
+.idea/
+
+# draw.io
+.$*
