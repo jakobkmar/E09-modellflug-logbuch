@@ -17,6 +17,11 @@ Smartphone der Piloten"*
 - [Work Item List](https://github.com/users/jakobkmar/projects/2/views/1?groupedBy%5BcolumnId%5D=65434722)
 - [Ursprüngliche README.md](readme_old.md)
 
+## Architecture
+
+<img src="docs/architecture/images/draft_informal.svg" width="100%"
+     alt="Architecture Diagram">
+
 ## Lizenz
 
 Die zu verwendende Lizenz muss noch ermittelt werden.
