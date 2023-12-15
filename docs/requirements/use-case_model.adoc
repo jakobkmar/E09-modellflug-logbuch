@@ -13,7 +13,7 @@ include::../_includes/default-attributes.inc.adoc[]
 // Liste aller identifizierten Use Cases (priorisiert)
 * *UC01*: Pilot registrieren
 * *UC02*: Pilot anmelden
-* *UC03*: Protkoll anlegen
+* *UC03*: Protokoll anlegen
 * *UC04*: Protokoll einsehen
 * *UC05*: Flugleiter bestimmen
 
@@ -42,7 +42,7 @@ package Webserver-Backend {
     "UC08 Pilot deaktivieren" as (uc08)
     "UC90 Protokoll wird gespeichert" as (uc90)
     "UC91 Protokolle werden abgefragt" as (uc91)
-    "UC92 Piloten-Account wird gespeichert" as (uc92)
+    "UC92 Pilotendaten werden gespeichert" as (uc92)
     "UC93 Flugleitung wird zugeteilt" as (uc93)
 }
 ac01 -d-> uc01
@@ -53,7 +53,7 @@ ac02 -d-> uc02
 ac02 -d-> uc06
 uc01 -u-> ac02
 uc01 .d.> uc92 :extends
-uc02 .l.> uc03 :inlcude
+uc02 .l.> uc03 :include
 uc03 .l.> uc05 :extends
 uc03 .d.> uc90 :extends
 uc04 .d.> uc91 :extends
@@ -79,11 +79,11 @@ include::use_case_01.inc.adoc[]
 <<<
 include::use_case_02.inc.adoc[]
 
-//<<<
-//include::use_case_03.inc.adoc[]
+<<<
+include::use_case_03.inc.adoc[]
 
-//<<<
-//include::use_case_04.inc.adoc[]
+<<<
+include::use_case_04.inc.adoc[]
 
 //<<<
 //include::use_case_05.inc.adoc[]
