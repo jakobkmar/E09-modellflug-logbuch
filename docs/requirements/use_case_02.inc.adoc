@@ -1,60 +1,59 @@
-//Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
 ifndef::main-document[include::../_includes/default-attributes.inc.adoc[]]
 
 
-== Use-Case: UC02 <use-case name>
+== Use-Case: UC02 Pilot anmelden
 
 === Kurzbeschreibung
-//<Kurze Beschreibung des Use Case>
+In diesem Use-Case wird der Vorgang bei der Anmeldung eines *Piloten* beim Betreten des Flugplatzes beschrieben.
 
 === Kurzbeschreibung der Akteure
 
-==== <Akteur 1 Name>
+==== Pilot
+Der Akteur "Pilot" möchte den Flugplatz betreten und nutzen.
 
 === Vorbedingungen
-//Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
-
-<Vorbedingung 1>
+. UC01 ist erfüllt
+. *Pilot* ist noch nicht angemeldet
+. *Pilot* kennt seinen Nutzernamen und sein Passwort
 
 === Standardablauf (Basic Flow)
-//Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
 
-. Der Use Case beginnt, wenn <akteur> <macht>…
-. <Standardablauf Schritt 1>
-. …
-. <Standardablauf Schritt n>
+. Der Use Case beginnt, wenn *Pilot* die Webapp öffnet um sich anzumelden. Die Webapp kann über einen QR Code geöffnet werden.
+. Der *Pilot* gibt seinen Nutzernamen ein.
+. Der *Pilot* gibt sein Passwort ein.
+. In der Datenbank wird überprüft, ob es einen solchen Nutzer (definiert durch Nutzername und Passwort) gibt.
+. IF *Pilot* existiert
+.. Der *Pliot* wird angemeldet.
+. Die Anmeldung wird protokolliert.
 . Der Use Case ist abgeschlossen.
 
 === Alternative Abläufe
-//Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
 
-==== <Alternativer Ablauf 1>
-Wenn <Akteur> im Schritt <x> des Standardablauf <etwas macht>, dann
-. <Ablauf beschreiben>
-. Der Use Case wird im Schritt <y> fortgesetzt.
 
-=== Unterabläufe (subflows)
-//Nutzen Sie Unterabläufe, um wiederkehrende Schritte auszulagern
-
-==== <Unterablauf 1>
-. <Unterablauf 1, Schritt 1>
-. …
-. <Unterablauf 1, Schritt n>
+==== Nutzer existiert nicht (Schritt 5)
+. IF *Pilot* existiert nicht
+.. Ausgabe Fehlermeldung, Anmeldung erfolgt nicht
 
 === Wesentliche Szenarios
-//Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
 
-==== <Szenario 1>
-. <Szenario 1, Schritt 1>
-. …
-. <Szenario 1, Schritt n>
 
-=== Nachbedingungen
-//Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
+==== Standartmäßige Anmeldung
+. Sc1: *Pilot* XX trifft auf dem Flugplatz ein. XX öffnet die Webapp über einen Browser oder mithilfe des QR Codes. XX gibt seine Nutzerdaten ein und wird bei deren Richtigkeit angemeldet. Die Anmeldung wird protokolliert und er kann den Flugplatz bis zu seiner Abmeldung nutzen, solange UC05 nichts anderes festlegt.
 
-==== <Nachbedingung 1>
+==== fehlgeschlagene Anmeldung
+. Sc2: *Pilot* XX trifft auf dem Flugplatz ein. XX öffnet die Webapp über einen Browser oder mithilfe des QR Codes. XX gibt seine Nutzerdaten ein und versucht sich anzumelden. Die Anmeldung schlägt aufgrund falscher Anmeldedaten fehl. Eine Fehlermeldung wird ausgegeben.
+
+=== Nachbedingung
+Der Pilot ist angemeldet und kann alle Funktionalitäten nutzen, zu denen ein Pilot berechtigt ist. Im Backend muss nun bekannt sein, dass sich mindestens ein Pilot auf dem Flugplatz befindet.
 
 === Besondere Anforderungen
-//Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
 
-==== <Besondere Anforderung 1>
+==== Usability
+* Der Use Case gehört zu der grundlegenden Funktionalität des _Systems_ und muss daher für jeden *Piloten* einfach und verständlich sein.
+
+---
+
+(Zur Erstellung des Use Cases wurde sich am Use Case 01 des Vorgängerprojektes orientiert)
+
+
+
