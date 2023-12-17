@@ -11,7 +11,8 @@ In diesem Use-Case wird das Anlegen des Use-Cases behandelt.
 === Kurzbeschreibung der Akteure
 
 ==== Pilot
-Der Akteur Pilot kann nach dem Anmelden ein Protokoll anlegen.
+Ein Pilot ist der Benutzer des Systems und des Flugplatzes.
+Er kann Veränderungen an seinem Profil vornehmen, jedoch nicht am Gesamtsystem.
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...

@@ -11,12 +11,12 @@ In diesem Use-Case werden Piloten mit einem Account registriert.
 === Kurzbeschreibung der Akteure
 
 ==== Admin
-Der Akteur Admin administriert die Lösung.
-Darunter fallen Aufgaben wie das registrieren neuer Piloten.
+Ein Admin ist der Verwalter des Gesamtsystems.
+Er pflegt dieses und kann Änderungen vornehmen.
 
 ==== Pilot
-Der Akteur Pilot entsteht durch diesen Use-Case.
-Er ist der Standardnutzer der Lösung.
+Ein Pilot ist der Benutzer des Systems und des Flugplatzes.
+Er kann Veränderungen an seinem Profil vornehmen, jedoch nicht am Gesamtsystem.
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
@@ -28,8 +28,8 @@ Ein Admin-Akteur muss existieren.
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
 
 . Der Use Case beginnt, wenn ein Admin einen Piloten-Account registrieren will.
-. Der Admin erstellt einen Account für Piloten
-. Ein Account für Piloten wurde erstellt
+. Der Admin erstellt einen Account für Piloten.
+. Ein Account für Piloten wurde erstellt.
 . Der Use Case ist abgeschlossen.
 
 === Alternative Abläufe
@@ -37,7 +37,7 @@ Ein Admin-Akteur muss existieren.
 
 ==== Admin existiert nicht
 Wenn Admin nicht existiert, dann
-. Ausgabe Fehlermeldung, Registrierung erfolgt nicht
+. Ausgabe Fehlermeldung, Registrierung erfolgt nicht.
 
 === Unterabläufe (subflows)
 //Nutzen Sie Unterabläufe, um wiederkehrende Schritte auszulagern
