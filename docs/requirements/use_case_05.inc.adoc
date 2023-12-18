@@ -1,6 +1,6 @@
 ifndef::main-document[include::../_includes/default-attributes.inc.adoc[]]
 
-== Use-Case: UC02 Flugleiter bestimmen
+== Use-Case: UC05 Flugleiter bestimmen
 
 === Kurzbeschreibung
 In diesem Use-Case wird der Vorgang der standartmäßigen Bestimmung eines Flugleiters beschrieben und wie dieser Status bei mehreren Piloten übergeben werden kann.
