@@ -5,16 +5,85 @@ include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
 
 
-== Einführung
-In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fachdomäne) der <Projektthema-Systems> definiert. Zur besseren Übersichtlichkeit sind Begriffe, Abkürzungen und Datendefinitionen gesondert aufgeführt.
+== Oberbegriffe zur Klassifizierung
+[%header]
+|===
+|Begriff|	Definition und Erläuterung
+
+|Akteur
+|eine Person, die (meist in einer bestimmten Rolle) mit dem System interagiert.
+
+|System
+|eine Zusammenfassung aller Bestandteile (Hardware und Software), die miteinander kommunizieren können und Eingabe-, Verarbeitungs- und Ausgabefunktionen haben können.
+
+|Datenobjekt/Datenspeicher
+|alle Art von Informationen, die zwischen den Bestandteilen des Systems erzeugt, ausgetauscht und gesichert werden.
+
+|===
 
 == Begriffe
 [%header]
 |===
-| Begriff | Definition und Erläuterung | Synonyme
-//| Kommissionierung | Bereitstellung von Waren aus einem Lager entsprechend eines Kundenauftrags | (keine)
-| xx | xx | xx
+|Begriff|	Definition und Erläuterung|	Synonyme
+
+|Vereinsmitglied
+|ein Mitglied des Vereins, welches ein Pilot und/oder Admin sein kann
+|Mitglied
+
+|Pilot
+|ein Mitglied, welches den Flugplatz nutzt und ein Modellflugzeuge führen möchte/kann/führt.
+|-
+
+|Administrator
+|ein Pilot, welcher spezielle Zugriffsrechte auf die Verwaltung des Systems hat
+|Admin
+
+
+|Flugleiter
+a|
+* muss geau 1 mal existieren solange der Flugplatz in Bertieb ist
+* wird mit dem Zugang zum Flugplatz bestimmmt
+* der erste benutzer des Flugplatzes ist automatisch Flugleiter, danach wird automatisch der zuletzt neu angemeldete Pilot zum Flugleiter, Ein flugleiter kann den Platz nicht verlassen solange er seine Aufgabe nicht an eine andere Person übertragen hat.
+* übernimmt die Verantwortung für die Flüge auf dem Platz, fliegt jedoch selbst nicht
+|Startleiter
+
+|Besucher|eine Person, die kein Vereinsmitglied ist und kein Flugzeug fliegt|-
+
+|Gast|eine Person, welche kein Vereinsmitglied ist, aber den Flugplatz nutzt|-
+
+|Flug
+|die Tätigkeit des Fliegens der Modellflugzeuge auf dem Flugplatz
+|
+
+|Flugsession
+|die Zeitdauer von Aktivitäten eines bestimmten Piloten auf dem Flugplatz zwischen An- und Abmeldung
+|Session, Flugzeit
+
+|Flugplatz
+|Ort, an dem die Piloten ihre Modellflugzeuge fliegen können
+|Modellflugplatz, Vereinsflugplatz, Platz, (im Kontext oft "vor Ort")
+
+|Modellflugzeug
+|wird von den Piloten auf dem Flugplatz geflogen
+|Flugzeug
+
+|Flugprotkoll
+a|
+* bisherige Lösung der Anwesenheitserfassung
+* Verzeichnet Flugaktivitäten über einen Tag sowie:
+*   Name(n) der/des Flugleiter(s), sowie Dienstbeginn und Ende
+*   Name der Piloten, sowie Beginn und Ende der Flüge, Fuggerätetyp un Modellbezeichnung
+*   Unterschriebe Prüfung über Vollständigkeit und Verfügbarkeit der Erste Hilfe-Einrichtungen
+*   Besondere Protokollzeilen f. Gastflieger
+*   Vermerke über besondere Vorkommnisse
+|-
+
+|Gesetzgeber
+|ein Stakeholder, der die Betreiber des Vereins dazu verpflichtet ein Flugbuch über die Aktivitäten auf dem Flugplatz zu führen 
+|-
+
 |===
+
 
 
 == Abkürzungen und Akronyme
