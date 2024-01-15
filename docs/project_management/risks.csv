@@ -1,11 +1,10 @@
-﻿ID;Datum;Name;Beschreibung;Typ;IMP;PRB;MAG;Owner;Gegenmaßnahme
-1;15.12.2023;Teammitglied fällt aus;Mitglied des Teams kann (dauerhaft oder zeitweise) nicht mehr am Projekt teilnehmen; z.B. wegen Krankheit oder Studiengangswechsel;4;20%;0,8;Max Müller;Backup-Rollen nutzen und Know-How zwischen diesen Personen kontinuierlich teilen
+﻿﻿ID;Datum;Name;Beschreibung;Typ;IMP;PRB;MAG;Owner;Gegenmaßnahme
+1;15.12.2023;Teammitglied fällt aus;Mitglied des Teams kann (dauerhaft oder zeitweise) nicht mehr am Projekt teilnehmen; z.B. wegen Krankheit oder Studiengangswechsel;4;20%;0,8; Projektmanagement;Backup-Rollen nutzen und Know-How zwischen diesen Personen kontinuierlich teilen
 2;15.12.2023;Kommunikation;Missverständliche Kommunikation intern;geschäftlich;3;15%;0,45;Team, Projektmanagement;Protokollführung, klare Kommunikationsrichtlinien, regelmäßige Statusmeetings zur Überprüfung des Verständnisses
 3;15.12.2023;Managementversagen;Fehlende Struktur in Projektplanung und -durchführung;geschäftlich;4;20%;0,8;Projektmanagement;Anwendung der erlernten Methoden, klare Aufgabenzuweisung gemäß Verantwortungsbereich, bei Problemen Konsultation des Coaches
 4;15.12.2023;Verantwortungsdiffusion;Unklare Zuständigkeiten für Aufgaben;geschäftlich;3;25%;0,75;Projektmanagement;Zuweisung von Arbeitspaketen an Verantwortungsbereiche, klare Verteilung definierter Arbeitspakete als Github-Issues an Verantwortliche, ggf. Kommunikation über den Bereichskanal in Discord
 5;15.12.2023;Einsatz unbekannter Tools;Notwendigkeit zur Verwendung von neuen, nicht vertrauten Tools;Technisch;4;20%;0,8;Projektmanagement, Team; teilnahme an den angebotenen Praktika, interne Schulungen für Teammitglieder, durch erfahrene Teammitglieder
 6;15.12.2023;Zeitmanagement;Fehleinschätzung von Bearbeitungszeiten für Fristen und Termine;zeitlich;3;20%;0,6;Projektmanagement;Regelmäßige Überprüfung und Anpassung von Zeitplänen, Priorisierung von Aufgaben gemäß den Fristen
 7;15.12.2023;Konflikte im Team;Ungenügende Konfliktlösungsmechanismen innerhalb des Teams;Geschäftlich;3;15%;0,45;Projektmanagement;Implementierung von Konfliktlösungsstrategien und Schaffung eines offenen Kommunikationsrahmens, Im Zweifel Kosultation des Coaches
-8;15.12.2023;Pflichtdokumente
-9;15.12.2023;Absprachen mit Auftraggeber
-10;15.12.2023;Aufgabenübergabe
+8;15.12.2023;Pflichtdokumente; Nicht bearbeiten erforderlicher Arbeitsschritte; Team; 6; 30%; 0,6; Projektmanagement; Aufgabenvergabe zu jeder Iteration, Beachtung der zur Verfügung gestellten Dokumentation für die jeweilige Iteration
+9;15.12.2023;Absprachen mit Auftraggeber; 5; 100%; 0,5; Projektmanagement; Versuch einen Regelmäßigen Termin zur selben Uhrzeit im selben Modus zu vereinbaren 
