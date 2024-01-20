@@ -142,7 +142,7 @@ Insbesondere in der Elaboration Phase des Projektes werden Anforderungen der Sta
 == Erkenntnisse (Lessons learned)
 //List lessons learned from the retrospective, with special emphasis on actions to be taken to improve, for example: the development environment, the process, or team collaboration.
 
-Teamspirit
+=Teamspirit
 Um als Team zu funktionieren ist es erforderlich auf die Termintreue und Zuverlässigkeit der anderen zu vertrauen. Dazu ist direkter persönlicher Kontakt von Angesicht zu angesicht erforderlich, möglichst in einem Hochschulfernen Umfeld in kleinem Kreis, des weiteren ist regelmäßiger Austausch unerlässlich, sobald nicht mit sondern über Akteure gesprochen wird entstehen schnell Missverständnisse und Vorurteile. 
 
 
