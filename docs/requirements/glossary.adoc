@@ -23,6 +23,7 @@ include::../_includes/default-attributes.inc.adoc[]
 
 == Begriffe
 [%header]
+[cols="1,3,1"]
 |===
 |Begriff|	Definition und Erläuterung|	Synonyme
 
@@ -31,8 +32,8 @@ include::../_includes/default-attributes.inc.adoc[]
 |Mitglied
 
 |Pilot
-|ein Mitglied, welches den Flugplatz nutzt und ein Modellflugzeuge führen möchte/kann/führt.
-|-
+|ein Mitglied, welches den Flugplatz nutzt und Modellflugzeuge führen darf, er kann Veränderungen an seinem Profil vornehmen, jedoch nicht am Gesamtsystem.
+|Fernpilot, Steuerer
 
 |Administrator
 |ein Pilot, welcher spezielle Zugriffsrechte auf die Verwaltung des Systems hat
@@ -41,31 +42,56 @@ include::../_includes/default-attributes.inc.adoc[]
 
 |Flugleiter
 a|
-* muss geau 1 mal existieren solange der Flugplatz in Bertieb ist
+* muss genau 1 mal existieren solange der Flugplatz in Bertieb ist
 * wird mit dem Zugang zum Flugplatz bestimmmt
-* der erste benutzer des Flugplatzes ist automatisch Flugleiter, danach wird automatisch der zuletzt neu angemeldete Pilot zum Flugleiter, Ein flugleiter kann den Platz nicht verlassen solange er seine Aufgabe nicht an eine andere Person übertragen hat.
 * übernimmt die Verantwortung für die Flüge auf dem Platz, fliegt jedoch selbst nicht
 |Startleiter
 
-|Besucher|eine Person, die kein Vereinsmitglied ist und kein Flugzeug fliegt|-
+|Besucher
+|eine Person, die kein Vereinsmitglied ist und kein Flugzeug fliegt
+|-
 
-|Gast|eine Person, welche kein Vereinsmitglied ist, aber den Flugplatz nutzt|-
+|Gast
+|eine Person, welche kein Vereinsmitglied ist, aber den Flugplatz nutzt
+|Gastpilot
 
 |Flug
 |die Tätigkeit des Fliegens der Modellflugzeuge auf dem Flugplatz
-|
+|-
+
+|Modellflug
+| bezeichnet den Umgang mit Flugmodellen in seiner Gesamtheit und all seinen Belangen
+|-
 
 |Flugsession
 |die Zeitdauer von Aktivitäten eines bestimmten Piloten auf dem Flugplatz zwischen An- und Abmeldung
 |Session, Flugzeit
 
+|Flugbetrieb
+|umfasst jede Aktivität, die unmittelbar und zielgerichtet dem Starten, Fliegen und
+Landen von Flugmodellen dient
+|-
+
 |Flugplatz
 |Ort, an dem die Piloten ihre Modellflugzeuge fliegen können
-|Modellflugplatz, Vereinsflugplatz, Platz, (im Kontext oft "vor Ort")
+|Modellflugplatz, Vereinsflugplatz, Platz, Modellfluggelände
 
 |Modellflugzeug
-|wird von den Piloten auf dem Flugplatz geflogen
-|Flugzeug
+|wird von den Piloten auf dem Flugplatz ausschließlich zum Zweck des Flugsports geflogen, unbemanntes Fluggerät mit einer maximalen Startmasse von 150kg
+|Flugzeug, Flugmodell
+
+|Großflugmodell
+|bezeichnet ein Flugmodell mit einer maximalen Startmasse über 25 kg
+|-
+
+|Startmasse
+| bezeichnet die gesamte Masse des Flugmodells mit all seinen
+strukturellen Elementen und Einbauten
+|-
+
+|Sichtweite
+|bestimmt den maximalen Abstand zwischen Pilot und Flugmodell, in welchem der Pilot das Flugmodell noch ohne besondere optische Hilfsmittel sehen und die Fluglage des Flugmodells eindeutig erkennen kann
+|-
 
 |Flugprotkoll
 a|
@@ -82,6 +108,16 @@ a|
 |ein Stakeholder, der die Betreiber des Vereins dazu verpflichtet ein Flugbuch über die Aktivitäten auf dem Flugplatz zu führen 
 |-
 
+|Datenbank
+|befindet sich auf dem Webserver und stellt die hauptsächliche Datenhaltung des Systems dar
+|-
+
+|Webserver
+a|
+* ein Systembestandteil, der zwei Sichten für Admin und Pilot zur Verfügung stellt
+* für den Admin werden Verwaltungs- und Ausgabefunktionen bereitgestellt
+* für den Piloten sind nur Ausgabefunktionen verfügbar
+|-
 |===
 
 
@@ -91,7 +127,15 @@ a|
 |===
 | Abkürzung | Bedeutung | Erläuterung
 //| UP | Unified Process | Vorgehensmodell für die Softwareentwicklung
-| xx | xx | xx
+
+|FAI
+|Fédération Aéronautique Internationale
+|Internationaler Luftsportverband
+
+|DB 
+|Datenbank
+|siehe Begriffsdefinition
+
 |===
 
 == Verzeichnis der Datenstrukturen
@@ -105,9 +149,16 @@ a|
 | Emailadresse muss `@`-Zeichen und `.` Punkt enthalten.
 | Login
 
-| xx
-| xx
-| xx
-| xx
-| xx
+|Protokolldaten
+|Einträge in ein Flugprotokoll
+|mehrere: Date, Boolean, String
+|nur angemeldete Piloten und Flugleiter können ein Protokoll erstellen
+|Protokoll
+
+|Pilotendaten
+|Vorname, Nachname, Pilot-ID
+|String, Integer
+|gleiche Piloten-ID darf nicht vergeben werden
+|-
+
 |===
