@@ -40,6 +40,7 @@ package Webserver-Backend {
     "UC04 Protokolle einsehen" as (uc04)
     "UC07 Pilotendaten modifizieren" as (uc07)
     "UC08 Pilot deaktivieren" as (uc08)
+    "UC09 Protokoll bearbeiten" as (uc09)
     "UC90 Protokoll wird gespeichert" as (uc90)
     "UC91 Protokolle werden abgefragt" as (uc91)
     "UC92 Pilotendaten werden gespeichert" as (uc92)
@@ -49,9 +50,11 @@ ac01 -d-> uc01
 ac01 -d-> uc04
 ac01 -d-> uc07
 ac01 -d-> uc08
+ac01 --> uc09
 ac02 -d-> uc02
 ac02 -d-> uc06
-uc01 -u-> ac02
+ac02 --> uc09
+ac02 --> uc04
 uc01 .d.> uc92 :extends
 uc02 .l.> uc03 :include
 uc03 .l.> uc05 :extends
@@ -60,7 +63,7 @@ uc04 .d.> uc91 :extends
 uc05 .d.> uc93 :extends
 uc06 .r.> uc05 :include
 uc91 -r-> uc90
-uc93 -u-> ac02
+uc93 .u.> uc05 :include
 @enduml
 ....
 
