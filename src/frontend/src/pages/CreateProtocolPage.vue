@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import MouseCanvas from '@/components/MouseCanvas.vue';
 
 function getDateToday() {
   const date = new Date();
@@ -34,7 +35,7 @@ function showDatePicker() {
               style="font-size: 0.7em; padding-top: 0.05em; padding-bottom: 0.05em; justify-self: end;"
             >
             <div>Datum</div>
-            <div>Wählen</div>
+            <div>wählen</div>
           </button>
         </div>
         <div style="display: flex; gap: 0.4em; align-content: stretch;">
@@ -73,10 +74,15 @@ function showDatePicker() {
     </fieldset>
 
     <!-- Unterschreiben -->
-
+    <fieldset class="form-fieldset">
+      <label class="form-label">Unterschrift</label>
+      <div style="border: 1px solid rgb(214, 214, 214); border-radius: 5px;">
+        <MouseCanvas :width=600 :height=200 style-width="100%"/>
+      </div>
+    </fieldset>
 
     <!-- Flugzeugdaten -->
-    
+
 
     <!-- Abschicken / Beenden -->
     <fieldset class="form-fieldset">

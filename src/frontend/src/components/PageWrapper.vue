@@ -17,9 +17,10 @@
   padding-right: 1em;
   padding-top: 1em;
 
-  min-width: 512px;
+  width: 512px;
 
   @media (max-width: 512px) {
+    width: unset;
     min-width: 100%;
   }
 }
