@@ -20,13 +20,13 @@ Das Team, bestehend aus sieben Personen, zeichnet sich durch eine Vielzahl unter
 
 |*Name* |*Alter* |*Informationen zur Person* |*Rolle* 
 
-| Abdallah Alherani | Zeile 1, Zelle 2 | 
+| Abdallah Alherani | 23 | 
 -Wirtschaftsinformatiker 
 -
 -
 | *Implementierung*
 
-| Conrad Caffier | Zeile 2, Zelle 2 |
+| Conrad Caffier | 20 |
 -Wirtschaftsinformatiker 
 
 -Programmiersprachen Kotlin, Java, Rust (und JavaScript); Grundkenntnisse in vielen weiteren Sprachen,
@@ -50,19 +50,19 @@ Das Team, bestehend aus sieben Personen, zeichnet sich durch eine Vielzahl unter
 -erfahren in Projektarbeiten
 | *Analyse* 
 
-| Jakob Kretzschmar | Zeile 4, Zelle 2 |
+| Jakob Kretzschmar | 20 |
 -Wirtschaftsinformatiker 
 -
 -
 | *Entwurf* 
 
-| Julian Neidert | Zeile 5, Zelle 2 | 
+| Julian Neidert | 20 | 
 -Wirtschaftsinformatiker 
 -
 -
 | Entwurf, Test
 
-| Laurin Wobeda | Zeile 6, Zelle 2 | 
+| Laurin Wobeda | 19 | 
 -Wirtschaftsinformatiker 
 -
 -
@@ -149,5 +149,5 @@ Um als Team zu funktionieren ist es erforderlich auf die Termintreue und Zuverl�
 Bei der Vereinbarung von Terminen mit dem aftraggeber kam es zu Missverständnissen, und dadurch zu Verzögerungen im Arbeitsablauf sowie allgemeinen Unmut. 
 Um dies in Zukunft zu vermeiden wurde vereinbart noch im bestehenden Meeting denkommenden Termin fix zu vereinbaren inklusive Kalendernotitz um künftigen Informationsdefiziten vorzubeugen. 
 
-=== Geschwindikeit 
-
+=== Meetings 
+Meetins sollten besser Strukturiert und geplant werden um die Effizienz zu verbessern. Die chronischee Abwesenheit eines Teammitglieds führte darüber hinaus zu Abstimmungsschwierigkeiten
