@@ -45,11 +45,14 @@ package Administrationsbereich {
     "UC01 Pilot registrieren" as (uc01)
     "UC07 Pilotendaten modifizieren" as (uc07)
     "UC08 Pilot deaktivieren" as (uc08)
+
 }
 ac01 -l-> uc01
 ac01 -d-> uc04
+
 ac01 -l-> uc07
 ac01 -l-> uc08
+
 ac01 --> uc09
 ac02 -d-> uc02
 ac02 -d-> uc06

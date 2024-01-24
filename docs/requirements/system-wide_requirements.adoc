@@ -1,5 +1,5 @@
 = System-Wide Requirements: {project-name}
-Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
+Vorname Nachname <email@domain.org>; Laurin Wobeda <laurin.wobeda@stud.htw-dresden.de>;
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
@@ -12,12 +12,21 @@ In diesem Dokument werden die systemweiten Anforderungen für das Projekt <Thema
 * Qualitätsanforderungen für Benutzbarkeit, Zuverlässigkeit, Effizienz und Wartbarkeit (URPS) sowie
 * zusätzliche Anforderungen (+) für technische, rechtliche, organisatorische Randbedingungen
 
-NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern mit dem System ergeben, sind als Use Cases in einem separaten Dokument festgehalten. [hier ggf. Verweis einfügen]
+NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern mit dem System ergeben, sind als Use Cases in einem link:use-case_model[separaten Dokument] festgehalten.
+
 
 
 == Systemweite funktionale Anforderungen
 //Angabe von system-weiten funktionalen Anforderungen, die nicht als Use Cases ausgedrückt werden können. Beispiele sind Drucken, Berichte, Authentifizierung, Änderungsverfolgung (Auditing), zeitgesteuerte Aktivitäten (Scheduling), Sicherheit / Maßnahmen zum Datenschutz
 
+==== SWFA-1: Das System muss Anmelde- sowie Protokolldaten dauerhaft speichern
+Zum Testen wird die Datenbank mit Testdaten gefüllt. Nach dem Neustart müssen die Daten weiterhin vorliegen.
+
+==== SWFA-2: Benutzer müssen ihre eigenen Protokolle bearbeiten können
+Zum Testen wird ein Protokoll mit einem Benutzeraccount erstellt. Danach muss mit dem selben Account das Bearbeiten des Protokolls möglich sein.
+
+==== SWFA-3: Das System muss die Daten zu den Protokollen korrekt und vollständig erfassen und speichern
+Zum Testen wird die Datenbank mit Testdaten gefüllt. Zudem werden die gleichen Daten lokal bei einem Entwickler gespreichert. Nach einem Neustart der Datenbank werden die Daten verglichen. Die Daten müssen auf der Datenbank unverändert vorliegen.
 
 == Qualitätsanforderungen für das Gesamtsystem
 //Qualitätsanforderungen repräsentieren das "URPS" im FURPS+ zu Klassifikation von Anforderungen
@@ -25,32 +34,55 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 === Benutzbarkeit (Usability)
 //Beschreiben Sie Anforderungen für Eigenschaften wie einfache Bedienung, einfaches Erlernen, Standards für die Benutzerfreundlichkeit, Lokalisierung (landesspezifische Anpassungen von Sprache, Datumsformaten, Währungen usw.)
 
+==== NFAU-1: Im Hauptmenü sollten alle möglichen Aktionen auf einen Blick übersehbar sein
+Zum Testen wird das fertige Hauptmenü in einer realistischen Umgebung aufgerufen und untersucht, ob alle Aktionen auf einen Blick erfassbar sind.
+
+==== NFAU-2: Der Text muss auf einem Smartphone auf bequemer Armlängenentfernung lesbar sein
+Zum Testen wird ein Testnutzer einige Anwendungsfälle auf seinem Smartphone auf Armlänge gehalten durchführen.
+
+==== NFAU-3: Die Buttons müssen für Touchscreens angepasst sein und einfach benutzbar sein
+Zum Testen wird ein Testnutzer alle Buttons einmal auf einem Smartphone mit Touchscreen benutzen und über die Angepasstheit Bericht erstatten.
+
+==== NFAU-4: Die Protokollerstellung sollte übersichtlich gestaltet sein
+Zum Testen wird die fertige Protokollerstellung in einer realistischen Umgebung aufgerufen und untersucht, ob die Protokollerstellung übersichtlich gestalltet ist.
+
+==== NFAU-5: Die Benutzung des Systems sollte selbst für technische Laien unumständlich sein
+Zum Testen wird ein Testnutzer, der nicht gewohnt ist mit technischen Geräten umzugehen, einige Anwendungsfälle in dem System durchführen, ohne dabei Anwendungshilfe zu erhalten.
+
+==== NFAU-6: Der Benutzer sollte maximal <?> Klicks brauchen, um ein Protokoll zu erstellen
+Zum Testen wird ein Testnutzer aufgefordert ein Protokoll zu erstellen, indem er nur <?> Klicks/Touchs verwendet.
+
 === Zuverlässigkeit (Reliability)
 // Zuverlässigkeit beinhaltet die Fähigkeit des Produkts und/oder des Systems unter Stress und ungünstigen Bedingungen am laufen zu bleiben. Spezifizieren Sie Anforderungen für zuverlässige Akzeptanzstufen, und wie diese gemessen und evaluiert werden. Vorgeschlagene Themen sind Verfügbarkeit, Häufigkeit und Schwere von Fehlern und Wiederherstellbarkeit.
+
+==== NFAR-1: Es darf kein falscher Benutzername oder Passwort angegeben werden
+Zum Testen wird die Anmeldung mit einem falschen Benutzernamen und/oder einerm falschen Passwort durchgeführt.
 
 === Effizienz (Performance)
 // Die Performanz Charakteristiken des Systems sollten in diesem Bereich ausgeführt werden. Beispiele sind Antwortzeit, Durchsatz, Kapazität und Zeiten zum Starten oder Beenden.
 
+==== NFAP-1: Das System sollte in der Lage sein, innerhalb von 2 Minuten (?) ein Protokoll zu erstellen
+Zum Testen wird ein Testnutzer ein Protokoll erstellen. Es sollte innerhalb von 2 Minuten (?)erstellt und verarbeitet sein.
+
 === Wartbarkeit (Supportability)
 // Dieser Bereich beschreibt sämtliche Anforderungen welche die Supportfähigkeit oder Wartbarkeit des zu entwickelnden Systems verbessern, einschließlich Anpassungsfähigkeit und Erweiterbarkeit, Kompatibilität, Skalierbarkeit und Anforderungen bezüglich der System Installation sowie Maß an Support und Wartbarkeit.
+
+==== NFAS-1: Das System sollte in der Lage sein, neue Sprachen zu integrieren
+Zum Testen werden alle Anzeigetexte zu einer anderen Sprache übersetzt.
+
+==== NFAS-2: Das System sollte mit wenig Zeitaufwand administrierbar sein
+Zum Testen wird eine Wartungssitzung simuliert und überprüft, dass der Zeitaufwand für diese im Rahmen bleibt. (1h pro Jahr ?)
 
 
 == Zusätzliche Anforderungen
 
 === Einschränkungen
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
-* Ressourcenbegrenzungen
-* zu nutzende Komponenten / Bibliotheken / Frameworks
-* Vorgaben für die Programmiersprache
-* zu unterstützende Plattformen / Betriebssysteme
-* Physische Begrenzungen für Hardware, auf der das System betrieben werden soll
-
-=== Organisatorische Randbedingungen
-//Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
-* Anforderungen an Betrieb, Management und Wartung der Anwendung
-* zu beachtende Standards, Normen und Regeln
+* System ist in die bereits vorhandene Infrastruktur zu integrieren
+* keine Vorgaben für die Programmiersprache
 
 === Rechtliche Anforderungen
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
-* Lizensierung der Anwendung
-* Datenschutz
+* Datenschutz soll durch Login mit Benutzername und Passwort ermöglicht
+* die Standardisierten Regeln für Flugmodelle müssen einghalten werden
+* es soll eine Open-Source-Lizenz verwendet werden
