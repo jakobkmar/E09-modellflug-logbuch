@@ -5,7 +5,9 @@ include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
 
 
-== Allgemeine Informationen
 
+:imagesdir: images/domain_model
 
-== ...
+.Domain Model
+image::domain_model.png[Domain Model]
+
