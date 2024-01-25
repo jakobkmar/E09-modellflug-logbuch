@@ -84,6 +84,14 @@ function onMouseMove(event: MouseEvent | Touch) {
   x = offsetX;
   y = offsetY;
 }
+
+function getDataUrl() {
+  return canvas.toDataURL()
+}
+
+defineExpose({
+  getDataUrl
+})
 </script>
 
 <template>

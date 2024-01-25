@@ -1,22 +1,44 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import MouseCanvas from '@/components/MouseCanvas.vue';
+import { Protocol, protocols } from '@/store'
+import MouseCanvas from '@/components/MouseCanvas.vue'
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
 
 function getDateToday() {
-  const date = new Date();
-  return date.toISOString().split('T')[0];
+  const date = new Date()
+  return date.toISOString().split('T')[0]
 }
 
 function getDateYesterday() {
-  const date = new Date();
-  date.setDate(date.getDate() - 1);
-  return date.toISOString().split('T')[0];
+  const date = new Date()
+  date.setDate(date.getDate() - 1)
+  return date.toISOString().split('T')[0]
 }
 
-const dateInput = ref(getDateToday())
+function getTimeString() {
+  const date = new Date()
+  return `${date.getHours()}:${date.getMinutes()}`
+}
 
 function showDatePicker() {
   (document.getElementById("datepicker") as HTMLInputElement).showPicker()
+}
+
+const dateInput = ref(getDateToday())
+const timeInput = ref(getTimeString())
+
+const signatureCanvas = ref<InstanceType<typeof MouseCanvas> | null>(null)
+
+function submitProtocol() {
+  const signatureUrl = signatureCanvas.value?.getDataUrl()
+  if (signatureUrl == null) {
+    console.warn("Missing signature URL, cannot submit protocol")
+    return
+  }
+  protocols.value.unshift(new Protocol(dateInput.value, timeInput.value, signatureUrl))
+  router.push('/protocol/list')
 }
 </script>
 
@@ -56,7 +78,7 @@ function showDatePicker() {
       <p class="card-subtitle">In welchem Zeitraum möchtest du fliegen?</p>
       <div style="display: flex; gap: 0.5em; align-items: end;">
         <div class="column" style="align-items: center; gap: 0.1em">
-          <input type="time" class="form-control" style="min-width: 8em; text-align: center;">
+          <input type="time" v-model="timeInput" class="form-control" style="min-width: 8em; text-align: center;">
           <div style="font-size: 0.8em;">von</div>
         </div>
         <div class="column" style="align-items: center; gap: 0.1em">
@@ -80,7 +102,7 @@ function showDatePicker() {
       <label class="form-label">Unterschrift</label>
       <p class="card-subtitle">Eine Unterschrift ist gesetzlich vorgeschrieben. Male sie dazu mit dem Finger oder der Maus.</p>
       <div style="border: 1px solid rgb(214, 214, 214); border-radius: 5px;">
-        <MouseCanvas :width=600 :height=200 style-width="100%"/>
+        <MouseCanvas :width=600 :height=200 style-width="100%" ref="signatureCanvas"/>
       </div>
     </fieldset>
 
@@ -91,7 +113,7 @@ function showDatePicker() {
     <fieldset class="form-fieldset">
       <label class="form-label">Abschließen</label>
       <div style="display: flex; gap: 0.5em;">
-        <button class="btn btn-primary">Protokoll erstellen</button>
+        <button class="btn btn-primary" @click="submitProtocol">Protokoll erstellen</button>
         <a href="#" class="btn btn-outline-danger">Abbrechen</a>
       </div>
     </fieldset>
