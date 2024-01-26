@@ -2,25 +2,10 @@
 import { ref } from 'vue'
 import { Protocol, protocols } from '@/store'
 import MouseCanvas from '@/components/MouseCanvas.vue'
-import { useRouter } from 'vue-router';
+import { useRouter } from 'vue-router'
+import { getDateToday, getDateYesterday, getTimeString } from '@/utils/timeutil'
 
 const router = useRouter()
-
-function getDateToday() {
-  const date = new Date()
-  return date.toISOString().split('T')[0]
-}
-
-function getDateYesterday() {
-  const date = new Date()
-  date.setDate(date.getDate() - 1)
-  return date.toISOString().split('T')[0]
-}
-
-function getTimeString() {
-  const date = new Date()
-  return `${date.getHours()}:${date.getMinutes()}`
-}
 
 function showDatePicker() {
   (document.getElementById("datepicker") as HTMLInputElement).showPicker()
