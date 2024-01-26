@@ -6,20 +6,23 @@ ifndef::main-document[include::../_includes/default-attributes.inc.adoc[]]
 
 === Kurzbeschreibung
 //<Kurze Beschreibung des Use Case>
+In diesem Use-Case werden Piloten mit einem Account registriert.
 
 === Kurzbeschreibung der Akteure
 
 ==== Admin
-Admin administriert die Lösung.
-Darunter fallen Aufgaben wie das registrieren neuer Piloten.
+Ein Admin ist der Verwalter des Gesamtsystems.
+Er pflegt dieses und kann Änderungen vornehmen.
 
 ==== Pilot
-Pilot entsteht durch diesen Use-Case.
-Er ist der Standardnutzer der Lösung.
+Ein Pilot ist der Benutzer des Systems und des Flugplatzes.
+Er kann Veränderungen an seinem Profil vornehmen, jedoch nicht am Gesamtsystem.
 
 === Vorbedingungen
 //Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
 
+Die App muss mindestens im Prototypstadium sein.
+Ein Admin-Akteur muss existieren.
 Die App muss mindestens im Prototypstadium sein.
 Ein Admin-Akteur muss existieren.
 
@@ -34,28 +37,36 @@ Ein Admin-Akteur muss existieren.
 === Alternative Abläufe
 //Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
 
-==== <Alternativer Ablauf 1>
-Wenn <Akteur> im Schritt <x> des Standardablauf <etwas macht>, dann
-. <Ablauf beschreiben>
-. Der Use Case wird im Schritt <y> fortgesetzt.
+==== Admin existiert nicht
+Wenn Admin nicht existiert, dann
+. Ausgabe Fehlermeldung, Registrierung erfolgt nicht.
 
 === Unterabläufe (subflows)
 //Nutzen Sie Unterabläufe, um wiederkehrende Schritte auszulagern
 
-==== <Unterablauf 1>
+==== Unterablauf
 . Admin betätigt Button "Account erstellen"
 . Accounterstellung öffnet sich
-. Admin gibt Daten ein (Name, Vorname, Flugleitererlaubnis, Tagesmitglied/Gast)
+. Admin gibt Daten ein (
+    .. Name
+    .. Vorname
+    .. Passwort
+    ..Flugleitererlaubnis
+    ..Tagesmitglied/Gast
 . Admin betätigt Button "Accounterstellung abschließen"
 . Account wird vom System registiert
 
 === Wesentliche Szenarios
 //Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
 
-==== <Szenario 1>
-. <Szenario 1, Schritt 1>
-. …
-. <Szenario 1, Schritt n>
+==== Standartmäßige Registrierung
+Sc.1: Admin öffnet das Administrationsfenster und navigiert zur Accounterstellung. Er initiiert die Erstellung und gibt alle Daten richtig ein. Er schließt die Erstellung ab und damit wird ein Pilotenaccount erstellt. Ein Pilot kann sich nun in diesem Account anmelden, wenn er die Anmeldedaten bekommt.
+
+==== falsche Datentyp bei der Registrierung
+Sc.2: Admin öffnet das Administrationsfenster und navigiert zur Accounterstellung. Er initiiert die Erstellung und gibt alle Daten ein. Er benutzt jedoch kein sicheres Passwort und kann daher die Accounterstellung nicht abschließen. Er bekommt eine Fehlermeldung und ist weiterhin in der Accounterstellung, in der er den Fehler berichtigen kann. Er schließt die Erstellung ab und damit wird ein Pilotenaccount erstellt. Ein Pilot kann sich nun in diesem Account anmelden, wenn er die Anmeldedaten bekommt.
+
+==== Abbruch der Registrierung
+Sc.3: Admin öffnet das Administrationsfenster und navigiert zur Accounterstellung. Er initiiert die Erstellung und gibt alle Daten ein. Bevor die Erstellung abschließt, schließt er jedoch das Browserfenster. Die Erstellung wird abgebrochen und keine der eingegeben Daten werden gespeichert.
 
 === Nachbedingungen
 //Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
@@ -63,11 +74,13 @@ Wenn <Akteur> im Schritt <x> des Standardablauf <etwas macht>, dann
 ==== Pilot ist erstellt
 Ein Pilotenaccount wurde für den Akteur Pilot erstellt.
 Der Account kann vom Akteur verwendet werden.
+UC02 ist nun möglich.
 
 === Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
 
-==== <Besondere Anforderung 1>
+==== Usability
+* Der Use Case gehört zu der grundlegenden Funktionalität des _Systems_ und muss daher für jeden minimal erfahrenen Admin einfach zu benutzen und verständlich sein.
 
 
 === Use-Case-Diagramm

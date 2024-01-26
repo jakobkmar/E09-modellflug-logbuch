@@ -1,0 +1,113 @@
+//Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
+ifndef::main-document[include::../_includes/default-attributes.inc.adoc[]]
+
+
+== Use-Case: UC03 Protokoll anlegen
+
+=== Kurzbeschreibung
+//<Kurze Beschreibung des Use Case>
+In diesem Use-Case wird das Anlegen des Use-Cases behandelt.
+
+=== Kurzbeschreibung der Akteure
+
+==== Pilot
+Ein Pilot ist der Benutzer des Systems und des Flugplatzes.
+Er kann Veränderungen an seinem Profil vornehmen, jedoch nicht am Gesamtsystem.
+
+=== Vorbedingungen
+//Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
+
+Ein Pilot muss existieren und sich angemeldet haben.
+
+=== Standardablauf (Basic Flow)
+//Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
+
+. Der Use Case beginnt, wenn ein Pilot sich angemeldet hat und ein Protokoll anlegen will
+. Der Pilot initiiert den Vorgang des Anlegen
+. Der Pilot gibt alle erforderlichen Daten ein
+. Der Pilot gibt optionale Daten ein
+. Der Pilot bestätigt seine Angaben
+. Die Software fragt Wetterdaten von der Station ab (die Software oder extra usecase???)
+. Protokoll wird ans Backend überreicht
+. Der Use Case ist abgeschlossen.
+
+=== Alternative Abläufe
+//Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
+
+Wenn der Pilot im Schritt 3-4 des Standardablauf das Protokoll anlegen abbricht, dann
+. werden die Schritte 3-7 nicht ausgeführt
+. Der Use Case wird im Schritt 8 fortgesetzt.
+
+=== Unterabläufe (subflows)
+//Nutzen Sie Unterabläufe, um wiederkehrende Schritte auszulagern
+
+==== Unterablauf
+. Der Pilot betätigt im Hauptmenü der Webapp den button "Protokoll anlegen"
+. Die Protokollerstellung öffnet sich
+. Der Pilot gibt die Daten ein
+    . Datum
+    . Flugleitername
+    . Dienstbeginn
+    . Dienstende
+    . Unterschrift (???)
+    . Erste-Hilfe-Einrichtung überprüft
+    . Pilotennamen
+    . Flugbeginn/-ende
+    . Kanal
+    . Typ
+    . Modellbezeichnung
+    . Tagesmitgliednamen
+    . Lärmpass
+    . Vers., Modell geprüft
+    . Unterschrift Tagesmitglied (???)
+    . Unterschrift Flugleiter (???)
+    . Flugbetrieb beendet
+    . Unterschrift Flugleiter
+. Der Pilot bestätigt seine Eingabe
+. Das Protokoll wird ans Backend überreicht
+. Der Use Case ist abgeschlossen.
+
+=== Wesentliche Szenarios
+//Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
+
+==== Standartmäßige Protokollerstellung
+Sc.1: Der Pilot hat nach der Anmeldung den Button "Protokoll erstellen" betätigt. Es öffnet sich die Protokollerstellung. Der Pilot gibt sämtliche Daten richtig ein und bestätigt zuletzt den Abschluss der Erstellung. Die Accounterstellung wird nicht automatisch geschlossen, aber kann vom Piloten über den "Zurück"-Button verlassen werden. Das erstellte Protokoll wird an den Webserver gesandt, wo es gespeichert wird.
+
+==== falsche Datentyp bei der Protokollerstellung
+Sc.2: Der Pilot hat nach der Anmeldung den Button "Protokoll erstellen" betätigt. Es öffnet sich die Protokollerstellung. Der Pilot gibt sämtliche Daten ein, wählt aber bei einer Option den falschen Datentyp. Er bekommt eine Fehlermeldung und ist weiterhin in der Protokollerstellung, in der er den Fehler berichtigen kann. Er bestätigt zuletzt den Abschluss der Erstellung. Die Accounterstellung wird nicht automatisch geschlossen, aber kann vom Piloten über den "Zurück"-Button verlassen werden. Das erstellte Protokoll wird an den Webserver gesandt, wo es gespeichert wird.
+
+==== Abbruch der Protokollerstellung
+Sc.3: Der Pilot hat nach der Anmeldung den Button "Protokoll erstellen" betätigt. Es öffnet sich die Protokollerstellung. Der Pilot gibt sämtliche Daten ein. Bevor er den Abschluss der Erstellung bestätigt, betätigt er jedoch den "Zurück"-Button. Er erhält ein Dialogfenster, die ihn fragt ob er die Erstellung abbrechen will. Er bestätigt dies. Die Erstellung wird abgebrochen und keine der eingegeben Daten werden gespeichert.
+
+=== Nachbedingungen
+//Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
+
+==== Protokoll wurde angelegt
+Es wurde ein Protokoll angelegt.
+Es kann nun modifiziert werden oder eingesehen.
+
+=== Besondere Anforderungen
+//Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
+
+==== Usability
+* Der Use Case gehört zu der grundlegenden Funktionalität des _Systems_ und muss daher auch für nciht technisch versierte Piloten einfach zu benutzen und verständlich sein.
+
+=== Use-Case-Diagramm
+
+.Use-Case_Diagramm: UC03ProtokollAnlegen
+[plantuml, "{diagramsdir}/UC03ProtokollAnlegen", svg]
+....
+@startuml
+left to right direction
+"Pilot" as ac02
+package Webapp-Frontend {
+    "UC03 Protokoll wird angelegt" as (uc03)
+}
+package Webserver-Backend {
+    "UC90 Protokoll wird gespeichert" as (uc90)
+}
+
+ac02 -d-> uc03
+uc03 .d.> uc90 :extends
+@enduml
+....

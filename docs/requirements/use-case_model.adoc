@@ -13,7 +13,7 @@ include::../_includes/default-attributes.inc.adoc[]
 // Liste aller identifizierten Use Cases (priorisiert)
 * *UC01*: Pilot registrieren
 * *UC02*: Pilot anmelden
-* *UC03*: Protkoll anlegen
+* *UC03*: Protokoll anlegen
 * *UC04*: Protokoll einsehen
 * *UC05*: Flugleiter bestimmen
 
@@ -79,14 +79,14 @@ include::use_case_01.inc.adoc[]
 <<<
 include::use_case_02.inc.adoc[]
 
-//<<<
-//include::use_case_03.inc.adoc[]
+<<<
+include::use_case_03.inc.adoc[]
 
 //<<<
 //include::use_case_04.inc.adoc[]
 
-//<<<
-//include::use_case_05.inc.adoc[]
+<<<
+include::use_case_05.inc.adoc[]
 
 //<<<
 //include::use_case_06.inc.adoc[]
