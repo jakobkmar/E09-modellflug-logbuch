@@ -23,15 +23,13 @@ Er kann Veränderungen an seinem Profil vornehmen, jedoch nicht am Gesamtsystem.
 
 Die App muss mindestens im Prototypstadium sein.
 Ein Admin-Akteur muss existieren.
-Die App muss mindestens im Prototypstadium sein.
-Ein Admin-Akteur muss existieren.
 
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
 
 . Der Use Case beginnt, wenn ein Admin einen Piloten-Account registrieren will.
-. Der Admin erstellt einen Account für Piloten
-. Ein Account für Piloten wurde erstellt
+. Der Admin erstellt einen Account für Piloten.
+. Ein Account für Piloten wurde erstellt.
 . Der Use Case ist abgeschlossen.
 
 === Alternative Abläufe
