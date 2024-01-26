@@ -56,10 +56,9 @@ Das Team, bestehend aus sieben Personen, zeichnet sich durch eine Vielzahl unter
 -
 | *Entwurf* 
 
-| Julian Neidert | 20 | 
+| Julian Neidert | 19 | 
 -Wirtschaftsinformatiker 
--
--
+
 | Entwurf, Test
 
 | Laurin Wobeda | 19 | 

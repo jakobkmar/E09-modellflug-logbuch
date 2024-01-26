@@ -8,7 +8,8 @@ In diesem Use-Case wird der Vorgang der standartmäßigen Bestimmung eines Flugl
 === Kurzbeschreibung der Akteure
 
 ==== Pilot
-Der Akteur "Pilot" nutzt den Flugplatz.
+Ein Pilot ist der Benutzer des Systems und des Flugplatzes.
+Er kann Veränderungen an seinem Profil vornehmen, jedoch nicht am Gesamtsystem.
 
 ==== Flugleiter
 Der Akteur "Flugleiter" ist ein Pilot, der den Flugplatz nicht aktiv nutzt, sondern die Verantwortung über die Flugaktivitäten aller Piloten auf dem Platz hat. Er darf *unter keinen Umständen selbst fliegen*.

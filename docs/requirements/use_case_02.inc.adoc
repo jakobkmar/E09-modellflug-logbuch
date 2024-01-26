@@ -9,7 +9,8 @@ In diesem Use-Case wird der Vorgang bei der Anmeldung eines *Piloten* beim Betre
 === Kurzbeschreibung der Akteure
 
 ==== Pilot
-Der Akteur "Pilot" möchte den Flugplatz betreten und nutzen.
+Ein Pilot ist der Benutzer des Systems und des Flugplatzes.
+Er kann Veränderungen an seinem Profil vornehmen, jedoch nicht am Gesamtsystem.
 
 === Vorbedingungen
 . UC01 ist erfüllt

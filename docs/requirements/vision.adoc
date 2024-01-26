@@ -80,8 +80,8 @@ Container-Technologie eines Proxmox-Servers basiert, kann hier eine nachhaltige 
 ==== Systemplattform:
 
 .Aktuelle Systemplattform: 
-* momentan befindet sich ein zentrales Flugbuch vor Ort (Vereinsflugplatz des Mfc-Rossendorf), in welches sich manuell eingetragen wird
-* problematisch dabei ist, dass der Gesetzgeber mittlerweile eine digitale Lösung fordert
+* momentan gibt es ein Protokolldokument in Papierform vor Ort (Mfc Rossendorf)
+* problematisch dabei ist, dass der Gesetzgeber mittlerweile eine digitale Lösung fordert und die Eintragung in das Protokoll in Papierform nur sperrlich von den Mitgliedern ausgeführt wird
 
 .Zukünftige Systemplattform:
 * zukünftig soll ein digitales System das physische System ersetzen
@@ -95,34 +95,33 @@ Container-Technologie eines Proxmox-Servers basiert, kann hier eine nachhaltige 
 ==== Administratoren
 
 * sind Vereinsmitglieder des Mfc-Rossendorf
-** es gibt ca. 3 Administratoren 
-** Anzahl der Admins ändert sich im Laufe der Zeit eher nicht
-* aus rechtlichen Gründen, muss die Anwesenheit der Piloten erfasst & protokolliert werden
-* sind autorisiert auf diese Protokolldaten bzw. Pilotendaten zuzugreifen und sie einzusehen
+** es gibt 3 bekannte Administratoren 
+* der Gesetzgeber setzt voraus, dass die Anwesenheit der Piloten erfasst & protokolliert werden
+* sind autorisiert sowohl auf Protokoll- und Pilotendaten zuzugreifen, einzusehen und auch zu bearbeiten
 * besitzen besondere Zugangsrechte und Bearbeitungsmöglichkeiten: 
 ** Bearbeitung von Pilotendaten (Hinzufügen, Ändern, Deaktivieren)
-** Nachträgliches Einfügen von Protokolldaten
-* sorgfältig und behutsam mit diesen Rechten umgehen 
-** Privatsphäre muss gewährleistet werden
-** Daten dürfen nicht missbräuchlich verbreitet werden
+** ändern von Protokollen noch nach dem Einreichen
+* verantwortungsbewusster Umgang mit den Rechten
+** Datenschutzbestimmungen müssen dringend beachtet werden
+** Daten dürfen nicht außerhalb missbräuchlich verbreitet werden
 
 ==== Piloten
 
-* sind Vereinsmitglieder des Mfc-Rossendorf *ohne* besondere Zugangsrechte
-** die Zahl der Vereinsmitglieder bleibt relativ stabil, wobei es 6-7 Neuzugänge pro Jahr gibt 
-** parallel nutzen 5-10 Piloten den Flugplatz gleichzeitig (das Fliegen von Modellflugzeugen)
-** es kommt ca. 1 Gast mit dem Piloten pro Woche  
+* sind Vereinsmitglieder oder einmalige Gäste des Mfc-Rossendorf *ohne* besondere Zugangsrechte
+** die Anzahl an Vereinsmitgliedern bleibt eher stabil und ändert sich nur selten
+** der Platz wird von ca. 5-10 Personen gleichzeitig genutzt (Fliegen von Modellflugzeugen)
+** im Durchschnitt wird jede Woche 1 Gast von einem Piloten mitgebracht
 * aus rechtlichen Gründen haben die Piloten beim Betreten des Flugplatzes die Aufgabe, sich "anzumelden"
 ** in der Vergangenheit: 
-*** manuelles Eintragen in ein physisches Flugbuch vor Ort
-*** war für jeden einsehbar und durch äußere Einflüsse (Wetter, Vandalisten) ungeschützt  
+*** manuelles Eintragen in ein physisches Protokollblatt vor Ort
+*** war für jeden einsehbar und durch äußere Einflüsse ungeschützt
+*** tatsächliches Eintragen konnte wenig bis gar nicht überprüft werden weshalb viele Eintragungen fehlen
 ** zukünftig mit unserem System:  
 *** kann sich mit dem eigenen Smartphone mit der Webapp im System anmelden
 *** benötigt keine extra Karten o.ä. für die Authentifizierung, die er jedes Mal mitführen muss
 *** kann das derzeitige Aufkommen der auf dem Flugplatz über eine Webanwendung einsehen
 ** möchte eine einfache schnelle Bedienung des Systems
 ** möchte, dass die protokollierten Daten sicher, zuverlässig und vollständig erfasst werden
-** darf seine persönlichen Daten einsehen
 
 
 == Produkt-/Lösungsüberblick
