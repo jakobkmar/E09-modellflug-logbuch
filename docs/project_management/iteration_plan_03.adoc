@@ -19,8 +19,8 @@ include::../_includes/default-attributes.inc.adoc[]
 
 == Wesentliche Ziele
 
-*Erste Use Cases im Detail ausarbeiten
-*Ersten Entwurf der Vision finalisieren
+* Erste Use Cases im Detail ausarbeiten
+* Ersten Entwurf der Vision finalisieren
 * Risiken erfassen und Gegenmaßnahmen ableiten
 * Termin mit Auftraggeber durchführen
 * Termin mit Coach durchführen
@@ -29,23 +29,14 @@ include::../_includes/default-attributes.inc.adoc[]
 == Aufgabenzuordnung
 //Dieser Abschnitt sollte einen Verweis auf die Work Items List enthalten, die die für diese Iteration vorgesehenen Aufgaben dokumentiert sowie die Zuordnung dieser Aufgaben zu Teammitgliedern. Alternativ können die Aufgaben für die Iteration und die Zuordnung zu Teammitgliedern in nachfolgender Tabelle dokumentiert werden - je nach dem, was einfacher für die Projektbeteiligten einfacher zu finden ist.
 
-Die in dieser Iteration geplanten Aufgaben sind in der Work Items List dargestellt *https://github.com/users/jakobkmar/projects/2/views/3?filterQuery=iteration%3A%22Iteration+3%22+ [Work Item List - Iteration 3]*
+Die in dieser Iteration geplanten Aufgaben sind in der Work Items List dargestellt:
+
+siehe *https://github.com/users/jakobkmar/projects/2/views/3?filterQuery=iteration%3A%22Iteration+3%22[Work Item List - Iteration 3]*
 
 _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 
-
-[%header, cols="3,3,3,3,3,1,1"]
-|===
-| Title | Assignees | Status | Priority | Iteration | gearbeitete Std. | verbleibende Std.
-| Erstellung Projektplan | Lucas | In Progress | 8 | Iteration 3 | 2 | 1
-| Risikoliste bearbeiten | Lucas | Todo | 5 | Iteration 3 | ... | ...
-| formlosen ganzheitlichen Entwurf erstellen ( vom Auftraggeber gewünscht) | Jakob | Done | 8 | Iteration 3 | ... | ...
-| Erste Use Cases im Detail ausarbeiten | Felix | Todo | 8 | Iteration 3 | ... | ...
-| Ausarbeitung UC01-Pilot registrieren | Laurin | In Progress | 8 | Iteration 3 | ... | ...
-| Ausarbeitung UC02-Pilot anmelden| Julian | In Progress | 8 | Iteration 3 | 2 | ...
-| Vision finalisieren | Felix | Todo | 8 | Iteration 3 | ... | ...
-| Glossary für die Use Cases erstellen | Conrad | Todo | 5 | Iteration 3 | ... | ...
-|===
+.Work Item List: Iteration 3
+image::work_item_list/iteration3.png[Work Item List: Iteration 3]
 
 == Probleme (optional)
 //Optional: Führen Sie alle Probleme auf, die in dieser Iteration adressiert werden sollen. Aktualisieren Sie den Status, wenn neue Probleme bei den täglichen / regelmäßigen Abstimmungen berichtet werden.
@@ -93,3 +84,10 @@ Jegliche weitere Aufgaben sind fertiggestellt worden.
 //Geben Sie an, ob Sie die o.g. Bewertungskriterien erfüllt haben. Das kann z.B. folgende Informationen enthalten: “Demo for Department X was well-received, with some concerns raised around usability,” or “495 test cases were automated with a 98% pass rate. 9 test cases were deferred because the corresponding Work Items were postponed.”
 
 Die Bewewrtungskriterien konnten erfüllt werden. Erledigt wurden die wichtigsten Aufgaben. Es gibt kleinere Teile der Aufgaben, die nicht vollständig sind.
+
+*Projektfortschritt*
+
+Der Projektfortschritt kann im sim4seed Essence-Navigator veranschaulicht werden:
+
+.Projektfortschritt: Iteration 3
+image::essence_navigator/iteration3.png[Essence Navigator]
