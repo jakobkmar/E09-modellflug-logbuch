@@ -20,13 +20,13 @@ Das Team, bestehend aus sieben Personen, zeichnet sich durch eine Vielzahl unter
 
 |*Name* |*Alter* |*Informationen zur Person* |*Rolle* 
 
-| Abdallah Alherani | Zeile 1, Zelle 2 | 
+| Abdallah Alherani | 23 | 
 -Wirtschaftsinformatiker 
 -
 -
 | *Implementierung*
 
-| Conrad Caffier | Zeile 2, Zelle 2 |
+| Conrad Caffier | 20 |
 -Wirtschaftsinformatiker 
 
 -Programmiersprachen Kotlin, Java, Rust (und JavaScript); Grundkenntnisse in vielen weiteren Sprachen,
@@ -50,7 +50,7 @@ Das Team, bestehend aus sieben Personen, zeichnet sich durch eine Vielzahl unter
 -erfahren in Projektarbeiten
 | *Analyse* 
 
-| Jakob Kretzschmar | Zeile 4, Zelle 2 |
+| Jakob Kretzschmar | 20 |
 -Wirtschaftsinformatiker 
 -
 -
@@ -61,7 +61,7 @@ Das Team, bestehend aus sieben Personen, zeichnet sich durch eine Vielzahl unter
 
 | Entwurf, Test
 
-| Laurin Wobeda | Zeile 6, Zelle 2 | 
+| Laurin Wobeda | 19 | 
 -Wirtschaftsinformatiker 
 -
 -
@@ -79,7 +79,7 @@ Das Team, bestehend aus sieben Personen, zeichnet sich durch eine Vielzahl unter
 
 === Arbeitsweise
 
-Die Organisation und Verwaltung des Projekts erfolgt über KANBAN Boards in einem Github-Repository. 
+Die Organisation und Verwaltung des Projekts erfolgt über Github Issues im Github-Repository. 
 
 Separate Projekte sind sowohl für das gesamte Team als auch für die einzelnen Arbeitsgruppen eingerichtet, um sämtliche Aufgaben zu dokumentieren. Issues werden erstellt, mit passenden Labels versehen und den verantwortlichen Personen zugewiesen. Darüber hinaus werden bei der Fertigstellung von Dokumenten Pull Requests genutzt, um einer Review-Person die Möglichkeit zu geben, die Arbeit zu überprüfen.
 
@@ -90,16 +90,21 @@ Treffen mit den Auftraggebern werden je nach Bedarf entweder persönlich oder vi
 
 == Praktiken und Bewertung
 //Describe or reference which management and technical practices will be used in the project, such as iterative development, continuous integration, independent testing and list any changes or particular configuration to the project. Specify how you will track progress in each practice. As an example, for iterative development the team may decide to use iteration assessments and iteration burndown reports and collect metrics such as velocity (completed work item points/ iteration).
-Im Rahmen der technischen Praxis wird gemäß den Vorgaben der Lehrveranstaltung der Open Unified Process angewendet. Durch die agile Entwicklung im Team werden Praktiken und Arbeitsweisen schrittweise in mehreren Zyklen eingeführt und kontinuierlich erweitert. Dies bedeutet, dass in jeder Iteration nur einzelne Bestandteile des Lösungsprozesses umgesetzt werden, und es gegebenenfalls erforderlich ist, einige Schritte und Aufgaben mehrmals zu bearbeiten. Dies verringert das Risiko, auf eine falsche Lösung hinzuarbeiten, erheblich und erhöht die Erfolgschancen bei der Projektumsetzung deutlich. Jede Iteration dauert standardmäßig zwei Wochen.
+
+Im Rahmen der technischen Praxis wird gemäß den Vorgaben der Lehrveranstaltung der Open Unified Process angewendet. Durch die agile Entwicklung im Team werden Praktiken und Arbeitsweisen schrittweise in mehreren Zyklen eingeführt und kontinuierlich erweitert. Dies bedeutet, dass in jeder Iteration nur einzelne Bestandteile des Lösungsprozesses umgesetzt werden, und es gegebenenfalls erforderlich ist, einige Schritte und Aufgaben mehrmals zu bearbeiten. Dies verringert das Risiko, auf eine falsche Lösung hinzuarbeiten, erheblich und erhöht die Erfolgschancen bei der Projektumsetzung deutlich. Eine Iteration dauert standardmäßig zwei Wochen, kann sich jedoch durch Feiertage oder andere Umstände verlängern.
 
 Um die iterative Vorgehensweise umzusetzen, findet alle zwei Wochen eine Iterationsplanung statt. Dabei werden Meilensteine definiert und Aufgaben mit dem benötigten Aufwand und den Verantwortlichen dokumentiert. Die Iteration konzentriert sich auf die Erreichung dieser Ziele. Am Ende einer Iteration erfolgt das Meeting für die nächste Iteration, in dem zunächst über die Umsetzung der Aufgaben, den aufgewendeten Aufwand und aufgetretene Risiken reflektiert wird. Dadurch können in den folgenden Iterationen genauere Prognosen und Planungen erstellt werden. Die Ergebnisse werden im Iterationsplan und in einer Risikoliste festgehalten.
 
-Die Meetings finden regelmäßig jeden zweiten Mittwoch statt, zusätzliche Termine werden bei Bedarf festgelegt. Alle Inhalte der Meetings werden protokolliert und dem Team zur Verfügung gestellt, um Unklarheiten und Missverständnisse vorzubeugen. Zur strukturierten Planung und effektiven Aufgabenzuweisung werden Github Issues als zentrales Instrument der Arbeitsteilung genutzt.
+Die Meetings finden regelmäßig jeden zweiten Mittwoch statt, zusätzliche Termine werden bei Bedarf festgelegt. Alle Inhalte der Meetings werden protokolliert und dem Team zur Verfügung gestellt, um Unklarheiten und Missverständnisse vorzubeugen. Zur strukturierten Planung und effektiven Aufgabenzuweisung werden Github Issues als zentrales Instrument der Arbeitszuteilung genutzt.
 
+Das Projekt orientiert sich am Prinzip des Risk-Value Lifecycle Prinzips, durch die Einteilung des Projektes in Inception-, Elaboration-, Construction- und Transition-Phase.
+Der Übergang zwischen den Phasen ist durch das Erreichen spezifischer Meilensteine gekennzeichnet, dabei ist jedoch im Vergleich zum Wasserfall Modell mit dem Erreichen eines Meilensteines die vorangegangene Phase nicht abgeschlossen, sondern markiert lediglich die Bereitschaft das Projekt weiterzuentwickeln. Die Trennung des Projektes in einzelne Phasen ist für eine Zielorientierte Strukturierung des Projektes hilfreich.
 
+Des Weiteren wurde für dieses Projekt ein Projektplan geschrieben, der Arbeitsweisen und Praktiken in der Projektentwicklung sowie etwaige Erkenntnisse zentral dokumentiert und damit als Hilfsmittel und Nachschlagewerk für alle Teammitglieder im Projekt, sowie als Fallbeispiel für zukünftige Projekte dienen kann.
 
+Um als Team effektiv zusammenzuarbeiten ist es erforderlich Arbeiten zuzuweisen und den Arbeitsfortschritt zu überwachen. Gerade der Kontext der Projekterfüllung als eine Aufgabe von vielen, in Teilzeit, erfordert Zuverlässigkeit und Verantwortungsbewusstsein für den Erfolg des Teams von allen Mitgliedern. Das Durchführen von Teambuildingevents sowie regelmäßige Kommunikation in Meetings, sollen das Bewusstsein für die eigene Verantwortung für das ganze Team stärken. Arbeiten werden nicht autoritär vergeben. Stattdessen werden Aufgabenpakete in Meetings definiert und von den einzelnen Teammitgliedern nach eigenem Vermögen und persönlichen Kapazitäten angenommen.
 
-
+Insbesondere in der Elaboration Phase des Projektes werden Anforderungen der Stakeholder an die Software ermittelt und analysiert. Dies geschieht unter anderem durch die Erstellung sogenannter Use Cases, die eine bestimmte Funktion oder Nutzung der Software beschreibt. Zuvor wird in enger Zusammenarbeit mit dem Auftraggeber eine Vision für das Projekt entworfen und in einem Dokument entsprechend der bereitgestellten Vorlage festgehalten. Eine gemeinsame Vorstellung für das Entwicklungsziel ist die Grundlage für das gemeinsame Arbeiten, da ein Grundverständnis für das Projekt gebildet wird. Auf dieser gemeinsamen Absprungbasis können weitere Entwicklungs- und Analyse-schritte erfolgen.
 
 
 == Meilensteine und Ziele
@@ -135,3 +140,13 @@ Die Meetings finden regelmäßig jeden zweiten Mittwoch statt, zusätzliche Term
 
 == Erkenntnisse (Lessons learned)
 //List lessons learned from the retrospective, with special emphasis on actions to be taken to improve, for example: the development environment, the process, or team collaboration.
+
+=== Teamspirit
+Um als Team zu funktionieren ist es erforderlich auf die Termintreue und Zuverlässigkeit der anderen zu vertrauen. Dazu ist direkter persönlicher Kontakt von Angesicht zu angesicht erforderlich, möglichst in einem Hochschulfernen Umfeld in kleinem Kreis. Des Weiteren ist regelmäßiger Austausch unerlässlich, sobald nicht mit sondern über Akteure gesprochen wird entstehen schnell Missverständnisse und Vorurteile. 
+
+=== Termine mit dem Auftraggeber
+Bei der Vereinbarung von Terminen mit dem aftraggeber kam es zu Missverständnissen, und dadurch zu Verzögerungen im Arbeitsablauf sowie allgemeinen Unmut. 
+Um dies in Zukunft zu vermeiden wurde vereinbart noch im bestehenden Meeting denkommenden Termin fix zu vereinbaren inklusive Kalendernotitz um künftigen Informationsdefiziten vorzubeugen. 
+
+=== Meetings 
+Meetins sollten besser Strukturiert und geplant werden um die Effizienz zu verbessern. Die chronischee Abwesenheit eines Teammitglieds führte darüber hinaus zu Abstimmungsschwierigkeiten
