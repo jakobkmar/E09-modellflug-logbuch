@@ -50,8 +50,8 @@ ac01 -d-> uc08
 ac01 -u-> uc09
 ac02 -d-> uc02
 ac02 -d-> uc06
-ac02 --> uc09
-ac02 --> uc04
+ac02 -u-> uc09
+ac02 -u-> uc04
 uc02 .l.> uc03 :include
 uc03 .l.> uc05 :extends
 uc06 .r.> uc05 :include

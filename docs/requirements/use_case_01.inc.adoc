@@ -81,24 +81,5 @@ UC02 ist nun möglich.
 * Der Use Case gehört zu der grundlegenden Funktionalität des _Systems_ und muss daher für jeden minimal erfahrenen Admin einfach zu benutzen und verständlich sein.
 
 
-=== Use-Case-Diagramm
-
-.Use-Case_Diagramm: UC01PilotRegistriert
-[plantuml, "{diagramsdir}/UC01PilotRegistriert", svg]
-....
-@startuml
-left to right direction
-"Admin" as ac01
-"Pilot" as ac02
-package Webapp-Frontend {
-    "UC01 Pilot registrieren" as (uc01)
-}
-package Webserver-Backend {
-    "UC92 Pilotenaccount wird gespeichert" as (uc92)
-}
-ac01 -d-> uc01
-uc01 -l-> ac02
-uc01 -d-> uc92
-@enduml
 ....
 
