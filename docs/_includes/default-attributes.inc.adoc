@@ -1,5 +1,5 @@
 // Meta
-:project-name: < Mobiles Logbuch für Modellflugplatz (E09)>
+:project-name: Mobiles Logbuch für Modellflugplatz (E09)
 :project-system-name: <Projektname-System>
 // Settings:
 :toc:

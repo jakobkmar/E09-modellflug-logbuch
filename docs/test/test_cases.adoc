@@ -9,69 +9,98 @@ include::../_includes/default-attributes.inc.adoc[]
 
 Test Cases sind essenziell um Szenarios auf vollumfängliche Funktionsweise zu testen. Dabei möchte man ein ungeteiltes Verständnis von spezifischen Bedingungen erreichen, welche die gewählte Lösung erfüllen sollte. Test Cases sind stark an den requirements orientiert, da man sicherstellen möchte, diese bestmöglich umzusetzen.
 
-== Test Cases
 
-=== Test Case 01 - Pilot registrieren
+== Test Case 01 - Synchronisation überprüfen
 
-- In diesem Test Case wird die Funktion der Pilot-Registrierung überprüft.
-- Es ist die erste Handlung die ein Nutzer vollzieht wenn er das erste Mal den Flugplatz betritt
+=== Beschreibung
 
+In diesem Test-Case geht es darum zu schauen, wie schnell und zuverlässig die lokale Datenbank des Raspis nach einer Änderung der Datenbank des Webservers aktualisiert wird.
 
-Voraussetzungen:
+=== Vorbedingungen
 
-- Um diese Funktion als Nutzer verwenden zu können, sind kaum bis keine Voraussetzungen notwendig.
-- Lediglich ein Admin-Akteur muss existieren.
+- Der Akteur muss eine Internetverbindung haben
+- Der Akteur sollte vorher nicht angemeldet sein
 
-Ziel des Vorgangs:
+=== Testablauf
 
-- neuen Akteur Pilot mit einem Account auszustatten, um danach weitere Funktionen nutzen zu können.
+- Pilot registriert sich neu im System
+- Nach vollständiger Registrierung meldet sich der Pilot unverzüglich über die Website an
+- Je schneller diese beiden Prozesse hintereinander ablaufen, desto besser um die Geschwindigkeit zu testen
 
+=== Nachbedingungen
 
-Ablauf:
+- Pilot sollte in Datenbank registriert sein
+- Pilot sollte angemeldet sein
 
-- Der Test Case beginnt damit, dass der Pilot den Button "Account erstellen" betätigt.
-- Das sollte die Accounterstellung öffnen.
-- Diese muss Eingabefelder für die gewünschten Informationen liefern -> Benötigt wird Name, Vorname, Flugleitererlaubnis, Tagesmitglied/Gast.
-- Die einzelnen Angaben unterscheiden sich in ihren Anforderungen. Für Name und Vorname sollten 1-100 Zeichen verwendet werden. Es sollten keine Sonderzeichen und Zahlen verwendet wurden sein. Desweiteren sollte die Kombination aus Name und Vorname nicht bereits in der Datenbank existieren.
-- Die Flugleitererlaubnis sollte hochgeladen werden können und auf Korrektheit geprüft werden.
-- Tagesmitglied/Gast sollte eine Auswahl öffnen, um die zutreffende Option auszuwählen.
-- Keines der Felder darf leer bleiben.
-- Jegliche dieser Bedingungen sind essenziell und führen bei der Betätigung des Buttons "Accounterstellung abschließen" zu einer Fehlermeldung, falls nicht oder nicht korrekt erfüllt.
-- Wenn das der Fall ist, sollte dder Alternative Ablauf einsetzen.
-- Der Akteur sollte in der Accounterstellung die eingegeben Informationen auf Richtigkeit überprüfen.
-- Wenn alle Beidngungen erfüllt sind, wird der Account vom System registriert.
+<<<
 
-=== Test Case 02 - Anmeldung des Piloten
+== Test Case 02 - Belastbarkeit testen
 
-- In diesem Test Case wird der Vorgang bei der Anmeldung eines Piloten beim Betreten des Flugplatzes beschrieben.
-- Dies geschieht jedes Mal wenn jemand fliegen will, der bereits registriert ist
+=== Beschreibung
 
-Voraussetzungen:
+In diesem Test-Case geht es darum die Belastbarkeit des Systems zu testen, das heißt, es sollen Situationen getestet werden, die entweder nur sehr selten oder durch böswillige Aktionen auftreten. Dabei darf der Test nicht zum Absturz führen.
 
-- Als Akteur ist dabei nur der Pilot selbst von nöten.
-- Vorher muss die Registrierung, wie in Test Case 01 oder auch Use Case 01 beschrieben, abgeschlossen sein.
-- Desweiteren sollte der Pilot noch nicht angemeldet sein und seinen Nutzernamen und sein Passwort kennen.
+=== Vorbedingungen
 
-Ziel des Vorgangs:
+- Es muss mindest ein Pilot in der Datenbank vorhanden sein
+- Der Akteur muss eine Internetverbindung haben
 
-- Die Verifizierung des Piloten durch seinen Account
+=== Testablauf
 
-Ablauf:
+- Der Pilot meldet sich an
+- Der Pilot meldet sich schnellstmöglich wieder ab
+- Dies wird beliebig häufig in einem kurzen Zeitraum wiederholt
+- Wenn möglich auch mit mehreren Nutzern gleichzeitig
 
-- Der Test Case beginnt sobald der Pilot die Webapp öffnet um sich anzumelden.
-- Diese kann über einen QR-Code erreicht werden.
-- Dabei sollte getestet werden, dass dieser QR-Code ans korrekte Ziel führt und auf jedem Gerät lesbar ist.
-- Für die Anmeldung gibt der Pilot seine Anmeldedaten ein.
-- Es sind ein Eingabefeld für den Nutzername und ein Eingabefeld für sein Passwort notwendig.
-- Wenn der Pilot seine Daten eingegeben hat und den Button "Anmelden" bestätigt, wird in der Datenbank nach diesen Anmeldedaten gesucht.
-- Um diesen Suchvorgang zu genehmigen muss in beide Felder etwas eingetragen sein.
-- Ist dies nicht der Fall, sollte der Nutzer mit einer Fehlermeldung darauf hingewiesen werden.
-- Für den Suchprozess existieren zwei verschiedene Abläufe.
-- Wenn die Anmeldedaten wie eingegeben in der Datenbank vorhanden sind -> Pilot wird angemeldet.
-- Dies darf nur geschehen, wenn der Nutzername und das Passwort übereinstimmen mit den bei der Registrierung gespeicherten Daten.
-- Falls dies nicht der Fall ist sollte kein Zugang gewährleistet werden.
-- Es wird eine Fehlermeldung ausgegeben, dass die Anmeldedaten nicht korrekt sind.
-- Der Nutzer wird wieder zurück ins Anmeldefenster geschickt und muss den Anmeldeprozess erneut vollziehen.
-- Dies wiederholt sich solange bis ein in der Datenbank vorhandenes Paar von Nutzername und Passwort eingegeben wurde.
-- Im Falle der erfolgreichen Anmeldung wird diese protokolliert.
-- Erst wenn die Anmeldung korrekt festgehalten wurde, ist der Test Case erfolgreich abgeschlossen.
+=== Nachbedingung
+
+- Im Idealfall ist dabei keine Komponente des Systems abgestürzt
+- Alle An- & Abmeldevorgänge konnten vollzogen werden
+
+<<<
+
+== Test Case 03 - Mehrere Flugleiter
+
+=== Beschreibung
+
+In diesem Test-Case geht es darum die vom Themensteller vorgegebene Rahmenbedingung einzuhalten, dass es zu jeder Zeit maximal einen Flugleiter auf dem Flugplatz geben darf.
+
+=== Vorbedingungen
+
+- Es existieren zwei oder mehr Piloten
+- Es muss bei allen Piloten Internetverbindung vorhanden sein
+
+=== Testablauf
+
+- Pilot 1 meldet sich als Flugleiter an
+- Pilot 2 meldet sich nach Pilot 1 als Flugleiter an
+- Dies kann beliebig lang fortgeführt werden
+
+=== Nachbedingungen
+
+- Der Pilot, der sich als erster angemeldet hat, ist nun Flugleiter und hat diesbezüglich eine Bestätigung erhalten
+- Der Pilot, der sich als zweiter angemeldet hat, bekommt die Rolle übertragen und hat diesbezüglich eine Rückmeldung bekommen
+- Pilot 1 bekommt auch eine Benachrichtigung, dass ihm der Flugleiter Status wieder entzogen wurde und Pilot 2 nun Flugleiter ist
+
+<<<
+
+== Test Case 04 - Sicherheitsüberprüfungen
+
+=== Beschreibung
+
+In diesem Test-Case wird die nichtfunktionale Anforderung "Legal" auf Erfüllung getestet. Die vollständige Website (außer Login-Page, Datenschutzerklärung, Impressum), die personalisierten Daten sowie Dokumente der Datenbank und des Webservers dürfen nur nach der Eingabe von Passwörtern lesbar, veränderbar oder löschbar sein.
+
+=== Vorbedingungen
+
+- Der Akteur ist nicht angemeldet
+
+=== Testablauf
+
+- Die Website sollte nur die oben genannten Seiten anzeigen
+- Der Versuch weitere Seiten aufzurufen sollte ohne Anmeldung nicht möglich sein
+
+=== Nachbedingungen
+
+- Es sollte keine Änderung/Anzeige verbindlicher Daten möglich sein
+- Nur die genannten Teile der Website sollten erreichbar sein
+- Die Funktionen der Website, welche nach der Anmeldung zur Verfügung stehen, sollten ohne Anmeldung nicht erreichbar sein

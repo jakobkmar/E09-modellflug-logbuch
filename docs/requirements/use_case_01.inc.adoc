@@ -1,6 +1,7 @@
 //Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
 ifndef::main-document[include::../_includes/default-attributes.inc.adoc[]]
 
+ifndef::docs-requirements[:docs-requirements: ../requirements]
 
 == Use-Case: UC01 Pilot registrieren
 
@@ -80,25 +81,8 @@ UC02 ist nun möglich.
 ==== Usability
 * Der Use Case gehört zu der grundlegenden Funktionalität des _Systems_ und muss daher für jeden minimal erfahrenen Admin einfach zu benutzen und verständlich sein.
 
+=== Wireframe
 
-=== Use-Case-Diagramm
-
-.Use-Case_Diagramm: UC01PilotRegistriert
-[plantuml, "{diagramsdir}/UC01PilotRegistriert", svg]
-....
-@startuml
-left to right direction
-"Admin" as ac01
-"Pilot" as ac02
-package Webapp-Frontend {
-    "UC01 Pilot registrieren" as (uc01)
-}
-package Webserver-Backend {
-    "UC92 Pilotenaccount wird gespeichert" as (uc92)
-}
-ac01 -d-> uc01
-uc01 -l-> ac02
-uc01 -d-> uc92
-@enduml
-....
-
+.Wireframe: Pilot registrieren
+:imagesdir: {docs-requirements}/images/wireframes
+image::pilot_registrieren.jpg[Wireframe Pilot registrieren, width=50%, align=center]

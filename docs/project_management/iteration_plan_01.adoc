@@ -36,19 +36,9 @@ siehe *https://github.com/users/jakobkmar/projects/2/views/3?filterQuery=iterati
 
 _alternativ:_ Exportierte Daten aus dem Spreadsheet:
 
-[%header, cols="3,3,3,3,3,1,1"]
-|===
-| Title | Assignees | Status | Priority | Iteration | gearbeitete Std. | verbleibende Std.
-| Einrichtung einer gemeinsamen Kommunikationsplattform (Discord) | Lucas | Done | 5 | Iteration 1 | 1 | 0
-| Rollenfindung | alle | Verification required | 8 | Iteration 1 | 1 | 0
-| Erstellung GitHub Repository und Project | Jakob | Done | 5 | Iteration 1 | 1.5 | 0
-| Kontaktaufnahme mit Auftraggeber und Coach | Lucas | In Progress | 8 | Iteration 1 | 1 | 0
-| Terminvereinbarungen | alle | Done | 13 | Iteration 1 | 1 | 0
-| Stakeholder vorläufig bestimmen | Felix | Done | 3 | Iteration 1 | 1 | 0
-| Bearbeitung Iteration Plan | Jakob, Lucas | In Progress | 5 | Iteration 1 | 1 | 0
-| Planung Teambuilding Event | alle | Todo | 3 | Iteration 1 | 1 | 1
-| Work Item List in GitHub Projects übetragen | Jakob | Done | 5 | Iteration 1 | 0.5 | 0
-|===
+.Work Item List: Iteration 1
+image::work_item_list/iteration1.png[Work Item List: Iteration 1]
+
 
 == Probleme (optional)
 //Optional: Führen Sie alle Probleme auf, die in dieser Iteration adressiert werden sollen. Aktualisieren Sie den Status, wenn neue Probleme bei den täglichen / regelmäßigen Abstimmungen berichtet werden.
@@ -100,3 +90,10 @@ Verschoben wurde die Festsetzung eines Termins zum Teambuilding.
 Die Bewertungskriterien wurden erfüllt. Die erste Kontaktaufname mit dem Auftraggeber hat jedoch etwas länger gedauert, siehe "Probleme".
 
 Nachdem es etwas länger gedauert hatte bis jeder einen GitHub Account eingerichtet hat, ist es bis zum Ende der Iteration gelungen jeden als Collaborator einzuladen.
+
+*Projektfortschritt*
+
+Der Projektfortschritt kann im sim4seed Essence-Navigator veranschaulicht werden:
+
+.Projektfortschritt: Iteration 1
+image::essence_navigator/iteration1.png[Essence Navigator]

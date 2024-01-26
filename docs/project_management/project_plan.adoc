@@ -14,68 +14,25 @@ Der Zweck dieses Plans besteht darin, innerhalb des Teams sowie nach außen Tran
 == Projektorganisation
 Das Team, bestehend aus sieben Personen, zeichnet sich durch eine Vielzahl unterschiedlicher Charaktere und Interessen aus. Gerade diese bunte Mischung trägt maßgeblich zur erfolgreichen Zusammenarbeit bei. Bei aufkommenden Problemen oder neuen Aufgaben gibt es stets Mitglieder im Team, die motiviert sind, sich mit dem jeweiligen Thema auseinanderzusetzen und die Verantwortung zu übernehmen. Eine herausragende Eigenschaft im Team ist die Bereitschaft erfahrener Mitglieder, Hilfestellung bei der Entwicklung notwendiger Fähigkeiten zu leisten. Sie unterstützen aktiv ihre Kollegen und helfen diesen, neue Kompetenzen zu erlernen. Diese kooperative Einstellung fördert die Effektivität und ermöglicht es dem Team, mit Engagement an den gestellten Aufgaben zu arbeiten.
 
-=== Teammitglieder 
+=== Aufgabenverteilung
 
-|===
+Den Projektmitgliedern werden im ersten Semester grob die folgenden Hauptaufgaben zugeteilt:
 
-|*Name* |*Alter* |*Informationen zur Person* |*Rolle* 
+* Projektleitung:
+** Lucas Trogisch
+* Analyse:
+** Felix Glieme (WiIng)
+** Laurin Wobeda
+** Julian Neidert
+* Entwurf:
+** Jakob Kretzschmar
+** Abdallah Alherani
+* Test
+** Conrad Caffier
+* Implementierung:
+** Jakob Kretzschmar
 
-| Abdallah Alherani | 23 | 
--Wirtschaftsinformatiker 
--
--
-| *Implementierung*
-
-| Conrad Caffier | 20 |
--Wirtschaftsinformatiker 
-
--Programmiersprachen Kotlin, Java, Rust (und JavaScript); Grundkenntnisse in vielen weiteren Sprachen,
-
--Zusammenarbeit in Git,
-
--Kommunikation zwischen Frontend und Backend Anwendungen,
-
--Docker (Containermanagement),
-
--App Development.
-
--
-| *Test* 
-
-| Felix Glieme | 22 | 
--Wirtschaftsingenieur
-
--zuverlässig
-
--erfahren in Projektarbeiten
-| *Analyse* 
-
-| Jakob Kretzschmar | 20 |
--Wirtschaftsinformatiker 
--
--
-| *Entwurf* 
-
-| Julian Neidert | 19 | 
--Wirtschaftsinformatiker 
-
-| Entwurf, Test
-
-| Laurin Wobeda | 19 | 
--Wirtschaftsinformatiker 
--
--
-| Entwurf, Analyse 
-
-| Lucas Trogisch | 19 | 
-- Wirtschaftsinformatiker    
-
-- Werkstudent bei Luftfahrtzulieferer        
-
-- Projektorientiert                
-| *Projekleitung*
-
-|===
+Die Zuteilung dieser Hauptverantwortlichkeiten wurde vor allem aufgrund der eigenen Einschätzung der Teammitglieder in den ersten Teammeetings getätigt.
 
 === Arbeitsweise
 
@@ -154,6 +111,8 @@ Insbesondere in der Elaboration Phase des Projektes werden Anforderungen der Sta
 
 == Deployment
 //Outline the strategy for deploying the software (and its updates) into the production environment.
+
+In diesem Semester findet noch kein Deployment statt. Detaillierte Informationen und Zugangsdaten des Auftraggebers stehen diesbezüglich noch aus.
 
 
 == Erkenntnisse (Lessons learned)

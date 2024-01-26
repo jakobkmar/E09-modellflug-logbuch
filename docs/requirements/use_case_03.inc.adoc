@@ -1,6 +1,7 @@
 //Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
 ifndef::main-document[include::../_includes/default-attributes.inc.adoc[]]
 
+ifndef::docs-requirements[:docs-requirements: ../requirements]
 
 == Use-Case: UC03 Protokoll anlegen
 
@@ -92,22 +93,8 @@ Es kann nun modifiziert werden oder eingesehen.
 ==== Usability
 * Der Use Case gehört zu der grundlegenden Funktionalität des _Systems_ und muss daher auch für nciht technisch versierte Piloten einfach zu benutzen und verständlich sein.
 
-=== Use-Case-Diagramm
+=== Wireframe
 
-.Use-Case_Diagramm: UC03ProtokollAnlegen
-[plantuml, "{diagramsdir}/UC03ProtokollAnlegen", svg]
-....
-@startuml
-left to right direction
-"Pilot" as ac02
-package Webapp-Frontend {
-    "UC03 Protokoll wird angelegt" as (uc03)
-}
-package Webserver-Backend {
-    "UC90 Protokoll wird gespeichert" as (uc90)
-}
-
-ac02 -d-> uc03
-uc03 .d.> uc90 :extends
-@enduml
-....
+.Wireframe: Protokoll anlegen
+:imagesdir: {docs-requirements}/images/wireframes
+image::protokoll_anlegen.jpg[Wireframe Protokoll anlegen, width=50%, align=center]

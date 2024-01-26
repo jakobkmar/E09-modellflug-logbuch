@@ -4,6 +4,7 @@ Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vor
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
 
+ifndef::docs-requirements[:docs-requirements: ../requirements]
 
 == Allgemeine Informationen
 // ...
@@ -21,54 +22,9 @@ include::../_includes/default-attributes.inc.adoc[]
 == Use Case Diagramm
 // ...
 
-.Use-Case_Diagramm: gesamte Lösung
-[plantuml, "{diagramsdir}/gesamter Use-Case", svg]
-....
-@startuml
-left to right direction
-"Admin" as ac01
-"Pilot" as ac02
-package Benutzerbereich {
-    "UC02 Pilot anmelden" as (uc02) 
-    "UC03 Protokoll anlegen" as (uc03)
-    "UC04 Protokolle einsehen" as (uc04)
-    "UC05 Flugleiter bestimmen" as (uc05)
-    "UC06 Pilot abmelden" as (uc06)
-    "UC09 Protokoll bearbeiten" as (uc09)
-    "UC90 Protokoll wird gespeichert" as (uc90)
-    "UC91 Protokolle werden abgefragt" as (uc91)
-    "UC92 Pilotendaten werden gespeichert" as (uc92)
-    "UC93 Flugleitung wird zugeteilt" as (uc93)
-}
-
-package Administrationsbereich {
-    "UC01 Pilot registrieren" as (uc01)
-    "UC07 Pilotendaten modifizieren" as (uc07)
-    "UC08 Pilot deaktivieren" as (uc08)
-
-}
-ac01 -l-> uc01
-ac01 -d-> uc04
-
-ac01 -l-> uc07
-ac01 -l-> uc08
-
-ac01 --> uc09
-ac02 -d-> uc02
-ac02 -d-> uc06
-ac02 --> uc09
-ac02 --> uc04
-uc01 .d.> uc92 :extends
-uc02 .r.> uc03 :include
-uc03 .r.> uc05 :extends
-uc03 .d.> uc90 :extends
-uc04 .d.> uc91 :extends
-uc05 .d.> uc93 :extends
-uc06 .l.> uc05 :include
-uc91 -r-> uc90
-uc93 .u.> uc05 :include
-@enduml
-....
+.Use-Case-Diagramm
+:imagesdir: {docs-requirements}/images
+image::use_case_diagram.png[Use Case Diagram]
 
 //Fügen Sie nachfolgend alle detaillierten Use-Cases per Include ein.
 //Dafür sollten Sie pro Use-Case eine Datei anlegen, die auf dem use_case_01.inc.adoc Template basiert.
