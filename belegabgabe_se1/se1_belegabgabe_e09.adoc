@@ -1,9 +1,9 @@
 // --- 1. Projektthema -------------------------
 = SE I - Belegabgabe: {project-name}
 // --- 2. Teammitglieder -----------------------
-Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>
+Lucas Trogisch <lucas.trogisch@stud.htw-dresden.de>; Jakob Kretzschmar <jakob.kretzschmar@stud.htw-dresden.de>; Julian Neidert <julian.neidert@stud.htw-dresden.de>; Felix Glieme <felix.glieme2@stud.htw-dresden.de>; Laurin Wobeda <laurin.wobeda@stud.htw-dresden.de>; Conrad Caffier <conrad.caffier2@stud.htw-dresden.de>; Abdallah Alherani <abdallah.alherani@stud.htw-dresden.de>
 // --- 3. Abgabedatum --------------------------
-01. Januar 2020
+26. Januar 2024
 // ---------------------------------------------
 :docs: ../docs
 include::{docs}/_includes/default-attributes.inc.adoc[]
@@ -86,7 +86,7 @@ include::{docs-project-management}/iteration_plan_01.adoc[lines=1..1;4..-1,level
 //include::{docs-project-management}/iteration_plan_02.adoc[lines=1..1;4..-1,leveloffset=+1]
 <<<
 // Iteration 3
-//include::{docs-project-management}/iteration_plan_03.adoc[lines=1..1;4..-1,leveloffset=+1]
+include::{docs-project-management}/iteration_plan_03.adoc[lines=1..1;4..-1,leveloffset=+1]
 <<<
 
 // --- Entwurfsdokumentation ---

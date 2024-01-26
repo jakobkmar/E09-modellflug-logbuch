@@ -4,6 +4,7 @@ Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vor
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
 
+ifndef::docs-requirements[:docs-requirements: ../requirements]
 
 == Allgemeine Informationen
 // ...
@@ -22,7 +23,7 @@ include::../_includes/default-attributes.inc.adoc[]
 // ...
 
 .Use-Case-Diagramm
-:imagesdir: ./images
+:imagesdir: {docs-requirements}/images
 image::use_case_diagram.png[Use Case Diagram]
 
 //Fügen Sie nachfolgend alle detaillierten Use-Cases per Include ein.

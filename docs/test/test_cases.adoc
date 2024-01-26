@@ -9,92 +9,97 @@ include::../_includes/default-attributes.inc.adoc[]
 
 Test Cases sind essenziell um Szenarios auf vollumfängliche Funktionsweise zu testen. Dabei möchte man ein ungeteiltes Verständnis von spezifischen Bedingungen erreichen, welche die gewählte Lösung erfüllen sollte. Test Cases sind stark an den requirements orientiert, da man sicherstellen möchte, diese bestmöglich umzusetzen.
 
-== Test Cases
 
-=== Test Case 01 - Synchronisation überprüfen
+== Test Case 01 - Synchronisation überprüfen
 
-==== Beschreibung
+=== Beschreibung
 
 In diesem Test-Case geht es darum zu schauen, wie schnell und zuverlässig die lokale Datenbank des Raspis nach einer Änderung der Datenbank des Webservers aktualisiert wird.
 
-==== Vorbedingungen
+=== Vorbedingungen
 
 - Der Akteur muss eine Internetverbindung haben
 - Der Akteur sollte vorher nicht angemeldet sein
 
-==== Testablauf
+=== Testablauf
 
 - Pilot registriert sich neu im System
 - Nach vollständiger Registrierung meldet sich der Pilot unverzüglich über die Website an
 - Je schneller diese beiden Prozesse hintereinander ablaufen, desto besser um die Geschwindigkeit zu testen
 
-==== Nachbedingungen
+=== Nachbedingungen
 
 - Pilot sollte in Datenbank registriert sein
 - Pilot sollte angemeldet sein
 
-=== Test Case 02 - Belastbarkeit testen
+<<<
 
-==== Beschreibung
+== Test Case 02 - Belastbarkeit testen
+
+=== Beschreibung
 
 In diesem Test-Case geht es darum die Belastbarkeit des Systems zu testen, das heißt, es sollen Situationen getestet werden, die entweder nur sehr selten oder durch böswillige Aktionen auftreten. Dabei darf der Test nicht zum Absturz führen.
 
-==== Vorbedingungen
+=== Vorbedingungen
 
 - Es muss mindest ein Pilot in der Datenbank vorhanden sein
 - Der Akteur muss eine Internetverbindung haben
 
-==== Testablauf
+=== Testablauf
 
 - Der Pilot meldet sich an
 - Der Pilot meldet sich schnellstmöglich wieder ab
 - Dies wird beliebig häufig in einem kurzen Zeitraum wiederholt
 - Wenn möglich auch mit mehreren Nutzern gleichzeitig
 
-==== Nachbedingung
+=== Nachbedingung
 
 - Im Idealfall ist dabei keine Komponente des Systems abgestürzt
 - Alle An- & Abmeldevorgänge konnten vollzogen werden
 
-=== Test Case 03 - Mehrere Flugleiter
+<<<
 
-==== Beschreibung
+== Test Case 03 - Mehrere Flugleiter
+
+=== Beschreibung
 
 In diesem Test-Case geht es darum die vom Themensteller vorgegebene Rahmenbedingung einzuhalten, dass es zu jeder Zeit maximal einen Flugleiter auf dem Flugplatz geben darf.
 
-==== Vorbedingungen
+=== Vorbedingungen
 
 - Es existieren zwei oder mehr Piloten
 - Es muss bei allen Piloten Internetverbindung vorhanden sein
 
-==== Testablauf
+=== Testablauf
 
 - Pilot 1 meldet sich als Flugleiter an
 - Pilot 2 meldet sich nach Pilot 1 als Flugleiter an
 - Dies kann beliebig lang fortgeführt werden
 
-==== Nachbedingungen
+=== Nachbedingungen
 
 - Der Pilot, der sich als erster angemeldet hat, ist nun Flugleiter und hat diesbezüglich eine Bestätigung erhalten
 - Der Pilot, der sich als zweiter angemeldet hat, bekommt die Rolle übertragen und hat diesbezüglich eine Rückmeldung bekommen
 - Pilot 1 bekommt auch eine Benachrichtigung, dass ihm der Flugleiter Status wieder entzogen wurde und Pilot 2 nun Flugleiter ist
 
-=== Test Case 04 - Sicherheitsüberprüfungen
+<<<
 
-==== Beschreibung
+== Test Case 04 - Sicherheitsüberprüfungen
+
+=== Beschreibung
 
 In diesem Test-Case wird die nichtfunktionale Anforderung "Legal" auf Erfüllung getestet. Die vollständige Website (außer Login-Page, Datenschutzerklärung, Impressum), die personalisierten Daten sowie Dokumente der Datenbank und des Webservers dürfen nur nach der Eingabe von Passwörtern lesbar, veränderbar oder löschbar sein.
 
-==== Vorbedingungen
+=== Vorbedingungen
 
 - Der Akteur ist nicht angemeldet
 
-==== Testablauf
+=== Testablauf
 
 - Die Website sollte nur die oben genannten Seiten anzeigen
 - Der Versuch weitere Seiten aufzurufen sollte ohne Anmeldung nicht möglich sein
 
-==== Nachbedingungen
+=== Nachbedingungen
 
 - Es sollte keine Änderung/Anzeige verbindlicher Daten möglich sein
 - Nur die genannten Teile der Website sollten erreichbar sein

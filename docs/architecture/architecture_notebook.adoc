@@ -4,6 +4,8 @@ Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vor
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
 
+ifndef::docs-requirements[:docs-requirements: ../requirements]
+ifndef::docs-architecture[:docs-architecture: ../architecture]
 
 == Zweck
 Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Begründungen, wesentliche Elemente und andere übergreifende Aspekte des Systems, die Einfluss auf Entwurf und Implementierung haben.
@@ -137,7 +139,7 @@ Die Trennung von Funktionen und Inhalten ist ein wichtiges Prinzip in der Softwa
 
 Im Kontext zunehmend komplexer Frontend-Anwendungen ist diese Trennung jedoch nicht immer sinnvoll. Das Component-Pattern bietet eine alternative Lösung, die die Vorteile der Trennung von Funktionen und Inhalten mit den Anforderungen an die Wartbarkeit komplexer Anwendungen vereint.
 
-Beim Component-Pattern werden die UI-Elemente in lose gekoppelte Komponenten unterteilt. Jede Komponente übernimmt eine bestimmte Aufgabe, z. B. die Darstellung eines Buttons oder die Eingabe eines Formulars. Die Vorlage, Logik und Stile einer Komponente sind intrinsisch miteinander verbunden. Dies macht die Komponente kohärenter und wartbarer.
+Beim Component-Pattern werden die UI-Elemente in lose gekoppelte Komponenten unterteilt. Jede Komponente übernimmt eine bestimmte Aufgabe, z.B. die Darstellung eines Buttons oder die Eingabe eines Formulars. Die Vorlage, Logik und Stile einer Komponente sind intrinsisch miteinander verbunden. Dies macht die Komponente kohärenter und wartbarer.
 
 Die Komponenten können zu komplexeren UI-Strukturen zusammengesetzt werden. Dies ermöglicht eine flexible und wiederverwendbare Architektur.
 
@@ -159,7 +161,7 @@ Des weiteren wird somit der Control Flow nachvollziehbarer.
 Die logische Sicht betrachtet Klassen und Schnittstellen, welche bei dem System miteinander interagieren bzw. Einfluss aufeinander haben. Diese sind architekturrelevant und spiegeln sich unteranderem in den Typen wieder. Der Großteil der Interaktion geht hier von dem Pilot aus, was sich mit dem Ansatz deckt, dass dieser im zentralen Fokus unserer Anwendung und Nutzeroberfläche steht.
 
 .Domainmodell
-:imagesdir: ../requirements/images/domain_model
+:imagesdir: {docs-requirements}/images
 image::domain_model.png[Domainmodell]
 
 === Physische Sicht (Betriebssicht)
@@ -168,11 +170,11 @@ image::domain_model.png[Domainmodell]
 Aus physischer Sicht steht klar das Backend im Mittelpunkt, da es Wetterstation und Datenbank zusammenfasst, die meiste Logik handhabt und bei jeglicher Interaktion mit einbezogen wird.
 
 .C4 Modell (Level 2)
-:imagesdir: ./images
+:imagesdir: {docs-architecture}/images
 image::c4model.png[C4 Modell, width=65%]
 
 .Informelles Architektur Diagramm (Aus Protokoll eines Auftraggebermeetings)
-:imagesdir: ./images
+:imagesdir: {docs-architecture}/images
 image::draft_informal.png[Informelles Architektur Diagramm, width=80%]
 
 === Use cases
