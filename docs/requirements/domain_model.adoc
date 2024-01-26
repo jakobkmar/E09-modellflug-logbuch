@@ -4,10 +4,6 @@ Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vor
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
 
-
-
-:imagesdir: images/domain_model
-
 .Domain Model
+:imagesdir: ./images
 image::domain_model.png[Domain Model]
-

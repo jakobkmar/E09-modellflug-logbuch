@@ -80,6 +80,8 @@ UC02 ist nun möglich.
 ==== Usability
 * Der Use Case gehört zu der grundlegenden Funktionalität des _Systems_ und muss daher für jeden minimal erfahrenen Admin einfach zu benutzen und verständlich sein.
 
+=== Wireframe
 
-....
-
+.Wireframe: Pilot registrieren
+:imagesdir: ./images/wireframes
+image::pilot_registrieren.jpg[Wireframe Pilot registrieren, width=50%, align=center]
