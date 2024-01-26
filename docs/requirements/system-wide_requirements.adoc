@@ -4,6 +4,7 @@ Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vor
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
 
+ifndef::docs-requirements[:docs-requirements: ../requirements]
 
 == Einführung
 In diesem Dokument werden die systemweiten Anforderungen für das Projekt {project-name} spezifiziert. Die Gliederung erfolgt nach der FURPS+ Anforderungsklassifikation:
@@ -12,7 +13,7 @@ In diesem Dokument werden die systemweiten Anforderungen für das Projekt {proje
 * Qualitätsanforderungen für Benutzbarkeit, Zuverlässigkeit, Effizienz und Wartbarkeit (URPS) sowie
 * zusätzliche Anforderungen (+) für technische, rechtliche, organisatorische Randbedingungen
 
-NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern mit dem System ergeben, sind als Use Cases in einem link:use-case_model[separaten Dokument] festgehalten.
+NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern mit dem System ergeben, sind als Use Cases in einem link:{docs-requirements}/use-case_model[separaten Dokument] festgehalten.
 
 
 

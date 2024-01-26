@@ -71,7 +71,7 @@ Container-Technologie eines Proxmox-Servers basiert, kann hier eine nachhaltige 
 | extern  | Verwaltung des Flugplatz  | benutzt System und verwaltet es
 | extern  | Gäste auf dem Flugplatz  |     
 | extern  | Gesetzgeber  | fordert die Führung des Logbuches für jeglichen Flugverkehr
-| intern  | Coachs und Dozenten  | würden sich über gute Arbeit der Entwickler/Studenten freuen  
+| intern  | Coaches und Dozenten  | würden sich über gute Arbeit der Entwickler/Studenten freuen  
 | extern  | Betreiber eines weiteren Flugplatzes | möchte auch ein digitales Logbuch implementieren oder nutzt es bereits und will beide Systeme koppeln, um Informationen live auszutauschen
 |===
 
@@ -129,7 +129,7 @@ Container-Technologie eines Proxmox-Servers basiert, kann hier eine nachhaltige 
 === Bedarfe und Hauptfunktionen
 //Vermeiden Sie Angaben zum Entwurf. Nennen wesentliche Features (Produktmerkmale) auf allgemeiner Ebene. Fokussieren Sie sich auf die benötigten Fähigkeiten des Systems und warum (nicht wie!) diese realisiert werden sollen. Geben Sie die von den Stakeholdern vorgegebenen Prioritäten und das geplante Release für die Veröffentlichung der Features an.
 
-[%header, cols="4,1,4,1"]
+[%header, cols="1,1,4,1"]
 |===
 | Bedarf | Priorität | Features | Geplantes Release
 | xx | 10 | mobiles, elektronisches Logbuch | xx

@@ -63,7 +63,7 @@ image::work_item_list/iteration3.png[Work Item List: Iteration 3]
 
 [%header, cols="1,3"]
 |===
-| Assessment Ziel | Das kann die gesamte Iteration oder eine spezifische Komponente sein
+| Assessment Ziel | Iteration 3
 
 | Assessment Datum | 25.12.2023
 | Teilnehmer | Das ganze Team
@@ -84,7 +84,7 @@ Jegliche weitere Aufgaben sind fertiggestellt worden.
 //Document whether you met the evaluation criteria as specified in the Iteration Plan.
 //Geben Sie an, ob Sie die o.g. Bewertungskriterien erfüllt haben. Das kann z.B. folgende Informationen enthalten: “Demo for Department X was well-received, with some concerns raised around usability,” or “495 test cases were automated with a 98% pass rate. 9 test cases were deferred because the corresponding Work Items were postponed.”
 
-Die Bewewrtungskriterien konnten erfüllt werden. Erledigt wurden die wichtigsten Aufgaben. Es gibt kleinere Teile der Aufgaben, die nicht vollständig sind.
+Die Bewertungskriterien konnten erfüllt werden. Erledigt wurden die wichtigsten Aufgaben. Es gibt kleinere Teile der Aufgaben, die nicht vollständig sind.
 
 *Projektfortschritt*
 

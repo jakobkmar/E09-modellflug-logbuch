@@ -102,7 +102,7 @@ Insbesondere in der Elaboration Phase des Projektes werden Anforderungen der Sta
 * Rücksprache mit dem Auftraggeber zu Wireframes
 * Entwicklung eines Prototypen 
 * Architecture Notebook
-* C4 Midell erstellen
+* C4 Modell erstellen
 * Domänenmodell
 | KW 1/ KW 3 +
 *LCA-Meilenstein*
@@ -124,8 +124,8 @@ In diesem Semester findet noch kein Deployment statt. Detaillierte Informationen
 Um als Team zu funktionieren ist es erforderlich auf die Termintreue und Zuverlässigkeit der anderen zu vertrauen. Dazu ist direkter persönlicher Kontakt von Angesicht zu angesicht erforderlich, möglichst in einem Hochschulfernen Umfeld in kleinem Kreis. Des Weiteren ist regelmäßiger Austausch unerlässlich, sobald nicht mit sondern über Akteure gesprochen wird entstehen schnell Missverständnisse und Vorurteile. 
 
 === Termine mit dem Auftraggeber
-Bei der Vereinbarung von Terminen mit dem aftraggeber kam es zu Missverständnissen, und dadurch zu Verzögerungen im Arbeitsablauf sowie allgemeinen Unmut. 
-Um dies in Zukunft zu vermeiden wurde vereinbart noch im bestehenden Meeting denkommenden Termin fix zu vereinbaren inklusive Kalendernotitz um künftigen Informationsdefiziten vorzubeugen. 
+Bei der Vereinbarung von Terminen mit dem Auftraggeber kam es zu Missverständnissen, und dadurch zu Verzögerungen im Arbeitsablauf sowie allgemeinen Unmut. 
+Um dies in Zukunft zu vermeiden wurde vereinbart noch im bestehenden Meeting den kommenden Termin fix zu vereinbaren - inklusive Kalendernotiz - um künftigen Informationsdefiziten vorzubeugen. 
 
 === Meetings 
-Meetins sollten besser Strukturiert und geplant werden um die Effizienz zu verbessern. Die chronischee Abwesenheit eines Teammitglieds führte darüber hinaus zu Abstimmungsschwierigkeiten
+Meetings sollten besser Strukturiert und geplant werden um die Effizienz zu verbessern. Die chronische Abwesenheit eines Teammitglieds führte darüber hinaus zu Abstimmungsschwierigkeiten

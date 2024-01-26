@@ -24,7 +24,7 @@ Er kann Veränderungen an seinem Profil vornehmen, jedoch nicht am Gesamtsystem.
 . Der *Pilot* gibt sein Passwort ein.
 . In der Datenbank wird überprüft, ob es einen solchen Nutzer (definiert durch Nutzername und Passwort) gibt.
 . IF *Pilot* existiert
-.. Der *Pliot* wird angemeldet.
+.. Der *Pilot* wird angemeldet.
 . Die Anmeldung wird protokolliert.
 . Der Use Case ist abgeschlossen.
 

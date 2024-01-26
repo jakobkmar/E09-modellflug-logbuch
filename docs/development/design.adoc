@@ -7,5 +7,6 @@ include::../_includes/default-attributes.inc.adoc[]
 
 == Allgemeine Informationen
 
+Beim Design  geht es um den Feinentwurf von Komponenten, also Schnittstellen, Paketen, Klassen usw.
 
-== ...
+Die Ausarbeitung dieser steht für Anfang nächstes Semester an.

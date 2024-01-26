@@ -180,4 +180,24 @@ image::draft_informal.png[Informelles Architektur Diagramm, width=80%]
 === Use cases
 //Eine Liste oder ein Diagramm der Use Cases, die architektur-relevante Anforderungne enthalten.
 
+Alle von uns identifizierten Use Cases haben eine Auswirkung auf die Architektur.
 
+So unteranderem:
+
+* UC01 Pilot registrieren, UC03 Protokoll anlegen
+** es wird eine persistente Datenbank benötigt
+* UC02 Pilot anmelden, UC06 Pilot abmelden
+** es muss eine Session gehalten werden
+* UC04 Protokoll einsehen, UC09 Protokoll bearbeiten
+** es muss eine Authentifizierung geben
+** Daten müssen über das Backend aus der Datenbank abfragbar sein
+* UC05 Flugbegleiter bestimmen
+** es muss eine Websocket Verbindung offen gehalten werden, um alle Piloten zu fragen
+* UC07 Pilotendaten modifizieren, UC08 Pilot deaktivieren
+** es muss einen abgetrennten Administratorbereich geben
+
+Somit ist für die Architektur das gesamte Use-Case-Diagramm relevant.
+
+.Use-Case-Diagramm
+:imagesdir: {docs-requirements}/images
+image::use_case_diagram.png[Use Case Diagram]
