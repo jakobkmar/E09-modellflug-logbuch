@@ -67,27 +67,45 @@ Insbesondere in der Elaboration Phase des Projektes werden Anforderungen der Sta
 == Meilensteine und Ziele
 //Define and describe the high-level objectives for the iterations and define milestones. For example, use the following table to lay out the schedule. If needed you may group the iterations into phases and use a separate table for each phase
 
-[%header, cols="1,3a,2,1"]
+[%header, cols="1,3a,2"]
 |===
 | Iteration
 | Primary objectives +
 (risks and use case scenarios)
 | Scheduled start or milestone
-| Target velocity
+
 
 | I1
 |
-* Mitigate Risk1
-* Develop Use Case 3, Scenario 2
-| Date from/Date to
-| 15
+* Findung als Team 
+* Etablieren von Arbeitsweisen und Strukturen
+* Initiierung des Projektes 
+| KW 45/ KW 47
+
 
 | I2
 |
-* Mitigate Risk 2
-* Develop Use Case 1, Scenario 2
-| Date from/Date to
-| 16
+* Entwicklung einer Vision
+* Dokumentation erster Use Cases 
+* Identifikation von Stakeholdern
+| KW 47/ KW 49
+
+| I3
+|
+* Ausarbeitung und Finalisierung der Analysedokumente, Rücksprache mit Auftraggeber 
+* Entwicklung eines Entwurfs 
+| KW 49/ KW 51
+
+| I4
+|
+* Rücksprache mit dem Auftraggeber zu Wireframes
+* Entwicklung eines Prototypen 
+* Architecture Notebook
+* C4 Midell erstellen
+* Domänenmodell
+| KW 1/ KW 3
+
+
 |===
 
 

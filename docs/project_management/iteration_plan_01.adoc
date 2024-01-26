@@ -39,6 +39,7 @@ _alternativ:_ Exportierte Daten aus dem Spreadsheet:
 .Work Item List: Iteration 1
 image::work_item_list/iteration1.png[Work Item List: Iteration 1]
 
+
 == Probleme (optional)
 //Optional: Führen Sie alle Probleme auf, die in dieser Iteration adressiert werden sollen. Aktualisieren Sie den Status, wenn neue Probleme bei den täglichen / regelmäßigen Abstimmungen berichtet werden.
 
