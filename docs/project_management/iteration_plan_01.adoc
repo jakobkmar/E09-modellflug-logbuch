@@ -43,10 +43,10 @@ _alternativ:_ Exportierte Daten aus dem Spreadsheet:
 | Rollenfindung | alle | Verification required | 8 | Iteration 1 | 1 | 0
 | Erstellung GitHub Repository und Project | Jakob | Done | 5 | Iteration 1 | 1.5 | 0
 | Kontaktaufnahme mit Auftraggeber und Coach | Lucas | In Progress | 8 | Iteration 1 | 1 | 0
-| Terminvereinbarungen | alle | Done | 9 | Iteration 1 | 1 | 0
-| Stakeholder vorläufig bestimmen | Felix | Done | 4 | Iteration 1 | 1 | 0
+| Terminvereinbarungen | alle | Done | 13 | Iteration 1 | 1 | 0
+| Stakeholder vorläufig bestimmen | Felix | Done | 3 | Iteration 1 | 1 | 0
 | Bearbeitung Iteration Plan | Jakob, Lucas | In Progress | 5 | Iteration 1 | 1 | 0
-| Planung Teambuilding Event | alle | Todo | 6 | Iteration 1 | 1 | 1
+| Planung Teambuilding Event | alle | Todo | 3 | Iteration 1 | 1 | 1
 | Work Item List in GitHub Projects übetragen | Jakob | Done | 5 | Iteration 1 | 0.5 | 0
 |===
 
