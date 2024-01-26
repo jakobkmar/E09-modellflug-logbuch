@@ -94,7 +94,8 @@ Insbesondere in der Elaboration Phase des Projektes werden Anforderungen der Sta
 |
 * Ausarbeitung und Finalisierung der Analysedokumente, Rücksprache mit Auftraggeber 
 * Entwicklung eines Entwurfs 
-| KW 49/ KW 51
+| KW 49/ KW 51 +
+*LCO-Meilenstein*
 
 | I4
 |
@@ -103,7 +104,8 @@ Insbesondere in der Elaboration Phase des Projektes werden Anforderungen der Sta
 * Architecture Notebook
 * C4 Midell erstellen
 * Domänenmodell
-| KW 1/ KW 3
+| KW 1/ KW 3 +
+*LCA-Meilenstein*
 
 
 |===
