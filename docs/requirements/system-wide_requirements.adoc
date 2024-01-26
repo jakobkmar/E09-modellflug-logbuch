@@ -23,16 +23,18 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 * *SWFA-1:* Das System muss Anmelde- sowie Protokolldaten dauerhaft speichern +
 // end::swfa1[]
 ** Zur Überprüfung wird die Datenbank mit Testdaten gefüllt. Nach dem Neustart müssen die Daten weiterhin vorliegen.
-
 // tag::swfa2[]
-* *SWFA-2:* Benutzer müssen ihre eigenen Protokolle bearbeiten können
+* *SWFA-2:* Benutzer müssen ihre eigenen Protokolle bearbeiten können, aber nicht die anderer Nutzer
 // end::swfa2[]
 ** Zur Überprüfung wird ein Protokoll mit einem Benutzeraccount erstellt. Danach muss mit dem selben Account das Bearbeiten des Protokolls möglich sein.
-
 // tag::swfa3[]
 * *SWFA-3:* Das System muss die Daten zu den Protokollen korrekt und vollständig erfassen und speichern
 // end::swfa3[]
 ** Zur Überprüfung wird die Datenbank mit Testdaten gefüllt. Zudem werden die gleichen Daten lokal bei einem Entwickler gespeichert. Nach einem Neustart der Datenbank werden die Daten verglichen. Die Daten müssen auf der Datenbank unverändert vorliegen.
+// tag::swfa4[]
+* *SWFA-4:* Wenn geflogen wird, dann muss es einen Flugleiter geben
+// end::swfa4[]
+** Zur Überprüfung versuchen wir ein Protokoll zu erstellen, ohne der Intention Flugleiter zu werden.
 
 == Qualitätsanforderungen für das Gesamtsystem
 //Qualitätsanforderungen repräsentieren das "URPS" im FURPS+ zu Klassifikation von Anforderungen
@@ -63,6 +65,8 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 
 * *NFAR-1:* Es darf kein falscher Benutzername oder Passwort angegeben werden
 ** Zur Überprüfung wird die Anmeldung mit einem falschen Benutzernamen und/oder einem falschen Passwort durchgeführt.
+* *NFAR-2:* Es dürfen keine unmöglichen Zeitspannen angegeben werden
+** Zur Überprüfung wird versucht ein Flugprotokoll über 10 Jahre zu erstellen.
 
 === Effizienz (Performance)
 // Die Performanz Charakteristiken des Systems sollten in diesem Bereich ausgeführt werden. Beispiele sind Antwortzeit, Durchsatz, Kapazität und Zeiten zum Starten oder Beenden.

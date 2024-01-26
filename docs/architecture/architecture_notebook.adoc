@@ -18,21 +18,82 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 
 //Formulieren Sie eine Reihe von Zielen, die die Architektur in ihrer Struktur und ihrem Verhalten erfüllen muss. Identifizieren Sie kritische Fragen, die von der Architektur adressiert werden müssen, z.B. besondere Hardware-Abhängigkeiten, die vom Rest des Systems isoliert werden sollten oder Sicherstellung der Funktionsfähigkeit unter besonderen Bedingungen (z.B. Offline-Nutzung).
 
+Die Software ist eine Webanwendung, welche zum Protokollieren von Flügen auf einem Modellflugplatz dient. Diese Anwendung muss von allen private Endgeräten der Piloten aufrufbar sein - und ist somit auch *öffentlich im Internet zugänglich*. Die Anwendung sollte eine deutlich höhere Toleranz an gleichzeitig aktiven Nutzern aufweisen als die meisten Modellflugclubs an Mitgliedern haben.
+
+Dabei ist es wichtig, dass eine gesicherte Verbindung aufgebaut werden kann. Weiterhin dürfen alle Kernfunktionalitäten (bis auf die Anmeldung) erst nach der erfolgreichen *Authentifizierung der Piloten**über ihren Nutzeraccount verfügbar sein.
+
+Da das Logbuch eines Modellflugplatz auf *gesetzlichen Regelungen* basiert, ist es zwingend erforderlich dass diese eingehalten werden. Darüber hinaus müssen die ohnehin geltenden Bestimmungen, wie unteranderem die DSGVO, beachtet werden.
+
+Da der Modellflugplatz ein Outdoor-Gelände ist, muss die Anwendung vor allem auf *mobile Endgeräte* abgestimmt sein. Da sich diese Endgeräte in ihren Spezifikationen teils stark unterscheiden, muss die Anwendung flexibel skalieren und schmale Bildschirmbreiten korrekt handhaben. Da manche Bedienungsschritte der Anwendung außerhalb der WLAN-Reichweite des Clubs stattfinden, muss die Anwendung möglichst *wenig mobile Daten* verbrauchen.
+
+Zusätzlich zu dem allgemeinen Ziel der *einfachen Bedienbarkeit* kommt der Umstand, dass viele Modellflugclubs auch eine Reihe an älteren Mitgliedern haben, sodass kleine UI-Elemente und komplexe Strukturen vermieden werden sollten. Die Hauptfunktionalität der Protokollierung sollte mit wenigen Klicks möglich sein. Wo es möglich ist sollen Standardwerte bereits eingetragen sein.
+
+Es ist davon auszugehen, dass der Auftraggeber oder andere Modellflugclubs das System in Zukunft *erweitern möchten*, weswegen eine nachvollziehbare Struktur und Dokumentation ins Gewicht fallen.
 
 == Annahmen und Abhängigkeiten
 //[List the assumptions and dependencies that drive architectural decisions. This could include sensitive or critical areas, dependencies on legacy interfaces, the skill and experience of the team, the availability of important resources, and so forth]
 
+*Annahmen:*
+
+* Internetverbindung
+** Auf dem Modellflugplatz besteht eine gute Abdeckung an mobilen Daten.
+** Im Clubgebäude gibt es WLAN.
+* Smartphonefeatures (oder anderes Endgerät)
+** Jeder Pilot hat ein Smartphone mit HTML5 und JavaScript fähigem Browser.
+** Das Smartphone des Piloten verfügt über eine Kamera.
+* Die verwendeten Frameworks sind stabil und werden in Zukunft durch ihre Autoren gewartet.
+* Der Verein des Modellflugplatz verfügt über einen Admin (Person).
+
+*Abhängigkeiten:*
+
+* Das Projekt ist darauf angewiesen, dass die Verwendeten Frameworks (für Frontend und Backend) und die Datenbank in Zukunft gepflegt werden.
+* Der Verein benötigt einen möglichst dauerhaft laufenden Linux Server, sowie einen Admin welcher diesen in Stand hält.
 
 == Architektur-relevante Anforderungen
-//Fügen Sie eine Referenz / Link zu den Anforderungen ein, die implementiert werden müssen, um die Architektur zu erzeugen.
 
+=== Funktional
+
+include::../requirements/system-wide_requirements.adoc[tag=swfa1]
+include::../requirements/system-wide_requirements.adoc[tag=swfa2]
+include::../requirements/system-wide_requirements.adoc[tag=swfa3]
+include::../requirements/system-wide_requirements.adoc[tag=swfa4]
+
+=== Effizienz (Performance)
+
+include::../requirements/system-wide_requirements.adoc[tag=nfap1]
+include::../requirements/system-wide_requirements.adoc[tag=nfap2]
+
+=== Wartbarkeit (Supportability)
+
+include::../requirements/system-wide_requirements.adoc[tag=nfas1]
+include::../requirements/system-wide_requirements.adoc[tag=nfas2]
 
 == Entscheidungen, Nebenbedingungen und Begründungen
 //[List the decisions that have been made regarding architectural approaches and the constraints being placed on the way that the developers build the system. These will serve as guidelines for defining architecturally significant parts of the system. Justify each decision or constraint so that developers understand the importance of building the system according to the context created by those decisions and constraints. This may include a list of DOs and DON’Ts to guide the developers in building the system.]
 
-. Entscheidung oder Einschränkung oder Begründung 1
-. Entscheidung oder Einschränkung oder Begründung 2
-
+. Wir nutzen für das Frontend das Webframework Vue.js, da
+.. es weit verbreitet ist, gut dokumentiert und höchstwahrscheinlich auch in Zukunft gut gepflegt
+.. wir durch Vorgängerprojekte inspiriert wurden
+.. die Einstiegshürde gering ist
+.. kein großer Eingriff in die Standard HTML Struktur stattfindet
+. Wir nutzen TypeScript im Frontend, da
+.. somit häufige Fehlerquellen aus JavaScript vermieden werden
+.. die IDE Unterstützung besser ist
+. Wir nutzen eine relationale SQL Datenbank (Entscheidung zwischen SQLite oder PostgreSQL steht noch aus), da
+.. alle Teammitglieder und der Auftraggeber mit der Query-Language vertraut sind
+.. die zukünftige Wartung wahrscheinlich sicher ist
+.. diese Softwares als robust und gut optimiert gelten
+. Wir nutzen Kotlin mit Ktor im Backend, da
+.. die Erfahrung aus Java mitgenutzt werden kann
+... die Sprache aber flexibler als Java ist
+.. das Framework von Kotlin offiziell gepflegt wird
+.. manche Teammitglieder dort bereits Erfahrung haben
+. Wir nutzen standard SQL Queries für die Datenbankabfragen und SQLDelight um diese type-safe aufzurufen, da
+.. somit keine direkte Abhängigkeit zu einer ORM-Bibliothek besteht
+.. die Anfragen leichter von Personen ohne Kenntnissen in anderen Programmiersprachen bearbeitet werden können
+. Wir definieren serialisierbare Klassen anhand von Typen, um somit zwischen Frontend und Backend zu kommunizieren
+. Wir nutzen die Component-Architektur im Frontend, um die einzelnen UI-Elemente und deren Logik zu trennen und leichter wiederverwertbar zu machen
+. Wir nutzen Browser-Sessions, um die Nutzer der Anwendung nach dem Anmelden zu identifizieren
 
 == Architekturmechanismen
 https://www2.htw-dresden.de/~anke/openup/core.tech.common.extend_supp/guidances/concepts/arch_mechanism_2932DFB6.html[Doku "Concept: Architectural Mechanism"]
@@ -42,28 +103,79 @@ https://www2.htw-dresden.de/~anke/openup/core.tech.common.extend_supp/guidances/
 
 //Beschreiben Sie den Zweck, Eigenschaften und Funktion der Architekturmechanismen.
 
-. Architekturmechanismus 1
-. Architekturmechanismus 2
+. Die Daten der Anwendung müssen persistent sein (SWFA-1) und jeder Nutzer darf nur seine eigenen Daten bearbeiten (SWFA-2). Daher wird eine Datenbank benötigt, bei der unsere Entscheidung wie im Punkt "Entscheidungen" erläutert für eine SQL-Datenbank ausgefallen ist. Es ist noch nicht klar, ob das finale Projekt SQLite oder PostgreSQL verwenden wird.
+. Nach SWFA-2 wird eine Nutzerverwaltung und Loginfunktionalität benötigt. Dabei haben wir die Möglichkeit der eigenen simplen Implementierung oder OAuth mit third-party Services wie Google, Facebook usw. Vorerst werden wir nur eine eigene Nutzerverwaltung verwenden, da der Verein einen Admin hat, welcher die Nutzeraccounts manuell erstellt und somit viele Sicherheitsprobleme nicht auftreten können. Die Möglichkeit der 2-Faktor-Authentifizierung ziehen wir in Betracht.
+. Da die Webanwendung sehr viel mit sich veränderndem State arbeitet, werden wie die Reactivity Funktionen von Vue.js in Kombination mit der Composition API verwenden. Dadurch wird es in der Entwicklung deutlich einfacher das UI immer aktuell zu halten.
+. Damit der Server seine Anforderungen durchsetzen kann, wie zum beispiel SWFA-4, ist der Client ständig über eine WebSocket Verbindung mit dem Server verbunden. Somit kann der Server Hinweise und Anfragen verschicken, wie z.B. dass ein neuer Flugleiter benötigt wird.
 
 
 == Wesentliche Abstraktionen
 //[List and briefly describe the key abstractions of the system. This should be a relatively short list of the critical concepts that define the system. The key abstractions will usually translate to the initial analysis classes and important patterns.]
 
+*Typen:* Typen werden im Frontend und Backend zur Laufzeit benötigt um die Programmdaten an den gewünschten Stellen zur Verfügung zu haben.
+
+* Protokoll: enthält alle gesetzlich vorgeschrieben Eckdaten (siehe Use Case 03)
+* User: enthält Session, Name, weiter Nutzerinformationen
+** Flugleiter: enthält Informationen zum Zeitraum, in dem die Rolle ausgeübt wurde
+** Admin: wie User, aber die Session enthält einen Admin Vermerk
+* Modell: Information über ein spezielles Modellflugzeug, Bild
+* Flugzeugtyp: allgemeiner Flugzeugtyp, Beschreibung
+
+*Routes:* Werden vom Backend offeriert, damit das Frontend (mit valider Session) Daten abfragen und manipulieren kann.
+
+*Components:* Sind gekapselte UI-Element eim Frontend, welche Style, Logik und State enthalten.
 
 == Schichten oder Architektur-Framework
 //[Describe the architectural pattern that you will use or how the architecture will be consistent and uniform. This could be a simple reference to an existing or well-known architectural pattern, such as the Layer framework, a reference to a high-level model of the framework, or a description of how the major system components should be put together.]
 
 
+=== Frontend
+
+==== Single-File-Components
+
+Die Trennung von Funktionen und Inhalten ist ein wichtiges Prinzip in der Softwareentwicklung. In traditionellen Web-Entwicklungsansätzen wird dies oft durch die Trennung von HTML, CSS und JavaScript erreicht.
+
+Im Kontext zunehmend komplexer Frontend-Anwendungen ist diese Trennung jedoch nicht immer sinnvoll. Das Component-Pattern bietet eine alternative Lösung, die die Vorteile der Trennung von Funktionen und Inhalten mit den Anforderungen an die Wartbarkeit komplexer Anwendungen vereint.
+
+Beim Component-Pattern werden die UI-Elemente in lose gekoppelte Komponenten unterteilt. Jede Komponente übernimmt eine bestimmte Aufgabe, z. B. die Darstellung eines Buttons oder die Eingabe eines Formulars. Die Vorlage, Logik und Stile einer Komponente sind intrinsisch miteinander verbunden. Dies macht die Komponente kohärenter und wartbarer.
+
+Die Komponenten können zu komplexeren UI-Strukturen zusammengesetzt werden. Dies ermöglicht eine flexible und wiederverwendbare Architektur.
+
+=== Backend
+
+==== Funktionaler Stil
+
+Die einzelnen Routes auf die das Backend reagiert werden vollständig funktional gehandhabt. Dies ermöglicht zusätzlich eine einfache Parallelisierung.
+
+Des weiteren wird somit der Control Flow nachvollziehbarer.
+
+
 == Architektursichten (Views)
 //[Describe the architectural views that you will use to describe the software architecture. This illustrates the different perspectives that you will make available to review and to document architectural decisions.]
-
-Folgende Sichten werden empfohlen:
 
 === Logische Sicht
 //Beschreibt die Struktur und das Verhalten Systemteilen, die hohen Einfluss auf die Architektur haben. Dies kann die Paketstruktur, kritische Schnittstellen, wichtige Klassen und Subsysteme sowie die Beziehungen zwischen diesen Elementen enthalten. Zudem sollten die physische und logische Sicht persistenter Daten beschrieben werden, wenn es diesen Aspekt im System gibt. Dies ist ein hier dokumentierter Teilaspekt des Entwurfs.
 
+Die logische Sicht betrachtet Klassen und Schnittstellen, welche bei dem System miteinander interagieren bzw. Einfluss aufeinander haben. Diese sind architekturrelevant und spiegeln sich unteranderem in den Typen wieder. Der Großteil der Interaktion geht hier von dem Pilot aus, was sich mit dem Ansatz deckt, dass dieser im zentralen Fokus unserer Anwendung und Nutzeroberfläche steht.
+
+.Domainmodell
+:imagesdir: ../requirements/images/domain_model
+image::domain_model.png[Domainmodell]
+
 === Physische Sicht (Betriebssicht)
 //Beschreibt die physischen Knoten (Rechner) des Systems, der Prozesse, Threads und Komponenten, die in diesen Knoten ausgeführt werden. Diese Sicht wird nicht benötigt, wenn das System in einem einzelnen Prozess oder Thread ausgeführt wird.
 
+Aus physischer Sicht steht klar das Backend im Mittelpunkt, da es Wetterstation und Datenbank zusammenfasst, die meiste Logik handhabt und bei jeglicher Interaktion mit einbezogen wird.
+
+.C4 Modell (Level 2)
+:imagesdir: ./images
+image::c4model.png[C4 Modell, width=65%]
+
+.Informelles Architektur Diagramm (Aus Protokoll eines Auftraggebermeetings)
+:imagesdir: ./images
+image::draft_informal.png[Informelles Architektur Diagramm, width=80%]
+
 === Use cases
 //Eine Liste oder ein Diagramm der Use Cases, die architektur-relevante Anforderungne enthalten.
+
+
