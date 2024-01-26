@@ -1,11 +1,15 @@
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 export class Protocol {
   readonly uniqueId: number = Math.floor(Math.random() * 10_000)
   readonly user: string = "Max Mustermann"
+  active = true
+  endTime: string | null = null // TODO use date type
+  notes: string | null = null
+
   constructor(
     readonly date: string,
-    readonly time: string,
+    readonly startTime: string,
     readonly signatureDataUrl: string,
   ) {}
 
@@ -16,3 +20,10 @@ export class Protocol {
 }
 
 export const protocols = ref<Protocol[]>([])
+
+export const activeProtocols = computed(() => {
+  return protocols.value.filter((p) => p.active)
+})
+export const finishedProtocols = computed(() => {
+  return protocols.value.filter((p) => !p.active)
+})

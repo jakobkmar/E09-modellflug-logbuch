@@ -87,7 +87,7 @@ function submitProtocol() {
       <label class="form-label">Unterschrift</label>
       <p class="card-subtitle">Eine Unterschrift ist gesetzlich vorgeschrieben. Male sie dazu mit dem Finger oder der Maus.</p>
       <div style="border: 1px solid rgb(214, 214, 214); border-radius: 5px;">
-        <MouseCanvas :width=600 :height=200 style-width="100%" ref="signatureCanvas"/>
+        <MouseCanvas :width=900 :height=300 style-width="100%" ref="signatureCanvas"/>
       </div>
     </fieldset>
 

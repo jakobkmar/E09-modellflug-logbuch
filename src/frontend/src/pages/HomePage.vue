@@ -1,11 +1,21 @@
+<script setup lang="ts">
+import { activeProtocols } from '@/store'
+</script>
+
 <template>
   <div style="display: flex; flex-direction: column; gap: 1em;">
     <div class="card group-card">
       <h1 style="align-self: center;">Protokollführung</h1>
-      <RouterLink to="/protocol/create" class="btn btn-indigo">
+      <RouterLink to="/protocol/create" class="btn btn-indigo" v-if="activeProtocols.length == 0">
         <div style="padding-top: 1em; padding-bottom: 1em;">
           <h2>Als Pilot anmelden</h2>
           <div>Damit beginnst du ein neues Protokoll.</div>
+        </div>
+      </RouterLink>
+      <RouterLink to="/protocol/complete" class="btn btn-orange" v-else-if="activeProtocols.length > 0">
+        <div style="padding-top: 1em; padding-bottom: 1em;">
+          <h2>Als Pilot abmelden</h2>
+          <div>Damit schließt du dein aktives Protokoll ab.</div>
         </div>
       </RouterLink>
       <div style="display: flex; gap: 0.5em; margin-top: 0.8em; flex-wrap: wrap;">
