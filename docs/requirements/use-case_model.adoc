@@ -35,10 +35,6 @@ package Benutzerbereich {
     "UC05 Flugleiter bestimmen" as (uc05)
     "UC06 Pilot abmelden" as (uc06)
     "UC09 Protokoll bearbeiten" as (uc09)
-    "UC90 Protokoll wird gespeichert" as (uc90)
-    "UC91 Protokolle werden abgefragt" as (uc91)
-    "UC92 Pilotendaten werden gespeichert" as (uc92)
-    "UC93 Flugleitung wird zugeteilt" as (uc93)
 }
 
 package Administrationsbereich {
@@ -47,26 +43,18 @@ package Administrationsbereich {
     "UC08 Pilot deaktivieren" as (uc08)
 
 }
-ac01 -l-> uc01
-ac01 -d-> uc04
-
-ac01 -l-> uc07
-ac01 -l-> uc08
-
-ac01 --> uc09
+ac01 -d-> uc01
+ac01 -u-> uc04
+ac01 -d-> uc07
+ac01 -d-> uc08
+ac01 -u-> uc09
 ac02 -d-> uc02
 ac02 -d-> uc06
 ac02 --> uc09
 ac02 --> uc04
-uc01 .d.> uc92 :extends
-uc02 .r.> uc03 :include
-uc03 .r.> uc05 :extends
-uc03 .d.> uc90 :extends
-uc04 .d.> uc91 :extends
-uc05 .d.> uc93 :extends
-uc06 .l.> uc05 :include
-uc91 -r-> uc90
-uc93 .u.> uc05 :include
+uc02 .l.> uc03 :include
+uc03 .l.> uc05 :extends
+uc06 .r.> uc05 :include
 @enduml
 ....
 
