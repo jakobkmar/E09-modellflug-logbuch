@@ -1,0 +1,95 @@
+= Iteration Plan 01: {project-name}
+Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
+{localdatetime}
+include::../_includes/default-attributes.inc.adoc[]
+// Platzhalter für weitere Dokumenten-Attribute
+
+
+== Meilensteine
+//Meilensteine zeigen den Ablauf der Iteration, wie z.B. den Beginn und das Ende, Zwischen-Meilensteine, Synchronisation mit anderen Teams, Demos usw.
+
+[%header, cols="3,1"]
+|===
+| Meilenstein | Datum
+
+| Beginn der Iteration | KW 1
+| Ende der Iteration | KW 3
+|===
+
+
+== Wesentliche Ziele
+
+* Das Domänenmodell aufstellen
+* Entwicklung des Prototypen
+* Architecture Notebook bearbeiten
+* 1-2 Wireframes aufstellen
+* System Wide Requirements bearbeiten
+
+== Aufgabenzuordnung
+//Dieser Abschnitt sollte einen Verweis auf die Work Items List enthalten, die die für diese Iteration vorgesehenen Aufgaben dokumentiert sowie die Zuordnung dieser Aufgaben zu Teammitgliedern. Alternativ können die Aufgaben für die Iteration und die Zuordnung zu Teammitgliedern in nachfolgender Tabelle dokumentiert werden - je nach dem, was einfacher für die Projektbeteiligten einfacher zu finden ist.
+
+Die in dieser Iteration geplanten Aufgaben sind in der Work Items List dargestellt *https://github.com/users/jakobkmar/projects/2/views/3[Work Item List - Iteration 4]*
+
+_alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
+
+
+[%header, cols="3,1,1,1,2,1,1,1,1"]
+|===
+| Title | Assignees | Status | Priority | Iteration | gearbeite Std. | verbleibende Std.
+
+| Domänenmodell erstellen | Felix | In Progress | 8.0 | Iteration 4 | - | -
+| 1-2 Wireframes formulieren | Julian | In Progress | 8.0 | Iteration 4 | - | -
+| Architecture Notebook | Abdullah | To-Do | 8.0 | Iteration 4 | - | -
+| System Wide Requirements | Laurin | In Progress | 8.0 | Iteration 4 | - | -
+| Test Cases aufstellen | Conrad | Done | 6.0 | Iteration 4 | 3.0 | 0
+| Design Dokument verfassen | - | To-Do | - | Iteration 4 | - | -
+| Prototyp Project einrichten | Jakob | Done | 8.0 | Iteration 4 | - | -
+| Iteration Plan 04 | Conrad | In Progress | 5.0 | Iteration 4 | 1 | 0.5
+| Prototyp UI entwickeln | Jakob | In Progress | 9.0 | Iteration 4 | - | -
+| Gloassar vervollständigen | Julian | To-Do | 6.0 | Iteration 4 | - | -
+|===
+
+
+== Probleme (optional)
+//Optional: Führen Sie alle Probleme auf, die in dieser Iteration adressiert werden sollen. Aktualisieren Sie den Status, wenn neue Probleme bei den täglichen / regelmäßigen Abstimmungen berichtet werden.
+
+[%header, cols="2,1,3"]
+|===
+| Problem | Status | Notizen
+
+| x | x | x
+|===
+
+
+== Bewertungskriterien
+//Eine kurze Beschreibung, wie Erfüllung die o.g. Ziele bewertet werden sollen.
+
+* Der Prototyp entwickelt sich zu einer präsentierbaren Oberfläche
+* Test Cases sind ausformuliert
+* Das Domänenmodell ist in Arbeit
+
+
+== Assessment
+//In diesem Abschnitt werden die Ergebnisse und Maßnahmen der Bewertung erfasst und kommuniziert. Die Bewertung wird üblicherweise am Ende jeder Iteration durchgeführt. Wenn Sie diese Bewertungen nicht machen, ist das Team möglicherweise nicht in der Lage, die eigene Arbeitsweise ("Way of Working") zu verbessern.
+
+[%header, cols="1,3"]
+|===
+| Assessment Ziel | Das kann die gesamte Iteration oder eine spezifische Komponente sein
+
+| Assessment Datum | 22.01.2024
+| Teilnehmer | Das ganze Team
+| Projektstatus	| grün
+|===
+
+*Beurteilung im Vergleich zu den Zielen*
+
+Die angestrebten Ziele dieser Iteration sind sehr ambitioniert gesteckt. Daher sind bisher nicht alle vollständig erledigt. Dies wird aber innerhalb der nächsten Tage bis zum nächsten Meeting des Teams anders sein.
+
+*Geplante vs. erledigte Aufgaben*
+
+Es gibt mehrere Aufgaben die noch nicht fertiggestellt werden konnten. Darunter auch wichtige Anweisungen wie beispielsweise das Domänenmodell, Architecture Notebook oder die Entwicklung des Prototyps des UI. Diese werden jedoch in kürze erledigt sein.
+Andere Aufgaben konnten bereits als geschafft abgehakt werden. Hauptsächlich sind das die Test Cases und die Einrichtung des Prototyp Projects.
+
+*Beurteilung im Vergleich zu den Bewertungskriterien*
+
+Die Bewertungskriterien konnten nicht vollufänglich erfüllt werden. Um die restlichen Aufgaben abzuschließen, fehlen nur noch wenige Stunden Arbeit. Somit kann diese Iteration nicht wirklich als Rückschlag gewertet werden. Sondern eine Verzögerung durch die Mitnahme der begonnen Aufgaben in den Anfang der nächsten Iteration.
