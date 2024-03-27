@@ -10,3 +10,8 @@
 
 # draw.io
 .$*
+
+# Gradle
+.gradle/
+gradle/
+backend/build/
