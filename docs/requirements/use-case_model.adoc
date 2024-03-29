@@ -16,6 +16,10 @@ include::../_includes/default-attributes.inc.adoc[]
 * *UC03*: Protokoll anlegen
 * *UC04*: Protokoll einsehen
 * *UC05*: Flugleiter bestimmen
+* *UC06*: Pilot Abmelden
+* *UC07*: Pilotendaten modifizieren
+* *UC08*: Pilot deaktivieren
+* *UC09*: Protokoll bearbeiten
 
 
 == Use Case Diagramm
