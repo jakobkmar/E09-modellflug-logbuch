@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "1.9.23"
+    idea
 }
 
 group = "de.mfcrossendorf"
@@ -26,5 +27,12 @@ kotlin {
 tasks {
     test {
         useJUnitPlatform()
+    }
+}
+
+idea {
+    module {
+        isDownloadJavadoc = true
+        isDownloadSources = true
     }
 }

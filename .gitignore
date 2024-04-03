@@ -14,4 +14,4 @@
 # Gradle
 .gradle/
 gradle/
-backend/build/
+src/backend/build/
