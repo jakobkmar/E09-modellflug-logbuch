@@ -74,8 +74,10 @@ ToDo
 
 *Projektfortschritt*
 
-Der Projektfortschritt kann im sim4seed Essence-Navigator veranschaulicht werden und entspricht dem Fortschritt in Iteration 4. da die Einabeitung in neue Systeme nicht abgebildet werden kann:
+Das Team hat mit der Implementierung der Software begonnen, 
+im Rahmen von Iteration 7 sollte ein Meeting mit dem Auftraggeber stattfinden um den aktuellen Stand der implementierug vorzustellen.
+
+Alle Teammitglieder beteiligen sich an der Arbeit und arbeiten zusammen.
 
 .Projektfortschritt: Iteration 6
-
-ToDo
+image::essence_navigator/iteration6_X.png[Essence Navigator]
