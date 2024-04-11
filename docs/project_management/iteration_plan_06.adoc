@@ -76,5 +76,6 @@ ToDo
 
 Der Projektfortschritt kann im sim4seed Essence-Navigator veranschaulicht werden und entspricht dem Fortschritt in Iteration 4. da die Einabeitung in neue Systeme nicht abgebildet werden kann:
 
-.Projektfortschritt: Iteration 5
-image::essence_navigator/iteration2.png[Essence Navigator]
+.Projektfortschritt: Iteration 6
+
+ToDo
