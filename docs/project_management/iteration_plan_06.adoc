@@ -12,17 +12,16 @@ include::../_includes/default-attributes.inc.adoc[]
 |===
 | Meilenstein | Datum
 
-| Beginn der Iteration | KW 11
-| Ende der Iteration | KW 13
+| Beginn der Iteration | KW 13
+| Ende der Iteration | KW 15
 |===
 
 
 == Wesentliche Ziele
 
-* 1.Termin mit Auftraggeber durchführen
-* 1.Termin mit Coach durchführen
-* mit den Entwicklungstools für die Implementierung vertraut machen
-* Arbeit nach Semesterferien wiederaufnehmen
+* Implementierung der Software
+* Backend Layout entwerfen und mit Impementierung beginnen
+* Entwurf des UI finalisieren und an erste kommentare des Auftraggebers anpassnen
 
 == Aufgabenzuordnung
 //Dieser Abschnitt sollte einen Verweis auf die Work Items List enthalten, die die für diese Iteration vorgesehenen Aufgaben dokumentiert sowie die Zuordnung dieser Aufgaben zu Teammitgliedern. Alternativ können die Aufgaben für die Iteration und die Zuordnung zu Teammitgliedern in nachfolgender Tabelle dokumentiert werden - je nach dem, was einfacher für die Projektbeteiligten einfacher zu finden ist.
@@ -49,10 +48,14 @@ image::work_item_list/iteration4.png[Work Item List: Iteration 4]
 
 
 == Bewertungskriterien
-
-* Alle Teammitglieder haben sich mit den Entwicklungstools für die Implementierung vertraut gemacht, etwaige Fragen wurden gestellt und  Probleme geklärt 
-* Das Team arbeitet effektiv zusammen
-* Zugewise Arbeiten konnten erledigt werden
+* grundlegende Komponenten der Software wurden bearbeitet und eine Arbeitsgrundlage für die weitere Implementierung wurde geschaffen
+* Das Team ist in der Lage, die für die Implementierung erforderlichen Arbeitschritte
++
+----
+* zu identifizieren
+* als Work Item zu formulieren und
+* zu bearbeiten.
+----
 
 
 == Assessment
@@ -62,16 +65,12 @@ image::work_item_list/iteration4.png[Work Item List: Iteration 4]
 | Assessment Ziel | Iteration 5
 
 | Assessment Datum | 27.03.2024
-| Teilnehmer | Projektmanagement, Conrad Caffier, Laurin Wobeda
+| Teilnehmer | Projektmanagement, TBD
 |===
 
 *Beurteilung im Vergleich zu den Zielen*
 
-Die Termine mit Coach und Auftraggeber wurden durchgeführt, das protolkoll des Auftraggebermeeting liegt dem Team als google docs Dokument vor, Ergebnisse des Gesprächs wurden in die Interationsplanung integriert und bearbeitet.
-
-Die Mitglieder des Teams haben sich mit den Tools zur Implentierung der Software befasst und sind bereit für die praktische Arbeit
-
-Die effektive Zuweisung von Arbeit im Teammeeting funktioniert, die arbeit am Projekt konnte erfolgreich fortgesetzt werden. 
+ToDo
 
 *Projektfortschritt*
 
