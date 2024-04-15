@@ -28,12 +28,12 @@ include::../_includes/default-attributes.inc.adoc[]
 
 Die in dieser Iteration geplanten Aufgaben sind in der Work Items List dargestellt:
 
-siehe *https://github.com/users/jakobkmar/projects/2/views/3?filterQuery=iteration%3A%22Iteration+2%22[Work Item List - Iteration 5]*
+siehe *https://github.com/users/jakobkmar/projects/2/views/3?filterQuery=iteration%3A%22Iteration+2%22[Work Item List - Iteration 6]*
 
 _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 
-.Work Item List: Iteration 5
-image::work_item_list/iteration4.png[Work Item List: Iteration 4]
+.Work Item List: Iteration 6
+// Bild noch einzufügen
 
 
 == Probleme (optional)
@@ -43,7 +43,7 @@ image::work_item_list/iteration4.png[Work Item List: Iteration 4]
 |===
 | Problem | Status | Notizen
 
-| x | x | x
+| Pull Requestes bleiben teilweise sehr lange ohne Review | gelößt | Nach einem Gespräch mit dem Team konnte ein Bewusstsein für die Notwendigkeit der zügigen Bearbeitung von Pull Requests geschaffen werden. Die Einführung eines Prozesses zur beabeitung von Pull Requests wird aktuell als nicht erfordelich betrachtet, da der entstehende Overhead den Nutzen unserer Einschätzung nach nicht rechtfertigt.
 |===
 
 
@@ -64,17 +64,21 @@ image::work_item_list/iteration4.png[Work Item List: Iteration 4]
 |===
 | Assessment Ziel | Iteration 5
 
-| Assessment Datum | 27.03.2024
-| Teilnehmer | Projektmanagement, TBD
+| Assessment Datum | 13.04.2024
+| Teilnehmer | Projektmanagement, Julian Neidert, Laurin Wobeda, Jakob Kretzschmar
 |===
 
 *Beurteilung im Vergleich zu den Zielen*
 
-ToDo
+* Die für die Implementierung erforderlichen Workflows funtionieren, 
+* Das Problem nicht bearbeiteter Pulll Requests konnte gleößt werden,
+* Backend request rouoten wurden entworfen und mit deren Implementierung begonnen, 
+* Es wurde begonnen sich mit dem user Interface zu beschäftigen, eine abstimmung dazu steht aufgrung von Terminschwierigkeiten noch aus.
+
 
 *Projektfortschritt*
 
-Das Team hat mit der Implementierung der Software begonnen, 
+Das Team hat erfolgeich mit der Implementierung der Software begonnen, 
 im Rahmen von Iteration 7 sollte ein Meeting mit dem Auftraggeber stattfinden um den aktuellen Stand der implementierug vorzustellen.
 
 Alle Teammitglieder beteiligen sich an der Arbeit und arbeiten zusammen.
