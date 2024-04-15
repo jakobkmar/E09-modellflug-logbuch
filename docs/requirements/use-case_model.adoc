@@ -16,11 +16,24 @@ include::../_includes/default-attributes.inc.adoc[]
 * *UC03*: Protokoll anlegen
 * *UC04*: Protokoll einsehen
 * *UC05*: Flugleiter bestimmen
-* *UC06*: Pilot Abmelden
+* *UC06*: Pilot abmelden
 * *UC07*: Pilotendaten modifizieren
 * *UC08*: Pilot deaktivieren
 * *UC09*: Protokoll bearbeiten
 
+== Priorisierung
+|===
+| UseCase | Bezeichnung | Priorität
+| UC01 | Pilot registrieren | 3
+| UC02 | Pilot anmelden | 34
+| UC03 | Protokoll anlegen | 34
+| UC04 | Protokoll einsehen | 8
+| UC05 | Flugleiter bestimmen | 21
+| UC06 | Pilot abmelden | 13
+| UC07 | Pilotendaten modifizieren | 2
+| UC08 | Pilot deaktivieren | 1
+| UC09 | Protokoll bearbeiten | 5
+|===
 
 == Use Case Diagramm
 // ...
