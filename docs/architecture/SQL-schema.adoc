@@ -4,9 +4,9 @@ Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vor
 
 == Diagramm-Legende
 
+* **Fett** geschriebenes Attribut ist der Primary Key
 * <FK> = Foreign Key
 * NOT NULL = Wert darf nicht NULL sein
-* **Fett** geschriebenes Attribut ist der Primary Key
 
 
 == Diagramm
@@ -19,6 +19,8 @@ entity "Nutzer" as e01 {
    * **NutzerID: varchar(3) NOT NULL**
    --
    Name: varchar(100) NOT NULL
+   Registriernummer: varchar(?) NOT NULL
+   hashedPasswort: varchar(256)
    Adresse: varchar(100)
    Adminrechte: boolean NOT NULL
 }
@@ -31,14 +33,8 @@ entity "Protokoll" as e02 {
    Unterschrift: BLOB
    Erste-Hilfe überprüft: varchar(20)
    Bemerkungen: varchar(250)
-}
-entity "Flug" as e03 {
-    * **FlugID: varchar(3) NOT NULL**
-    --
-    ProtokollID: varchar(3) NOT NULL <FK>
-    TeilnehmerID: varchar(3) NOT NULL
-    Flugleiter: boolean NOT NULL
-    Modell: varchar(3) <FK>
+   Flugleiter: boolean NOT NULL
+   Modell: varchar(3) <FK>
 }
 entity "Modell" as e04 {
     * **ModellID: varchar(3) NOT NULL**
@@ -49,9 +45,9 @@ entity "Modell" as e04 {
 }
 
 e01 }o--|| e02
-e02 }o--|| e03
+e02 ||--o{ e04
 e04 }o--o{ e01
-e04 }o--o| e03
+
 @enduml
 
 ....
