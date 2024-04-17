@@ -1,0 +1,87 @@
+= Iteration Plan 06: {project-name}
+Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
+{localdatetime}
+include::../_includes/default-attributes.inc.adoc[]
+// Platzhalter für weitere Dokumenten-Attribute
+
+
+== Meilensteine
+//Meilensteine zeigen den Ablauf der Iteration, wie z.B. den Beginn und das Ende, Zwischen-Meilensteine, Synchronisation mit anderen Teams, Demos usw.
+
+[%header, cols="3,1"]
+|===
+| Meilenstein | Datum
+
+| Beginn der Iteration | KW 13
+| Ende der Iteration | KW 15
+|===
+
+
+== Wesentliche Ziele
+
+* Implementierung der Software
+* Backend Layout entwerfen und mit Impementierung beginnen
+* Entwurf des UI finalisieren und an erste kommentare des Auftraggebers anpassnen
+
+== Aufgabenzuordnung
+//Dieser Abschnitt sollte einen Verweis auf die Work Items List enthalten, die die für diese Iteration vorgesehenen Aufgaben dokumentiert sowie die Zuordnung dieser Aufgaben zu Teammitgliedern. Alternativ können die Aufgaben für die Iteration und die Zuordnung zu Teammitgliedern in nachfolgender Tabelle dokumentiert werden - je nach dem, was einfacher für die Projektbeteiligten einfacher zu finden ist.
+
+Die in dieser Iteration geplanten Aufgaben sind in der Work Items List dargestellt:
+
+siehe *https://github.com/users/jakobkmar/projects/2/views/3?filterQuery=iteration%3A%22Iteration+2%22[Work Item List - Iteration 6]*
+
+_alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
+
+.Work Item List: Iteration 6
+// Bild noch einzufügen
+
+
+== Probleme (optional)
+//Optional: Führen Sie alle Probleme auf, die in dieser Iteration adressiert werden sollen. Aktualisieren Sie den Status, wenn neue Probleme bei den täglichen / regelmäßigen Abstimmungen berichtet werden.
+
+[%header, cols="2,1,3"]
+|===
+| Problem | Status | Notizen
+
+| Pull Requestes bleiben teilweise sehr lange ohne Review | gelößt | Nach einem Gespräch mit dem Team konnte ein Bewusstsein für die Notwendigkeit der zügigen Bearbeitung von Pull Requests geschaffen werden. Die Einführung eines Prozesses zur beabeitung von Pull Requests wird aktuell als nicht erfordelich betrachtet, da der entstehende Overhead den Nutzen unserer Einschätzung nach nicht rechtfertigt.
+|===
+
+
+== Bewertungskriterien
+* grundlegende Komponenten der Software wurden bearbeitet und eine Arbeitsgrundlage für die weitere Implementierung wurde geschaffen
+* Das Team ist in der Lage, die für die Implementierung erforderlichen Arbeitschritte
++
+----
+* zu identifizieren
+* als Work Item zu formulieren und
+* zu bearbeiten.
+----
+
+
+== Assessment
+
+[%header, cols="1,3"]
+|===
+| Assessment Ziel | Iteration 6
+
+| Assessment Datum | 13.04.2024
+| Teilnehmer | Projektmanagement, Julian Neidert, Laurin Wobeda, Jakob Kretzschmar
+|===
+
+*Beurteilung im Vergleich zu den Zielen*
+
+* Die für die Implementierung erforderlichen Workflows funtionieren, 
+* Das Problem nicht bearbeiteter Pulll Requests konnte gleößt werden,
+* Backend request rouoten wurden entworfen und mit deren Implementierung begonnen, 
+* Es wurde begonnen sich mit dem user Interface zu beschäftigen, eine abstimmung dazu steht aufgrung von Terminschwierigkeiten noch aus.
+
+
+*Projektfortschritt*
+
+Das Team hat erfolgeich mit der Implementierung der Software begonnen, 
+im Rahmen von Iteration 7 sollte ein Meeting mit dem Auftraggeber stattfinden um den aktuellen Stand der implementierug vorzustellen.
+
+Alle Teammitglieder beteiligen sich an der Arbeit und arbeiten zusammen.
+
+.Projektfortschritt: Iteration 6
+image::essence_navigator/iteration6_X.png[Essence Navigator]
