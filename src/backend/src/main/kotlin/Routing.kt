@@ -4,6 +4,50 @@ import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 
+fun getUserByUsername(username: String): User {
+    // fetch user from database
+    return User("username", "password", false, false)
+};
+fun getCurrentFlightHead() {};
+fun getUserById(userId: String) {};
+fun checkAdminRights(user: Unit): Boolean {
+    return true
+};
+fun registerAsFlightHead(userId: String) {};
+fun getUserProfile(userId: String) {};
+fun changeUserPassword(userId: String, newPassword: String): Boolean {
+    return true
+};
+fun getUserFlightLogs(userId: String): MutableList<NewFlightLog> {
+    return flightLogs
+};
+fun getFlightLogById(id: String) {};
+fun createFlightLog(requestBody: NewFlightLog) {};
+fun updateFlightLog(id: String, updatedFlightLog: UpdatedFlightLog) {};
+fun deleteFlightLog(id: String) {};
+fun getAllFlightLogs(): MutableList<NewFlightLog> {
+    return flightLogs
+}
+
+
+// temp data types
+data class User(
+    val username: String,
+    val password: String,
+    val twoFactorEnabled: Boolean,
+    val isAdmin: Boolean
+)
+
+data class NewFlightLog(
+    val name: String,
+)
+
+data class UpdatedFlightLog(
+    val name: String,
+    val description: String)
+
+val flightLogs = mutableListOf<NewFlightLog>()
+
 fun Routing.setupRoutes() {
 
     post("/login") {
