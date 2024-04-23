@@ -1,0 +1,20 @@
+@startuml component_diagramm
+
+node "Proxmox Server" {
+    package "LXC Container" {
+        [Database] as comp1
+        [Backend] as comp2
+    }
+}
+
+node "Smartphone" {
+    [Frontend] as comp3
+}
+
+[Weather Station] as comp4
+
+comp2 --> comp1 :reads/writes
+comp2 --> comp4 :request data
+comp3 --> comp2 :communicate
+
+@enduml
