@@ -20,7 +20,7 @@
                         placeholder="Gib dein Password an"
                         />
                         <button type="button" class="btn btn-secondary" @click="togglePassword">
-                            {{ showPassword ? 'Zeigen' : 'Verstecken' }}
+                            {{ showPassword ? 'Verstecken' : 'Zeigen' }}
                         </button>
                 </div>
             </div>
