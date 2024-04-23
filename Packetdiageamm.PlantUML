@@ -1,0 +1,37 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+package "Authentication Services" {
+    [Authentication Service]
+    [API Gateway]  ' As it routes authentication requests
+}
+
+package "Logbook Management" {
+    [Logbook Manager]
+    [Data Synchronization Service]
+}
+
+package "Pilot Management" {
+    [Pilot Manager]
+    [Notification Service]
+}
+
+package "Integration Services" {
+    [Weather Service Integrator]
+    [API Gateway]  ' Repeated here as it interacts with multiple services
+}
+
+package "Data Management" {
+    [Database Interface]
+    [Logbook Database]  ' Technically a database but included here for the sake of the diagram
+}
+
+'Relationships
+[Authentication Service] ..> [API Gateway] : <<communicate>>
+[Logbook Manager] ..> [Database Interface] : <<use>>
+[Pilot Manager] ..> [Database Interface] : <<use>>
+[Weather Service Integrator] ..> [Weather API] : <<fetch data>>
+[Notification Service] ..> [Pilot Manager] : <<notify>>
+[Data Synchronization Service] ..> [Database Interface] : <<synchronize>>
+
+@enduml
