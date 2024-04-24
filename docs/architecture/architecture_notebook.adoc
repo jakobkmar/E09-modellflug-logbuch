@@ -204,6 +204,11 @@ image::use_case_diagram.png[Use Case Diagramm]
 
 === Komponentendiagramm
 
+bei Interfaces:
+
+* durchgehende Linie - stellt Interface bereit
+* gestrichelte Linie - benötigt Interface
+
 .Component-Diagramm
-:imagesdir: {docs-requirements}/images
+:imagesdir: {docs-architecture}/images
 image::component_diagramm.png[Komponenten-Diagramm]
