@@ -1,0 +1,53 @@
+= SQL Schema: {project-name}
+Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
+{localdatetime}
+
+== Diagramm-Legende
+
+* **Fett** geschriebenes Attribut ist der Primary Key
+* <FK> = Foreign Key
+* NOT NULL = Wert darf nicht NULL sein
+
+
+== Diagramm
+[plantuml, "{diagramsdir}/SQL-Schema", svg]
+....
+@startuml
+skinparam linetype ortho
+
+entity "Nutzer" as e01 {
+   * **NutzerID: varchar(3) NOT NULL**
+   --
+   Name: varchar(100) NOT NULL
+   Registriernummer: varchar(?) NOT NULL
+   hashedPasswort: varchar(256)
+   Adresse: varchar(100)
+   Adminrechte: boolean NOT NULL
+}
+entity "Protokoll" as e02 {
+   * **ProtokollID: varchar(3) NOT NULL**
+   --
+   ErstellerID: varchar(3) NOT NULL <FK>
+   Flugbeginn: time
+   Flugende: time
+   Unterschrift: BLOB
+   Erste-Hilfe überprüft: varchar(20)
+   Bemerkungen: varchar(250)
+   Flugleiter: boolean NOT NULL
+   Modell: varchar(3) <FK>
+}
+entity "Modell" as e04 {
+    * **ModellID: varchar(3) NOT NULL**
+    --
+    Bezeichnung: varchar(100)
+    Klasse: varchar(20) NOT NULL
+    Besitzer: varchar(3) <FK>
+}
+
+e01 }o--|| e02
+e02 ||--o{ e04
+e04 }o--o{ e01
+
+@enduml
+
+....

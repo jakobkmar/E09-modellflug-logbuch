@@ -132,28 +132,27 @@ Container-Technologie eines Proxmox-Servers basiert, kann hier eine nachhaltige 
 [%header, cols="1,1,4,1"]
 |===
 | Bedarf | Priorität | Features | Geplantes Release
-| xx | 10 | mobiles, elektronisches Logbuch | xx
-| xx |  7 | Administrator kann Nutzer bearbeiten und Webapp pflegen und bearbeiten |
-| xx | 10 | Webserver auf dem proxmox Server des Vereins |
-| xx | 9  | Synchronisation zwischen Smartphone und Webserver | xx
-| xx | 10 | Benutzeroberfläche, über die sich Piloten ein- und austragen können | xx
-| xx | 10 | Datenbank zur Speicherung und Verwaltung der Logbuchdaten | xx
-| xx | 9  | sichere Kommunikation zwischen mobilen Endgeräten und Webserver sowie Schutz der Daten | xx
-| xx | 7  | Benutzeroberfläche und Backend-Logik zur Verwaltung des Logbuchs | xx
-| xx | 7  | Login/Authentifizierung | xx
-| xx | 5  | 2-Faktor-Authentifizierung | xx
-| xx | 4  | rollenbasierte Zugriffskontrolle | xx
-| xx | 4  | Passwortrichtlinien | xx
-| xx | 3  | Authentifizierungsprotokolle | xx
-| xx | 3  | Sessionverwaltung | xx
-| xx | 3  | Wiederherstellungsmöglichkeiten | xx
-| xx | 7  | Sprache Deutsch                                                        |
-| xx | 7  | Sprache Englisch                                                       |
-| xx | 2  | Wetterdaten werden automazisch erfasst sobald Wetterstation online ist |
-| xx | 5  | Funktionierendes Backend                                               |
-| xx | 5  | Funktionierendes Frontend                                              |
+| Logbuch | 21 | mobiles, elektronisches Logbuch | xx
+| Administration |  5 | Administrator kann Nutzer bearbeiten und Webapp pflegen und bearbeiten |
+| Webserver | 21 | Webserver auf dem proxmox Server des Vereins |
+| Synchronität | 13  | Synchronisation zwischen Smartphone und Webserver | xx
+| benutzer-Oberfläche | 21 | Benutzeroberfläche, über die sich Piloten ein- und austragen können | xx
+| Datenbank | 21 | Datenbank zur Speicherung und Verwaltung der Logbuchdaten | xx
+| sichere Kommunikation | 13  | sichere Kommunikation zwischen mobilen Endgeräten und Webserver sowie Schutz der Daten | xx
+| Admin-Benutzeroberfläche | 5  | Benutzeroberfläche und Backend-Logik zur Verwaltung des Logbuchs | xx
+| Login/Authentifizierung | 5  | Login/Authentifizierung | xx
+| 2FA | 3  | 2-Faktor-Authentifizierung | xx
+| Zugriffskontrolle | 2  | rollenbasierte Zugriffskontrolle | xx
+| Passwortrichtlinien | 2  | Passwortrichtlinien | xx
+| Authentifizierungsprotokolle | 1  | Authentifizierungsprotokolle | xx
+| Sessionverwaltung | 1  | Sessionverwaltung | xx
+| Wiederherstellungsmöglichkeiten | 1  | Wiederherstellungsmöglichkeiten | xx
+| Internationalität | 5  | Sprache Deutsch                                                        |
+| Internationalität | 5  | Sprache Englisch                                                       |
+| Wetteransage | 2  | Wetterdaten werden automazisch erfasst sobald Wetterstation online ist |
+| Backend | 8  | Funktionierendes Backend                                               |
+| Frontend | 8  | Funktionierendes Frontend                                              |
 |===
-
 
 == Zusätzliche Produktanforderungen
 //Zutreffendes angeben, nicht zutreffendes streichen oder auskommentieren
