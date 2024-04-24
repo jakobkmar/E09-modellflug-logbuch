@@ -200,4 +200,10 @@ Somit ist für die Architektur das gesamte Use-Case-Diagramm relevant.
 
 .Use-Case-Diagramm
 :imagesdir: {docs-requirements}/images
-image::use_case_diagram.png[Use Case Diagram]
+image::use_case_diagram.png[Use Case Diagramm]
+
+=== Komponentendiagramm
+
+.Component-Diagramm
+:imagesdir: {docs-requirements}/images
+image::component_diagramm.png[Komponenten-Diagramm]
