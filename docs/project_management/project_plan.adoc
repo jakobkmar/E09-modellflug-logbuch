@@ -14,68 +14,25 @@ Der Zweck dieses Plans besteht darin, innerhalb des Teams sowie nach außen Tran
 == Projektorganisation
 Das Team, bestehend aus sieben Personen, zeichnet sich durch eine Vielzahl unterschiedlicher Charaktere und Interessen aus. Gerade diese bunte Mischung trägt maßgeblich zur erfolgreichen Zusammenarbeit bei. Bei aufkommenden Problemen oder neuen Aufgaben gibt es stets Mitglieder im Team, die motiviert sind, sich mit dem jeweiligen Thema auseinanderzusetzen und die Verantwortung zu übernehmen. Eine herausragende Eigenschaft im Team ist die Bereitschaft erfahrener Mitglieder, Hilfestellung bei der Entwicklung notwendiger Fähigkeiten zu leisten. Sie unterstützen aktiv ihre Kollegen und helfen diesen, neue Kompetenzen zu erlernen. Diese kooperative Einstellung fördert die Effektivität und ermöglicht es dem Team, mit Engagement an den gestellten Aufgaben zu arbeiten.
 
-=== Teammitglieder 
+=== Aufgabenverteilung
 
-|===
+Den Projektmitgliedern werden im ersten Semester grob die folgenden Hauptaufgaben zugeteilt:
 
-|*Name* |*Alter* |*Informationen zur Person* |*Rolle* 
+* Projektleitung:
+** Lucas Trogisch
+* Analyse:
+** Felix Glieme (WiIng)
+** Laurin Wobeda
+** Julian Neidert
+* Entwurf:
+** Jakob Kretzschmar
+** Abdallah Alherani
+* Test
+** Conrad Caffier
+* Implementierung:
+** Jakob Kretzschmar
 
-| Abdallah Alherani | 23 | 
--Wirtschaftsinformatiker 
--
--
-| *Implementierung*
-
-| Conrad Caffier | 20 |
--Wirtschaftsinformatiker 
-
--Programmiersprachen Kotlin, Java, Rust (und JavaScript); Grundkenntnisse in vielen weiteren Sprachen,
-
--Zusammenarbeit in Git,
-
--Kommunikation zwischen Frontend und Backend Anwendungen,
-
--Docker (Containermanagement),
-
--App Development.
-
--
-| *Test* 
-
-| Felix Glieme | 22 | 
--Wirtschaftsingenieur
-
--zuverlässig
-
--erfahren in Projektarbeiten
-| *Analyse* 
-
-| Jakob Kretzschmar | 20 |
--Wirtschaftsinformatiker 
--
--
-| *Entwurf* 
-
-| Julian Neidert | 19 | 
--Wirtschaftsinformatiker 
-
-| Entwurf, Test
-
-| Laurin Wobeda | 19 | 
--Wirtschaftsinformatiker 
--
--
-| Entwurf, Analyse 
-
-| Lucas Trogisch | 19 | 
-- Wirtschaftsinformatiker    
-
-- Werkstudent bei Luftfahrtzulieferer        
-
-- Projektorientiert                
-| *Projekleitung*
-
-|===
+Die Zuteilung dieser Hauptverantwortlichkeiten wurde vor allem aufgrund der eigenen Einschätzung der Teammitglieder in den ersten Teammeetings getätigt.
 
 === Arbeitsweise
 
@@ -110,32 +67,54 @@ Insbesondere in der Elaboration Phase des Projektes werden Anforderungen der Sta
 == Meilensteine und Ziele
 //Define and describe the high-level objectives for the iterations and define milestones. For example, use the following table to lay out the schedule. If needed you may group the iterations into phases and use a separate table for each phase
 
-[%header, cols="1,3a,2,1"]
+[%header, cols="1,3a,2"]
 |===
 | Iteration
 | Primary objectives +
 (risks and use case scenarios)
 | Scheduled start or milestone
-| Target velocity
+
 
 | I1
 |
-* Mitigate Risk1
-* Develop Use Case 3, Scenario 2
-| Date from/Date to
-| 15
+* Findung als Team 
+* Etablieren von Arbeitsweisen und Strukturen
+* Initiierung des Projektes 
+| KW 45/ KW 47
+
 
 | I2
 |
-* Mitigate Risk 2
-* Develop Use Case 1, Scenario 2
-| Date from/Date to
-| 16
+* Entwicklung einer Vision
+* Dokumentation erster Use Cases 
+* Identifikation von Stakeholdern
+| KW 47/ KW 49
+
+| I3
+|
+* Ausarbeitung und Finalisierung der Analysedokumente, Rücksprache mit Auftraggeber 
+* Entwicklung eines Entwurfs 
+| KW 49/ KW 51 +
+*LCO-Meilenstein*
+
+| I4
+|
+* Rücksprache mit dem Auftraggeber zu Wireframes
+* Entwicklung eines Prototypen 
+* Architecture Notebook
+* C4 Modell erstellen
+* Domänenmodell
+| KW 1/ KW 3 +
+*LCA-Meilenstein*
+
+
 |===
 
 
 == Deployment
 //Outline the strategy for deploying the software (and its updates) into the production environment.
+
+In diesem Semester findet noch kein Deployment statt. Detaillierte Informationen und Zugangsdaten des Auftraggebers stehen diesbezüglich noch aus.
 
 
 == Erkenntnisse (Lessons learned)
@@ -145,8 +124,8 @@ Insbesondere in der Elaboration Phase des Projektes werden Anforderungen der Sta
 Um als Team zu funktionieren ist es erforderlich auf die Termintreue und Zuverlässigkeit der anderen zu vertrauen. Dazu ist direkter persönlicher Kontakt von Angesicht zu angesicht erforderlich, möglichst in einem Hochschulfernen Umfeld in kleinem Kreis. Des Weiteren ist regelmäßiger Austausch unerlässlich, sobald nicht mit sondern über Akteure gesprochen wird entstehen schnell Missverständnisse und Vorurteile. 
 
 === Termine mit dem Auftraggeber
-Bei der Vereinbarung von Terminen mit dem aftraggeber kam es zu Missverständnissen, und dadurch zu Verzögerungen im Arbeitsablauf sowie allgemeinen Unmut. 
-Um dies in Zukunft zu vermeiden wurde vereinbart noch im bestehenden Meeting denkommenden Termin fix zu vereinbaren inklusive Kalendernotitz um künftigen Informationsdefiziten vorzubeugen. 
+Bei der Vereinbarung von Terminen mit dem Auftraggeber kam es zu Missverständnissen, und dadurch zu Verzögerungen im Arbeitsablauf sowie allgemeinen Unmut. 
+Um dies in Zukunft zu vermeiden wurde vereinbart noch im bestehenden Meeting den kommenden Termin fix zu vereinbaren - inklusive Kalendernotiz - um künftigen Informationsdefiziten vorzubeugen. 
 
 === Meetings 
-Meetins sollten besser Strukturiert und geplant werden um die Effizienz zu verbessern. Die chronischee Abwesenheit eines Teammitglieds führte darüber hinaus zu Abstimmungsschwierigkeiten
+Meetings sollten besser Strukturiert und geplant werden um die Effizienz zu verbessern. Die chronische Abwesenheit eines Teammitglieds führte darüber hinaus zu Abstimmungsschwierigkeiten

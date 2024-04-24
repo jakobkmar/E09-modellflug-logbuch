@@ -37,18 +37,9 @@ Die in dieser Iteration geplanten Aufgaben sind in der Work Items List dargestel
 siehe *https://github.com/users/jakobkmar/projects/2/views/3?filterQuery=iteration%3A%22Iteration+2%22[Work Item List - Iteration 2]*
 
 _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
-[%header, cols="3,3,3,3,3,1,1"]
-|===
-| Title | Assignees | Status | Priority | Iteration | gearbeitete Std. | verbleibende Std.
-| Entwicklung und Bearbeitung der Vision| Felix | Done | 5 | Iteration 2 | 4 | 0
-| Lizenz auswählen und im Repository angeben | Jakob, Lucas | Done | 5 | Iteration 2 | 0,5 | 0
-| Erste Use Cases aufstellen | Felix | Done | 5 | Iteration 2 | 2,5 | 0
-| Mit Architecture Notebook vertraut machen | Jakob, Abdullah | ToDo | ... | Iteration 2 | ...| ...
-|Bearbeitung Positionierung in Vision Doc | Laurin | Done | 7 | Iteration 2 | 1 | 0
-| Bearbeitung Produkt-/ Lösungsüberblick im Vision Doc | Julian | Done | 7 | Iteration 2 | 1 | 0
-| Bearbeitung Stakeholder Beschreibung | Felix | Done | 7 | Iteration 2 | 1 | 0
-| Bearbeitung 2. Iterationplan | Conrad | Done| 5 |Iteration 2 | 1 | 0
-|===
+
+.Work Item List: Iteration 2
+image::work_item_list/iteration2.png[Work Item List: Iteration 2]
 
 
 == Probleme (optional)
@@ -96,3 +87,9 @@ Es wurden alle nötigen Aufgaben erledigt. Die schriftliche Dokumentation wurde 
 
 Die Bewertungskriterien wurden erfüllt. Das erste Meeting mit dem Auftraggeber hat statt gefunden. Die Planung des weiteren Vorgehens hat gut funktioniert.
 
+*Projektfortschritt*
+
+Der Projektfortschritt kann im sim4seed Essence-Navigator veranschaulicht werden:
+
+.Projektfortschritt: Iteration 2
+image::essence_navigator/iteration2.png[Essence Navigator]

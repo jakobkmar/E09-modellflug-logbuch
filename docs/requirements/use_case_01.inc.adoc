@@ -1,6 +1,7 @@
 //Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
 ifndef::main-document[include::../_includes/default-attributes.inc.adoc[]]
 
+ifndef::docs-requirements[:docs-requirements: ../requirements]
 
 == Use-Case: UC01 Pilot registrieren
 
@@ -80,6 +81,10 @@ UC02 ist nun möglich.
 ==== Usability
 * Der Use Case gehört zu der grundlegenden Funktionalität des _Systems_ und muss daher für jeden minimal erfahrenen Admin einfach zu benutzen und verständlich sein.
 
+<<<
 
-....
+=== Wireframe
 
+.Wireframe: Pilot registrieren
+:imagesdir: {docs-requirements}/images/wireframes
+image::pilot_registrieren.jpg[Wireframe Pilot registrieren, width=50%, align=center]

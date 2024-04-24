@@ -1,0 +1,16 @@
+@startuml c4model
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+Person(admin, "Admin", "verwaltet das System, verwaltet Pilotenaccounts")
+Person(pilot, "Pilot", "will Protokoll führen")
+Container(webApp, "Webapp Frontend", "Vue.js", "Flugprotokolle, Nutzer und Modelle verwalten")
+Container(webServer, "Webserver Backend", "Kotlin", "Business Logic, Interaktion mit Datenbank")
+ContainerDb(db, "Datenbank", "SQL Database", "Speichert Nutzer, Protokolle, Logs etc.")
+Container(weatherService, "Wetterstation", "REST API", "Misst Wetterdaten auf dem Platz und stellt diese zur verfügung")
+
+Rel(admin, webApp, "interagiert")
+Rel(pilot, webApp, "interagiert")
+Rel(webApp, webServer, "sendet HTTP API requests")
+Rel(webServer, db, "liest und mutiert")
+Rel(webServer, weatherService, "fragt Wetterdaten ab")
+@enduml

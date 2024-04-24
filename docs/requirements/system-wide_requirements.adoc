@@ -4,29 +4,38 @@ Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vor
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
 
+ifndef::docs-requirements[:docs-requirements: ../requirements]
 
 == Einführung
-In diesem Dokument werden die systemweiten Anforderungen für das Projekt <Thema> spezifiziert. Die Gliederung erfolgt nach der FURPS+ Anforderungsklassifikation:
+In diesem Dokument werden die systemweiten Anforderungen für das Projekt {project-name} spezifiziert. Die Gliederung erfolgt nach der FURPS+ Anforderungsklassifikation:
 
 * Systemweite funktionale Anforderungen (F),
 * Qualitätsanforderungen für Benutzbarkeit, Zuverlässigkeit, Effizienz und Wartbarkeit (URPS) sowie
 * zusätzliche Anforderungen (+) für technische, rechtliche, organisatorische Randbedingungen
 
-NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern mit dem System ergeben, sind als Use Cases in einem link:use-case_model[separaten Dokument] festgehalten.
+NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern mit dem System ergeben, sind als Use Cases in einem link:{docs-requirements}/use-case_model[separaten Dokument] festgehalten.
 
 
 
 == Systemweite funktionale Anforderungen
 //Angabe von system-weiten funktionalen Anforderungen, die nicht als Use Cases ausgedrückt werden können. Beispiele sind Drucken, Berichte, Authentifizierung, Änderungsverfolgung (Auditing), zeitgesteuerte Aktivitäten (Scheduling), Sicherheit / Maßnahmen zum Datenschutz
 
-==== SWFA-1: Das System muss Anmelde- sowie Protokolldaten dauerhaft speichern
-Zum Testen wird die Datenbank mit Testdaten gefüllt. Nach dem Neustart müssen die Daten weiterhin vorliegen.
-
-==== SWFA-2: Benutzer müssen ihre eigenen Protokolle bearbeiten können
-Zum Testen wird ein Protokoll mit einem Benutzeraccount erstellt. Danach muss mit dem selben Account das Bearbeiten des Protokolls möglich sein.
-
-==== SWFA-3: Das System muss die Daten zu den Protokollen korrekt und vollständig erfassen und speichern
-Zum Testen wird die Datenbank mit Testdaten gefüllt. Zudem werden die gleichen Daten lokal bei einem Entwickler gespreichert. Nach einem Neustart der Datenbank werden die Daten verglichen. Die Daten müssen auf der Datenbank unverändert vorliegen.
+// tag::swfa1[]
+* *SWFA-1:* Das System muss Anmelde- sowie Protokolldaten dauerhaft speichern +
+// end::swfa1[]
+** Zur Überprüfung wird die Datenbank mit Testdaten gefüllt. Nach dem Neustart müssen die Daten weiterhin vorliegen.
+// tag::swfa2[]
+* *SWFA-2:* Benutzer müssen ihre eigenen Protokolle bearbeiten können, aber nicht die anderer Nutzer
+// end::swfa2[]
+** Zur Überprüfung wird ein Protokoll mit einem Benutzeraccount erstellt. Danach muss mit dem selben Account das Bearbeiten des Protokolls möglich sein.
+// tag::swfa3[]
+* *SWFA-3:* Das System muss die Daten zu den Protokollen korrekt und vollständig erfassen und speichern
+// end::swfa3[]
+** Zur Überprüfung wird die Datenbank mit Testdaten gefüllt. Zudem werden die gleichen Daten lokal bei einem Entwickler gespeichert. Nach einem Neustart der Datenbank werden die Daten verglichen. Die Daten müssen auf der Datenbank unverändert vorliegen.
+// tag::swfa4[]
+* *SWFA-4:* Wenn geflogen wird, dann muss es einen Flugleiter geben
+// end::swfa4[]
+** Zur Überprüfung versuchen wir ein Protokoll zu erstellen, ohne der Intention Flugleiter zu werden.
 
 == Qualitätsanforderungen für das Gesamtsystem
 //Qualitätsanforderungen repräsentieren das "URPS" im FURPS+ zu Klassifikation von Anforderungen
@@ -34,55 +43,67 @@ Zum Testen wird die Datenbank mit Testdaten gefüllt. Zudem werden die gleichen 
 === Benutzbarkeit (Usability)
 //Beschreiben Sie Anforderungen für Eigenschaften wie einfache Bedienung, einfaches Erlernen, Standards für die Benutzerfreundlichkeit, Lokalisierung (landesspezifische Anpassungen von Sprache, Datumsformaten, Währungen usw.)
 
-==== NFAU-1: Im Hauptmenü sollten alle möglichen Aktionen auf einen Blick übersehbar sein
-Zum Testen wird das fertige Hauptmenü in einer realistischen Umgebung aufgerufen und untersucht, ob alle Aktionen auf einen Blick erfassbar sind.
+* *NFAU-1:* Im Hauptmenü sollten alle möglichen Aktionen auf einen Blick übersehbar sein
+** Zur Überprüfung wird das fertige Hauptmenü in einer realistischen Umgebung aufgerufen und untersucht, ob alle Aktionen auf einen Blick erfassbar sind.
 
-==== NFAU-2: Der Text muss auf einem Smartphone auf bequemer Armlängenentfernung lesbar sein
-Zum Testen wird ein Testnutzer einige Anwendungsfälle auf seinem Smartphone auf Armlänge gehalten durchführen.
+* *NFAU-2:* Der Text muss auf einem Smartphone auf bequemer Armlängenentfernung lesbar sein
+** Zur Überprüfung wird ein Testnutzer einige Anwendungsfälle auf seinem Smartphone auf Armlänge gehalten durchführen.
 
-==== NFAU-3: Die Buttons müssen für Touchscreens angepasst sein und einfach benutzbar sein
-Zum Testen wird ein Testnutzer alle Buttons einmal auf einem Smartphone mit Touchscreen benutzen und über die Angepasstheit Bericht erstatten.
+* *NFAU-3:* Die Buttons müssen für Touchscreens angepasst sein und einfach benutzbar sein
+** Zur Überprüfung wird ein Testnutzer alle Buttons einmal auf einem Smartphone mit Touchscreen benutzen und über die Angepasstheit Bericht erstatten.
 
-==== NFAU-4: Die Protokollerstellung sollte übersichtlich gestaltet sein
-Zum Testen wird die fertige Protokollerstellung in einer realistischen Umgebung aufgerufen und untersucht, ob die Protokollerstellung übersichtlich gestalltet ist.
+* *NFAU-4:* Die Protokollerstellung sollte übersichtlich gestaltet sein
+** Zur Überprüfung wird die fertige Protokollerstellung in einer realistischen Umgebung aufgerufen und untersucht, ob die Protokollerstellung übersichtlich gestaltet ist.
 
-==== NFAU-5: Die Benutzung des Systems sollte selbst für technische Laien unumständlich sein
-Zum Testen wird ein Testnutzer, der nicht gewohnt ist mit technischen Geräten umzugehen, einige Anwendungsfälle in dem System durchführen, ohne dabei Anwendungshilfe zu erhalten.
+* *NFAU-5:* Die Benutzung des Systems sollte selbst für technische Laien verständlich sein
+** Zur Überprüfung wird ein Testnutzer, der nicht gewohnt ist mit technischen Geräten umzugehen, einige Anwendungsfälle in dem System durchführen, ohne dabei Anwendungshilfe zu erhalten.
 
-==== NFAU-6: Der Benutzer sollte maximal <?> Klicks brauchen, um ein Protokoll zu erstellen
-Zum Testen wird ein Testnutzer aufgefordert ein Protokoll zu erstellen, indem er nur <?> Klicks/Touchs verwendet.
+* *NFAU-6:* Der Benutzer sollte nach öffnen der Anwendung mit 2 Klicks bereits ein Protokoll erstellen können
+** Zur Überprüfung wird ein Testnutzer aufgefordert ein Protokoll zu erstellen, indem er nur 2 Klicks/Touches verwendet.
 
 === Zuverlässigkeit (Reliability)
 // Zuverlässigkeit beinhaltet die Fähigkeit des Produkts und/oder des Systems unter Stress und ungünstigen Bedingungen am laufen zu bleiben. Spezifizieren Sie Anforderungen für zuverlässige Akzeptanzstufen, und wie diese gemessen und evaluiert werden. Vorgeschlagene Themen sind Verfügbarkeit, Häufigkeit und Schwere von Fehlern und Wiederherstellbarkeit.
 
-==== NFAR-1: Es darf kein falscher Benutzername oder Passwort angegeben werden
-Zum Testen wird die Anmeldung mit einem falschen Benutzernamen und/oder einerm falschen Passwort durchgeführt.
+* *NFAR-1:* Es darf kein falscher Benutzername oder Passwort angegeben werden
+** Zur Überprüfung wird die Anmeldung mit einem falschen Benutzernamen und/oder einem falschen Passwort durchgeführt.
+* *NFAR-2:* Es dürfen keine unmöglichen Zeitspannen angegeben werden
+** Zur Überprüfung wird versucht ein Flugprotokoll über 10 Jahre zu erstellen.
 
 === Effizienz (Performance)
 // Die Performanz Charakteristiken des Systems sollten in diesem Bereich ausgeführt werden. Beispiele sind Antwortzeit, Durchsatz, Kapazität und Zeiten zum Starten oder Beenden.
 
-==== NFAP-1: Das System sollte in der Lage sein, innerhalb von 2 Minuten (?) ein Protokoll zu erstellen
-Zum Testen wird ein Testnutzer ein Protokoll erstellen. Es sollte innerhalb von 2 Minuten (?)erstellt und verarbeitet sein.
+// tag::nfap1[]
+* *NFAP-1:* Das System sollte in der Lage sein, Protokolle sofort abzuspeichern und auszugeben
+// end::nfap1[]
+** Zur Überprüfung wird ein Testnutzer ein Protokoll erstellen. Es sollte direkt danach aufgelistet und auffindbar sein.
+// tag::nfap2[]
+* *NFAP-2:* Seitenwechsel in der Anwendung müssen schnell erfolgen, sodass kein gravierender Unterschied zu einer nativen Mobile-App feststellbar ist
+// end::nfap2[]
+** Zur Überprüfung können ganz schnell die Seiten gewechselt werden und gleichzeitig der Progress-Indicator des Browsers beobachtet werden
 
 === Wartbarkeit (Supportability)
 // Dieser Bereich beschreibt sämtliche Anforderungen welche die Supportfähigkeit oder Wartbarkeit des zu entwickelnden Systems verbessern, einschließlich Anpassungsfähigkeit und Erweiterbarkeit, Kompatibilität, Skalierbarkeit und Anforderungen bezüglich der System Installation sowie Maß an Support und Wartbarkeit.
 
-==== NFAS-1: Das System sollte in der Lage sein, neue Sprachen zu integrieren
-Zum Testen werden alle Anzeigetexte zu einer anderen Sprache übersetzt.
-
-==== NFAS-2: Das System sollte mit wenig Zeitaufwand administrierbar sein
-Zum Testen wird eine Wartungssitzung simuliert und überprüft, dass der Zeitaufwand für diese im Rahmen bleibt. (1h pro Jahr ?)
+// tag::nfas1[]
+* *NFAS-1:* Das System sollte in der Lage sein, neue Sprachen zu integrieren
+// end::nfas1[]
+** Zur Überprüfung werden alle Anzeigetexte zu einer anderen Sprache übersetzt.
+// tag::nfas2[]
+* *NFAS-2:* Das System sollte mit wenig Zeitaufwand administrierbar sein
+// end::nfas2[]
+** Zur Überprüfung wird eine Wartungssitzung simuliert und überprüft, dass der Zeitaufwand für diese im Rahmen bleibt. (2h-4h pro Saison?)
 
 
 == Zusätzliche Anforderungen
 
 === Einschränkungen
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
-* System ist in die bereits vorhandene Infrastruktur zu integrieren
-* keine Vorgaben für die Programmiersprache
+* System ist in die bereits vorhandene Proxmox Infrastruktur zu integrieren
+** soll darin in einem LXC Container laufen
+* keine Vorgaben für die Programmiersprache von Frontend und Backend
 
 === Rechtliche Anforderungen
 //Angaben ergänzen, nicht relevante Unterpunkte streichen oder auskommentieren
-* Datenschutz soll durch Login mit Benutzername und Passwort ermöglicht
-* die Standardisierten Regeln für Flugmodelle müssen einghalten werden
+* Datenschutz soll durch Login mit Benutzername und Passwort ermöglicht werden
+* die standardisierten Regeln für Flugmodelle müssen eingehalten werden
 * es soll eine Open-Source-Lizenz verwendet werden
