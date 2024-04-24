@@ -2,19 +2,22 @@
 
 node "Proxmox Server" {
     package "LXC Container" {
-        [Database] as comp1
-        [Backend] as comp2
+        readsWrites -u- [Database]
+        communicates -u- [Backend]
     }
 }
 
 node "Smartphone" {
-    [Frontend] as comp3
+    [Frontend]
 }
 
-[Weather Station] as comp4
+requestsData -l- [WeatherStation]
 
-comp2 --> comp1 :reads/writes
-comp2 --> comp4 :request data
-comp3 --> comp2 :communicate
+
+Backend .l. requestsData
+Backend .u. readsWrites
+Frontend .u. communicates
+HTTPS -r- Frontend
+SQLServerManagement -r- Database
 
 @enduml
