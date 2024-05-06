@@ -27,6 +27,3 @@ CREATE TABLE Protokoll(
 	Flugleiter BOOLEAN not null,
 	Modell VARCHAR(3), CONSTRAINT FK_Modell FOREIGN KEY (Modell) REFERENCES ModellID(Modell)
 )
-
-
-
