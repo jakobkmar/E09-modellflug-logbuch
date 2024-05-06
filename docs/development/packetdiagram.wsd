@@ -1,0 +1,41 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+package "Authentication Services" {
+    component "[Authentication Service]" as AuthService
+    component "[API Gateway]" as APIGateway
+}
+
+package "Logbook Management" {
+    component "[Logbook Manager]" as LogbookMgr
+    component "[Data Synchronization Service]" as DataSyncService
+}
+
+package "Pilot Management" {
+    component "[Pilot Manager]" as PilotMgr
+    component "[Notification Service]" as NotificationService
+}
+
+package "Integration Services" {
+    component "[Weather Service Integrator]" as WeatherServiceIntegrator
+    component "[API Gateway]" as APIGateway2
+}
+
+package "Data Management" {
+    component "[Database Interface]" as DatabaseInterface
+    component "[Logbook Database]" as LogbookDB
+}
+
+AuthService -right-> APIGateway : "Uses"
+APIGateway -down-> LogbookMgr : "Routes to\nLogbook Manager"
+APIGateway2 -left-> WeatherServiceIntegrator : "Routes to\nWeather Integrator"
+LogbookMgr -down-> DatabaseInterface : "Interacts with"
+PilotMgr -down-> DatabaseInterface : "Interacts with"
+DataSyncService -down-> DatabaseInterface : "Synchronizes with"
+WeatherServiceIntegrator -right-> LogbookDB : "Fetches data from"
+NotificationService -up-> PilotMgr : "Notifies"
+
+database "[Weather API]" as WeatherAPI
+WeatherServiceIntegrator --> WeatherAPI : "Fetches Weather Data"
+
+@enduml
