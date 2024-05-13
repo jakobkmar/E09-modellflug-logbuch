@@ -17,6 +17,5 @@ requestsData -l- [WeatherStation]
 Backend .l. requestsData
 Backend .u. readsWrites
 Frontend .u. communicates
-HTTPS -r- Frontend
 SQLServerManagement -r- Database
 @enduml
