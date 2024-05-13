@@ -16,6 +16,7 @@ requestsData -l- [WeatherStation]
 
 Backend .l. requestsData
 Backend .u. readsWrites
+"Public API" -r- Backend
 Frontend .u. communicates
 SQLServerManagement -r- Database
 @enduml
