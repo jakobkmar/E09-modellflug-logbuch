@@ -1,0 +1,13 @@
+@startuml
+
+state Pilot1_ist_Flugleiter_und_darf_fliegen
+state Pilot1_darf_nicht_fliegen
+state Flugleiterrolle_wird_angeboten
+
+[*] --> Pilot1_ist_Flugleiter_und_darf_fliegen: erster Pilot meldet sich an
+Pilot1_ist_Flugleiter_und_darf_fliegen --> Pilot1_ist_Flugleiter_und_darf_fliegen: zweiter Pilot meldet sich an
+Pilot1_ist_Flugleiter_und_darf_fliegen --> Pilot1_darf_nicht_fliegen: dritter Pilot meldet sich an
+Pilot1_darf_nicht_fliegen --> Pilot1_darf_nicht_fliegen: vierter Pilot meldet sich an
+Pilot1_darf_nicht_fliegen --> Flugleiterrolle_wird_angeboten: Pilot1 fragt Abgabe seiner Rolle an
+
+@enduml

@@ -1,0 +1,13 @@
+@startuml
+
+participant Pilot_1 as p1
+participant Pilot_2 as p2
+participant Pilot_3 as p3
+
+p2 -> p1: Abgabe Flugleiterrolle anfragen 
+p2 -> p3: Abgabe Flugleiterrolle anfragen 
+p1 -> p2: Ablehnen
+p3 -> p2: Annehmen
+p2 -> p3: Abgabe Flugleiterrolle bestätigen
+
+@enduml
