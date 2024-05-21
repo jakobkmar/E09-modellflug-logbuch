@@ -20,7 +20,10 @@ dependencies {
 
     implementation("org.slf4j:slf4j-simple:2.0.12") // logging
 
-    implementation("app.cash.sqldelight:sqlite-driver:2.0.2")
+    // database dependencies
+    implementation("com.zaxxer:HikariCP:5.1.0")
+    implementation("app.cash.sqldelight:jdbc-driver:2.0.2")
+    implementation("org.postgresql:postgresql:42.7.3")
 }
 
 kotlin {
@@ -44,7 +47,7 @@ idea {
 sqldelight {
     databases {
         create("Database") {
-            packageName.set("de.mfcrossendorf")
+            packageName.set("de.mfcrossendorf.logbook.db")
             dialect("app.cash.sqldelight:postgresql-dialect:2.0.2")
         }
     }
