@@ -1,13 +1,27 @@
 @startuml
 
-state Pilot1_ist_Flugleiter_und_darf_fliegen
-state Pilot1_darf_nicht_fliegen
-state Flugleiterrolle_wird_angeboten
 
-[*] --> Pilot1_ist_Flugleiter_und_darf_fliegen: erster Pilot meldet sich an
-Pilot1_ist_Flugleiter_und_darf_fliegen --> Pilot1_ist_Flugleiter_und_darf_fliegen: zweiter Pilot meldet sich an
-Pilot1_ist_Flugleiter_und_darf_fliegen --> Pilot1_darf_nicht_fliegen: dritter Pilot meldet sich an
-Pilot1_darf_nicht_fliegen --> Pilot1_darf_nicht_fliegen: vierter Pilot meldet sich an
-Pilot1_darf_nicht_fliegen --> Flugleiterrolle_wird_angeboten: Pilot1 fragt Abgabe seiner Rolle an
+
+state Pilot_1 {
+
+    state Ist_Flugleiter_und_darf_fliegen
+    state Darf_nicht_fliegen
+    state Flugleiterrolle_wird_angeboten
+    state Ist_kein_Flugleiter_und_darf_fliegen
+    
+    [*] --> Ist_Flugleiter_und_darf_fliegen: erster Pilot meldet sich an
+    Ist_Flugleiter_und_darf_fliegen --> Ist_Flugleiter_und_darf_fliegen: zweiter Pilot meldet sich an
+    Ist_Flugleiter_und_darf_fliegen --> Darf_nicht_fliegen: dritter Pilot meldet sich an
+    Darf_nicht_fliegen --> Darf_nicht_fliegen: vierter Pilot meldet sich an
+    Darf_nicht_fliegen --> Flugleiterrolle_wird_angeboten: Pilot1 fragt Abgabe seiner Rolle an
+    Flugleiterrolle_wird_angeboten --> Ist_kein_Flugleiter_und_darf_fliegen: Pilot2 nimmt Flugleiterrolle an
+}
+
+state Pilot_2 {
+    [*] --> Ist_kein_Flugleiter_und_darf_fliegen2: zweiter Pilto meldet sich an
+    Ist_kein_Flugleiter_und_darf_fliegen2 --> Ist_kein_Flugleiter_und_darf_fliegen2: weitere Piloten melden sich an
+    Ist_kein_Flugleiter_und_darf_fliegen2 --> Ist_Flugleiter_und_darf_nicht_fliegen2: nimmt Flugleiterrolle von Pilot1 an
+    Flugleiterrolle_wird_angeboten --> Ist_Flugleiter_und_darf_nicht_fliegen2
+}
 
 @enduml
