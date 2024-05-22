@@ -1,0 +1,8 @@
+CREATE TABLE user (
+  user_id VARCHAR(3) NOT NULL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  registration_number VARCHAR(16) NOT NULL,
+  password_hash VARCHAR(256),
+  address VARCHAR(100),
+  is_admin BOOLEAN NOT NULL
+);

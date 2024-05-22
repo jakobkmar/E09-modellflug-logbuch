@@ -7,7 +7,6 @@ import de.mfcrossendorf.logbook.db.Database
 import java.util.*
 import kotlin.io.path.*
 
-
 val database: Database = run {
     val props = Properties()
     props.setProperty("dataSourceClassName", "org.postgresql.ds.PGSimpleDataSource")
