@@ -1,6 +1,6 @@
 CREATE TABLE protocol (
   protocol_id VARCHAR(3) NOT NULL PRIMARY KEY,
-  creator_id VARCHAR(3) NOT NULL REFERENCES user(user_id),
+  creator_id VARCHAR(3) NOT NULL REFERENCES account(account_id),
   flight_start TIME,
   flight_end TIME,
   signature BYTEA,
@@ -8,6 +8,9 @@ CREATE TABLE protocol (
   remarks VARCHAR(250),
   model VARCHAR(3) REFERENCES model(model_id)
 );
+
+getProtocols:
+SELECT * FROM protocol;
 
 getProtocol:
 SELECT * FROM protocol WHERE protocol_id = ?;

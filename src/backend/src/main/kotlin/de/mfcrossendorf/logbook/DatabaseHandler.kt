@@ -7,7 +7,7 @@ import de.mfcrossendorf.logbook.db.Database
 import java.util.*
 import kotlin.io.path.*
 
-val database: Database = run {
+private val dbDriver = run {
     val props = Properties()
     props.setProperty("dataSourceClassName", "org.postgresql.ds.PGSimpleDataSource")
     props.setProperty("dataSource.user", "logbook")
@@ -25,5 +25,12 @@ val database: Database = run {
     }
 
     val config = HikariConfig(configPath.absolutePathString())
-    Database(HikariDataSource(config).asJdbcDriver())
+
+    HikariDataSource(config).asJdbcDriver()
 }
+
+val database = Database(dbDriver)
+
+@Suppress("UnusedReceiverParameter")
+val Database.driver
+    get() = dbDriver

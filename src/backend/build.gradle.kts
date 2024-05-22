@@ -43,7 +43,6 @@ idea {
     }
 }
 
-
 sqldelight {
     databases {
         create("Database") {

@@ -1,5 +1,6 @@
 package de.mfcrossendorf.logbook.routes
 
+import de.mfcrossendorf.logbook.database
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*
@@ -46,21 +47,19 @@ fun Routing.flightlogRoutes() = route("/flightlogs") {
             }
         }
 
-        // GET request to fetch details of a specific flight log by ID
+        // fetch details of a specific flight log by ID
         get("/{id}") {
-            val id = call.parameters["id"] ?: return@get call.respond(HttpStatusCode.BadRequest, "Keine Protokoll ID übergeben")
+            // TODO verify session (user or admin)
 
-            // Retrieve flight log details from the database based on the provided ID
-            val flightLog = getFlightLogById(id)
+            val id = call.parameters["id"]!!
 
-            // Check if flight log was found
-            if (flightLog != null) {
-                // Respond with the flight log details
-                call.respond(HttpStatusCode.OK, flightLog)
-            } else {
-                // If flight log was not found, respond with a message
-                call.respond(HttpStatusCode.NotFound, "Flugprotokoll mit ID $id nicht gefunden")
+            val protocol = database.protocolQueries.getProtocol(id).executeAsOneOrNull()
+            if (protocol == null) {
+                call.respond(HttpStatusCode.NotFound, "Could not find protocol with ID $id")
+                return@get
             }
+
+            call.respond(HttpStatusCode.OK, protocol)
         }
 
         // POST request to create a new flight log
