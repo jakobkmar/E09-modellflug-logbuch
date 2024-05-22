@@ -1,6 +1,6 @@
 CREATE TABLE protocol (
   protocol_id VARCHAR(3) NOT NULL PRIMARY KEY,
-  creator_id VARCHAR(3) NOT NULL REFERENCES account(account_id),
+  creator_id UUID NOT NULL REFERENCES account(account_id),
   flight_start TIME,
   flight_end TIME,
   signature BYTEA,

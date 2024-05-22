@@ -17,7 +17,7 @@ fun main() {
     try {
         Database.Schema.create(database.driver)
     } catch (exc: PSQLException) {
-        println("Database schema already exists: '${exc::class.simpleName}'")
+        println("Database schema already exists: '${exc::class.simpleName}', '${exc.message}'")
     }
 
     // configure and start the server
