@@ -19,9 +19,7 @@ include::../_includes/default-attributes.inc.adoc[]
 
 == Wesentliche Ziele
 
-* Implementierung der Software
-* Backend Layout entwerfen und mit Impementierung beginnen
-* Entwurf des UI finalisieren und an erste kommentare des Auftraggebers anpassnen
+* Planung der projektreflexion 
 
 == Aufgabenzuordnung
 //Dieser Abschnitt sollte einen Verweis auf die Work Items List enthalten, die die für diese Iteration vorgesehenen Aufgaben dokumentiert sowie die Zuordnung dieser Aufgaben zu Teammitgliedern. Alternativ können die Aufgaben für die Iteration und die Zuordnung zu Teammitgliedern in nachfolgender Tabelle dokumentiert werden - je nach dem, was einfacher für die Projektbeteiligten einfacher zu finden ist.
@@ -32,7 +30,7 @@ siehe *https://github.com/users/jakobkmar/projects/2/views/3?filterQuery=iterati
 
 _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 
-.Work Item List: Iteration 6
+.Work Item List: Iteration 8
 // Bild noch einzufügen
 
 
