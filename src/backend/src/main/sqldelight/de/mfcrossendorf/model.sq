@@ -2,5 +2,5 @@ CREATE TABLE model (
   model_id VARCHAR(3) NOT NULL PRIMARY KEY,
   description VARCHAR(100),
   class VARCHAR(20) NOT NULL,
-  owner UUID NOT NULL REFERENCES account(account_id)
+  owner INT NOT NULL REFERENCES account(account_id)
 );
