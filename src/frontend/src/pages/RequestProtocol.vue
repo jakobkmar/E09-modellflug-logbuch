@@ -112,7 +112,6 @@ const timeInput2= ref(getTimeString())
         <div style="display: flex; gap: 0.4em; justify-content: center;">
           <input
           class="form-control"
-          required
           placeholder="Gib einen Namen ein, wenn gewünscht!"
           />
         </div>
@@ -128,7 +127,6 @@ const timeInput2= ref(getTimeString())
         <div style="display: flex; gap: 0.4em; justify-content: center;">
           <input
           class="form-control"
-          required
           placeholder="Gib einen Modelnamen ein, wenn gewünscht!"
           />
         </div>
