@@ -13,8 +13,15 @@ function showDatePicker2() {
 
 
 function searchProtocoll() {
+  if (dateInput > dateInput2){
+    console.warn("Falsche Daten ausgewählt")
+    return
+  }
+  
+  else{
   // ToDo
   // Handle search logic here
+  }
 }
 
 const dateInput = ref(getDateToday())
