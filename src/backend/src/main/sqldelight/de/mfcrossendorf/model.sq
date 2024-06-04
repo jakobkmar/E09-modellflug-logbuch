@@ -4,3 +4,14 @@ CREATE TABLE model (
   class VARCHAR(20) NOT NULL,
   owner INT NOT NULL REFERENCES account(account_id)
 );
+
+getModel:
+SELECT * FROM model WHERE model_id = :model_id;
+
+createModel:
+INSERT INTO model (model_id, description, class, owner)
+VALUES (:model_id, :description, :class, :owner);
+
+updateModel:
+UPDATE model SET description = :description, class = :class, owner = :owner
+WHERE model_id = :model_id;
