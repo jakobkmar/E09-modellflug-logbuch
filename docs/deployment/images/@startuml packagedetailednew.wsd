@@ -1,0 +1,35 @@
+@startuml simplified_package_diagram
+
+package "Webapp Frontend" {
+    [Authentication and Session Handling]
+    [Protocol Management UI]
+    [WebSocket Communication]
+    [Admin UI Functions]
+}
+
+package "Webserver Backend" {
+    [User Management]
+    [Session Management]
+    [Protocol Services]
+    [Weather Data Client]
+}
+
+package "Database" {
+    [Data Storage]
+}
+
+package "Weather Station" {
+    [Weather Data Collection]
+    [Weather Data API]
+}
+
+' Relationships
+[Authentication and Session Handling] ..> [Session Management] : Uses
+[Protocol Management UI] ..> [Protocol Services] : Sends Data To/From
+[WebSocket Communication] ..> [User Management] : Notifies
+[User Management] ..> [Data Storage] : Reads/Writes
+[Session Management] ..> [Data Storage] : Manages Sessions
+[Protocol Services] ..> [Data Storage] : Logs Management
+[Weather Data Client] ..> [Weather Data API] : Retrieves Data
+
+@enduml
