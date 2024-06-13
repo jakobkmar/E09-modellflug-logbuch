@@ -1,0 +1,20 @@
+@startuml
+left to right direction
+    package "Frontend" {
+        [RegistrationPage.vue]
+        [LoginPage.vue]
+        [HomePage.vue]
+        [CreateProtocolPage.vue]
+        [CompleteProtocolPage.vue]
+        [ListProtocolsPage.vue]
+    }
+    Frontend <..> Backend: <<access>>
+
+    package "Backend" {
+        [FlightlogRequest.kt] -d- [DatabaseHandler.kt]
+        [ProfileRoutes.kt] -d- [DatabaseHandler.kt]
+        [AdminRoutes.kt] -l- [DatabaseHandler.kt]
+        [DatabaseHandler.kt]
+    }
+    [Database] <.u.> Backend: <<access>>
+@enduml
