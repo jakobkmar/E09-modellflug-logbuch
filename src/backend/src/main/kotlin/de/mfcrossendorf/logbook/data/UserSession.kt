@@ -10,6 +10,11 @@ import kotlinx.serialization.json.Json
 data class UserSession(
     val userId: Int,
     val userName: String,
+    /**
+     * this is only for conditional display purposes,
+     * not for actual security checks
+     */
+    val isAdminUnsafe: Boolean,
 ) : Principal {
 
     object UserSessionSerializer : SessionSerializer<UserSession> {

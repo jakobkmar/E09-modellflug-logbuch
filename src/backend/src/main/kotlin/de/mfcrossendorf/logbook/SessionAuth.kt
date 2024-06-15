@@ -30,7 +30,8 @@ fun Application.configureSessionAuth() {
 
                 UserSession(
                     userId = account.account_id,
-                    userName = account.username)
+                    userName = account.username,
+                    isAdminUnsafe = account.is_admin)
             }
         }
         session<UserSession>("auth-session") {

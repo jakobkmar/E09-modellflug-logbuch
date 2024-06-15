@@ -24,4 +24,5 @@ checkAdmin:
 SELECT is_admin FROM account WHERE account_id = :account_id;
 
 changePasswordForAccount:
-UPDATE account SET password_hash = :password_hash WHERE account_id = :account_id;
+UPDATE account SET password_hash = :password_hash WHERE account_id = :account_id
+RETURNING account_id;
