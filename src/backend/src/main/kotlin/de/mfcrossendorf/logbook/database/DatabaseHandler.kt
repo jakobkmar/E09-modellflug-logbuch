@@ -1,4 +1,4 @@
-package de.mfcrossendorf.logbook
+package de.mfcrossendorf.logbook.database
 
 import app.cash.sqldelight.driver.jdbc.asJdbcDriver
 import com.zaxxer.hikari.HikariConfig

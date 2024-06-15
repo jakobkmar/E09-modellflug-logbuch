@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "1.9.23"
+    kotlin("plugin.serialization") version "1.9.23"
     id("app.cash.sqldelight") version "2.0.2"
     idea
 }
@@ -14,16 +15,20 @@ repositories {
 dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 
-    val ktorVersion = "2.3.9"
+    val ktorVersion = "2.3.11"
     implementation("io.ktor:ktor-server-core:$ktorVersion")
     implementation("io.ktor:ktor-server-netty:$ktorVersion")
+    implementation("io.ktor:ktor-server-sessions:$ktorVersion")
+    implementation("io.ktor:ktor-server-auth:$ktorVersion")
 
     implementation("org.slf4j:slf4j-simple:2.0.12") // logging
+    implementation("org.slf4j:jcl-over-slf4j:2.0.12")
+    implementation("org.springframework.security:spring-security-crypto:6.3.0") // password hashing
 
     // database dependencies
     implementation("com.zaxxer:HikariCP:5.1.0")
-    implementation("app.cash.sqldelight:jdbc-driver:2.0.2")
     implementation("org.postgresql:postgresql:42.7.3")
+    implementation("app.cash.sqldelight:jdbc-driver:2.0.2")
 }
 
 kotlin {
