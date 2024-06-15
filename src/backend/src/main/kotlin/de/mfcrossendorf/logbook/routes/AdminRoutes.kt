@@ -1,6 +1,6 @@
 package de.mfcrossendorf.logbook.routes
 
-import de.mfcrossendorf.logbook.database
+import de.mfcrossendorf.logbook.database.database
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.response.*

@@ -1,5 +1,7 @@
 package de.mfcrossendorf.logbook
 
+import de.mfcrossendorf.logbook.database.database
+import de.mfcrossendorf.logbook.database.driver
 import de.mfcrossendorf.logbook.db.Database
 import de.mfcrossendorf.logbook.routes.adminRoutes
 import de.mfcrossendorf.logbook.routes.flightlogRoutes

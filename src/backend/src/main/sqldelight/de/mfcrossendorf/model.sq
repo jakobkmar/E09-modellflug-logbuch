@@ -1,7 +1,7 @@
 CREATE TABLE model (
   model_id VARCHAR(3) NOT NULL PRIMARY KEY,
   description VARCHAR(100),
-  class VARCHAR(20) NOT NULL,
+  classification VARCHAR(20) NOT NULL,
   owner INT NOT NULL REFERENCES account(account_id)
 );
 
@@ -9,9 +9,9 @@ getModel:
 SELECT * FROM model WHERE model_id = :model_id;
 
 createModel:
-INSERT INTO model (model_id, description, class, owner)
-VALUES (:model_id, :description, :class, :owner);
+INSERT INTO model (model_id, description, classification, owner)
+VALUES (:model_id, :description, :classification, :owner);
 
 updateModel:
-UPDATE model SET description = :description, class = :class, owner = :owner
+UPDATE model SET description = :description, classification = :classification, owner = :owner
 WHERE model_id = :model_id;
