@@ -6,7 +6,8 @@ CREATE TABLE account (
   last_name TEXT,
   registration_number TEXT,
   password_hash TEXT,
-  is_admin BOOLEAN NOT NULL
+  is_admin BOOLEAN NOT NULL,
+  CONSTRAINT username_length CHECK (LENGTH(username) >= 3)
 );
 
 CREATE INDEX account_username_idx ON account(username);
