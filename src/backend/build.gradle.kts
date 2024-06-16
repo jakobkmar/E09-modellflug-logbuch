@@ -5,33 +5,37 @@ plugins {
     idea
 }
 
-group = "de.mfcrossendorf"
-version = "0.0.1"
+allprojects {
+    group = "de.mfcrossendorf"
+    version = "0.0.1"
 
-repositories {
-    mavenCentral()
+    repositories {
+        mavenCentral()
+    }
 }
 
 dependencies {
-    testImplementation("org.jetbrains.kotlin:kotlin-test")
-    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.0")
+    implementation(project(":common-data"))
 
-    val ktorVersion = "2.3.11"
-    implementation("io.ktor:ktor-server-core:$ktorVersion")
-    implementation("io.ktor:ktor-server-netty:$ktorVersion")
-    implementation("io.ktor:ktor-server-sessions:$ktorVersion")
-    implementation("io.ktor:ktor-server-auth:$ktorVersion")
-    implementation("io.ktor:ktor-server-content-negotiation:$ktorVersion")
-    implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
+    testImplementation(kotlin("test"))
+    implementation(libs.kotlinx.datetime)
 
-    implementation("org.slf4j:slf4j-simple:2.0.12") // logging
-    implementation("org.slf4j:jcl-over-slf4j:2.0.12")
-    implementation("org.springframework.security:spring-security-crypto:6.3.0") // password hashing
+    implementation(libs.ktor.server.core)
+    implementation(libs.ktor.server.netty)
+    implementation(libs.ktor.server.sessions)
+    implementation(libs.ktor.server.auth)
+    implementation(libs.ktor.server.contentNegotiation)
+    implementation(libs.ktor.serialization.json)
+
+    // logging
+    implementation(libs.slf4j.simple)
+    implementation(libs.slf4j.jclOverSlf4j)
+    implementation(libs.spring.security.crypto) // password hashing
 
     // database dependencies
-    implementation("com.zaxxer:HikariCP:5.1.0")
-    implementation("org.postgresql:postgresql:42.7.3")
-    implementation("app.cash.sqldelight:jdbc-driver:2.0.2")
+    implementation(libs.hikaricp)
+    implementation(libs.postgresql)
+    implementation(libs.sqldelight.jdbcDriver)
 }
 
 kotlin {
@@ -55,7 +59,7 @@ sqldelight {
     databases {
         create("Database") {
             packageName.set("de.mfcrossendorf.logbook.db")
-            dialect("app.cash.sqldelight:postgresql-dialect:2.0.2")
+            dialect(libs.sqldelight.dialect.postgresql)
         }
     }
 }

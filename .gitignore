@@ -14,7 +14,7 @@
 # Gradle
 .gradle/
 gradle/
-src/backend/build/
+src/backend/**/build/
 
 # Project
 config/database.properties
