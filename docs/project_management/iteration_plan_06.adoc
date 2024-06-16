@@ -71,15 +71,15 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 *Beurteilung im Vergleich zu den Zielen*
 
 * Die für die Implementierung erforderlichen Workflows funtionieren, 
-* Das Problem nicht bearbeiteter Pulll Requests konnte gleößt werden,
-* Backend request rouoten wurden entworfen und mit deren Implementierung begonnen, 
-* Es wurde begonnen sich mit dem user Interface zu beschäftigen, eine abstimmung dazu steht aufgrung von Terminschwierigkeiten noch aus.
+* Das Problem nicht bearbeiteter Pull Requests konnte gelöst werden,
+* Backend Request Routen wurden entworfen und mit deren Implementierung begonnen, 
+* Es wurde begonnen sich mit dem user Interface zu beschäftigen, eine Abstimmung dazu steht aufgrung von Terminschwierigkeiten noch aus.
 
 
 *Projektfortschritt*
 
 Das Team hat erfolgeich mit der Implementierung der Software begonnen, 
-im Rahmen von Iteration 7 sollte ein Meeting mit dem Auftraggeber stattfinden um den aktuellen Stand der implementierug vorzustellen.
+im Rahmen von Iteration 7 sollte ein Meeting mit dem Auftraggeber stattfinden um den aktuellen Stand der Implementierung vorzustellen.
 
 Alle Teammitglieder beteiligen sich an der Arbeit und arbeiten zusammen.
 

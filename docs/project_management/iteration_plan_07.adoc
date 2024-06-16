@@ -54,8 +54,8 @@ noch einzufügen
 
 * Das Teambuildingevent stärkt das Verantwortungsbewusstsein aller Teammitglieder für das gesamte Team, persönliche Gespräche verbessern die Atmosphäre für kommende Meetings
 * Der Auftraggeber ist mit dem aktellen Arbeitsstand zufrieden, keine Substantiellen Änderungen sind erforderlich
-* Es wurden substantiellen fortschritte ebi der Implementierung von Frontend (insbes. UI) und Backend erzielt. 
-* Im Choach Termin konnten wesentliuche Anforderungen und Bewertungskriterien an dieses Projekt identifiziert werden
+* Es wurden substantiellen fortschritte bei der Implementierung von Frontend (insbes. UI) und Backend erzielt. 
+* Im Choach Termin konnten wesentliche Anforderungen und Bewertungskriterien an dieses Projekt identifiziert werden
 
 
 == Assessment
@@ -69,7 +69,7 @@ noch einzufügen
 |===
 
 *Beurteilung im Vergleich zu den Zielen*
-beit im Teammeeting funktioniert, die arbeit am Projekt konnte erfolgreich fortgesetzt werden. 
+Arbeit im Teammeeting funktioniert, die Arbeit am Projekt konnte erfolgreich fortgesetzt werden. 
 
 ToDo
 
