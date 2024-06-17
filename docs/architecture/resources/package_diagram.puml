@@ -1,12 +1,11 @@
 @startuml
 left to right direction
     package "Frontend" {
-        [RegistrationPage.vue]
-        [LoginPage.vue]
-        [HomePage.vue]
-        [CreateProtocolPage.vue]
-        [CompleteProtocolPage.vue]
-        [ListProtocolsPage.vue]
+        [RegistrationPage.vue] -d- [LoginPage.vue]
+        [LoginPage.vue] -u-> [HomePage.vue]
+        [HomePage.vue] -d- [CreateProtocolPage.vue]
+        [CreateProtocolPage.vue] -d-> [CompleteProtocolPage.vue]
+        [HomePage.vue] -d- [ListProtocolsPage.vue]
     }
     Frontend <..> Backend: <<access>>
 
