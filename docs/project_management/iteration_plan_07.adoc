@@ -20,7 +20,7 @@ include::../_includes/default-attributes.inc.adoc[]
 == Wesentliche Ziele
 
 * 2.Termin mit Auftraggeber durchführen, Vorstellen des Arbeitsstands
-* Anforderungen/ Änderungswünsche des Auftaggebers in Anforderungen aufnehmen, die vorhandene Implentierung anpassen oder implementieren
+* Anforderungen/ Änderungswünsche des Auftaggebers in Anforderungen aufnehmen, die vorhandene Implementierung anpassen oder implementieren
 * 2.Termin mit Coach durchführen
 * Implementierung fortsetzten
 * Durchführung eines Teambuildingevents
