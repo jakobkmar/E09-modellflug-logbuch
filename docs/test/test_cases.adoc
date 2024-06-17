@@ -4,87 +4,60 @@ Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vor
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
 
-
-== Allgemeine Informationen
-
-Test Cases sind essenziell um Szenarios auf vollumfängliche Funktionsweise zu testen. Dabei möchte man ein ungeteiltes Verständnis von spezifischen Bedingungen erreichen, welche die gewählte Lösung erfüllen sollte. Test Cases sind stark an den requirements orientiert, da man sicherstellen möchte, diese bestmöglich umzusetzen.
-
-
-== Test Case 01 - Synchronisation überprüfen
+== Test Case: TC01 - Erfolgreiche Pilotenregistrierung
 
 === Beschreibung
-
-In diesem Test-Case geht es darum zu schauen, wie schnell und zuverlässig die lokale Datenbank des Raspis nach einer Änderung der Datenbank des Webservers aktualisiert wird.
+Dieser Testfall überprüft, ob die Registrierung eines neuen Piloten korrekt im System erfasst wird. Der Administrator gibt alle erforderlichen Informationen für einen neuen Piloten ein und übermittelt diese Daten.
 
 === Vorbedingungen
-
-- Der Akteur muss eine Internetverbindung haben
-- Der Akteur sollte vorher nicht angemeldet sein
-
-=== Testablauf
-
-- Pilot registriert sich neu im System
-- Nach vollständiger Registrierung meldet sich der Pilot unverzüglich über die Website an
-- Je schneller diese beiden Prozesse hintereinander ablaufen, desto besser um die Geschwindigkeit zu testen
+* Der Administrator ist im System eingeloggt.
+* Es gibt keine Einschränkungen bezüglich der Anzahl registrierbarer Piloten.
 
 === Nachbedingungen
+* Ein neuer Pilot ist erfolgreich registriert.
+* Eine Bestätigungsnachricht über die erfolgreiche Registrierung erscheint im System.
 
-- Pilot sollte in Datenbank registriert sein
-- Pilot sollte angemeldet sein
-
-<<<
-
-== Test Case 02 - Belastbarkeit testen
+== Test Case: TC02 - Pilotenanmeldung mit gültigen Anmeldeinformationen
 
 === Beschreibung
-
-In diesem Test-Case geht es darum die Belastbarkeit des Systems zu testen, das heißt, es sollen Situationen getestet werden, die entweder nur sehr selten oder durch böswillige Aktionen auftreten. Dabei darf der Test nicht zum Absturz führen.
-
-=== Vorbedingungen
-
-- Es muss mindest ein Pilot in der Datenbank vorhanden sein
-- Der Akteur muss eine Internetverbindung haben
-
-=== Testablauf
-
-- Der Pilot meldet sich an
-- Der Pilot meldet sich schnellstmöglich wieder ab
-- Dies wird beliebig häufig in einem kurzen Zeitraum wiederholt
-- Wenn möglich auch mit mehreren Nutzern gleichzeitig
-
-=== Nachbedingung
-
-- Im Idealfall ist dabei keine Komponente des Systems abgestürzt
-- Alle An- & Abmeldevorgänge konnten vollzogen werden
-
-<<<
-
-== Test Case 03 - Mehrere Flugleiter
-
-=== Beschreibung
-
-In diesem Test-Case geht es darum die vom Themensteller vorgegebene Rahmenbedingung einzuhalten, dass es zu jeder Zeit maximal einen Flugleiter auf dem Flugplatz geben darf.
+In diesem Testfall soll getestet werden, ob ein Pilot sich erfolgreich mit seinen gültigen Anmeldeinformationen einloggen kann.
 
 === Vorbedingungen
-
-- Es existieren zwei oder mehr Piloten
-- Es muss bei allen Piloten Internetverbindung vorhanden sein
-
-=== Testablauf
-
-- Pilot 1 meldet sich als Flugleiter an
-- Pilot 2 meldet sich nach Pilot 1 als Flugleiter an
-- Dies kann beliebig lang fortgeführt werden
+* Der Pilot ist bereits im System registriert.
+* Die Webapp ist über einen QR-Code oder einen Direktlink erreichbar.
 
 === Nachbedingungen
+* Der Pilot ist im System angemeldet.
+* Der Pilot erhält Zugriff auf für ihn freigegebene Bereiche und Funktionen des Systems.
 
-- Der Pilot, der sich als erster angemeldet hat, ist nun Flugleiter und hat diesbezüglich eine Bestätigung erhalten
-- Der Pilot, der sich als zweiter angemeldet hat, bekommt die Rolle übertragen und hat diesbezüglich eine Rückmeldung bekommen
-- Pilot 1 bekommt auch eine Benachrichtigung, dass ihm der Flugleiter Status wieder entzogen wurde und Pilot 2 nun Flugleiter ist
+== Test Case: TC03 - Protokollerstellung durch einen angemeldeten Piloten
 
-<<<
+=== Beschreibung
+Dieser Testfall prüft, ob ein angemeldeter Pilot erfolgreich ein Flugprotokoll anlegen kann. Der Pilot füllt alle erforderlichen und optionalen Felder des Protokolls aus und sendet dieses ab.
 
-== Test Case 04 - Sicherheitsüberprüfungen
+=== Vorbedingungen
+* Der Pilot ist im System angemeldet.
+* Alle erforderlichen Dienste für das Abfragen von Wetterdaten sind verfügbar.
+
+=== Nachbedingungen
+* Ein neues Protokoll ist erstellt und im System gespeichert.
+* Das Protokoll enthält alle eingegebenen Informationen.
+
+== Test Case: TC04 - Automatische Zuweisung des Flugleiters
+
+=== Beschreibung
+In diesem Testfall wird geprüft, wie das System automatisch einen Flugleiter zuweist, wenn mehrere Piloten angemeldet sind. Es wird getestet, ob der dritte angemeldete Pilot automatisch als Flugleiter eingetragen wird.
+
+=== Vorbedingungen
+* Mindestens zwei Piloten sind bereits angemeldet.
+* Ein weiterer Pilot ist bereit, sich anzumelden.
+
+=== Nachbedingungen
+* Der dritte angemeldete Pilot wird automatisch als Flugleiter festgelegt.
+* Der Flugleiter erhält spezifische Benachrichtigungen oder Zugriffe, die seine Rolle betreffen.
+
+
+== Test Case : TC05 - Sicherheitsüberprüfungen
 
 === Beschreibung
 
