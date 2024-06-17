@@ -71,7 +71,7 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 | Assessment Ziel | Iteration 9
 
 | Assessment Datum | 19.06.2024
-| Teilnehmer | Projektmanagement, Jakob Kretzschmar, Julian Neidert, Laurin Wobeda
+| Teilnehmer | Projektmanagement, Jakob Kretzschmar, Julian Neidert, Laurin Wobeda, Lukas Trogisch, Conrad Caffier, Abdallah Alherani
 | Projektstatus	| gelb
 |===
 

@@ -61,7 +61,7 @@ https://github.com/users/jakobkmar/projects/2/views/3?filterQuery=iteration%3A%2
 | Assessment Ziel | Iteration 10
 
 | Assessment Datum | 19.06.2024
-| Teilnehmer | Projektmanagement, Jakob Kretzschmar, Julian Neidert, Laurin Wobeda
+| Teilnehmer | Projektmanagement, Jakob Kretzschmar, Julian Neidert, Laurin Wobeda, Lukas Trogisch, Conrad Caffier, Abdallah Alherani
 | Projektstatus	| gelb
 |===
 
@@ -71,5 +71,5 @@ TODO
 
 *Projektfortschritt*
 
-Das Projekt befindet sich in der finalen Phase. Die Implementierung der Software ist abgeschlossen, die Dokumentationen sind abgeschlossen und der Projektbericht ist abgeschlossen.
+Das Projekt befindet sich in der finalen Phase. Die Implementierung der Software, die Dokumentationen und der Projektbericht sind abgeschlossen.
 
