@@ -50,7 +50,7 @@ Container-Technologie eines Proxmox-Servers basiert, kann hier eine nachhaltige 
 [cols="1,3"]
 |===
 | Für | Modelflugplatz Rossendorf
-| der / die | ... eine effektivere Lösung für das logen von Piloten und Flügen benötigt.
+| der / die | ... eine effektivere Lösung für das Logen von Piloten und Flügen benötigt.
 | Das Produkt / die Lösung ist eine | ... Applikation für Mobiltelefone...
 | Die / Das | ... sehr viel mobiler ist und weniger Strom verbraucht...
 | Im Gegensatz zu | ... dem bisher verwendeten stationären Terminal.
@@ -81,15 +81,14 @@ Container-Technologie eines Proxmox-Servers basiert, kann hier eine nachhaltige 
 
 .Aktuelle Systemplattform: 
 * momentan gibt es ein Protokolldokument in Papierform vor Ort (Mfc Rossendorf)
-* problematisch dabei ist, dass der Gesetzgeber mittlerweile eine digitale Lösung fordert und die Eintragung in das Protokoll in Papierform nur sperrlich von den Mitgliedern ausgeführt wird
+* problematisch dabei ist, dass der Gesetzgeber mittlerweile eine digitale Lösung fordert und die Eintragung in das Protokoll in Papierform nur spärlich von den Mitgliedern ausgeführt wird
 
 .Zukünftige Systemplattform:
 * zukünftig soll ein digitales System das physische System ersetzen
 * es soll über eine Webapp Daten eintragen lassen, verarbeiten und sicher einsehbar und verwaltbar machen
 
 ==== zu integrierende Anwendungen:
-
-* es existiert bereits eine Wetterstation, deren Daten dem Benutzer über die Webapp zur Verfügung stehen sollen
+* (es existiert bereits eine Wetterstation, deren Daten dem Benutzer über die Webapp zur Verfügung stehen sollen)
 * zusätzlich existiert bereits ein vereinseigener Webserver und ein proxmox Server, der durch netcup gehostet wird
 
 ==== Administratoren
@@ -133,8 +132,8 @@ Container-Technologie eines Proxmox-Servers basiert, kann hier eine nachhaltige 
 |===
 | Bedarf | Priorität | Features | Geplantes Release
 | Logbuch | 21 | mobiles, elektronisches Logbuch | xx
-| Administration |  5 | Administrator kann Nutzer bearbeiten und Webapp pflegen und bearbeiten |
-| Webserver | 21 | Webserver auf dem proxmox Server des Vereins |
+| Administration |  5 | Administrator kann Nutzer bearbeiten und Webapp pflegen und bearbeiten | xx
+| Webserver | 21 | Webserver auf dem proxmox Server des Vereins | xx
 | Synchronität | 13  | Synchronisation zwischen Smartphone und Webserver | xx
 | benutzer-Oberfläche | 21 | Benutzeroberfläche, über die sich Piloten ein- und austragen können | xx
 | Datenbank | 21 | Datenbank zur Speicherung und Verwaltung der Logbuchdaten | xx
@@ -147,11 +146,11 @@ Container-Technologie eines Proxmox-Servers basiert, kann hier eine nachhaltige 
 | Authentifizierungsprotokolle | 1  | Authentifizierungsprotokolle | xx
 | Sessionverwaltung | 1  | Sessionverwaltung | xx
 | Wiederherstellungsmöglichkeiten | 1  | Wiederherstellungsmöglichkeiten | xx
-| Internationalität | 5  | Sprache Deutsch                                                        |
-| Internationalität | 5  | Sprache Englisch                                                       |
-| Wetteransage | 2  | Wetterdaten werden automazisch erfasst sobald Wetterstation online ist |
-| Backend | 8  | Funktionierendes Backend                                               |
-| Frontend | 8  | Funktionierendes Frontend                                              |
+| Internationalität | 5  | Sprache Deutsch                                                        | xx
+| Internationalität | 5  | Sprache Englisch                                                       | xx
+| Wetteransage | 2  | Wetterdaten werden automazisch erfasst sobald Wetterstation online ist | xx
+| Backend | 8  | Funktionierendes Backend                                               | xx
+| Frontend | 8  | Funktionierendes Frontend                                              | xx
 |===
 
 == Zusätzliche Produktanforderungen
@@ -165,9 +164,9 @@ Container-Technologie eines Proxmox-Servers basiert, kann hier eine nachhaltige 
 | eine Datenbank Migration in neuere Versionen muss möglich sein | hoch | xx
 | Synchronisation zwischen Webanwendung und Webserver | hoch | xx
 | Betriebssystemunabhängigkeit der Webapp | hoch | xx
-| Webapp kann auf Deutsch oder Englisch angezeigt werden | hoch | xx
+| Webapp kann auf Deutsch oder Englisch angezeigt werden | mittel | xx
 | Backups werden auf einen externen proxmox Server hochgeladen | hoch | xx
 | moderne und barrierefreie Gestaltung der Weboberfläche | mittel | xx
-| Offline Eintragungen von Daten in das Logbuch | mittel | xx
-| Grafana wird benötigt, um Wetterdaten grafisch darzustellen | mittel | xx
+| Offline Eintragungen von Daten in das Logbuch | gering | xx
+| Grafana wird benötigt, um Wetterdaten grafisch darzustellen | gering | xx
 |===
