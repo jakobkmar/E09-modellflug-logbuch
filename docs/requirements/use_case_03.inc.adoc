@@ -28,7 +28,6 @@ Ein Pilot muss existieren und sich angemeldet haben.
 . Der Pilot gibt alle erforderlichen Daten ein
 . Der Pilot gibt optionale Daten ein
 . Der Pilot bestätigt seine Angaben
-. Die Software fragt Wetterdaten von der Station ab (die Software oder extra usecase???)
 . Protokoll wird ans Backend überreicht
 . Der Use Case ist abgeschlossen.
 
@@ -46,24 +45,14 @@ Wenn der Pilot im Schritt 3-4 des Standardablauf das Protokoll anlegen abbricht,
 . Der Pilot betätigt im Hauptmenü der Webapp den button "Protokoll anlegen"
 . Die Protokollerstellung öffnet sich
 . Der Pilot gibt die Daten ein
-    . Datum
-    . Flugleitername
-    . Dienstbeginn
-    . Dienstende
-    . Unterschrift (???)
-    . Erste-Hilfe-Einrichtung überprüft
-    . Pilotennamen
-    . Flugbeginn/-ende
-    . Kanal
-    . Typ
-    . Modellbezeichnung
-    . Tagesmitgliednamen
-    . Lärmpass
-    . Vers., Modell geprüft
-    . Unterschrift Tagesmitglied (???)
-    . Unterschrift Flugleiter (???)
-    . Flugbetrieb beendet
-    . Unterschrift Flugleiter
+    .. ErstellerID
+    .. Flugbeginn
+    .. Flugende
+    .. Unterschrift
+    .. Erste-Hilfe-Einrichtung überprüft
+    .. Bemerkungen
+    .. Flugleiter
+    .. Modell
 . Der Pilot bestätigt seine Eingabe
 . Das Protokoll wird ans Backend überreicht
 . Der Use Case ist abgeschlossen.
@@ -91,7 +80,7 @@ Es kann nun modifiziert werden oder eingesehen.
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
 
 ==== Usability
-* Der Use Case gehört zu der grundlegenden Funktionalität des _Systems_ und muss daher auch für nciht technisch versierte Piloten einfach zu benutzen und verständlich sein.
+* Der Use Case gehört zu der grundlegenden Funktionalität des _Systems_ und muss daher für jeden *Piloten* einfach und verständlich sein.
 
 <<<
 

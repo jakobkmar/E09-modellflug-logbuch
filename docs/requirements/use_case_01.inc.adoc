@@ -37,8 +37,7 @@ Ein Admin-Akteur muss existieren.
 //Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
 
 ==== Admin existiert nicht
-Wenn Admin nicht existiert, dann
-. Ausgabe Fehlermeldung, Registrierung erfolgt nicht.
+Wenn Admin nicht existiert, dann Ausgabe Fehlermeldung; Registrierung erfolgt nicht.
 
 === Unterabläufe (subflows)
 //Nutzen Sie Unterabläufe, um wiederkehrende Schritte auszulagern
@@ -46,12 +45,12 @@ Wenn Admin nicht existiert, dann
 ==== Unterablauf
 . Admin betätigt Button "Account erstellen"
 . Accounterstellung öffnet sich
-. Admin gibt Daten ein (
+. Admin gibt Daten ein
     .. Name
     .. Vorname
     .. Passwort
-    ..Flugleitererlaubnis
-    ..Tagesmitglied/Gast
+    .. Flugleitererlaubnis
+    .. Registriernummer
 . Admin betätigt Button "Accounterstellung abschließen"
 . Account wird vom System registiert
 

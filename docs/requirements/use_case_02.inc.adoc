@@ -23,7 +23,7 @@ Er kann Veränderungen an seinem Profil vornehmen, jedoch nicht am Gesamtsystem.
 . Der *Pilot* gibt seinen Nutzernamen ein.
 . Der *Pilot* gibt sein Passwort ein.
 . In der Datenbank wird überprüft, ob es einen solchen Nutzer (definiert durch Nutzername und Passwort) gibt.
-. IF *Pilot* existiert
+. WENN *Pilot* existiert
 .. Der *Pilot* wird angemeldet.
 . Die Anmeldung wird protokolliert.
 . Der Use Case ist abgeschlossen.
@@ -32,7 +32,7 @@ Er kann Veränderungen an seinem Profil vornehmen, jedoch nicht am Gesamtsystem.
 
 
 ==== Nutzer existiert nicht (Schritt 5)
-. IF *Pilot* existiert nicht
+. WENN *Pilot* existiert nicht
 .. Ausgabe Fehlermeldung, Anmeldung erfolgt nicht
 
 === Wesentliche Szenarios
