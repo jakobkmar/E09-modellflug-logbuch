@@ -1,41 +1,21 @@
 @startuml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+skinparam packageStyle rectangle
 
-package "Authentication Services" {
-    component "[Authentication Service]" as AuthService
-    component "[API Gateway]" as APIGateway
+package "Web Frontend" {
+    [HomePage.vue] -up-> [LoginPage.vue]
+    [LoginPage.vue] -right-> [RegistrationPage.vue]
+    [HomePage.vue] -down-> [ListProtocolsPage.vue]
+    [HomePage.vue] -right-> [CreateProtocolToProtocolPage.vue]
+    [CreateProtocolPage.vue] -down-> [CompleteProtocolPage.vue]
 }
 
-package "Logbook Management" {
-    component "[Logbook Manager]" as LogbookMgr
-    component "[Data Synchronization Service]" as DataSyncService
+package "Application Backend" {
+    [DatabaseHandler.kt]
+    [FlightlogRequest.kt] -up-> [DatabaseHandler.kt]
+    [ProfileRoutes.kt] -right-> [DatabaseToHandler.kt]
+    [AdminRoutes.kt] -left-> [DatabaseHandler.kt]
 }
 
-package "Pilot Management" {
-    component "[Pilot Manager]" as PilotMgr
-    component "[Notification Service]" as NotificationService
-}
-
-package "Integration Services" {
-    component "[Weather Service Integrator]" as WeatherServiceIntegrator
-    component "[API Gateway]" as APIGateway2
-}
-
-package "Data Management" {
-    component "[Database Interface]" as DatabaseInterface
-    component "[Logbook Database]" as LogbookDB
-}
-
-AuthService -right-> APIGateway : "Uses"
-APIGateway -down-> LogbookMgr : "Routes to\nLogbook Manager"
-APIGateway2 -left-> WeatherServiceIntegrator : "Routes to\nWeather Integrator"
-LogbookMgr -down-> DatabaseInterface : "Interacts with"
-PilotMgr -down-> DatabaseInterface : "Interacts with"
-DataSyncService -down-> DatabaseInterface : "Synchronizes with"
-WeatherServiceIntegrator -right-> LogbookDB : "Fetches data from"
-NotificationService -up-> PilotMgr : "Notifies"
-
-database "[Weather API]" as WeatherAPI
-WeatherServiceIntegrator --> WeatherAPI : "Fetches Weather Data"
-
+"Web Frontend" ..> "Application Backend" : <<use>>
+"Application Backend" ..> [Database] : <<use>>
 @enduml
