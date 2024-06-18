@@ -19,5 +19,11 @@ kotlin {
                 implementation(libs.kotlinx.datetime)
             }
         }
+
+        all {
+            languageSettings {
+                optIn("kotlin.js.ExperimentalJsExport")
+            }
+        }
     }
 }

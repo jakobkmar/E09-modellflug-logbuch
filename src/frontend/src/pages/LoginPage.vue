@@ -1,50 +1,80 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { loginSession, UserSession } from '@/store'
+import { useLoginSessionStore } from '@/session'
 import { useRouter } from 'vue-router'
-
-const router = useRouter()
+import { IconExclamationCircle } from '@tabler/icons-vue'
 
 const username = ref('')
 const password = ref('')
 const showPassword = ref(false)
+
+const loading = ref(false)
+const errorResponse = ref<string | null>(null)
+
+const router = useRouter()
+const sessionStore = useLoginSessionStore()
 
 function togglePassword() {
   showPassword.value = !showPassword.value
 }
 
 function login() {
-  loginSession.value = new UserSession(username.value)
-  router.push('/')
+  loading.value = true
+  sessionStore.login(
+    username.value,
+    password.value,
+    () => router.push('/'),
+    (response) => {
+      loading.value = false
+      if (response.status == 401) {
+        errorResponse.value = 'Nutzername oder Passwort falsch'
+      } else {
+        errorResponse.value = `${response.status} - ${response.statusText}`
+      }
+    },
+  )
 }
 </script>
 
 <template>
   <h2>Login</h2>
   <form class="column" style="--tblr-body-bg: #f7f8fa">
+    <div v-if="errorResponse != null" class="alert alert-danger alert-dismissible" role="alert">
+      <div class="d-flex">
+        <div>
+          <!-- SVG icon from http://tabler-icons.io/i/check -->
+          <IconExclamationCircle />
+        </div>
+        <div>
+          <h4 class="alert-title">Ein Problem ist aufgetreten</h4>
+          <div class="text-secondary">{{ errorResponse }}</div>
+        </div>
+      </div>
+      <a class="btn-close" data-bs-dismiss="alert" aria-label="close"></a>
+    </div>
     <fieldset class="form-fieldset">
       <label class="form-label">Melde dich mit deinem Account an</label>
       <div class="column" style="gap: 0.5em; margin-bottom: 1em">
         <div style="display: flex; gap: 0.4em; justify-content: center">
           <input
-            class="form-control"
-            text-align="center"
-            type="text"
+            name="username"
             v-model="username"
-            placeholder="Dein Nutzername"
+            class="form-control"
+            type="text"
+            placeholder="Nutzername"
+            required
           />
         </div>
       </div>
       <div class="column" style="gap: 0.5em; margin-bottom: 1em">
         <div style="display: flex; gap: 0.4em; justify-content: center">
           <input
-            class="form-control"
-            :type="showPassword ? 'text' : 'password'"
-            id="password"
             name="password"
             v-model="password"
+            class="form-control"
+            :type="showPassword ? 'text' : 'password'"
             required
-            placeholder="Dein Passwort"
+            placeholder="Passwort"
           />
           <button type="button" class="btn btn-secondary" @click="togglePassword">
             {{ showPassword ? 'Verstecken' : 'Zeigen' }}
@@ -52,7 +82,10 @@ function login() {
         </div>
       </div>
       <div style="display: flex; gap: 0.5em">
-        <button class="btn btn-primary" @click="login">Einloggen</button>
+        <button type="button" class="btn btn-primary" @click="login" :disabled="loading">
+          <span v-if="loading" class="spinner-border spinner-border-sm me-2" role="status"></span>
+          Einloggen
+        </button>
         <a href="#" class="btn btn-outline-danger">Abbrechen</a>
       </div>
     </fieldset>

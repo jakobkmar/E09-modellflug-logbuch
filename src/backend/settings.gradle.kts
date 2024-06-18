@@ -43,6 +43,9 @@ fun VersionCatalogBuilder.libs() {
     library(
         "spring-security-crypto",
         "org.springframework.security:spring-security-crypto:6.3.0")
+    library(
+        "bouncycastle",
+        "org.bouncycastle:bcprov-jdk18on:1.78.1")
 
     library(
         "hikaricp",

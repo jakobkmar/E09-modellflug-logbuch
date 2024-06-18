@@ -15,6 +15,10 @@ CREATE INDEX account_username_idx ON account(username);
 getAccountByUsername:
 SELECT * FROM account WHERE username = :username;
 
+setPasswordHash:
+UPDATE account SET password_hash = :passwordHash WHERE account_id = :accountId
+RETURNING password_hash;
+
 getAccountById:
 SELECT * FROM account WHERE account_id = :account_id;
 

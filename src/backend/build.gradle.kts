@@ -31,6 +31,7 @@ dependencies {
     implementation(libs.slf4j.simple)
     implementation(libs.slf4j.jclOverSlf4j)
     implementation(libs.spring.security.crypto) // password hashing
+    implementation(libs.bouncycastle)
 
     // database dependencies
     implementation(libs.hikaricp)
