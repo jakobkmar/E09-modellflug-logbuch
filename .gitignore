@@ -13,7 +13,6 @@
 
 # Gradle
 .gradle/
-gradle/
 src/backend/**/build/
 
 # Project
