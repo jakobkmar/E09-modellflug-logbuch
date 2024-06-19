@@ -27,6 +27,9 @@ importers:
       '@rushstack/eslint-patch':
         specifier: ^1.10.3
         version: 1.10.3
+      '@tabler/core':
+        specifier: 1.0.0-beta20
+        version: 1.0.0-beta20
       '@tsconfig/node18':
         specifier: ^18.2.4
         version: 18.2.4
@@ -453,6 +456,9 @@ packages:
     resolution: {integrity: sha512-cq8o4cWH0ibXh9VGi5P20Tu9XF/0fFXl9EUinr9QfTM7a7p0oTA4iJRCQWppXR1Pg8dSM0UCItCkPwsk9qWWYA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
+  '@popperjs/core@2.11.8':
+    resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
+
   '@rollup/rollup-android-arm-eabi@4.18.0':
     resolution: {integrity: sha512-Tya6xypR10giZV1XzxmH5wr25VcZSncG0pZIjfePT0OVBvqNEurzValetGNarVrGiq66EBVAFn15iYX4w6FKgQ==}
     cpu: [arm]
@@ -539,10 +545,70 @@ packages:
   '@sinclair/typebox@0.27.8':
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
 
+  '@tabler/core@1.0.0-beta20':
+    resolution: {integrity: sha512-OzKpur+Ug7e+HMbNJrMcSuWZGUsJTvu7HYboBNRE8qyo1RKIWqvwL5YewKBJ+odW5pDOqBPzbsS4je3EBQQxHw==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      '@melloware/coloris': ^0.19.1
+      apexcharts: ^3.40.0
+      autosize: ^6.0.1
+      choices.js: ^10.2.0
+      countup.js: ^2.6.2
+      dropzone: ^6.0.0-beta.2
+      flatpickr: ^4.6.13
+      fslightbox: ^3.4.1
+      imask: ^6.6.1
+      jsvectormap: ^1.5.3
+      list.js: ^2.3.1
+      litepicker: ^2.0.12
+      nouislider: ^15.7.0
+      plyr: ^3.7.8
+      star-rating.js: ^4.3.0
+      tinymce: ^6.4.2
+      tom-select: ^2.2.2
+    peerDependenciesMeta:
+      '@melloware/coloris':
+        optional: true
+      apexcharts:
+        optional: true
+      autosize:
+        optional: true
+      choices.js:
+        optional: true
+      countup.js:
+        optional: true
+      dropzone:
+        optional: true
+      flatpickr:
+        optional: true
+      fslightbox:
+        optional: true
+      imask:
+        optional: true
+      jsvectormap:
+        optional: true
+      list.js:
+        optional: true
+      litepicker:
+        optional: true
+      nouislider:
+        optional: true
+      plyr:
+        optional: true
+      star-rating.js:
+        optional: true
+      tinymce:
+        optional: true
+      tom-select:
+        optional: true
+
   '@tabler/icons-vue@3.6.0':
     resolution: {integrity: sha512-i5cEOz43uXy3rdxr6m+OyKF2RznwrJvFPXzbne2mPEmLdHEEtpxdCB/BHEX2mSIICQSzXlLEgk1A+0M/+AQyGA==}
     peerDependencies:
       vue: '>=3.0.1'
+
+  '@tabler/icons@2.47.0':
+    resolution: {integrity: sha512-4w5evLh+7FUUiA1GucvGj2ReX2TvOjEr4ejXdwL/bsjoSkof6r1gQmzqI+VHrE2CpJpB3al7bCTulOkFa/RcyA==}
 
   '@tabler/icons@3.6.0':
     resolution: {integrity: sha512-Zv0Ofc64RCMpZ2F8CvsWAphrSjerx5hEErt/RMmE+W8r4E5l5Lizi+My9KbbZQ4NyAtrtrOX80OY1oROZrRzEA==}
@@ -816,6 +882,11 @@ packages:
 
   boolbase@1.0.0:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
+
+  bootstrap@5.3.1:
+    resolution: {integrity: sha512-jzwza3Yagduci2x0rr9MeFSORjcHpt0lRZukZPZQJT1Dth5qzV7XcgGqYzi39KGAVYR8QEDVoO0ubFKOxzMG+g==}
+    peerDependencies:
+      '@popperjs/core': ^2.11.8
 
   brace-expansion@1.1.11:
     resolution: {integrity: sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==}
@@ -2333,6 +2404,8 @@ snapshots:
 
   '@pkgr/core@0.1.1': {}
 
+  '@popperjs/core@2.11.8': {}
+
   '@rollup/rollup-android-arm-eabi@4.18.0':
     optional: true
 
@@ -2385,10 +2458,18 @@ snapshots:
 
   '@sinclair/typebox@0.27.8': {}
 
+  '@tabler/core@1.0.0-beta20':
+    dependencies:
+      '@popperjs/core': 2.11.8
+      '@tabler/icons': 2.47.0
+      bootstrap: 5.3.1(@popperjs/core@2.11.8)
+
   '@tabler/icons-vue@3.6.0(vue@3.4.29(typescript@5.3.3))':
     dependencies:
       '@tabler/icons': 3.6.0
       vue: 3.4.29(typescript@5.3.3)
+
+  '@tabler/icons@2.47.0': {}
 
   '@tabler/icons@3.6.0': {}
 
@@ -2740,6 +2821,10 @@ snapshots:
       require-from-string: 2.0.2
 
   boolbase@1.0.0: {}
+
+  bootstrap@5.3.1(@popperjs/core@2.11.8):
+    dependencies:
+      '@popperjs/core': 2.11.8
 
   brace-expansion@1.1.11:
     dependencies:

@@ -1,5 +1,8 @@
 import './assets/main.css'
 
+import '@tabler/core/dist/css/tabler.min.css'
+import '@tabler/core/dist/js/tabler.min.js'
+
 import { createApp } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import { createPinia } from "pinia";
