@@ -1,5 +1,6 @@
 package de.mfcrossendorf.logbook.routes
 
+import de.mfcrossendorf.logbook.NewFlightLog
 import de.mfcrossendorf.logbook.database.database
 import io.ktor.http.*
 import io.ktor.server.application.*
@@ -9,19 +10,6 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.toJavaLocalDateTime
-import kotlinx.serialization.Serializable
-
-@Serializable
-data class NewFlightLog(
-    val protocolId: String = "",
-    val creatorId: Int,
-    val flightStart: LocalDateTime,
-    val flightEnd: LocalDateTime,
-    val signature: String,
-    val checkedFirstAid: Boolean,
-    val remarks: String = "",
-    val model: String
-)
 
 data class UpdatedFlightLog(
     val protocolId: String,
@@ -47,9 +35,9 @@ fun Route.flightLogRoutes() = route("/flightlog") {
 
     // fetch details of a specific flight log by ID
     get("/{id}") {
-        val id = call.parameters["id"]!!
+        val id = call.parameters["id"]!!.toInt()
 
-        val isAdmin = database.accountQueries.checkAdmin(account_id = id.toInt()).executeAsOne()
+        val isAdmin = database.accountQueries.checkAdmin(account_id = id).executeAsOne()
 
         val protocol = database.protocolQueries.getProtocol(id).executeAsOneOrNull()
         if (protocol == null) {
@@ -89,13 +77,13 @@ fun Route.flightLogRoutes() = route("/flightlog") {
         )
 
         // Respond with the ID of the newly created flight log
-        call.respond(HttpStatusCode.Created,
-            mapOf("id" to database.protocolQueries.getLatestProtocolId(requestBody.creatorId)))
+        call.respond(HttpStatusCode.Created, mapOf("id" to database.protocolQueries.getLatestProtocolId(requestBody.creatorId)))
     }
 
     // PUT request to update details of a specific flight log by ID
     put("/update/{id}") {
-        val id = call.parameters["id"] ?: return@put call.respond(HttpStatusCode.BadRequest, "Missing flight log ID")
+        val id = call.parameters["id"]?.toInt()
+            ?: return@put call.respond(HttpStatusCode.BadRequest, "Missing flight log ID")
 
         // Receive updated data for the flight log from the request body
         val updatedFlightLog = call.receive<UpdatedFlightLog>()
@@ -125,7 +113,8 @@ fun Route.flightLogRoutes() = route("/flightlog") {
 
     // DELETE request to delete a specific flight log by ID
     delete("/{id}") {
-        val id = call.parameters["id"] ?: return@delete call.respond(HttpStatusCode.BadRequest, "Missing flight log ID")
+        val id = call.parameters["id"]?.toInt()
+            ?: return@delete call.respond(HttpStatusCode.BadRequest, "Missing flight log ID")
 
         // Delete the flight log entry from the database
         database.protocolQueries.deleteProtocol(id)
