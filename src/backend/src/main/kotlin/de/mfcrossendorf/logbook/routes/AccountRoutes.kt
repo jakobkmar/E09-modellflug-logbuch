@@ -1,27 +1,21 @@
 package de.mfcrossendorf.logbook.routes
 
-import de.mfcrossendorf.logbook.data.UserSession
 import de.mfcrossendorf.logbook.database.awaitSingleOrNull
 import de.mfcrossendorf.logbook.database.database
-import de.mfcrossendorf.logbook.handleLoginCall
+import de.mfcrossendorf.logbook.session.handleLoginCall
+import de.mfcrossendorf.logbook.session.handleLogoutCall
 import io.ktor.http.*
 import io.ktor.server.application.*
-import io.ktor.server.auth.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import io.ktor.server.sessions.*
 
 fun Route.accountRoutes() = route("/account") {
     post("/login") {
         handleLoginCall()
     }
-
-    authenticate("auth-session") {
-        post("/logout") {
-            call.sessions.clear<UserSession>()
-            call.respondRedirect("/login")
-        }
+    post("/logout") {
+        handleLogoutCall()
     }
 
     route("/{userId}") {

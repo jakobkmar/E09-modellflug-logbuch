@@ -33,6 +33,9 @@ fun VersionCatalogBuilder.libs() {
     library(
         "ktor.serialization.json",
         "io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
+    library(
+        "ktor.server.cors",
+        "io.ktor:ktor-server-cors:$ktorVersion")
 
     library(
         "slf4j.simple",

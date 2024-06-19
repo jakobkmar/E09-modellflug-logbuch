@@ -26,6 +26,7 @@ dependencies {
     implementation(libs.ktor.server.auth)
     implementation(libs.ktor.server.contentNegotiation)
     implementation(libs.ktor.serialization.json)
+    implementation(libs.ktor.server.cors)
 
     // logging
     implementation(libs.slf4j.simple)

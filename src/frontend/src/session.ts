@@ -1,6 +1,7 @@
 import { ref, watch } from 'vue'
 import { defineStore } from 'pinia'
 import { LoginRequest, LoginResponse } from 'modellflug-logbuch-common-data'
+import { backendRequest } from '@/networking'
 
 export interface UserSession {
   readonly loginResponse: LoginResponse
@@ -22,7 +23,7 @@ export const useLoginSessionStore = defineStore('loginSession', () => {
     onSuccess: () => void,
     onError: (response: Response) => void,
   ) {
-    const response = await fetch('/api/v1/account/login', {
+    const response = await backendRequest('/api/v1/account/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -42,12 +43,19 @@ export const useLoginSessionStore = defineStore('loginSession', () => {
     }
   }
 
-  async function logout() {
-    const response = await fetch('/api/v1/account/logout', { method: 'POST' })
-    if (!response.ok) {
-      console.error(`Failed to logout, status: ${response.status} ${response.statusText}`)
-    }
+  async function logout(
+    onFinish: () => void,
+    onError: (response: Response) => void,
+  ) {
+    const response = await backendRequest('/api/v1/account/logout', {
+      method: 'POST',
+    })
     loginSession.value = null
+    onFinish()
+    if (!response.ok && response.status != 304) {
+      console.error(`Failed to logout, status: ${response.status} ${response.statusText}`)
+      onError(response)
+    }
   }
 
   return { loginSession, login, logout }
