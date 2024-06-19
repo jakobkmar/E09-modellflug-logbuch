@@ -4,6 +4,9 @@ import { Protocol, protocols } from '@/store'
 import MouseCanvas from '@/components/MouseCanvas.vue'
 import { useRouter } from 'vue-router'
 import { getDateToday, getDateYesterday, getTimeString } from '@/utils/timeutil'
+import {backendRequest} from "@/networking";
+import {LoginRequest, LoginResponse, NewFlightLog} from "modellflug-logbuch-common-data";
+import {useLoginSessionStore} from "@/session";
 
 const router = useRouter()
 
@@ -15,14 +18,24 @@ const dateInput = ref(getDateToday())
 const timeInput = ref(getTimeString())
 
 const signatureCanvas = ref<InstanceType<typeof MouseCanvas> | null>(null)
+const sessionStore = useLoginSessionStore()
 
-function submitProtocol() {
-  const signatureUrl = signatureCanvas.value?.getDataUrl()
-  if (signatureUrl == null) {
-    console.warn("Missing signature URL, cannot submit protocol")
-    return
-  }
-  protocols.value.unshift(new Protocol(dateInput.value, timeInput.value, signatureUrl))
+async function submitProtocol() {
+  const response = await backendRequest('/api/v1/flightlog/create', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(new NewFlightLog(
+        1000,
+        dateInput.value,
+        dateInput.value,
+        "Beispiel",
+        true,
+        "",
+        ""
+    )),
+  })
   router.push('/protocol/list')
 }
 </script>
