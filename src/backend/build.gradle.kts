@@ -1,26 +1,43 @@
 plugins {
     kotlin("jvm") version "1.9.23"
+    kotlin("plugin.serialization") version "1.9.23"
     id("app.cash.sqldelight") version "2.0.2"
     idea
 }
 
-group = "de.mfcrossendorf"
-version = "0.0.1"
+allprojects {
+    group = "de.mfcrossendorf"
+    version = "0.0.1"
 
-repositories {
-    mavenCentral()
+    repositories {
+        mavenCentral()
+    }
 }
 
 dependencies {
-    testImplementation("org.jetbrains.kotlin:kotlin-test")
+    implementation(project(":common-data"))
 
-    val ktorVersion = "2.3.9"
-    implementation("io.ktor:ktor-server-core:$ktorVersion")
-    implementation("io.ktor:ktor-server-netty:$ktorVersion")
+    testImplementation(kotlin("test"))
+    implementation(libs.kotlinx.datetime)
 
-    implementation("org.slf4j:slf4j-simple:2.0.12") // logging
+    implementation(libs.ktor.server.core)
+    implementation(libs.ktor.server.netty)
+    implementation(libs.ktor.server.sessions)
+    implementation(libs.ktor.server.auth)
+    implementation(libs.ktor.server.contentNegotiation)
+    implementation(libs.ktor.serialization.json)
+    implementation(libs.ktor.server.cors)
 
-    implementation("app.cash.sqldelight:sqlite-driver:2.0.2")
+    // logging
+    implementation(libs.slf4j.simple)
+    implementation(libs.slf4j.jclOverSlf4j)
+    implementation(libs.spring.security.crypto) // password hashing
+    implementation(libs.bouncycastle)
+
+    // database dependencies
+    implementation(libs.hikaricp)
+    implementation(libs.postgresql)
+    implementation(libs.sqldelight.jdbcDriver)
 }
 
 kotlin {
@@ -40,12 +57,11 @@ idea {
     }
 }
 
-
 sqldelight {
     databases {
         create("Database") {
-            packageName.set("de.mfcrossendorf")
-            dialect("app.cash.sqldelight:postgresql-dialect:2.0.2")
+            packageName.set("de.mfcrossendorf.logbook.db")
+            dialect(libs.sqldelight.dialect.postgresql)
         }
     }
 }

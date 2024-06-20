@@ -1,0 +1,113 @@
+= Gruppenreflexion des Projekts "E09-modellflug-logbuch"
+
+== Einleitung
+
+Diese Projektreflexion dokumentiert die Erfolge und Misserfolge, die wir während unserer zweisemestrigen Umsetzung eines Softwareprojekts unter Anwendung der agilen Softwareentwicklungsmethodik OpenUP (Open Unified Process) erlebt haben. Ziel dieser Reflexion ist es, unsere Erkenntnisse zusammenzutragen, erfolgreiche Lösungen zu verinnerlichen und mögliche Lösungsansätze für aufgetretene Probleme zu identifizieren.
+
+Eine zentrale Erkenntnis dieses Projekts war, dass "human-factors" entscheidend für den Erfolg oder das Scheitern umfassender Teamarbeit sind. Besonders im zukünftigen Arbeitsumfeld müssen diese Faktoren mit der erforderlichen Priorität behandelt werden. Daher widmen wir in dieser Reflexion einen großen Teil der Analyse den wahrgenommenen Dynamiken im Team und heben sowohl positive als auch verbesserungswürdige Aspekte hervor. Darüber hinaus legen wir den Fokus auf klassische Werte des Projektmanagements und interne Prozesse sowie deren Umsetzung im Rahmen von OpenUP.
+
+Im ersten Teil der Reflexion werden die drei größten Erfolge des Projekts einzeln aufgeführt, erläutert und analysiert. Dabei wird detailliert beschrieben, welche Faktoren zu diesen Erfolgen beigetragen haben und wie sie realisiert wurden. Im zweiten Teil werden die drei größten Misserfolge beleuchtet, deren Ursachen untersucht und mögliche Maßnahmen zur Vermeidung dieser Probleme in zukünftigen Projekten diskutiert.
+
+Diese strukturierte Analyse dient nicht nur der internen Verbesserung unserer Arbeitsprozesse, sondern soll auch als Leitfaden für zukünftige Projekte dienen, um die gewonnenen Erkenntnisse effektiv einzusetzen und die Qualität der Projektdurchführung zu erhöhen.
+
+
+
+== 1. Erfolg - Team Spirit
+
+Ein herausragender Erfolg unseres Softwareentwicklungsprozesses über zwei Semester hinweg war das außergewöhnliche Engagement eines Großteils des Teams. In der Anfangsphase des Projekts war es notwendig, ein Team zu formen, gemeinsame Arbeitsmethoden zu etablieren und als Einheit zusammenzuarbeiten. Ein Schlüsselfaktor für diesen Erfolg war die hohe intrinsische Motivation einiger Teammitglieder, die über ein ganzes Jahr hinweg aufrechterhalten werden konnte.
+
+Um diese Motivation zu fördern, wurden verschiedene Konzepte erprobt und teilweise implementiert. Der erste Schlüssel zum Erfolg war die Teilnahme aller Teammitglieder an den ersten Meetings mit dem Auftraggeber, unserem Coach und unsere ersten Teammeetings. Dadurch konnte jedes Mitglied eine gemeinsame Vision und Zielsetzung entwickeln und erkennen, dass seine Arbeit einer realen Anwendung dient, jeder im Team wichtig ist und dementsprechend eine wichtige Rolle übernehmen wird. Dies schuf ein Bewusstsein für die persönliche Verantwortung für den Erfolg oder das Scheitern des Projekts.
+
+Zudem war es uns wichtig, uns nicht nur als Kommilitonen, sondern auch als Team kennenzulernen. Um dies zu erreichen, führten wir mehrere Teambuilding-Events durch, unter anderem Eislaufen und Wandern in der Sächsischen Schweiz. So bekamen wir ein wesentlich besseres Bild unserer Teamkollegen und konnten so viel besser einschätzen, welche Aufgaben für welches Teammitglied am besten geeignet waren und es gab zum Beispiel auch weiger Konflikte, wenn mal jemand nicht anwesend war, weil wir uns auf persönlicher Ebene besser kannten. So konnten wir viel Frust vermeiden und Probleme frühzeitiger erkennen, da wir abseits der Arbeitszeiten auch mal miteinander interagieren konnten.
+
+Leider nahmen nicht alle Teammitglieder an diesen Veranstaltungen teil, was zu einer Spaltung zwischen den Teilnehmenden und den Nicht-Teilnehmenden führte. Dieser Fehler sollte in zukünftigen Projekten unbedingt vermieden werden. Eine Möglichkeit ist, dass die weniger in die Gruppe integrierten Mitglieder die Aufgabe bekommen, ein Event vorzuschlagen und vorallem den Termin festzulegen. So können sie sich besser in die Gruppe integrieren und die Gruppe kann sich besser kennenlernen.
+
+Dennoch erzielten die Veranstaltungen bei den Anwesenden die gesteckten Ziele und stärkten das Bewusstsein dafür, dass man mit seiner eigenen Leistung auch eine Verantwortung für die Bewertung der Teammitglieder trägt. Letztendlich zeigt sich, dass jedes erfolgreiche Projekt ein gut zusammenarbeitendes Team benötigt. Ein intrinsisch motiviertes, funktionierendes Team ist der Schlüssel zum Erfolg. Es bedarf des Gefühls, eine Aufgabe gemeinsam zu bestehen, und der Sicherheit, dass jedes Individuum seine einzigartigen Stärken zum größtmöglichen Nutzen des Teams einbringen kann.
+
+=== Erfolgsfaktoren und OpenUP
+
+Der Erfolg im Bereich Team Spirit kann auch auf die Prinzipien des OpenUP zurückgeführt werden, die die Zusammenarbeit und Kommunikation im Team fördern. OpenUP legt großen Wert auf die Rolle des Teams und die Notwendigkeit einer kollaborativen Umgebung. Durch regelmäßige Meetings und eine klare Rollenverteilung wurde sichergestellt, dass alle Teammitglieder ein gemeinsames Ziel verfolgen und ihre individuellen Stärken optimal einsetzen können. Unsere Teambuilding-Events und die Einbindung aller Mitglieder in entscheidende Meetings stehen im Einklang mit diesen Prinzipien und trugen maßgeblich zum Aufbau eines starken Teamgeists bei.
+
+
+== 2. Erfolg - Iterative Arbeitsweise
+
+Ein bedeutender Erfolg dieses Projekts war die konsequente Anwendung des Konzepts der iterativen Entwicklung. Durch die agile Methodik, wie sie im OpenUP verankert ist, wurden Praktiken und Arbeitsweisen schrittweise in mehreren Zyklen eingeführt und kontinuierlich erweitert. Dies ermöglichte es, in jeder Iteration nur einzelne Bestandteile des Lösungsprozesses umzusetzen, wodurch das Risiko einer Fehlentwicklung erheblich reduziert wurde und die Erfolgschancen bei der Projektumsetzung deutlich stiegen. Die iterative Arbeitsweise ermöglichte es uns außerdem, schnell auf Veränderungen zu reagieren und die Qualität des Projekts kontinuierlich zu verbessern. Eine Iteration dauert standardmäßig zwei Wochen, kann sich jedoch durch Feiertage oder andere Umstände verlängern.
+
+Um die iterative Vorgehensweise erfolgreich umzusetzen, führten wir alle zwei Wochen Iterationsplanungen durch. In diesen Planungen wurden Meilensteine definiert und die anstehenden Aufgaben dokumentiert, einschließlich des benötigten Aufwands und der verantwortlichen Teammitglieder. Jede Iteration konzentrierte sich auf die Erreichung dieser klaren Ziele. Am Ende jeder Iteration fand ein Meeting zur Planung der nächsten Iteration statt, in dem wir die Umsetzung und den Aufwand der Aufgaben sowie aufgetretene Probleme reflektierten. Dies ermöglichte es uns, in den folgenden Iterationen genauere Prognosen und Planungen zu erstellen und die Projektarbeit kontinuierlich zu verbessern und noch nicht perfekt bewältigte Aufgaben durch eine Nachbereitung vollständig abzuschließen. Die Ergebnisse dieser Meetings wurden sowohl im Iterationsplan als auch in einer Risikoliste festgehalten.
+
+Diese regelmäßigen Meetings fanden jeden zweiten Mittwoch statt, und bei Bedarf wurden zusätzliche Termine festgelegt. Alle Inhalte der Meetings wurden detailliert protokolliert und dem Team zur Verfügung gestellt, um Unklarheiten und Missverständnisse zu vermeiden. Zur strukturierten Planung und effektiven Aufgabenzuweisung nutzten wir GitHub Issues als zentrales Instrument.
+
+=== Erfolgsfaktoren und OpenUP
+
+Die erfolgreiche Umsetzung der iterativen Arbeitsweise lässt sich direkt auf die Prinzipien des OpenUP zurückführen. OpenUP fördert die kontinuierliche Verbesserung und Anpassung durch kurze Entwicklungszyklen und regelmäßige Überprüfungen. Unsere Iterationsplanung und -reflexion entsprechen diesen Prinzipien und ermöglichten es uns, schnell auf Veränderungen zu reagieren und unsere Arbeitsprozesse laufend zu optimieren. Durch die klare Dokumentation der Aufgaben und Risiken konnten wir Transparenz schaffen und die Zusammenarbeit im Team stärken. Die Nutzung von GitHub Issues unterstützte uns dabei, die Aufgabenverteilung effizient zu gestalten und den Fortschritt jederzeit nachvollziehbar zu halten. Diese methodische Herangehensweise hat maßgeblich zu unserem Projekterfolg beigetragen und zeigt die Effektivität des iterativen Entwicklungsprozesses im Rahmen von OpenUP.
+
+
+== 3. Erfolg - Anforderungsanalyse
+
+-- missing content --
+
+== 1. Misserfolg - Gleichmäßige Verteilung der Arbeitsbelastung / Workforce Management
+
+Ein bedeutender Misserfolg war die ungleiche und unfaire Verteilung der Arbeitsbelastung unter den Teammitgliedern. Das Prinzip der Aufgabenzuteilung im Rahmen der Iterations-Meetings nach persönlicher Kapazität und vorhandenen Fähigkeiten führte dazu, dass Mitglieder mit umfassenden Kenntnissen in Programmierung und Tools übermäßig belastet wurden. Ein umfassender Aufbau von Fähigkeiten bei anderen Teammitgliedern fand nicht im erforderlichen Maße statt, da der eigentlich relativ kurzfristige Schulungsaufwand uns als nicht notwendig erschien und wir die langfristigen Vorteile der Arbeitsentlastung nicht erkannten. So waren wir am Ende stark an unser Themengebiet gebunden und wenn es zum Beispiel im Frontend nichts mehr zu bearbeiten gab, konnten diese Mitglieder weder im Backend noch bei den komplexeren Managementaufgaben helfen, da sie sich zuvor nie ausreichend damit beschäftigen konnten.
+
+Die Konsequenz war nicht nur ein Ungleichgewicht in der Aufgabenbelastung, sondern auch ein erhebliches Projektrisiko. Der Ausfall eines Schlüsselmitglieds hätte den Verlust einer wichtigen Kompetenz bedeutet. Backup-Rollen waren theoretisch angelegt, wurden in der Praxis jedoch zu wenig gelebt.
+
+=== Ursachen und OpenUP-Relevanz
+
+Dieser Misserfolg ist teilweise auf ein unzureichendes Management von Fähigkeiten und Arbeitskräften zurückzuführen, was im Widerspruch zu den OpenUP-Prinzipien steht. OpenUP betont die Notwendigkeit, Risiken zu managen und kontinuierlich Wissen im Team zu verbreiten. Die fehlende Implementierung effektiver Backup-Rollen und die mangelnde Schulung der Teammitglieder widersprachen diesen Prinzipien und führten zu einer instabilen Projektstruktur.
+
+=== Lösungsansätze
+
+Um dieses Problem zukünftig zu vermeiden, sollten mehrere Maßnahmen ergriffen werden:
+
+- **Doppelbesetzung von Fähigkeiten**: Jede für das Projekt erforderliche Fähigkeit sollte von mindestens zwei Mitgliedern abgedeckt werden. Dies reduziert das Risiko von Wissensverlust bei Ausfall eines Mitglieds.
+- **Skill-Matrix**: Eine Übersicht der vorhandenen Fähigkeiten der Teammitglieder, die mit den projektrelevanten Fähigkeiten abgeglichen wird, kann helfen, Schulungsbedarfe zu identifizieren.
+- **Frühe Schulungen**: Bereits in der Initiierungsphase des Projekts sollten gezielte Schulungen durchgeführt und Backup-Rollen definiert werden.
+- **Erfahrungstransfer**: Erfahrenere Mitglieder sollten eher in der Aufgabenverteilung und unterstützenden Tätigkeiten eingeplant werden, anstatt nur in der Implementierung / Umsetzung, um ihren Erfahrungsschatz optimal zu nutzen und **neue Verantwortungsträger intern aufzubauen**.
+
+Diese Maßnahmen stehen im Einklang mit den OpenUP-Prinzipien, die auf kontinuierliche Verbesserung, Wissenstransfer und Risikomanagement abzielen. Eine bessere Verteilung der Arbeitsbelastung und die Sicherstellung von Backup-Kompetenzen würden die Projektstabilität erhöhen und die Belastung gleichmäßiger verteilen.
+
+
+== Flop 2 - Planung auf Ebene des Projektlebenszyklus
+
+Ein weiterer Misserfolg in diesem Projekt war die unzureichende Planung über mehrere Iterationen hinweg. Obwohl im Rahmen der iterativen Arbeitsweise einzelne Arbeitspakete identifiziert, definiert und zugewiesen wurden, fehlte es an einer übergeordneten Planung und dem Setzen von Wegmarken zum Tracking des Projektfortschritts. Dies führte zu einer großen Unsicherheit über den aktuellen Projektstatus im Verhältnis zu den erforderlichen Abgabeterminen. Die fehlende Nachverfolgung des Fortschritts resultierte darin, dass am Ende jedes Semesters erhebliche Mehrarbeiten notwendig waren, um die Projektziele fristgerecht zu erreichen.
+
+Problematisch war auch, dass sich einige Teammitglieder nicht immer an ihre eigens kommunizierten Deadlines hielten und andere daraufhin vergeblich auf den neu gepushten Stand warteten. Dieses Problem wurde nicht ausreichend angesprochen. Leider bemerkt man die Problematik daran erst, wenn viele Dinge fehlen und sich alles langsam aufschiebt, weil man zuvor gerne mal ein Augen zudrückt wenn etwas nicht fristgerecht fertig wird.
+
+=== Ursachen und OpenUP-Relevanz
+
+Die Ursachen für diese Planungsmängel liegen in einem Missverständnis des agilen Entwicklungsansatzes, insbesondere im Kontext von OpenUP. Agile Methoden wie OpenUP setzen zwar auf Flexibilität und iterative Verbesserung, aber sie betonen auch die Bedeutung von klaren Phasen und Meilensteinen. OpenUP strukturiert Projekte in Inception-, Elaboration-, Construction- und Transition-Phasen, jede mit spezifischen Zielen und Meilensteinen. Unser Team vernachlässigte diese Struktur, was zu unzureichender langfristiger Planung und Nachverfolgung führte.
+
+=== Lösungsansätze
+
+Um diese Problematiken zukünftig zu vermeiden, sollten folgende Maßnahmen ergriffen werden:
+
+- **Lebenszyklus-Planung**: Der gesamte OpenUP-Lebenszyklus sollte mit klar definierten Terminen für die Inception-, Elaboration-, Construction- und Transition-Phasen geplant werden. Dies schafft eine übergeordnete Struktur und gibt dem Team klare Zielvorgaben.
+- **Meilenstein-Tracking**: Innerhalb der einzelnen Phasen sollten konkrete Meilensteine festgelegt und regelmäßig überprüft werden. Dies ermöglicht ein kontinuierliches Tracking des Projektfortschritts und hilft, Abweichungen frühzeitig zu erkennen und zu korrigieren. Terminabweichungen dürfen nur geringfügig toleriert und müssen anschließend ordentlich aufgearbeitet werden.
+- **Regelmäßige Reviews**: Neben den Iterationsplanungen sollten regelmäßige Reviews auf Projektebene durchgeführt werden, um den Fortschritt gegen die übergeordneten Meilensteine zu überprüfen und anzupassen.
+- **Transparente Kommunikation**: Eine offene und transparente Kommunikation über den Projektfortschritt, Risiken und Änderungen ist essenziell. Alle Teammitglieder sollten jederzeit über den aktuellen Stand des Projekts und die nächsten Schritte informiert sein. Wen man etwas nicht rechtzeitig schafft, dann muss dies rechtzeitig kommuniziert werden, damit andere darauf reagieren können, auch wenn sich das nicht so gut anfühlt.
+
+Diese Maßnahmen sind im Einklang mit den OpenUP-Prinzipien, die sowohl Flexibilität als auch strukturierte Planung und Risikomanagement betonen. Durch die konsequente Umsetzung dieser Maßnahmen kann die langfristige Planung verbessert und Mehrarbeiten am Semesterende reduziert werden.
+
+
+== Flop 3 - Kommunikation und Teamkultur
+
+-- Konflikt mit top 1 --
+
+
+== Fazit
+
+Unsere Reflexion verdeutlicht, dass sowohl der Teamgeist als auch eine strukturierte Arbeitsweise entscheidend für den Erfolg eines Projekts sind. Während wir erhebliche Fortschritte im Aufbau eines motivierten Teams und der Implementierung iterativer Arbeitsmethoden gemacht haben, offenbart unsere Analyse auch Bereiche mit deutlichem Optimierungspotenzial. Insbesondere die ungleiche Verteilung der Arbeitsbelastung, die unzureichende Planung über den gesamten Projektlebenszyklus hinweg sowie die Herausforderungen in der Kommunikationskultur haben die Effizienz und Effektivität unseres Projekts beeinträchtigt.
+
+=== Ausblick und zukünftige Verbesserungen
+
+Um diese Erkenntnisse in zukünftige Projekte zu integrieren und unsere Arbeitsweise weiter zu optimieren, werden wir folgende Maßnahmen ergreifen:
+
+- **Verbesserung der Arbeitsbelastungsverteilung**: Implementierung eines Systems zur fairen Zuteilung von Aufgaben basierend auf den individuellen Fähigkeiten und Kapazitäten der Teammitglieder. Dies schließt die frühzeitige Identifikation von Ressourcenengpässen ein und fördert die Entwicklung von Kompetenzen in verschiedenen Projektbereichen.
+
+- **Stärkere Planung über den gesamten Projektlebenszyklus**: Anwendung des OpenUP-Lifecycles mit klaren Meilensteinen und Zeitplänen für die Inception-, Elaboration-, Construction- und Transition-Phasen. Dies wird helfen, Unsicherheiten bezüglich des Projektfortschritts zu reduzieren und rechtzeitig Mehrarbeiten zu vermeiden.
+
+- **Förderung einer offenen Kommunikationskultur**: Etablierung eines Umfelds, das offene Diskussionen und konstruktives Feedback fördert. Regelmäßige Teambuilding-Aktivitäten und die Einbindung von Konfliktlösungsmechanismen werden dazu beitragen, das Vertrauen unter den Teammitgliedern zu stärken und Missverständnisse zu minimieren.
+
+Durch die Umsetzung dieser Maßnahmen werden wir nicht nur die Grundlagen für effektivere Projektarbeit legen, sondern auch sicherstellen, dass künftige Teams besser aufgestellt sind, um gemeinsam herausfordernde Ziele zu erreichen. Diese kontinuierliche Verbesserung und Anpassung unserer Arbeitsweise wird uns ermöglichen, erfolgreichere und nachhaltigere Ergebnisse zu erzielen.
+

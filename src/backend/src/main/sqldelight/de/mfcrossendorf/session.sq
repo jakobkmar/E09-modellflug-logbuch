@@ -1,0 +1,20 @@
+CREATE TABLE session (
+  id TEXT NOT NULL PRIMARY KEY UNIQUE,
+  data JSON NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX session_created_at_idx ON session(created_at);
+
+getSessionData:
+SELECT data FROM session WHERE id = :id;
+
+upsertSession:
+INSERT INTO session (id, data) VALUES (:id, :data)
+ON CONFLICT (id) DO
+  UPDATE SET data = :data
+RETURNING id;
+
+deleteSession:
+DELETE FROM session WHERE id = :id
+RETURNING id;

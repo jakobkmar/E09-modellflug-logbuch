@@ -1,17 +1,30 @@
+<script setup>
+import { useLoginSessionStore } from '@/session'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+const sessionStore = useLoginSessionStore()
+
+function logout() {
+  sessionStore.logout(
+    () => router.push('/'),
+    (response) => alert(`Fehler beim Abmelden: ${response.status} ${response.statusText}`),
+  )
+}
+</script>
+
 <template>
   <div class="flex-center">
-    <div
-      style="display: flex; flex-direction: row; gap: 0.8em;
-      padding-left: 1em; padding-right: 1em; padding-top: 0.4em; padding-bottom: 0.4em;
-      margin-top: 1em; max-width: 512px; width: 100%;"
-      class="card mb-2">
+    <div class="top-bar card mb-2">
       <RouterLink to="/">Startseite</RouterLink>
       <RouterLink to="/protocol/list">Protokolle</RouterLink>
+      <div style="width: 100%"></div>
+      <div v-if="sessionStore.loginSession != null" class="logout-link" @click="logout">Logout</div>
     </div>
   </div>
   <div class="flex-center">
     <div class="content-wrapper">
-      <slot/>
+      <slot />
     </div>
   </div>
 </template>
@@ -25,13 +38,37 @@
 .content-wrapper {
   padding-left: 1em;
   padding-right: 1em;
-  padding-top: 1em;
+  padding-top: 0.2em;
 
   width: 512px;
 
   @media (max-width: 512px) {
     width: unset;
     min-width: 100%;
+  }
+}
+
+.top-bar {
+  display: flex;
+  flex-direction: row;
+  gap: 0.8em;
+  padding: 0.4em 1em;
+  margin-top: 1em;
+  max-width: 512px;
+  width: 100%;
+
+  @media (max-width: 512px) {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+}
+
+.logout-link {
+  color: red;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
   }
 }
 </style>

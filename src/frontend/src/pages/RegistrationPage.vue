@@ -1,5 +1,5 @@
 <template>
-    <h2>Registration - Hier kannst du neue Nutzer erstellen</h2>
+    <h2>Nutzer anlegen</h2>
     <form class="column" style="--tblr-body-bg: #F7F8FA">
         <fieldset class="form-fieldset">
             <label class="form-label">Gib den Namen des neuen Nutzers ein</label>
@@ -12,26 +12,26 @@
                         />
                 </div>
             </div>
-            <label class="form-label">Gib die Adresse des neuen Nutzers ein</label>
-            <div class="column" style="gap: 0.5em; margin-bottom: 1em;">
-                <div style="display: flex; gap: 0.4em; justify-content: center;">
-                        <input
-                        class="form-control"
-                        required
-                        placeholder="Gib deine Adresse ein"
-                        />
-                </div>
-            </div>
-            <label class="form-label">Gib die Postleitzahl des neuen Nutzers ein</label>
-            <div class="column" style="gap: 0.5em; margin-bottom: 1em;">
-                <div style="display: flex; gap: 0.4em; justify-content: center;">
-                        <input
-                        class="form-control"
-                        required
-                        placeholder="Gib deine Postleitzahl ein"
-                        />
-                </div>
-            </div>
+<!--            <label class="form-label">Gib die Adresse des neuen Nutzers ein</label>-->
+<!--            <div class="column" style="gap: 0.5em; margin-bottom: 1em;">-->
+<!--                <div style="display: flex; gap: 0.4em; justify-content: center;">-->
+<!--                        <input-->
+<!--                        class="form-control"-->
+<!--                        required-->
+<!--                        placeholder="Gib deine Adresse ein"-->
+<!--                        />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <label class="form-label">Gib die Postleitzahl des neuen Nutzers ein</label>-->
+<!--            <div class="column" style="gap: 0.5em; margin-bottom: 1em;">-->
+<!--                <div style="display: flex; gap: 0.4em; justify-content: center;">-->
+<!--                        <input-->
+<!--                        class="form-control"-->
+<!--                        required-->
+<!--                        placeholder="Gib deine Postleitzahl ein"-->
+<!--                        />-->
+<!--                </div>-->
+<!--            </div>-->
             <label class="form-label">Gib die Email-Adresse des neuen Nutzers ein</label>
             <div class="column" style="gap: 0.5em; margin-bottom: 1em;">
                 <div style="display: flex; gap: 0.4em; justify-content: center;">

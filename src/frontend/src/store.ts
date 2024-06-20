@@ -1,8 +1,8 @@
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 
 export class Protocol {
   readonly uniqueId: number = Math.floor(Math.random() * 10_000)
-  readonly user: string = "Max Mustermann"
+  readonly user: string = 'Max Mustermann'
   active = true
   endTime: string | null = null // TODO use date type
   notes: string | null = null
@@ -18,6 +18,8 @@ export class Protocol {
     return `${split[2]}.${split[1]}.${split[0]}`
   }
 }
+
+export const backendUrl = 'http://localhost:8080'
 
 export const protocols = ref<Protocol[]>([])
 

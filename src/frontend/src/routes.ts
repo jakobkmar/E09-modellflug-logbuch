@@ -2,7 +2,7 @@ import HomePage from './pages/HomePage.vue'
 import CreateProtocolPage from './pages/CreateProtocolPage.vue'
 import ListProtocolsPage from './pages/ListProtocolsPage.vue'
 import CompleteProtocolPage from './pages/CompleteProtocolPage.vue'
-import LoginPage from './pages/Login.vue'
+import LoginPage from './pages/LoginPage.vue'
 import RegistrationPage from './pages/RegistrationPage.vue'
 import RequestProtocol from './pages/RequestProtocol.vue'
 
