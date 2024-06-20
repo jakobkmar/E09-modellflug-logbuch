@@ -10,6 +10,7 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.toJavaLocalDateTime
+import kotlin.random.Random
 
 data class UpdatedFlightLog(
     val protocolId: String,
@@ -66,7 +67,7 @@ fun Route.flightLogRoutes() = route("/flightlog") {
 
         // Create a new flight log entry in the database
         database.protocolQueries.createProtocol(
-            protocol_id = requestBody.protocolId,
+            protocol_id = Random.nextInt(10000),
             creator_id = requestBody.creatorId,
             flight_start = requestBody.flightStart.toJavaLocalDateTime(),
             flight_end = requestBody.flightEnd.toJavaLocalDateTime(),
