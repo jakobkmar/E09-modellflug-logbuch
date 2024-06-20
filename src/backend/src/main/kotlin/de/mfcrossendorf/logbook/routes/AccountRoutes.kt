@@ -1,11 +1,15 @@
 package de.mfcrossendorf.logbook.routes
 
+import de.mfcrossendorf.logbook.AccountResponse
+import de.mfcrossendorf.logbook.database.awaitList
 import de.mfcrossendorf.logbook.database.awaitSingleOrNull
 import de.mfcrossendorf.logbook.database.database
+import de.mfcrossendorf.logbook.session.adminSessionOrThrow
 import de.mfcrossendorf.logbook.session.handleLoginCall
 import de.mfcrossendorf.logbook.session.handleLogoutCall
 import io.ktor.http.*
 import io.ktor.server.application.*
+import io.ktor.server.auth.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
@@ -16,6 +20,25 @@ fun Route.accountRoutes() = route("/account") {
     }
     post("/logout") {
         handleLogoutCall()
+    }
+
+    authenticate("auth-session") {
+        get("/all") {
+            call.adminSessionOrThrow()
+            val accounts = database.accountQueries.getAllAccounts()
+                .awaitList()
+                .map { dbAccount ->
+                    AccountResponse(
+                        userId = dbAccount.account_id,
+                        username = dbAccount.username,
+                        firstName = dbAccount.first_name,
+                        lastName = dbAccount.last_name,
+                        isAdminUnsafe = dbAccount.is_admin,
+                        registrationNumber = dbAccount.registration_number,
+                    )
+                }
+            call.respond(HttpStatusCode.OK, accounts)
+        }
     }
 
     route("/{userId}") {

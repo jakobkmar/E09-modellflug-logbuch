@@ -58,8 +58,8 @@ function logout() {
   width: 100%;
 
   @media (max-width: 512px) {
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
   }
 }
 

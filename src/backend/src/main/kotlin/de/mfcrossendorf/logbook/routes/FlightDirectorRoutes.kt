@@ -36,7 +36,7 @@ fun Route.flightDirectorRoutes() = route("/flightdirector") {
             ?: return@put call.respond(HttpStatusCode.NotFound, "Nutzer nicht gefunden")
 
         // Check additional conditions for the user to be registered as the flight head (e.g., admin rights)
-        val isAdmin = database.accountQueries.checkAdmin(userId.toInt()).executeAsOne()
+        val isAdmin = database.accountQueries.checkAdminById(userId.toInt()).executeAsOne()
         if (!isAdmin) {
             return@put call.respond(HttpStatusCode.Forbidden, "Keine Flugleiterrechte")
         }

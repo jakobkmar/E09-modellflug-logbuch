@@ -47,7 +47,7 @@ const sessionStore = useLoginSessionStore()
           <div>Nutzerprofile erstellen und anpassen.</div>
         </div>
       </RouterLink>
-      <RouterLink to="/admin/manage-users" class="btn btn-outline-purple" style="margin-top: 1em;">
+      <RouterLink to="/admin/manage-models" class="btn btn-outline-purple" style="margin-top: 1em;">
         <div style="padding-top: 0.4em; padding-bottom: 0.4em;">
           <h3>Modellverwaltung</h3>
           <div>Flugmodelle erstellen und verwalten.</div>
@@ -61,11 +61,14 @@ const sessionStore = useLoginSessionStore()
 .group-card {
   display: flex;
   flex-direction: column;
-  padding: 2em;
-  padding-top: 1em;
+  padding: 1em 2em 2em;
 
   @media (max-width: 512px) {
     padding: 0.8em;
   }
+}
+
+.btn {
+  white-space: normal;
 }
 </style>

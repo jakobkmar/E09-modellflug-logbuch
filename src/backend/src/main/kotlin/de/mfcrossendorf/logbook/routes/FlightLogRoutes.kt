@@ -37,7 +37,7 @@ fun Route.flightLogRoutes() = route("/flightlog") {
     get("/{id}") {
         val id = call.parameters["id"]!!.toInt()
 
-        val isAdmin = database.accountQueries.checkAdmin(account_id = id).executeAsOne()
+        val isAdmin = database.accountQueries.checkAdminById(id).executeAsOne()
 
         val protocol = database.protocolQueries.getProtocol(id).executeAsOneOrNull()
         if (protocol == null) {
