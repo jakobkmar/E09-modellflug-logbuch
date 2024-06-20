@@ -1,0 +1,82 @@
+= Iteration Plan 09: {project-name}
+Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
+{localdatetime}
+include::../_includes/default-attributes.inc.adoc[]
+// Platzhalter für weitere Dokumenten-Attribute
+
+
+== Meilensteine
+//Meilensteine zeigen den Ablauf der Iteration, wie z.B. den Beginn und das Ende, Zwischen-Meilensteine, Synchronisation mit anderen Teams, Demos usw.
+
+[%header, cols="3,1"]
+|===
+| Meilenstein | Datum
+
+| Beginn der Iteration | KW 19
+| Ende der Iteration | KW 21
+|===
+
+
+== Wesentliche Ziele
+
+* Erstellung der User Creattion Page im Frontend, verknüpfung dieser mit dem Backend
+* Einrichten von externer Datenbank
+* Erstellung eines Sequenz-/Zustandsdiagramms für die Flugleiterthematik
+* Erweiterung des Projektberichts um Themen des 2. Semesters
+* Teilnahme am Fachaustausch Entwurf
+
+
+== Aufgabenzuordnung
+//Dieser Abschnitt sollte einen Verweis auf die Work Items List enthalten, die die für diese Iteration vorgesehenen Aufgaben dokumentiert sowie die Zuordnung dieser Aufgaben zu Teammitgliedern. Alternativ können die Aufgaben für die Iteration und die Zuordnung zu Teammitgliedern in nachfolgender Tabelle dokumentiert werden - je nach dem, was einfacher für die Projektbeteiligten einfacher zu finden ist.
+
+Die in dieser Iteration geplanten Aufgaben sind in der Work Items List dargestellt:
+
+siehe *https://github.com/users/jakobkmar/projects/2/views/3?filterQuery=iteration%3A%22Iteration+2%22[Work Item List - Iteration 9]*
+
+_alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
+
+.Work Item List: Iteration 9
+noch einzufügen
+
+== Probleme (optional)
+//Optional: Führen Sie alle Probleme auf, die in dieser Iteration adressiert werden sollen. Aktualisieren Sie den Status, wenn neue Probleme bei den täglichen / regelmäßigen Abstimmungen berichtet werden.
+
+[%header, cols="2,1,3"]
+|===
+| Problem | Status | Notizen
+
+| x | x | x
+|===
+
+
+== Bewertungskriterien
+
+* Erfolg Fachaustausch?
+* User creation Page erfolgreich implementiert
+* Externe Datenbank eingerichtet
+* Projektdokumentation angepasst
+
+
+== Assessment
+
+[%header, cols="1,3"]
+|===
+| Assessment Ziel | Iteration 9
+
+| Assessment Datum | TBD
+| Teilnehmer | Projektmanagement, TBD
+|===
+
+*Beurteilung im Vergleich zu den Zielen*
+
+* Der Fachaustausch war _________
+* 
+
+*Projektfortschritt*
+
+Durch genannte Fortschritte insbesondere im der bewertungsrelevanten Dokumentation konnte das projekt vorangebracht werden. 
+In dieser Iteration litt dadurch jedoch deie Praktische Arbeit im Projekt, Feier- und Brücken-Tage hatten hier ebenfalls einen Anteil. 
+
+.Projektfortschritt: Iteration 9
+
+ToDo
