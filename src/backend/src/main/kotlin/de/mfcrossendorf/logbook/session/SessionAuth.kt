@@ -17,38 +17,34 @@ import kotlin.time.Duration.Companion.seconds
 
 private val argon2Encoder = Argon2PasswordEncoder.defaultsForSpringSecurity_v5_8()
 
-fun Application.configureSessionAuth() {
-    val isProduction = !developmentMode
-
-    install(Authentication) {
-        session<UserSession>("auth-session") {
-            validate { session -> session } // TODO check if session is still valid
-            challenge { session ->
-                if (session == null) {
-                    call.respond(HttpStatusCode.Unauthorized, "Not authenticated")
-                } else {
-                    call.respond(HttpStatusCode.Unauthorized, "Invalid session")
-                }
+fun AuthenticationConfig.configureSessionAuth() {
+    session<UserSession>("auth-session") {
+        validate { session -> session } // TODO check if session is still valid
+        challenge { session ->
+            if (session == null) {
+                throw SessionAuthException.Unauthorized.NotAuthenticated()
+            } else {
+                throw SessionAuthException.Unauthorized.InvalidSession()
             }
         }
     }
+}
 
-    install(Sessions) {
-        cookie<UserSession>(
-            name = "modellflug_session",
-            storage = CacheStorage(DatabaseSessionStorage(database), 60.seconds.inWholeMilliseconds)
-        ) {
-            with(cookie) {
-                if (isProduction) {
-                    httpOnly = true
-                    secure = true
-                }
+fun SessionsConfig.configureSessionCookie(isProduction: Boolean) {
+    cookie<UserSession>(
+        name = "modellflug_session",
+        storage = CacheStorage(DatabaseSessionStorage(database), 60.seconds.inWholeMilliseconds)
+    ) {
+        with(cookie) {
+            if (isProduction) {
+                httpOnly = true
+                secure = true
             }
-            serializer = UserSession.UserSessionSerializer
-            // keep in mind that this might be too long for some id storage implementations
-            // (e.g. path length limit for directory storage)
-            identity { generateSessionId() + generateSessionId() }
         }
+        serializer = UserSession.UserSessionSerializer
+        // keep in mind that this might be too long for some id storage implementations
+        // (e.g. path length limit for directory storage)
+        identity { generateSessionId() + generateSessionId() }
     }
 }
 
@@ -60,8 +56,7 @@ suspend fun PipelineContext<*, ApplicationCall>.handleLoginCall() {
         .awaitSingleOrNull()
 
     if (account == null) {
-        call.respond(HttpStatusCode.Unauthorized, "Wrong username or password")
-        return
+        throw SessionAuthException.InvalidCredentials()
     }
 
     val passwordHash = account.password_hash
@@ -72,12 +67,11 @@ suspend fun PipelineContext<*, ApplicationCall>.handleLoginCall() {
 
     if (passwordHash == null) {
         call.application.log.error("Failed to set password hash for account '${account.account_id}'")
-        call.response.status(HttpStatusCode.InternalServerError)
+        call.respond(HttpStatusCode.InternalServerError, "Login failed")
         return
     }
     if (!argon2Encoder.matches(credentials.password, passwordHash)) {
-        call.respond(HttpStatusCode.Unauthorized, "Wrong username or password")
-        return
+        throw SessionAuthException.InvalidCredentials()
     }
 
     val session = UserSession(

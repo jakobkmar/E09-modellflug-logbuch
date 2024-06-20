@@ -7,14 +7,19 @@ import de.mfcrossendorf.logbook.routes.accountRoutes
 import de.mfcrossendorf.logbook.routes.flightDirectorRoutes
 import de.mfcrossendorf.logbook.routes.flightLogRoutes
 import de.mfcrossendorf.logbook.session.configureSessionAuth
+import de.mfcrossendorf.logbook.session.configureSessionCookie
+import de.mfcrossendorf.logbook.session.sessionAuthExceptionHandler
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
+import io.ktor.server.auth.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.server.plugins.cors.routing.*
+import io.ktor.server.plugins.statuspages.*
 import io.ktor.server.routing.*
+import io.ktor.server.sessions.*
 import org.postgresql.util.PSQLException
 
 fun main() {
@@ -30,14 +35,16 @@ fun main() {
 
     // configure and start the server
     embeddedServer(Netty, port = 8080) {
-        log.info("Running application in ${if (!developmentMode) "production" else "development"} mode")
+        val isProduction = !developmentMode
 
-        configureSessionAuth()
+        log.info("Running application in ${if (isProduction) "production" else "development"} mode")
 
         install(ContentNegotiation) {
             json()
         }
-
+        install(StatusPages) {
+            sessionAuthExceptionHandler()
+        }
         if (developmentMode) {
             install(CORS) {
                 allowHost("localhost:5173") // vue / vite dev server
@@ -45,6 +52,12 @@ fun main() {
                 allowCredentials = true
                 HttpMethod.DefaultMethods.forEach(::allowMethod)
             }
+        }
+        install(Authentication) {
+            configureSessionAuth()
+        }
+        install(Sessions) {
+            configureSessionCookie(isProduction)
         }
 
         routing {
