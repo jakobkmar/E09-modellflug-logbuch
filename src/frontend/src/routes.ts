@@ -2,6 +2,7 @@ import HomePage from './pages/HomePage.vue'
 import CreateProtocolPage from './pages/CreateProtocolPage.vue'
 import ListProtocolsPage from './pages/ListProtocolsPage.vue'
 import CompleteProtocolPage from './pages/CompleteProtocolPage.vue'
+import RequestProtocol from './pages/RequestProtocol.vue'
 import LoginPage from './pages/LoginPage.vue'
 import RegistrationPage from './pages/RegistrationPage.vue'
 import ManageUsersPage from './pages/admin/ManageUsersPage.vue'
@@ -17,6 +18,7 @@ export const routes = [
       { path: 'create', component: CreateProtocolPage },
       { path: 'complete', component: CompleteProtocolPage },
       { path: 'list', component: ListProtocolsPage },
+      { path: 'request', component: RequestProtocol },
     ],
   },
   {
