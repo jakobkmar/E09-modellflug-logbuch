@@ -1,6 +1,8 @@
 package de.mfcrossendorf.logbook.routes
 
+import de.mfcrossendorf.Flight
 import de.mfcrossendorf.logbook.NewFlightLog
+import de.mfcrossendorf.logbook.database.awaitSingleOrNull
 import de.mfcrossendorf.logbook.database.database
 import io.ktor.http.*
 import io.ktor.server.application.*
@@ -30,7 +32,7 @@ data class UpdatedFlightLog(
 fun Route.flightLogRoutes() = route("/flightlog") {
 //    post("/create") {
 //        val protocol = call.receive<Protocol>()
-//        database.protocolQueries.createProtocol(protocol)
+//        database.flightQueries.createProtocol(protocol)
 //        call.respond(HttpStatusCode.Created, protocol)
 //    }
 
@@ -40,7 +42,7 @@ fun Route.flightLogRoutes() = route("/flightlog") {
 
         val isAdmin = database.accountQueries.checkAdminById(id).executeAsOne()
 
-        val protocol = database.protocolQueries.getProtocol(id).executeAsOneOrNull()
+        val protocol = database.flightQueries.getFlight(id).executeAsOneOrNull()
         if (protocol == null) {
             call.respond(HttpStatusCode.NotFound, "Could not find protocol with ID $id")
             return@get
@@ -50,8 +52,6 @@ fun Route.flightLogRoutes() = route("/flightlog") {
 
     // POST request to create a new flight log
     post("/create") {
-        println("create request")
-
         // Receive data for the new flight log from the request body
         val requestBody = call.receive<NewFlightLog>()
 
@@ -60,25 +60,31 @@ fun Route.flightLogRoutes() = route("/flightlog") {
         // Validate the received data (e.g., ensure all required fields are present)
         if (requestBody.creatorId.toString().isEmpty() || requestBody.flightStart.toString().isEmpty() ||
             requestBody.flightEnd.toString().isEmpty() || requestBody.signature.isEmpty() ||
-            requestBody.checkedFirstAid.toString().isEmpty() || requestBody.model.isEmpty()) {
+            requestBody.checkedFirstAid.toString().isEmpty() || requestBody.modelType.isEmpty()) {
             call.respond(HttpStatusCode.BadRequest, "All required fields must be filled")
             return@post
         }
 
-        // Create a new flight log entry in the database
-        database.protocolQueries.createProtocol(
-            protocol_id = Random.nextInt(10000),
-            creator_id = requestBody.creatorId,
+        val flight = Flight(
+            flight_id = Random.nextInt(10000),
+            account_id = requestBody.creatorId,
             flight_start = requestBody.flightStart.toJavaLocalDateTime(),
             flight_end = requestBody.flightEnd.toJavaLocalDateTime(),
             signature = requestBody.signature.toByteArray(),
             checked_first_aid = requestBody.checkedFirstAid,
             remarks = requestBody.remarks,
-            model = requestBody.model
+            model_type = requestBody.modelType,
+            model = null,
         )
 
-        // Respond with the ID of the newly created flight log
-        call.respond(HttpStatusCode.Created, mapOf("id" to database.protocolQueries.getLatestProtocolId(requestBody.creatorId)))
+        val flightId = database.flightQueries.createFlight(flight)
+            .awaitSingleOrNull()
+
+        if (flightId == null) {
+            call.respond(HttpStatusCode.InternalServerError, "Failed to create flight log")
+        } else {
+            call.respond(HttpStatusCode.Created, flightId)
+        }
     }
 
     // PUT request to update details of a specific flight log by ID
@@ -98,7 +104,7 @@ fun Route.flightLogRoutes() = route("/flightlog") {
             return@put
         }
         // Update the flight log entry in the database
-        database.protocolQueries.updateProtocol(
+        database.flightQueries.updateFlight(
             flight_start = updatedFlightLog.flightStart.toJavaLocalDateTime(),
             flight_end = updatedFlightLog.flightEnd.toJavaLocalDateTime(),
             signature = updatedFlightLog.signature.toByteArray(),
@@ -118,7 +124,7 @@ fun Route.flightLogRoutes() = route("/flightlog") {
             ?: return@delete call.respond(HttpStatusCode.BadRequest, "Missing flight log ID")
 
         // Delete the flight log entry from the database
-        database.protocolQueries.deleteProtocol(id)
+        database.flightQueries.deleteFlight(id)
 
         // Respond with a success message
         call.respond(HttpStatusCode.OK, "Flight log deleted successfully")
@@ -130,7 +136,7 @@ fun Route.flightLogRoutes() = route("/flightlog") {
             val userId = call.parameters["userId"]!!
 
             // Retrieve flight logs for the specified user from the database
-            val userFlightLogs = database.protocolQueries.getProtocolsByCreator(id = userId.toInt()).executeAsList()
+            val userFlightLogs = database.flightQueries.getFlightsByAccountId(id = userId.toInt()).executeAsList()
 
             // Check if flight logs were found for the user
             if (userFlightLogs.isNotEmpty()) {
@@ -144,7 +150,7 @@ fun Route.flightLogRoutes() = route("/flightlog") {
 
         get("/all") {
             // Retrieve all flight logs from the database
-            val allFlightLogs = database.protocolQueries.getProtocols().executeAsList()
+            val allFlightLogs = database.flightQueries.getFlights().executeAsList()
 
             // Check if flight logs were found
             if (allFlightLogs.isNotEmpty()) {

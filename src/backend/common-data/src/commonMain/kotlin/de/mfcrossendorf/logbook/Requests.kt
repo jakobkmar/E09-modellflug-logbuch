@@ -15,5 +15,5 @@ data class NewFlightLog(
     val signature: String,
     val checkedFirstAid: Boolean,
     val remarks: String,
-    val model: String,
+    val modelType: String,
 )
