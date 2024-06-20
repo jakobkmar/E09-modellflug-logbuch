@@ -4,6 +4,7 @@ import ListProtocolsPage from './pages/ListProtocolsPage.vue'
 import CompleteProtocolPage from './pages/CompleteProtocolPage.vue'
 import LoginPage from './pages/LoginPage.vue'
 import RegistrationPage from './pages/RegistrationPage.vue'
+import RequestProtocol from './pages/RequestProtocol.vue'
 
 export const routes = [
   { path: '/', component: HomePage },
@@ -14,7 +15,8 @@ export const routes = [
     children: [
       { path: 'create', component: CreateProtocolPage },
       { path: 'complete', component: CompleteProtocolPage },
-      { path: 'list', component: ListProtocolsPage }
+      { path: 'list', component: ListProtocolsPage },
+      { path: 'request', component: RequestProtocol },
     ]
   }
 ]
