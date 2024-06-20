@@ -20,7 +20,9 @@ import io.ktor.server.plugins.cors.routing.*
 import io.ktor.server.plugins.statuspages.*
 import io.ktor.server.routing.*
 import io.ktor.server.sessions.*
+import kotlinx.coroutines.delay
 import org.postgresql.util.PSQLException
+import kotlin.time.Duration.Companion.seconds
 
 fun main() {
     // connect to the database
@@ -33,10 +35,16 @@ fun main() {
         println("Database schema already exists: '${exc::class.simpleName}', '${exc.message}'")
     }
 
+    @Suppress("UNUSED_VARIABLE") // only for testing purposes
+    val delayPlugin = createApplicationPlugin(name = "DelayPlugin") {
+        onCall { _ ->
+            delay(2.seconds)
+        }
+    }
+
     // configure and start the server
     embeddedServer(Netty, port = 8080) {
         val isProduction = !developmentMode
-
         log.info("Running application in ${if (isProduction) "production" else "development"} mode")
 
         install(ContentNegotiation) {
