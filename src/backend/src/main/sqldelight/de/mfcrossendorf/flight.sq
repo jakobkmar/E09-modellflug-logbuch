@@ -10,7 +10,7 @@ CREATE TABLE flight (
   checked_first_aid BOOLEAN    NOT NULL,
   remarks           TEXT       NULL,
   model_type        TEXT       NOT NULL,
-  model             VARCHAR(3) NULL REFERENCES model (model_id)
+  model             INT        NULL REFERENCES model (model_id)
 );
 
 
@@ -27,7 +27,7 @@ INSERT INTO flight VALUES ?
 RETURNING flight_id;
 
 updateFlight:
-UPDATE flight SET flight_start = ?, flight_end = ?, signature = ?, checked_first_aid = ?, remarks = ?, model = ?
+UPDATE flight SET flight_start = ?, flight_end = ?, signature = ?, checked_first_aid = ?, remarks = ?, model_type = ?
 WHERE flight_id = :id;
 
 getFlightsByAccountId:

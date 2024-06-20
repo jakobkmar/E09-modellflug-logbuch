@@ -22,7 +22,7 @@ data class UpdatedFlightLog(
     val signature: String,
     val checkedFirstAid: Boolean,
     val remarks: String = "",
-    val model: String
+    val modelType: String,
 )
 
     // TODO Anpassung dass man Zeiträume auswählen kann
@@ -99,19 +99,19 @@ fun Route.flightLogRoutes() = route("/flightlog") {
         if (updatedFlightLog.protocolId.isEmpty() ||updatedFlightLog.creatorId.toString().isEmpty() ||
             updatedFlightLog.flightStart.toString().isEmpty() || updatedFlightLog.flightEnd.toString().isEmpty() ||
             updatedFlightLog.signature.isEmpty() || updatedFlightLog.checkedFirstAid.toString().isEmpty() ||
-            updatedFlightLog.model.isEmpty()) {
+            updatedFlightLog.modelType.isEmpty()) {
             call.respond(HttpStatusCode.BadRequest, "All required fields must be filled")
             return@put
         }
         // Update the flight log entry in the database
         database.flightQueries.updateFlight(
+            id = id,
             flight_start = updatedFlightLog.flightStart.toJavaLocalDateTime(),
             flight_end = updatedFlightLog.flightEnd.toJavaLocalDateTime(),
             signature = updatedFlightLog.signature.toByteArray(),
             checked_first_aid = updatedFlightLog.checkedFirstAid,
             remarks = updatedFlightLog.remarks,
-            model = updatedFlightLog.model,
-            id = id
+            model_type = updatedFlightLog.modelType,
         )
 
         // Respond with a success message
