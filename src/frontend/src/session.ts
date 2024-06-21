@@ -1,10 +1,10 @@
 import { ref, watch } from 'vue'
 import { defineStore } from 'pinia'
-import { LoginRequest, LoginResponse } from 'modellflug-logbuch-common-data'
+import { LoginRequest, SharedSessionData } from 'modellflug-logbuch-common-data'
 import { backendRequest } from '@/networking'
 
 export interface UserSession {
-  readonly loginResponse: LoginResponse
+  readonly sessionData: SharedSessionData
 }
 
 export const useLoginSessionStore = defineStore('loginSession', () => {
@@ -31,11 +31,11 @@ export const useLoginSessionStore = defineStore('loginSession', () => {
       body: JSON.stringify(new LoginRequest(username, password)),
     })
     if (response.ok) {
-      const loginResponse = (await response.json()) as LoginResponse
+      const sessionData: SharedSessionData = await response.json()
       loginSession.value = {
-        loginResponse: loginResponse,
+        sessionData: sessionData,
       }
-      console.debug(`Login successful for user ${loginResponse.username}`)
+      console.debug(`Login successful for user ${sessionData.username}`)
       onSuccess()
     } else {
       console.error(response)

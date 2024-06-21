@@ -8,15 +8,15 @@ import io.ktor.server.sessions.*
 
 fun ApplicationCall.sessionOrThrow(): UserSession {
     return sessions.get<UserSession>()
-        ?: throw SessionAuthException.Unauthorized.NotAuthenticated()
+        ?: throw SessionAuthException.NotAuthenticated()
 }
 
 suspend fun ApplicationCall.adminSessionOrThrow(): UserSession {
     val session = sessionOrThrow()
-    if (!session.isAdminUnsafe) {
+    if (!session.sharedData.isAdminUnsafe) {
         throw SessionAuthException.NoAdmin()
     }
-    val isAdmin = database.accountQueries.checkAdminById(session.userId).awaitSingleOrNull()
+    val isAdmin = database.accountQueries.checkAdminById(session.sharedData.userId).awaitSingleOrNull()
         ?: throw SessionAuthException.UnknownUser()
     if (!isAdmin) {
         throw SessionAuthException.NoAdmin()

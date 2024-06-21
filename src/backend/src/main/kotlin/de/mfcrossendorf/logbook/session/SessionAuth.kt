@@ -1,7 +1,7 @@
 package de.mfcrossendorf.logbook.session
 
 import de.mfcrossendorf.logbook.LoginRequest
-import de.mfcrossendorf.logbook.LoginResponse
+import de.mfcrossendorf.logbook.SharedSessionData
 import de.mfcrossendorf.logbook.data.UserSession
 import de.mfcrossendorf.logbook.database.awaitSingleOrNull
 import de.mfcrossendorf.logbook.database.database
@@ -15,16 +15,18 @@ import io.ktor.util.pipeline.*
 import org.springframework.security.crypto.argon2.Argon2PasswordEncoder
 import kotlin.time.Duration.Companion.seconds
 
+const val sessionCookieName = "modellflug_session"
+
 private val argon2Encoder = Argon2PasswordEncoder.defaultsForSpringSecurity_v5_8()
 
 fun AuthenticationConfig.configureSessionAuth() {
     session<UserSession>("auth-session") {
-        validate { session -> session } // TODO check if session is still valid
+        validate { session -> UserIdPrincipal(session.sharedData.userId.toString()) }
         challenge { session ->
             if (session == null) {
-                throw SessionAuthException.Unauthorized.NotAuthenticated()
+                throw SessionAuthException.NotAuthenticated()
             } else {
-                throw SessionAuthException.Unauthorized.InvalidSession()
+                throw SessionAuthException.InvalidSession()
             }
         }
     }
@@ -32,7 +34,7 @@ fun AuthenticationConfig.configureSessionAuth() {
 
 fun SessionsConfig.configureSessionCookie(isProduction: Boolean) {
     cookie<UserSession>(
-        name = "modellflug_session",
+        name = sessionCookieName,
         storage = CacheStorage(DatabaseSessionStorage(database), 60.seconds.inWholeMilliseconds)
     ) {
         with(cookie) {
@@ -74,15 +76,14 @@ suspend fun PipelineContext<*, ApplicationCall>.handleLoginCall() {
         throw SessionAuthException.InvalidCredentials()
     }
 
-    val session = UserSession(
+    val session = UserSession(SharedSessionData(
         userId = account.account_id,
-        userName = account.username,
+        username = account.username,
         isAdminUnsafe = account.is_admin
-    )
+    ))
     call.sessions.set(session)
 
-    val response = LoginResponse(session.userName, session.isAdminUnsafe)
-    call.respond(HttpStatusCode.OK, response)
+    call.respond(HttpStatusCode.OK, session.sharedData)
 }
 
 suspend fun PipelineContext<*, ApplicationCall>.handleLogoutCall() {

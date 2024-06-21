@@ -12,8 +12,13 @@ data class LoginRequest(
 
 @Serializable
 @JsExport
-class LoginResponse(
+class SharedSessionData(
+    val userId: Int,
     val username: String,
+    /**
+     * this is only for conditional display purposes,
+     * not for actual security checks
+     */
     val isAdminUnsafe: Boolean,
 )
 
