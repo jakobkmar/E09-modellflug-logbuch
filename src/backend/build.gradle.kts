@@ -31,6 +31,8 @@ dependencies {
     implementation(libs.ktor.server.statusPages)
     implementation(libs.ktor.server.websockets)
 
+    implementation(libs.ktoml.core)
+
     // logging
     implementation(libs.slf4j.simple)
     implementation(libs.slf4j.jclOverSlf4j)

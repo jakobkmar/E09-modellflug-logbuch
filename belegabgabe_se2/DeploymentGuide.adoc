@@ -126,18 +126,29 @@ Bearbeite die TOML-Konfigurationsdatei `config.toml`, um die Datenbankverbindung
 
 [source,toml]
 ----
-# timeZone = "Europe/Berlin"
+# The time zone to use for the application.
+# If not set, the system default is used.
+# See https://kotlinlang.org/api/kotlinx-datetime/kotlinx-datetime/kotlinx.datetime/-time-zone/-companion/of.html for more information.
+timeZone = "Europe/Berlin"
 
 [database]
-serverName = "localhost"
-port = 5432
-user = "myuser"
-password = "mypassword"
-databaseName = "mydatabase"
+  serverName = "localhost"
+  # The PostgreSQL default port is 5432.
+  port = 5432
+  username = "logbook"
+  password = "SET_PASSWORD_HERE"
+  # The name of the database to use. (You chose this during database setup.)
+  databaseName = "logbook"
 
 [server]
-port = 8080
+  # The port the server should listen on.
+  port = 8080
+  # In development mode the server runs without many security features.
+  # This is useful for testing and debugging in local environments.
+  developmentMode = false
 ----
+
+Stelle sicher, dass der `developmentMode` auf `false` gesetzt ist.
 
 == Schritt 7: Server als Dienst einrichten
 

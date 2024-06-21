@@ -2,6 +2,7 @@ package de.mfcrossendorf.logbook.session
 
 import de.mfcrossendorf.logbook.LoginRequest
 import de.mfcrossendorf.logbook.SharedSessionData
+import de.mfcrossendorf.logbook.config.ConfigManager
 import de.mfcrossendorf.logbook.data.UserSession
 import de.mfcrossendorf.logbook.database.awaitSingleOrNull
 import de.mfcrossendorf.logbook.database.database
@@ -33,13 +34,13 @@ fun AuthenticationConfig.configureSessionAuth() {
     }
 }
 
-fun SessionsConfig.configureSessionCookie(isProduction: Boolean) {
+fun SessionsConfig.configureSessionCookie() {
     cookie<UserSession>(
         name = sessionCookieName,
         storage = CacheStorage(DatabaseSessionStorage(database), 60.seconds.inWholeMilliseconds)
     ) {
         with(cookie) {
-            if (isProduction) {
+            if (!ConfigManager.isDevelopmentMode) {
                 httpOnly = true
                 secure = true
             }

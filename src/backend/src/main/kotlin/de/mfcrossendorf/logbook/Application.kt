@@ -1,5 +1,6 @@
 package de.mfcrossendorf.logbook
 
+import de.mfcrossendorf.logbook.config.ConfigManager
 import de.mfcrossendorf.logbook.database.database
 import de.mfcrossendorf.logbook.database.driver
 import de.mfcrossendorf.logbook.db.Database
@@ -32,6 +33,9 @@ import kotlin.time.Duration.Companion.minutes
 import kotlin.time.Duration.Companion.seconds
 
 fun main() {
+    // load configuration from file
+    ConfigManager.loadConfig()
+
     // connect to the database
     database
 
@@ -50,9 +54,11 @@ fun main() {
     }
 
     // configure and start the server
-    embeddedServer(Netty, port = 8080) {
-        val isProduction = !developmentMode
-        log.info("Running application in ${if (isProduction) "production" else "development"} mode")
+    embeddedServer(
+        factory = Netty, port = ConfigManager.config.server.port,
+
+    ) {
+        log.info("Running application in ${if (ConfigManager.isDevelopmentMode) "development" else "production"} mode")
 
         install(ContentNegotiation) {
             json()
@@ -61,8 +67,10 @@ fun main() {
             sessionAuthExceptionHandler()
             validationExceptionHandler()
         }
-        if (developmentMode) {
+        if (ConfigManager.isDevelopmentMode) {
             install(CORS) {
+                allowHost("localhost:${ConfigManager.config.server.port}")
+                allowHost("127.0.0.1:${ConfigManager.config.server.port}")
                 allowHost("localhost:5173") // vue / vite dev server
                 allowHeader(HttpHeaders.ContentType)
                 allowCredentials = true
@@ -73,7 +81,7 @@ fun main() {
             configureSessionAuth()
         }
         install(Sessions) {
-            configureSessionCookie(isProduction)
+            configureSessionCookie()
         }
         install(WebSockets) {
             contentConverter = KotlinxWebsocketSerializationConverter(Json)

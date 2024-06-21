@@ -70,7 +70,28 @@ cd src/backend
 
 Mit dem ersten Start wird eine `config.toml` im `config` Ordner erstellt. Diese Datei enthält die Konfiguration für die Anwendung. Hier können die Einstellungen für die Datenbankverbindung und den Serverport angepasst werden, sowie der **Entwicklungmodus** aktiviert werden.
 
+Ein Beispiel für die Konfiguration wäre:
+
 [source,toml]
 ----
+# The time zone to use for the application.
+# If not set, the system default is used.
+# See https://kotlinlang.org/api/kotlinx-datetime/kotlinx-datetime/kotlinx.datetime/-time-zone/-companion/of.html for more information.
+timeZone = null
 
+[database]
+  serverName = "localhost"
+  # The PostgreSQL default port is 5432.
+  port = 5432
+  username = "logbook"
+  password = "logbook"
+  # The name of the database to use. (You chose this during database setup.)
+  databaseName = "logbook"
+
+[server]
+  # The port the server should listen on.
+  port = 8080
+  # In development mode the server runs without many security features.
+  # This is useful for testing and debugging in local environments.
+  developmentMode = true
 ----

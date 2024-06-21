@@ -43,6 +43,14 @@ fun VersionCatalogBuilder.libs() {
         "ktor.server.websockets",
         "io.ktor:ktor-server-websockets:$ktorVersion")
 
+    val ktomlVersion = "0.5.1"
+    library(
+        "ktoml.core",
+        "com.akuleshov7:ktoml-core:$ktomlVersion")
+    library(
+        "ktoml.file",
+        "com.akuleshov7:ktoml-file:$ktomlVersion")
+
     library(
         "slf4j.simple",
         "org.slf4j:slf4j-simple:2.0.12")
