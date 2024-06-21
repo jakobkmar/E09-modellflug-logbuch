@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { useLoginSessionStore } from '@/session'
 import { useRouter } from 'vue-router'
+import AlertCard from '@/components/AlertCard.vue'
 import { IconExclamationCircle } from '@tabler/icons-vue'
 
 const username = ref('')
@@ -9,7 +10,7 @@ const password = ref('')
 const showPassword = ref(false)
 
 const loading = ref(false)
-const errorResponse = ref<string | null>(null)
+const errorAlert = ref<InstanceType<typeof AlertCard>>()
 
 const router = useRouter()
 const sessionStore = useLoginSessionStore()
@@ -27,9 +28,11 @@ function login() {
     (response) => {
       loading.value = false
       if (response.status == 401) {
-        errorResponse.value = 'Nutzername oder Passwort falsch'
+        errorAlert.value?.show('Nutzername oder Passwort falsch')
+      } else if (response.status == 400) {
+        response.text().then((text) => errorAlert.value?.show(text))
       } else {
-        errorResponse.value = `${response.status} - ${response.statusText}`
+        errorAlert.value?.show(`${response.status} - ${response.statusText}`)
       }
     },
   )
@@ -39,19 +42,9 @@ function login() {
 <template>
   <h2>Login</h2>
   <form class="column" style="--tblr-body-bg: #f7f8fa">
-    <div v-if="errorResponse != null" class="alert alert-danger alert-dismissible" role="alert">
-      <div class="d-flex">
-        <div>
-          <!-- SVG icon from http://tabler-icons.io/i/check -->
-          <IconExclamationCircle />
-        </div>
-        <div>
-          <h4 class="alert-title">Ein Problem ist aufgetreten</h4>
-          <div class="text-secondary">{{ errorResponse }}</div>
-        </div>
-      </div>
-      <a class="btn-close" data-bs-dismiss="alert" aria-label="close"></a>
-    </div>
+    <AlertCard title="Ein Problem ist aufgetreten" type="danger" ref="errorAlert">
+      <IconExclamationCircle/>
+    </AlertCard>
     <fieldset class="form-fieldset">
       <label class="form-label">Melde dich mit deinem Account an</label>
       <div class="column" style="gap: 0.5em; margin-bottom: 1em">

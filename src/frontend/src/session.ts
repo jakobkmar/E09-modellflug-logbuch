@@ -38,7 +38,7 @@ export const useLoginSessionStore = defineStore('loginSession', () => {
       console.debug(`Login successful for user ${sessionData.username}`)
       onSuccess()
     } else {
-      console.error(response)
+      console.error(`Failed to login, status: ${response.status} ${response.statusText}`)
       onError(response)
     }
   }
@@ -52,7 +52,7 @@ export const useLoginSessionStore = defineStore('loginSession', () => {
     })
     loginSession.value = null
     onFinish()
-    if (!response.ok && response.status != 304) {
+    if (!response.ok) {
       console.error(`Failed to logout, status: ${response.status} ${response.statusText}`)
       onError(response)
     }
