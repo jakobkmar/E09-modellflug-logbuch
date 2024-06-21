@@ -1,0 +1,210 @@
+= Installationsguide für Backend und PostgreSQL
+
+== Voraussetzungen
+
+Bevor du beginnst, stelle sicher, dass folgende Voraussetzungen erfüllt sind:
+
+1. Ein Ubuntu-Server (oder LXC-Container oder eine VM) mit Root-Zugriff.
+2. Eine funktionierende Internetverbindung.
+3. Möglichkeit der Konfiguration der Firewall.
+
+== Schritt 1: Update und Upgrade des Systems
+
+Führe zuerst ein Update und Upgrade des Systems durch:
+
+[source,bash]
+----
+sudo apt update
+sudo apt upgrade -y
+----
+
+== Schritt 2: Installieren von Java
+
+Der Backend-Server benötigt Java, um ausgeführt zu werden. Installiere OpenJDK:
+
+[source,bash]
+----
+sudo apt install openjdk-17-jdk -y
+----
+
+Überprüfe die Installation:
+
+[source,bash]
+----
+java --version
+----
+
+== Schritt 3: Installieren und Konfigurieren von PostgreSQL
+
+Installiere PostgreSQL als Datenbankserver:
+
+[source,bash]
+----
+sudo apt install postgresql -y
+----
+
+Starte und aktiviere den PostgreSQL-Dienst:
+
+[source,bash]
+----
+sudo systemctl enable --now postgresql
+----
+
+== Schritt 4: Erstellen einer Datenbank und eines Benutzers in PostgreSQL
+
+Wechsle zum PostgreSQL-Benutzer und öffne die PostgreSQL-Shell:
+
+[source,bash]
+----
+sudo -i -u postgres
+psql
+----
+
+Erstelle eine neue Datenbank und einen neuen Benutzer:
+
+[source,sql]
+----
+CREATE DATABASE mydatabase;
+CREATE USER myuser WITH ENCRYPTED PASSWORD 'mypassword';
+GRANT ALL PRIVILEGES ON DATABASE mydatabase TO myuser;
+----
+
+Beende die PostgreSQL-Shell:
+
+[source]
+----
+q
+----
+
+Wechsle zurück zum vorherigen Benutzer:
+
+[source,bash]
+----
+exit
+----
+
+== Schritt 5: Installieren des Backend-Servers
+
+Lade das gepackte Backend-Projekt aus den GitHub Releases herunter. Das Projekt liegt als `.tar.gz` oder `.zip` Datei vor. Lade die Datei auf deinen Server hoch und entpacke sie:
+
+[source,bash]
+----
+# für eine .tar.gz Datei
+tar -xvzf releasename.tar.gz
+
+# für eine .zip Datei
+unzip releasename.zip
+----
+
+Benenne das entpackte Verzeichnis um und navigiere in das Verzeichnis:
+
+[source,bash]
+----
+mv releasename modellflug-logbuch
+cd modellflug-logbuch
+----
+
+Stelle sicher, dass die Datei `bin/modellflug-logbuch` ausführbar ist:
+
+[source,bash]
+----
+chmod +x bin/modellflug-logbuch
+----
+
+== Schritt 6: Konfigurieren des Backend-Servers
+
+Führe den Server einmal manuell aus um die Konfigurationsdatei zu generieren:
+
+[source,bash]
+----
+./bin/modellflug-logbuch
+----
+
+Bearbeite die TOML-Konfigurationsdatei `config.toml`, um die Datenbankverbindungsdaten und andere Einstellungen festzulegen. Beispiel:
+
+[source,toml]
+----
+# timeZone = "Europe/Berlin"
+
+[database]
+serverName = "localhost"
+port = 5432
+user = "myuser"
+password = "mypassword"
+databaseName = "mydatabase"
+
+[server]
+port = 8080
+----
+
+== Schritt 7: Server als Dienst einrichten
+
+Es ist ratsam, den Backend-Server als Systemdienst zu konfigurieren, damit er automatisch startet:
+
+Erstelle eine neue Dienstdatei:
+
+[source,bash]
+----
+sudo nano /etc/systemd/system/modellflug-logbuch.service
+----
+
+Füge folgendes in *angepasster* Form in die Datei ein:
+
+[source,ini]
+----
+[Unit]
+Description=Modellflug Logbuch
+After=network.target
+
+[Service]
+User=your-username
+ExecStart=/your/path/bin/modellflug-logbuch
+WorkingDirectory=/your/path/project
+Restart=unless-stopped
+
+[Install]
+WantedBy=multi-user.target
+----
+
+Aktualisiere die Systemdienste und starte den Dienst:
+
+[source,bash]
+----
+sudo systemctl daemon-reload
+sudo systemctl enable --now logbuch
+----
+
+== Schritt 8: Überprüfung
+
+Überprüfe, ob der Server läuft:
+
+[source,bash]
+----
+sudo systemctl status logbuch
+----
+
+Besuche schließlich deine Server-IP oder Domain auf Port 8080 (oder dem in deinem Projekt konfigurierten Port), um sicherzustellen, dass der Ktor-Server und das eingebettete Frontend korrekt laufen.
+
+== Schritt 9: Reverse Proxy (optional)
+
+Wenn du den Ktor-Server über einen Reverse Proxy wie Nginx oder Apache bereitstellen möchtest, konfiguriere den Proxy entsprechend.
+
+*Nginx Beispiel*
+
+Erstelle eine neue Konfigurationsdatei und füge z.B. folgendes in die Datei ein:
+
+[source,nginx]
+----
+server {
+    listen 80;
+    server_name your-domain.com;
+
+    location / {
+        proxy_pass http://localhost:8080;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+----
