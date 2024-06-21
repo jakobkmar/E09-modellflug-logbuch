@@ -1,5 +1,7 @@
 = Installationsguide für Backend und PostgreSQL
 
+Diese Anleitung beschreibt die manuelle Installation des Backends auf einem (möglichst "frischen") Ubuntu Server.
+
 == Voraussetzungen
 
 Bevor du beginnst, stelle sicher, dass folgende Voraussetzungen erfüllt sind:
@@ -145,7 +147,7 @@ Erstelle eine neue Dienstdatei:
 
 [source,bash]
 ----
-sudo nano /etc/systemd/system/modellflug-logbuch.service
+sudo nano /etc/systemd/system/logbuch.service
 ----
 
 Füge folgendes in *angepasster* Form in die Datei ein:
