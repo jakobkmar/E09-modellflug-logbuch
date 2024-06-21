@@ -3,6 +3,7 @@ package de.mfcrossendorf.logbook.routes
 import de.mfcrossendorf.logbook.CompleteFlightLogRequest
 import de.mfcrossendorf.logbook.CreateFlightLogRequest
 import de.mfcrossendorf.logbook.FlightData
+import de.mfcrossendorf.logbook.FlightLogFilterRequest
 import de.mfcrossendorf.logbook.database.awaitList
 import de.mfcrossendorf.logbook.database.awaitSingleOrNull
 import de.mfcrossendorf.logbook.database.database
@@ -196,19 +197,41 @@ fun Route.flightLogRoutes() = route("/flightlog") {
 
         route("/all") {
             // Fetch all flight logs by the logged-in user
-            get {
-                // TODO: Implement this route
+            post("/filtered") {
+                val session = call.sessionOrThrow()
+                val filterRequest = call.receive<FlightLogFilterRequest>()
+
+                val flightLogs = database.flightQueries.getFlightsByAccountId(
+                    accountId = session.sharedData.userId,
+                    startDate = filterRequest.startDate.toJavaLocalDate(),
+                    endDate = filterRequest.endDate.toJavaLocalDate(),
+                ).awaitList().map { dbFlight ->
+                    FlightData(
+                        flightId = dbFlight.flight_id,
+                        accountId = dbFlight.account_id,
+                        fullPilotName = "${dbFlight.first_name} ${dbFlight.last_name.orEmpty()}".trim(),
+                        date = dbFlight.date.toKotlinLocalDate(),
+                        flightStart = dbFlight.flight_start.toKotlinLocalTime(),
+                        flightEnd = dbFlight.flight_end?.toKotlinLocalTime(),
+                        signature = dbFlight.signature.toString(Charsets.UTF_8),
+                        checkedFirstAid = dbFlight.checked_first_aid,
+                        remarks = dbFlight.remarks,
+                        modelType = dbFlight.model_type,
+                    )
+                }
+
+                call.respond(HttpStatusCode.OK, flightLogs)
             }
 
             // Fetch all flight logs by a specific user
             get("/{userId}") {
-                // TODO: Implement this route
+                TODO("Implement this route")
             }
         }
 
         // Delete a specific flight log entry
         delete("/{id}") {
-            // TODO: Implement this route
+            TODO("Implement this route")
         }
     }
 }

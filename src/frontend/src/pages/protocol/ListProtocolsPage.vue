@@ -45,7 +45,7 @@ loadFlights()
   </div>
   <div v-else-if="activeFlights.length > 0" style="display: flex; flex-direction: column; gap: 1em;">
     <div v-for="flight in activeFlights" :key="flight.flightId">
-      <FlightCard :flight="flight" :active="true" />
+      <FlightCard :flight="flight" />
     </div>
   </div>
   <div v-else class="card" style="padding: 1em;">
@@ -62,7 +62,7 @@ loadFlights()
   </div>
   <div v-else-if="finishedFlights.length > 0" style="display: flex; flex-direction: column; gap: 1em;">
     <div v-for="flight in finishedFlights" :key="flight.flightId">
-      <FlightCard :flight="flight" :active="false" />
+      <FlightCard :flight="flight" />
     </div>
   </div>
   <div v-else class="card" style="padding: 1em;">

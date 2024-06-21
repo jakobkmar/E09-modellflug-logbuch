@@ -32,7 +32,7 @@ requestInfo()
 onMounted(() => {
   appStateSocket = new WebSocket('ws://localhost:8080/api/v1/appstate/live')
   appStateSocket.onopen = () => {
-    console.debug("Opened WebSocket connection to app state")
+    // console.debug("Opened WebSocket connection to app state")
   }
   appStateSocket.onerror = () => {
     console.error("AppState websocket failed")

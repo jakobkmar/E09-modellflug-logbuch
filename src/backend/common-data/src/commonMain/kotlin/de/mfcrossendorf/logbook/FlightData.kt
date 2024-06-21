@@ -65,3 +65,12 @@ class FlightData(
         "$start ➔ $end"
     }
 }
+
+@Serializable
+@JsExport
+class FlightLogFilterRequest(
+    @Suppress("NON_EXPORTABLE_TYPE")
+    val startDate: LocalDate,
+    @Suppress("NON_EXPORTABLE_TYPE")
+    val endDate: LocalDate,
+)

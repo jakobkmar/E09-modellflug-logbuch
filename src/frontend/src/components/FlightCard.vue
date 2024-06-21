@@ -1,10 +1,15 @@
 <script setup lang="ts">
 import { FlightData } from 'modellflug-logbuch-common-data'
+import { computed } from 'vue'
+import { getDateStringToday } from '@/utils/timeutil'
 
-defineProps<{
+const props = defineProps<{
   flight: FlightData,
-  active: boolean,
 }>()
+
+const active = computed(() => {
+  return props.flight.flightEnd == null && props.flight.date == getDateStringToday()
+})
 </script>
 
 <template>

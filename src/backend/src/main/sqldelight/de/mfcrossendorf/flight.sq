@@ -28,7 +28,12 @@ INSERT INTO flight VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 RETURNING flight_id;
 
 getFlightsByAccountId:
-SELECT * FROM flight WHERE account_id = :id;
+SELECT flight.*, account.first_name, account.last_name FROM flight
+JOIN account ON flight.account_id = account.account_id
+WHERE flight.account_id = :accountId AND
+      date >= :startDate AND
+      date <= :endDate
+ORDER BY date DESC;
 
 getOpenFlights:
 SELECT flight.*, account.first_name, account.last_name FROM flight
