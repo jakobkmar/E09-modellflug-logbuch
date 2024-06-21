@@ -5,7 +5,8 @@ import { useRouter } from 'vue-router'
 import { getDateStringToday, getDateStringYesterday, getTimeString } from '@/utils/timeutil'
 import { backendRequest } from '@/networking'
 import { CreateFlightLogRequest } from 'modellflug-logbuch-common-data'
-import { IconEngine, IconCarTurbine, IconBatteryAutomotive, IconDetails, IconAlertTriangle } from '@tabler/icons-vue'
+import { IconAlertTriangle, IconBatteryAutomotive, IconCarTurbine, IconDetails, IconEngine, IconExclamationCircle } from '@tabler/icons-vue'
+import AlertCard from '@/components/AlertCard.vue'
 
 const router = useRouter()
 
@@ -20,11 +21,19 @@ const modelType = ref<string | null>(null)
 
 const signatureCanvas = ref<InstanceType<typeof MouseCanvas>>()
 
+const errorAlert = ref<InstanceType<typeof AlertCard>>()
 const submitting = ref(false)
 
-async function submitProtocol() {
+async function submitFlightlog() {
+  const issues: string[] = []
   if (modelType.value == null) {
-    console.error('Cannot submit protocol because model type is not set')
+    issues.push('Gib einen Flugzeugtyp an!')
+  }
+  if (signatureCanvas.value?.isEmpty()) {
+    issues.push('Du musst unterschreiben!')
+  }
+  if (issues.length > 0) {
+    errorAlert.value?.show(issues.join('\n'))
     return
   }
 
@@ -32,7 +41,7 @@ async function submitProtocol() {
     date: dateInput.value,
     flightStart: timeInput.value,
     checkedFirstAid: checkedFirstAid.value!,
-    modelType: modelType.value,
+    modelType: modelType.value!,
     signature: signatureCanvas.value!.getDataUrl(),
   }
 
@@ -52,11 +61,18 @@ async function submitProtocol() {
   } else if (response.ok) {
     console.warn(`Received unexpected status '${response.status} ${response.statusText}' when creating flight log`)
   } else {
+    if (response.status == 409 /* Conflict */) {
+      errorAlert.value?.show('Du hast bereits einen aktiven Flug')
+    } else if (response.status == 400 /* Bad Request */) {
+      errorAlert.value?.show(await response.text())
+    } else {
+      errorAlert.value?.show(`${response.status} ${response.statusText}`)
+    }
     console.error(`Failed to create flight log: ${response.status} ${response.statusText}`)
     return
   }
 
-  await router.push('/protocol/list')
+  await router.push('/')
 }
 
 onMounted(() => {
@@ -65,13 +81,18 @@ onMounted(() => {
 </script>
 
 <template>
-  <h2>Flugprotokoll beginnen</h2>
+  <h2>Flugeintrag beginnen</h2>
+
+  <AlertCard title="Ein Problem ist aufgetreten" type="danger" ref="errorAlert">
+    <IconExclamationCircle />
+  </AlertCard>
+
   <form class="column" style="--tblr-body-bg: #f7f8fa;">
     <!-- Zeitdaten -->
     <fieldset class="form-fieldset">
       <label class="form-label">Datum</label>
       <p class="card-subtitle">
-        Für welchen Tag gilt dieses Protokoll? Du kannst auch ein vergessenes Protokoll nachtragen.
+        Für welchen Tag gilt dieser Flugeintrag? Du kannst auch einen vergessenen Eintrag nachtragen.
       </p>
       <div class="column" style="gap: 0.5em; margin-bottom: 1em;">
         <div style="display: flex; gap: 0.4em; justify-content: center;">
@@ -177,9 +198,9 @@ onMounted(() => {
     <fieldset class="form-fieldset">
       <label class="form-label">Abschließen</label>
       <div style="display: flex; gap: 0.5em">
-        <button @click="submitProtocol" class="btn btn-primary" type="button" :disabled="submitting">
+        <button @click="submitFlightlog" class="btn btn-primary" type="button" :disabled="submitting">
           <span v-if="submitting" class="spinner-border spinner-border-sm me-2" role="status"></span>
-          Protokoll erstellen
+          Flug erstellen
         </button>
         <a href="#" class="btn btn-outline-danger">Abbrechen</a>
       </div>

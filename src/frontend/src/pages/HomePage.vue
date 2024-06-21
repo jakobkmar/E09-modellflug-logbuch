@@ -2,6 +2,7 @@
 import { useLoginSessionStore } from '@/session'
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import type { AppState } from 'modellflug-logbuch-common-data'
+import { backendRequest } from '@/networking'
 
 const sessionStore = useLoginSessionStore()
 
@@ -9,12 +10,33 @@ const appState = ref<AppState | null>(null)
 const activePilots = computed((): number[] => {
   return appState.value?.activePilots ?? []
 })
+const flightLogCount = ref<number | null | undefined>(null)
 
 let appStateSocket: WebSocket
 
+async function requestInfo() {
+  const countRequest = await backendRequest('/api/v1/flightlog/count', {
+    method: 'GET',
+  })
+
+  if (countRequest.ok) {
+    flightLogCount.value = (await countRequest.json()) as number
+  } else {
+    console.error(`Failed to load flight log count: ${countRequest.status} ${countRequest.statusText}`)
+    flightLogCount.value = undefined
+  }
+}
+
+requestInfo()
+
 onMounted(() => {
   appStateSocket = new WebSocket('ws://localhost:8080/api/v1/appstate/live')
-  console.debug("Opened WebSocket connection to app state")
+  appStateSocket.onopen = () => {
+    console.debug("Opened WebSocket connection to app state")
+  }
+  appStateSocket.onerror = () => {
+    console.error("AppState websocket failed")
+  }
   appStateSocket.onmessage = (event) => {
     appState.value = JSON.parse(event.data) as AppState
   }
@@ -64,7 +86,11 @@ onUnmounted(() => {
           <RouterLink to="/flight/list-mine" class="btn"
                       style="flex-grow: 1; display: inline-flex; flex-direction: row; gap: 0.4em;">
             <span>Meine Flüge</span>
-            <span class="badge badge-pill bg-gray-800 text-dark">123</span>
+            <span class="badge badge-pill bg-gray-800 text-dark">
+              <span v-if="flightLogCount === null"><span class="animated-dots"></span></span>
+              <span v-else-if="flightLogCount === undefined">?</span>
+              <span v-else>{{ flightLogCount }}</span>
+            </span>
           </RouterLink>
         </div>
       </div>

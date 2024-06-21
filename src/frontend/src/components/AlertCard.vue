@@ -16,6 +16,11 @@ function show(newMessage: string) {
   dismissed.value = false
 }
 
+function dismiss() {
+  dismissed.value = true
+  messages.value = []
+}
+
 defineExpose({ show })
 </script>
 
@@ -33,6 +38,6 @@ defineExpose({ show })
         </div>
       </div>
     </div>
-    <a class="btn-close" @click="dismissed = true"></a>
+    <a class="btn-close" @click="dismiss()"></a>
   </div>
 </template>

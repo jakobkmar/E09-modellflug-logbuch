@@ -13,11 +13,12 @@ import io.ktor.server.response.*
 import io.ktor.server.sessions.*
 import io.ktor.util.pipeline.*
 import org.springframework.security.crypto.argon2.Argon2PasswordEncoder
+import org.springframework.security.crypto.password.PasswordEncoder
 import kotlin.time.Duration.Companion.seconds
 
 const val sessionCookieName = "modellflug_session"
 
-private val argon2Encoder = Argon2PasswordEncoder.defaultsForSpringSecurity_v5_8()
+val argon2Encoder: PasswordEncoder = Argon2PasswordEncoder.defaultsForSpringSecurity_v5_8()
 
 fun AuthenticationConfig.configureSessionAuth() {
     session<UserSession>("auth-session") {

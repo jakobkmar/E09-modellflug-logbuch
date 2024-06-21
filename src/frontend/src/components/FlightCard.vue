@@ -33,7 +33,7 @@ defineProps<{
           </div>
         </div>
       </div>
-      <div class="datagrid-item">
+      <div v-if="flight.signature != null" class="datagrid-item">
         <label class="datagrid-title">Unterschrift</label>
         <img
           :src="flight.signature" alt="Unterschrift"

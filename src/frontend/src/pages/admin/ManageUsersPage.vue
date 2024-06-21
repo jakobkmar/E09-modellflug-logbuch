@@ -80,6 +80,7 @@ loadUsers()
             <div class="datagrid-title">Accounttyp</div>
             <div class="datagrid-content">
               <span v-if="user.isAdminUnsafe" class="badge badge-outline text-red">Admin</span>
+              <span v-else-if="user.canSeeAllLogsUnsafe" class="badge badge-outline text-blue">Protokolleur</span>
               <span v-else class="badge badge-outline text-green">Regulär</span>
             </div>
           </div>

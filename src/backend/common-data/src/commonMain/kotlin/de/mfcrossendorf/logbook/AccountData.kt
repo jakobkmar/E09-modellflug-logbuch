@@ -5,7 +5,7 @@ import kotlin.js.JsExport
 
 @Serializable
 @JsExport
-data class LoginRequest(
+class LoginRequest(
     val username: String,
     val password: String,
 )
@@ -34,13 +34,14 @@ class AccountResponse(
     val username: String,
     val firstName: String,
     val lastName: String?,
-    val isAdminUnsafe: Boolean,
     val registrationNumber: String?,
+    val isAdminUnsafe: Boolean,
+    val canSeeAllLogsUnsafe: Boolean,
 )
 
 @Serializable
 @JsExport
-data class CreateAccountRequest(
+class CreateAccountRequest(
     val username: String,
     val password: String?,
     val firstName: String,

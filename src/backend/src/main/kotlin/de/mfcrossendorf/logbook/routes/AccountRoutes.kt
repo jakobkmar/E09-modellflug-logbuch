@@ -6,6 +6,7 @@ import de.mfcrossendorf.logbook.database.awaitList
 import de.mfcrossendorf.logbook.database.awaitSingleOrNull
 import de.mfcrossendorf.logbook.database.database
 import de.mfcrossendorf.logbook.session.adminSessionOrThrow
+import de.mfcrossendorf.logbook.session.argon2Encoder
 import de.mfcrossendorf.logbook.session.handleLoginCall
 import de.mfcrossendorf.logbook.session.handleLogoutCall
 import de.mfcrossendorf.logbook.validation.validateAndTrim
@@ -35,8 +36,9 @@ fun Route.accountRoutes() = route("/account") {
                         username = dbAccount.username,
                         firstName = dbAccount.first_name,
                         lastName = dbAccount.last_name,
-                        isAdminUnsafe = dbAccount.is_admin,
                         registrationNumber = dbAccount.registration_number,
+                        isAdminUnsafe = dbAccount.is_admin,
+                        canSeeAllLogsUnsafe = dbAccount.can_see_all_logs,
                     )
                 }
             call.respond(HttpStatusCode.OK, accounts)
@@ -59,7 +61,7 @@ fun Route.accountRoutes() = route("/account") {
                 first_name = createRequest.firstName,
                 last_name = createRequest.lastName?.ifBlank { null },
                 registration_number = createRequest.registrationNumber?.ifBlank { null },
-                password_hash = createRequest.password?.let { "\$plain\$${it}" },
+                password_hash = createRequest.password?.let { argon2Encoder.encode(it) },
                 is_admin = createRequest.isAdmin,
                 can_see_all_logs = createRequest.canSeeAllLogs,
             ).awaitSingleOrNull()

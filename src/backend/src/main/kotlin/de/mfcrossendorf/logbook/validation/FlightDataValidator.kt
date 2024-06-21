@@ -2,11 +2,14 @@ package de.mfcrossendorf.logbook.validation
 
 import de.mfcrossendorf.logbook.CreateFlightLogRequest
 import de.mfcrossendorf.logbook.util.today
-import io.ktor.server.plugins.*
 import kotlinx.datetime.Clock
 
 fun CreateFlightLogRequest.validateAndTrim(): CreateFlightLogRequest {
-    return copy(
+    return CreateFlightLogRequest(
+        date = date,
+        flightStart = flightStart,
+        signature = signature.trim(),
+        checkedFirstAid = checkedFirstAid,
         modelType = modelType.trim(),
     ).apply { validate() }
 }

@@ -9,7 +9,7 @@ import kotlin.js.JsExport
 
 @Serializable
 @JsExport
-data class CreateFlightLogRequest(
+class CreateFlightLogRequest(
     @Suppress("NON_EXPORTABLE_TYPE") // fallback to any is okay here
     val date: LocalDate,                     // since it is represented by an ISO 8601 string
     @Suppress("NON_EXPORTABLE_TYPE")
@@ -38,7 +38,7 @@ class FlightData(
     val flightStart: LocalTime,
     @Suppress("NON_EXPORTABLE_TYPE")
     val flightEnd: LocalTime?,
-    val signature: String,
+    val signature: String?,
     val checkedFirstAid: Boolean,
     val remarks: String?,
     val modelType: String,

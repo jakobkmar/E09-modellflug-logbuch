@@ -7,11 +7,11 @@ CREATE TABLE flight (
   date              DATE                   NOT NULL,
   flight_start      TIME WITHOUT TIME ZONE NOT NULL,
   flight_end        TIME WITHOUT TIME ZONE NULL,
-  signature         BYTEA                  NOT NULL,
   checked_first_aid BOOLEAN                NOT NULL,
   remarks           TEXT                   NULL,
   model_type        TEXT                   NOT NULL,
-  model             INT                    NULL REFERENCES model (model_id)
+  model             INT                    NULL REFERENCES model (model_id),
+  signature         BYTEA                  NOT NULL
 );
 
 
@@ -30,11 +30,21 @@ RETURNING flight_id;
 getFlightsByAccountId:
 SELECT * FROM flight WHERE account_id = :id;
 
+getOpenFlights:
+SELECT flight.*, account.first_name, account.last_name FROM flight
+JOIN account ON flight.account_id = account.account_id
+WHERE flight_end IS NULL AND date = :date;
+
 getOpenFlightByAccountId:
 SELECT flight.*, account.first_name, account.last_name FROM flight
 JOIN account ON flight.account_id = account.account_id
 WHERE flight.account_id = :accountId AND flight_end IS NULL AND date = :date
 LIMIT 1;
+
+getCompletedFlights:
+SELECT flight.*, account.first_name, account.last_name FROM flight
+JOIN account ON flight.account_id = account.account_id
+WHERE flight_end IS NOT NULL AND date = :date;
 
 getActivePilots:
 SELECT account_id FROM flight
@@ -45,6 +55,9 @@ completeFlight:
 UPDATE flight SET flight_end = :flightEnd, remarks = :remarks
 WHERE flight_id = :flightId AND account_id = :accountId
 RETURNING flight_id;
+
+countByAccountId:
+SELECT COUNT(*) FROM flight WHERE account_id = :accountId;
 
 deleteFlight:
 DELETE FROM flight WHERE flight_id = ?;

@@ -3,12 +3,14 @@ package de.mfcrossendorf.logbook.validation
 import de.mfcrossendorf.logbook.CreateAccountRequest
 
 fun CreateAccountRequest.validateAndTrim(): CreateAccountRequest {
-    return copy(
+    return CreateAccountRequest(
         username = username.trim(),
         password = password?.trim(),
         firstName = firstName.trim(),
         lastName = lastName?.trim(),
         registrationNumber = registrationNumber?.trim(),
+        isAdmin = isAdmin,
+        canSeeAllLogs = canSeeAllLogs,
     ).apply { validate() }
 }
 
