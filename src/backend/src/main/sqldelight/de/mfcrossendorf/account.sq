@@ -31,11 +31,15 @@ getAccountById:
 SELECT * FROM account WHERE account_id = :id;
 
 setPasswordHash:
-UPDATE account SET password_hash = :passwordHash WHERE account_id = :accountId
+UPDATE account SET password_hash = ? WHERE account_id = ?
 RETURNING password_hash;
 
 checkAdminById:
 SELECT is_admin FROM account WHERE account_id = :id;
+
+createAccount:
+INSERT INTO account VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?)
+RETURNING account_id;
 
 changePasswordForAccount:
 UPDATE account SET password_hash = :password_hash WHERE account_id = :account_id

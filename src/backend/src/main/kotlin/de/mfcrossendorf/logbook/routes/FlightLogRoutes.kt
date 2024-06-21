@@ -8,6 +8,7 @@ import de.mfcrossendorf.logbook.database.database
 import de.mfcrossendorf.logbook.session.sessionOrThrow
 import de.mfcrossendorf.logbook.util.time
 import de.mfcrossendorf.logbook.util.today
+import de.mfcrossendorf.logbook.validation.validateAndTrim
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.auth.*
@@ -36,6 +37,7 @@ fun Route.flightLogRoutes() = route("/flightlog") {
         post("/create") {
             val session = call.sessionOrThrow()
             val createRequest = call.receive<CreateFlightLogRequest>()
+                .validateAndTrim()
 
             val openFlight = database.flightQueries.getOpenFlightByAccountId(
                 accountId = session.sharedData.userId,
@@ -43,12 +45,7 @@ fun Route.flightLogRoutes() = route("/flightlog") {
             ).awaitSingleOrNull()
 
             if (openFlight != null) {
-                call.respond(HttpStatusCode.BadRequest, "You already have an open flight log")
-                return@post
-            }
-
-            if (createRequest.date > Clock.System.today()) {
-                call.respond(HttpStatusCode.BadRequest, "Cannot create flight log for future date")
+                call.respond(HttpStatusCode.Conflict, "You already have an open flight log")
                 return@post
             }
 

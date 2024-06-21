@@ -37,3 +37,15 @@ class AccountResponse(
     val isAdminUnsafe: Boolean,
     val registrationNumber: String?,
 )
+
+@Serializable
+@JsExport
+data class CreateAccountRequest(
+    val username: String,
+    val password: String?,
+    val firstName: String,
+    val lastName: String?,
+    val registrationNumber: String?,
+    val isAdmin: Boolean,
+    val canSeeAllLogs: Boolean,
+)

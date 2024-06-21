@@ -61,17 +61,41 @@ suspend fun PipelineContext<*, ApplicationCall>.handleLoginCall() {
         throw SessionAuthException.InvalidCredentials()
     }
 
-    val passwordHash = account.password_hash
-        ?: database.accountQueries.setPasswordHash(
-            passwordHash = argon2Encoder.encode(credentials.password),
-            accountId = account.account_id
-        ).awaitSingleOrNull()?.password_hash
+    val rawPasswordHash = account.password_hash
 
-    if (passwordHash == null) {
-        call.application.log.error("Failed to set password hash for account '${account.account_id}'")
-        call.respond(HttpStatusCode.InternalServerError, "Login failed")
-        return
+    val passwordHash = when {
+        // no password set for this account yet
+        rawPasswordHash == null -> {
+            argon2Encoder.encode(credentials.password)
+        }
+        // plain text set by admin
+        rawPasswordHash.startsWith("\$plain\$") -> {
+            argon2Encoder.encode(rawPasswordHash.removePrefix("\$plain\$"))
+        }
+        // old hash format
+        argon2Encoder.upgradeEncoding(rawPasswordHash) -> {
+            // only upgrade the hash if the password matches the old hash
+            if (!argon2Encoder.matches(credentials.password, rawPasswordHash)) {
+                throw SessionAuthException.InvalidCredentials()
+            }
+            argon2Encoder.encode(credentials.password)
+        }
+        // standard argon2 hash
+        else -> rawPasswordHash
     }
+
+    if (passwordHash != rawPasswordHash) {
+        val setHashResult = database.accountQueries.setPasswordHash(
+            password_hash = passwordHash,
+            account_id = account.account_id
+        ).awaitSingleOrNull()?.password_hash
+        if (setHashResult != passwordHash) {
+            call.application.log.error("Failed to get or set password hash for account '${account.account_id}'")
+            call.respond(HttpStatusCode.InternalServerError, "Login failed")
+            return
+        }
+    }
+
     if (!argon2Encoder.matches(credentials.password, passwordHash)) {
         throw SessionAuthException.InvalidCredentials()
     }
@@ -93,6 +117,6 @@ suspend fun PipelineContext<*, ApplicationCall>.handleLogoutCall() {
     if (oldSession != null) {
         call.respond(HttpStatusCode.OK, "Logged out successfully")
     } else {
-        call.respond(HttpStatusCode.NotModified, "No session to log out from")
+        call.respond(HttpStatusCode.OK, "No session to log out from")
     }
 }

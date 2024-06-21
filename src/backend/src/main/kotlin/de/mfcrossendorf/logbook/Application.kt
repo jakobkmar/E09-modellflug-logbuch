@@ -10,6 +10,7 @@ import de.mfcrossendorf.logbook.routes.flightLogRoutes
 import de.mfcrossendorf.logbook.session.configureSessionAuth
 import de.mfcrossendorf.logbook.session.configureSessionCookie
 import de.mfcrossendorf.logbook.session.sessionAuthExceptionHandler
+import de.mfcrossendorf.logbook.validation.validationExceptionHandler
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.*
 import io.ktor.serialization.kotlinx.json.*
@@ -57,6 +58,7 @@ fun main() {
         }
         install(StatusPages) {
             sessionAuthExceptionHandler()
+            validationExceptionHandler()
         }
         if (developmentMode) {
             install(CORS) {

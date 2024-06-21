@@ -7,6 +7,7 @@ import LoginPage from './pages/LoginPage.vue'
 import RegistrationPage from './pages/RegistrationPage.vue'
 import ManageUsersPage from './pages/admin/ManageUsersPage.vue'
 import PageNotFound from '@/pages/PageNotFound.vue'
+import CreateUserPage from './pages/admin/CreateUserPage.vue'
 
 export const routes = [
   { path: '/', component: HomePage },
@@ -34,6 +35,7 @@ export const routes = [
     path: '/admin',
     children: [
       { path: 'manage-users', component: ManageUsersPage },
+      { path: 'create-user', component: CreateUserPage },
       { path: 'manage-models', component: PageNotFound },
     ],
   },
