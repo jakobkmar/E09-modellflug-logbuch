@@ -1,8 +1,9 @@
 plugins {
-    kotlin("jvm") version "1.9.23"
-    kotlin("plugin.serialization") version "1.9.23"
+    kotlin("jvm") version "1.9.24"
+    kotlin("plugin.serialization") version "1.9.24"
     id("app.cash.sqldelight") version "2.0.2"
     idea
+    application
 }
 
 allprojects {
@@ -43,13 +44,45 @@ dependencies {
 }
 
 kotlin {
-    jvmToolchain(21)
+    jvmToolchain(17)
 }
 
 tasks {
     test {
         useJUnitPlatform()
     }
+
+    processResources {
+        from(projectDir.resolveSibling("frontend").resolve("dist")) {
+            into("frontend")
+        }
+    }
+
+    val buildFrontend by registering {
+        group = "distribution"
+        doFirst {
+            exec {
+                workingDir(projectDir.resolveSibling("frontend"))
+                commandLine("pnpm", "run", "build")
+            }
+        }
+    }
+
+    register("packageFullstackApp") {
+        group = "distribution"
+        dependsOn(buildFrontend)
+        finalizedBy(build, assembleDist)
+    }
+
+    register("runFullstackApp") {
+        group = "application"
+        dependsOn(buildFrontend)
+        finalizedBy(build, run)
+    }
+}
+
+application {
+    mainClass.set("de.mfcrossendorf.logbook.ApplicationKt")
 }
 
 idea {

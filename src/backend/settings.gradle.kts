@@ -14,7 +14,7 @@ fun VersionCatalogBuilder.libs() {
         "kotlinx.datetime",
         "org.jetbrains.kotlinx:kotlinx-datetime:0.6.0")
 
-    val ktorVersion = "2.3.11"
+    val ktorVersion = "2.3.12"
     library(
         "ktor.server.core",
         "io.ktor:ktor-server-core:$ktorVersion")

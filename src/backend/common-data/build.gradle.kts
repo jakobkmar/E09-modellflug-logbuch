@@ -10,7 +10,9 @@ kotlin {
         useEsModules()
         generateTypeScriptDefinitions()
     }
-    jvm()
+    jvm {
+        jvmToolchain(17)
+    }
 
     sourceSets {
         commonMain {
