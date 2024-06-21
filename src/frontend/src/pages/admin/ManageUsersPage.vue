@@ -1,10 +1,24 @@
 <script setup lang="ts">
 import { backendRequest } from '@/networking'
 import { AccountResponse } from 'modellflug-logbuch-common-data'
-import { ref } from 'vue'
-import { IconEdit, IconPlus, IconTrash } from '@tabler/icons-vue'
+import { computed, ref } from 'vue'
+import { IconEdit, IconPlus, IconTrash, IconSearch } from '@tabler/icons-vue'
 
 const users = ref<AccountResponse[]>([])
+const usernameSearch = ref('')
+
+const filteredUsers = computed(() => {
+  if (!usernameSearch.value) {
+    return users.value
+  }
+  return users.value.filter((user) => {
+    return usernameSearch.value.toLowerCase().split(' ').every((searchPart) => {
+      return user.username.toLowerCase().includes(searchPart) ||
+        user.firstName.toLowerCase().includes(searchPart) ||
+        user.lastName?.toLowerCase().includes(searchPart)
+    })
+  })
+})
 
 async function loadUsers() {
   const response = await backendRequest('/api/v1/account/all', {
@@ -26,13 +40,19 @@ loadUsers()
   <div>
     <h2 >Nutzerverwaltung</h2>
 
-    <div style="display: flex; flex-direction: row; gap: 1em; margin-bottom: 1.5em;">
+    <div style="display: flex; flex-direction: row; gap: 1em; margin-bottom: 1.5em; flex-wrap: wrap;">
       <RouterLink to="/admin/create-user"
                   type="button" class="btn btn-indigo"
-                  style="display: inline-flex; gap: 0.5em;">
+                  style="display: inline-flex; gap: 0.5em; flex-grow: 1;">
         <IconPlus size="1.5em"/>
         Neuer Nutzer
       </RouterLink>
+      <div class="input-icon" style="flex-grow: 1;">
+        <span class="input-icon-addon" style="padding: 0.4em;">
+          <IconSearch/>
+        </span>
+        <input v-model="usernameSearch" type="text" class="form-control" placeholder="Name suchen..." />
+      </div>
     </div>
 
     <h3>Nutzerliste</h3>
@@ -40,7 +60,7 @@ loadUsers()
       <div class="spinner-grow text-indigo" role="status"></div>
     </div>
     <div style="display: flex; flex-direction: column; gap: 0.7em;">
-      <div v-for="user in users" :key="user.userId" class="card">
+      <div v-for="user in filteredUsers" :key="user.userId" class="card">
         <div class="datagrid user-card-padding" style="--tblr-datagrid-item-width: 9em; --tblr-datagrid-padding: 0.5em;">
           <div class="datagrid-item">
             <div class="datagrid-title">Nutzername</div>
