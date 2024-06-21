@@ -52,7 +52,7 @@ loadFlights()
     Aktuell sind keine aktiven Piloten registriert.
   </div>
 
-  <h2 style="margin-top: 1em; margin-bottom: 0.2em;">Heute abgeschlossene Flüge</h2>
+  <h2 style="margin-top: 1.5em; margin-bottom: 0.2em;">Heute abgeschlossene Flüge</h2>
   <p class="card-subtitle">Die folgenden Flugeinträge wurden <strong>heute</strong> erstellt.</p>
   <div v-if="finishedFlights === undefined">
     Es ist ein Fehler beim Laden der abgeschlossenen Protokolle aufgetreten.

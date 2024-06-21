@@ -22,7 +22,7 @@ function logout() {
       <div v-if="sessionStore.loginSession != null" class="logout-link" @click="logout">Logout</div>
     </div>
   </div>
-  <div class="flex-center">
+  <div class="flex-center" style="margin-bottom: 3em;">
     <div class="content-wrapper">
       <slot />
     </div>

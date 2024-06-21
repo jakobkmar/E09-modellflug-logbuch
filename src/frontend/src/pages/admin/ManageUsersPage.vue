@@ -70,7 +70,7 @@ loadUsers()
             <div class="datagrid-title">ID</div>
             <div class="datagrid-content">
               <div>
-                <span class="user-id-display">
+                <span class="id-display">
                   {{ user.userId }}
                 </span>
               </div>
@@ -121,16 +121,6 @@ loadUsers()
 <style scoped>
 .user-card-padding {
   padding: 1em 1em 0.8em;
-}
-
-.user-id-display {
-  font-family: monospace;
-  color: #05557c;
-  background-color: #e4eef3;
-  line-height: 1;
-  padding-left: 0.3em;
-  padding-right: 0.3em;
-  border-radius: 5px;
 }
 
 .user-card-footer {

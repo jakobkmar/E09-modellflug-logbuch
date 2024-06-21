@@ -15,23 +15,68 @@ defineProps<{
         <span class="status-dot status-dot-animated"></span>
         Aktiv
       </span>
-      <span v-else class="status status-indigo">
-        <span class="status-dot"></span>
+      <span v-else class="status status-teal">
         Abgeschlossen
       </span>
     </div>
-    <div class="datagrid" style="gap: 0.5em; margin-top: 0.3em;">
+    <div class="datagrid"
+         style="gap: 0.5em; margin-top: 0.3em; --tblr-datagrid-item-width: 9em; --tblr-datagrid-padding: 0.5em;">
       <div class="datagrid-item">
-        <div style="display: flex; gap: 2em;">
           <div>
             <div class="datagrid-title">Anmeldedatum</div>
             <div class="datagrid-content">{{ flight.dateString }}</div>
           </div>
-          <div>
-            <div class="datagrid-title">Uhrzeit</div>
-            <div class="datagrid-content">{{ flight.timePeriodString }}</div>
+      </div>
+      <div class="datagrid-item">
+        <div>
+          <div class="datagrid-title">Uhrzeit</div>
+          <div class="datagrid-content">{{ flight.timePeriodString }}</div>
+        </div>
+      </div>
+      <div class="datagrid-item">
+        <div>
+          <div class="datagrid-title">Erste Hilfe</div>
+          <div class="datagrid-content">{{ flight.checkedFirstAid ? 'ja' : 'nein' }}</div>
+        </div>
+      </div>
+      <div class="datagrid-item">
+        <div>
+          <div class="datagrid-title">Modelltyp</div>
+          <div class="datagrid-content">{{ flight.modelType }}</div>
+        </div>
+      </div>
+      <div class="datagrid-item">
+        <div>
+          <div class="datagrid-title">Flug ID</div>
+          <div class="datagrid-content">
+            <div>
+                <span class="id-display">
+                  {{ flight.flightId }}
+                </span>
+            </div>
           </div>
         </div>
+      </div>
+      <div class="datagrid-item">
+        <div>
+          <div class="datagrid-title">Account ID</div>
+          <div class="datagrid-content">
+            <div>
+                <span class="id-display">
+                  {{ flight.accountId }}
+                </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div v-if="flight.signature != null || flight.remarks != null" style="margin-top: 0.8em;">
+      <div class="hr-text" style="margin: 0 0 0.8em; color: #a7b2ba">Anhang</div>
+      <div
+        v-if="flight.remarks != null && flight.remarks.length > 0"
+        class="datagrid-item">
+        <label class="datagrid-title">Anmerkungen</label>
+        <div class="datagrid-content">{{ flight.remarks }}</div>
       </div>
       <div v-if="flight.signature != null" class="datagrid-item">
         <label class="datagrid-title">Unterschrift</label>
@@ -40,12 +85,12 @@ defineProps<{
           class="card"
           style="max-width: 200px;" />
       </div>
-      <div
-        v-if="flight.remarks != null && flight.remarks.length > 0"
-        class="datagrid-item">
-        <label class="datagrid-title">Anmerkungen</label>
-        <div class="datagrid-content">{{ flight.remarks }}</div>
-      </div>
     </div>
   </div>
 </template>
+
+<style scoped>
+.datagrid-title {
+  margin-bottom: 0;
+}
+</style>
