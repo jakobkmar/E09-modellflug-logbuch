@@ -39,6 +39,9 @@ fun VersionCatalogBuilder.libs() {
     library(
         "ktor.server.statusPages",
         "io.ktor:ktor-server-status-pages:$ktorVersion")
+    library(
+        "ktor.server.websockets",
+        "io.ktor:ktor-server-websockets:$ktorVersion")
 
     library(
         "slf4j.simple",

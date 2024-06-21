@@ -4,12 +4,14 @@ import de.mfcrossendorf.logbook.database.database
 import de.mfcrossendorf.logbook.database.driver
 import de.mfcrossendorf.logbook.db.Database
 import de.mfcrossendorf.logbook.routes.accountRoutes
+import de.mfcrossendorf.logbook.routes.appStateRoutes
 import de.mfcrossendorf.logbook.routes.flightDirectorRoutes
 import de.mfcrossendorf.logbook.routes.flightLogRoutes
 import de.mfcrossendorf.logbook.session.configureSessionAuth
 import de.mfcrossendorf.logbook.session.configureSessionCookie
 import de.mfcrossendorf.logbook.session.sessionAuthExceptionHandler
 import io.ktor.http.*
+import io.ktor.serialization.kotlinx.*
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
 import io.ktor.server.auth.*
@@ -20,8 +22,11 @@ import io.ktor.server.plugins.cors.routing.*
 import io.ktor.server.plugins.statuspages.*
 import io.ktor.server.routing.*
 import io.ktor.server.sessions.*
+import io.ktor.server.websocket.*
 import kotlinx.coroutines.delay
+import kotlinx.serialization.json.Json
 import org.postgresql.util.PSQLException
+import kotlin.time.Duration.Companion.minutes
 import kotlin.time.Duration.Companion.seconds
 
 fun main() {
@@ -67,12 +72,18 @@ fun main() {
         install(Sessions) {
             configureSessionCookie(isProduction)
         }
+        install(WebSockets) {
+            contentConverter = KotlinxWebsocketSerializationConverter(Json)
+            pingPeriodMillis = 10.seconds.inWholeMilliseconds
+            timeoutMillis = 1.minutes.inWholeMilliseconds
+        }
 
         routing {
             route("/api/v1/") {
                 accountRoutes()
                 flightDirectorRoutes()
                 flightLogRoutes()
+                appStateRoutes()
             }
         }
     }.start(wait = true)

@@ -28,6 +28,7 @@ dependencies {
     implementation(libs.ktor.serialization.json)
     implementation(libs.ktor.server.cors)
     implementation(libs.ktor.server.statusPages)
+    implementation(libs.ktor.server.websockets)
 
     // logging
     implementation(libs.slf4j.simple)

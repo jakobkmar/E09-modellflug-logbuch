@@ -45,6 +45,13 @@ fun Route.flightLogRoutes() = route("/flightlog") {
             val session = call.sessionOrThrow()
             val createRequest = call.receive<CreateFlightLogRequest>()
 
+            val openFlightId = database.flightQueries.getOpenFlightByAccountId(session.sharedData.userId)
+                .awaitSingleOrNull()
+            if (openFlightId != null) {
+                call.respond(HttpStatusCode.BadRequest, "You already have an open flight log")
+                return@post
+            }
+
             val flightId = database.flightQueries.createFlight(
                 account_id = session.sharedData.userId,
                 flight_start = createRequest.flightStart.toJavaLocalDateTime(),

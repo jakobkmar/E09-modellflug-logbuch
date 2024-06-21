@@ -33,5 +33,12 @@ WHERE flight_id = :id;
 getFlightsByAccountId:
 SELECT * FROM flight WHERE account_id = :id;
 
+getOpenFlightByAccountId:
+SELECT flight_id FROM flight WHERE account_id = :id AND flight_end IS NULL LIMIT 1;
+
+getActivePilots:
+SELECT account_id FROM flight WHERE flight_end IS NULL;
+-- SELECT DISTINCT account_id FROM flight WHERE flight_end IS NULL; -- supported in SQLDelight 2.1.0
+
 deleteFlight:
 DELETE FROM flight WHERE flight_id = ?;

@@ -16,3 +16,10 @@ CREATE TABLE flightDirector (
 CREATE UNIQUE INDEX flightDirector_onlyOneActive_idx
   ON flightDirector (active)
   WHERE active IS TRUE;
+
+
+-- Queries --
+
+getCurrentFlightDirector:
+SELECT account_id FROM flightDirector
+WHERE active IS TRUE;
