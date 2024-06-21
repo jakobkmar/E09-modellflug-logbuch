@@ -13,12 +13,21 @@ export const routes = [
   { path: '/login', component: LoginPage },
   { path: '/register', component: RegistrationPage },
   {
-    path: '/protocol',
+    path: '/flight',
     children: [
       { path: 'create', component: CreateProtocolPage },
       { path: 'complete', component: CompleteProtocolPage },
-      { path: 'list', component: ListProtocolsPage },
-      { path: 'request', component: RequestProtocol },
+      { path: 'list-active', component: ListProtocolsPage },
+      { path: 'list-mine' },
+    ],
+  },
+  {
+    path: '/flightdirector',
+    children: [
+      { path: 'login' },
+      { path: 'logout' },
+      { path: 'current' },
+      { path: 'history' },
     ],
   },
   {

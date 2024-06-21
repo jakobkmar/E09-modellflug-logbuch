@@ -20,6 +20,11 @@ class SharedSessionData(
      * not for actual security checks
      */
     val isAdminUnsafe: Boolean,
+    /**
+     * this is only for conditional display purposes,
+     * not for actual security checks
+     */
+    val canSeeAllLogsUnsafe: Boolean,
 )
 
 @Serializable

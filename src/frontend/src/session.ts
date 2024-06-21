@@ -58,5 +58,13 @@ export const useLoginSessionStore = defineStore('loginSession', () => {
     }
   }
 
-  return { loginSession, login, logout }
+  function canSeeAllLogs(): boolean {
+    const sessionData = loginSession.value?.sessionData
+    if (sessionData == null) {
+      return false
+    }
+    return sessionData.isAdminUnsafe || sessionData.canSeeAllLogsUnsafe
+  }
+
+  return { loginSession, login, logout, canSeeAllLogs }
 })

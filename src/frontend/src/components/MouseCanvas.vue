@@ -89,9 +89,11 @@ function getDataUrl() {
   return canvas.toDataURL()
 }
 
-defineExpose({
-  getDataUrl
-})
+function getImageData() {
+  return canvasCtx.getImageData(0, 0, canvas.width, canvas.height).data
+}
+
+defineExpose({ getDataUrl, getImageData })
 </script>
 
 <template>

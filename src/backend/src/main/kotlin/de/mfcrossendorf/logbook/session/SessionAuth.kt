@@ -79,7 +79,8 @@ suspend fun PipelineContext<*, ApplicationCall>.handleLoginCall() {
     val session = UserSession(SharedSessionData(
         userId = account.account_id,
         username = account.username,
-        isAdminUnsafe = account.is_admin
+        isAdminUnsafe = account.is_admin,
+        canSeeAllLogsUnsafe = account.can_see_all_logs,
     ))
     call.sessions.set(session)
 

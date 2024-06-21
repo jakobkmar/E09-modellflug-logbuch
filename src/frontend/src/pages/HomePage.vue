@@ -14,32 +14,65 @@ const sessionStore = useLoginSessionStore()
   </div>
   <div v-else style="display: flex; flex-direction: column; gap: 1em;">
     <div class="card group-card">
-      <h1 style="align-self: center;">Protokollführung</h1>
-      <RouterLink to="/protocol/create" class="btn btn-indigo" v-if="activeProtocols.length == 0">
+      <h1 style="align-self: center;">Flüge</h1>
+      <RouterLink to="/flight/create" class="btn btn-indigo" v-if="activeProtocols.length == 0">
         <div style="padding-top: 1em; padding-bottom: 1em;">
           <h2>Als Pilot anmelden</h2>
-          <div>Damit beginnst du ein neues Protokoll.</div>
-          <div style="font-size: 0.9em; opacity: 70%;">
-            Angemeldet als '{{ sessionStore.loginSession.loginResponse.username }}'
+          <div>Damit beginnst du einen neuen Flug.</div>
+          <div style="font-size: 0.9em;">
+            <span style="opacity: 70%;">Anmelden als </span>
+            <span>{{ sessionStore.loginSession.sessionData.username }}</span>
           </div>
         </div>
       </RouterLink>
-      <RouterLink to="/protocol/complete" class="btn btn-orange" v-else-if="activeProtocols.length > 0">
+      <RouterLink to="/flight/complete" class="btn btn-orange" v-else-if="activeProtocols.length > 0">
         <div style="padding-top: 1em; padding-bottom: 1em;">
           <h2>Als Pilot abmelden</h2>
-          <div>Damit schließt du dein aktives Protokoll ab.</div>
+          <div>Damit schließt du den aktuellen Flug ab.</div>
         </div>
       </RouterLink>
       <div style="display: flex; gap: 0.5em; margin-top: 0.8em; flex-wrap: wrap;">
-        <RouterLink to="/protocol/list" class="btn btn-info" style="flex-grow: 1;">
-          Protokolle einsehen
+        <RouterLink to="/flight/list-active" class="btn" style="flex-grow: 1;">
+          Aktive Piloten
+          <span v-if="true" class="badge bg-dark text-white ms-2">0</span>
+          <span v-else-if="false" class="badge bg-green text-white ms-2">N</span>
         </RouterLink>
-        <RouterLink to="/protocol/manage" class="btn btn-secondary disabled" style="flex-grow: 1;">
-          Protokolle verwalten
+        <RouterLink to="/flight/list-mine" class="btn"
+                    style="flex-grow: 1; display: inline-flex; flex-direction: row; gap: 0.3em;">
+          <span>Meine Flüge</span>
+          <span class="badge badge-pill bg-azure text-white">123</span>
         </RouterLink>
       </div>
     </div>
-    <div v-if="sessionStore.loginSession.loginResponse.isAdminUnsafe" class="card group-card">
+    <div class="card group-card">
+      <h1 style="align-self: center;">Flugleiter</h1>
+      <RouterLink to="/flightdirector/login" class="btn btn-azure" v-if="true">
+        <div style="padding-top: 1em; padding-bottom: 1em;">
+          <h2 style="margin-bottom: 0.3em;">Flugleiter werden</h2>
+          <div>Damit meldest du dich als verantwortlicher Flugleiter an.</div>
+        </div>
+      </RouterLink>
+      <RouterLink to="/flightdirector/logout" class="btn btn-orange" v-else-if="false">
+        <div style="padding-top: 1em; padding-bottom: 1em;">
+          <h2>Als Flugleiter abmelden</h2>
+          <div>Bitte informiere die anderen Piloten über diesen Schritt!</div>
+        </div>
+      </RouterLink>
+      <div style="display: flex; gap: 0.5em; margin-top: 0.8em; flex-wrap: wrap;">
+        <RouterLink to="/flightdirector/current" class="btn" style="flex-grow: 1;">
+          Aktueller Flugleiter
+          <span v-if="true" class="badge bg-orange text-white ms-2">fehlt</span>
+          <span v-else-if="false" class="badge bg-green text-white ms-2">N</span>
+        </RouterLink>
+        <RouterLink to="/flightdirector/history"
+                    class="btn"
+                    :class = "{ 'disabled': !sessionStore.canSeeAllLogs() }"
+                    style="flex-grow: 1;">
+          Historie
+        </RouterLink>
+      </div>
+    </div>
+    <div v-if="sessionStore.loginSession.sessionData.isAdminUnsafe" class="card group-card">
       <h1 style="align-self: center;">Administration</h1>
       <RouterLink to="/admin/manage-users" class="btn btn-outline-pink"  style="margin-top: 0.5em;">
         <div style="padding-top: 0.4em; padding-bottom: 0.4em;">
