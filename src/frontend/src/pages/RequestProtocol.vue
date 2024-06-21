@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref} from 'vue'
-import { getTimeString, getDateToday, getDateYesterday } from '@/utils/timeutil'
+import { getTimeString, getDateStringToday, getDateStringYesterday } from '@/utils/timeutil'
 
 
 function showDatePicker() {
@@ -24,8 +24,8 @@ function searchProtocoll() {
   }
 }
 
-const dateInput = ref(getDateToday())
-const dateInput2= ref(getDateToday())
+const dateInput = ref(getDateStringToday())
+const dateInput2= ref(getDateStringToday())
 const timeInput = ref(getTimeString())
 const timeInput2= ref(getTimeString())
 
@@ -58,13 +58,13 @@ const timeInput2= ref(getTimeString())
         </div>
         <div style="display: flex; gap: 0.4em; margin-top: 0.5em; align-content: stretch;">
           <button
-            @click="dateInput = getDateToday()"
-            class="btn" :class="{ 'btn-azure': dateInput == getDateToday() }"
+            @click="dateInput = getDateStringToday()"
+            class="btn" :class="{ 'btn-azure': dateInput == getDateStringToday() }"
             style="flex-grow: 1;"
           >Heute</button>
           <button
-            @click="dateInput = getDateYesterday()"
-            class="btn" :class="{ 'btn-azure': dateInput == getDateYesterday() }"
+            @click="dateInput = getDateStringYesterday()"
+            class="btn" :class="{ 'btn-azure': dateInput == getDateStringYesterday() }"
             style="flex-grow: 1;"
           >Gestern</button>
         </div>
@@ -89,13 +89,13 @@ const timeInput2= ref(getTimeString())
         </div>
         <div style="display: flex; gap: 0.4em; margin-top: 0.5em; align-content: stretch;">
           <button
-            @click="dateInput2 = getDateToday()"
-            class="btn" :class="{ 'btn-azure': dateInput2 == getDateToday() }"
+            @click="dateInput2 = getDateStringToday()"
+            class="btn" :class="{ 'btn-azure': dateInput2 == getDateStringToday() }"
             style="flex-grow: 1;"
           >Heute</button>
           <button
-            @click="dateInput2 = getDateYesterday()"
-            class="btn" :class="{ 'btn-azure': dateInput2 == getDateYesterday() }"
+            @click="dateInput2 = getDateStringYesterday()"
+            class="btn" :class="{ 'btn-azure': dateInput2 == getDateStringYesterday() }"
             style="flex-grow: 1;"
           >Gestern</button>
         </div>

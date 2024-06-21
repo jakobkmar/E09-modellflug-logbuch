@@ -13,7 +13,7 @@ const activePilots = computed((): number[] => {
 let appStateSocket: WebSocket
 
 onMounted(() => {
-  appStateSocket = new WebSocket('ws://localhost:8080/api/v1/appstate')
+  appStateSocket = new WebSocket('ws://localhost:8080/api/v1/appstate/live')
   console.debug("Opened WebSocket connection to app state")
   appStateSocket.onmessage = (event) => {
     appState.value = JSON.parse(event.data) as AppState

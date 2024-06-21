@@ -9,9 +9,6 @@ const users = ref<AccountResponse[]>([])
 async function loadUsers() {
   const response = await backendRequest('/api/v1/account/all', {
     method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
   })
   if (!response.ok) {
     console.error('Failed to load users:', response)

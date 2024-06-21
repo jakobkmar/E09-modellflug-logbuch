@@ -1,19 +1,23 @@
-export function getDateToday() {
-  const date = new Date()
-  return date.toISOString().split('T')[0]
+function zeroPadNumber(num: number): string {
+  return num < 10 ? `0${num}` : `${num}`
 }
 
-export function getDateYesterday() {
+function simpleDateString(date: Date): string {
+  return `${date.getFullYear()}-${zeroPadNumber(date.getMonth() + 1)}-${zeroPadNumber(date.getDate())}`
+}
+
+export function getDateStringToday(): string {
+  const date = new Date()
+  return simpleDateString(date)
+}
+
+export function getDateStringYesterday(): string {
   const date = new Date()
   date.setDate(date.getDate() - 1)
-  return date.toISOString().split('T')[0]
+  return simpleDateString(date)
 }
 
-function fillTimeInt(num: number) {
-  return num < 10 ? `0${num}` : num
-}
-
-export function getTimeString() {
+export function getTimeString(): string {
   const date = new Date()
-  return `${fillTimeInt(date.getHours())}:${fillTimeInt(date.getMinutes())}`
+  return `${zeroPadNumber(date.getHours())}:${zeroPadNumber(date.getMinutes())}`
 }

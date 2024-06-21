@@ -1,28 +1,20 @@
 package de.mfcrossendorf.logbook.routes
 
+import de.mfcrossendorf.logbook.CompleteFlightLogRequest
 import de.mfcrossendorf.logbook.CreateFlightLogRequest
+import de.mfcrossendorf.logbook.FlightData
 import de.mfcrossendorf.logbook.database.awaitSingleOrNull
 import de.mfcrossendorf.logbook.database.database
 import de.mfcrossendorf.logbook.session.sessionOrThrow
+import de.mfcrossendorf.logbook.util.time
+import de.mfcrossendorf.logbook.util.today
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.auth.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import kotlinx.datetime.LocalDateTime
-import kotlinx.datetime.toJavaLocalDateTime
-
-data class UpdatedFlightLog(
-    val protocolId: String,
-    val creatorId: Int,
-    val flightStart: LocalDateTime,
-    val flightEnd: LocalDateTime,
-    val signature: String,
-    val checkedFirstAid: Boolean,
-    val remarks: String = "",
-    val modelType: String,
-)
+import kotlinx.datetime.*
 
 fun Route.flightLogRoutes() = route("/flightlog") {
     // fetch details of a specific flight log by ID
@@ -45,16 +37,25 @@ fun Route.flightLogRoutes() = route("/flightlog") {
             val session = call.sessionOrThrow()
             val createRequest = call.receive<CreateFlightLogRequest>()
 
-            val openFlightId = database.flightQueries.getOpenFlightByAccountId(session.sharedData.userId)
-                .awaitSingleOrNull()
-            if (openFlightId != null) {
+            val openFlight = database.flightQueries.getOpenFlightByAccountId(
+                accountId = session.sharedData.userId,
+                date = Clock.System.today().toJavaLocalDate(),
+            ).awaitSingleOrNull()
+
+            if (openFlight != null) {
                 call.respond(HttpStatusCode.BadRequest, "You already have an open flight log")
+                return@post
+            }
+
+            if (createRequest.date > Clock.System.today()) {
+                call.respond(HttpStatusCode.BadRequest, "Cannot create flight log for future date")
                 return@post
             }
 
             val flightId = database.flightQueries.createFlight(
                 account_id = session.sharedData.userId,
-                flight_start = createRequest.flightStart.toJavaLocalDateTime(),
+                date = createRequest.date.toJavaLocalDate(),
+                flight_start = createRequest.flightStart.toJavaLocalTime(),
                 flight_end = null,
                 signature = createRequest.signature.toByteArray(Charsets.UTF_8),
                 checked_first_aid = createRequest.checkedFirstAid,
@@ -69,49 +70,79 @@ fun Route.flightLogRoutes() = route("/flightlog") {
                 call.respond(HttpStatusCode.Created, flightId)
             }
         }
-    }
 
-    // PUT request to update details of a specific flight log by ID
-    put("/update/{id}") {
-        val id = call.parameters["id"]?.toInt()
-            ?: return@put call.respond(HttpStatusCode.BadRequest, "Missing flight log ID")
+        get("/getActive") {
+            val session = call.sessionOrThrow()
 
-        // Receive updated data for the flight log from the request body
-        val updatedFlightLog = call.receive<UpdatedFlightLog>()
+            val openFlight = database.flightQueries.getOpenFlightByAccountId(
+                accountId = session.sharedData.userId,
+                date = Clock.System.today().toJavaLocalDate(),
+            ).awaitSingleOrNull()
 
-        // Validate the received data (e.g., ensure all required fields are present)
-        if (updatedFlightLog.protocolId.isEmpty() ||updatedFlightLog.creatorId.toString().isEmpty() ||
-            updatedFlightLog.flightStart.toString().isEmpty() || updatedFlightLog.flightEnd.toString().isEmpty() ||
-            updatedFlightLog.signature.isEmpty() || updatedFlightLog.checkedFirstAid.toString().isEmpty() ||
-            updatedFlightLog.modelType.isEmpty()) {
-            call.respond(HttpStatusCode.BadRequest, "All required fields must be filled")
-            return@put
+            if (openFlight == null) {
+                call.respond(HttpStatusCode.NotFound, "No open flight log found")
+            } else {
+                call.respond(HttpStatusCode.OK, FlightData(
+                    flightId = openFlight.flight_id,
+                    accountId = openFlight.account_id,
+                    fullPilotName = "${openFlight.first_name} ${openFlight.last_name.orEmpty()}".trim(),
+                    date = openFlight.date.toKotlinLocalDate(),
+                    flightStart = openFlight.flight_start.toKotlinLocalTime(),
+                    flightEnd = openFlight.flight_end?.toKotlinLocalTime(),
+                    signature = openFlight.signature.toString(Charsets.UTF_8),
+                    checkedFirstAid = openFlight.checked_first_aid,
+                    remarks = openFlight.remarks,
+                    modelType = openFlight.model_type,
+                ))
+            }
         }
-        // Update the flight log entry in the database
-        database.flightQueries.updateFlight(
-            id = id,
-            flight_start = updatedFlightLog.flightStart.toJavaLocalDateTime(),
-            flight_end = updatedFlightLog.flightEnd.toJavaLocalDateTime(),
-            signature = updatedFlightLog.signature.toByteArray(),
-            checked_first_aid = updatedFlightLog.checkedFirstAid,
-            remarks = updatedFlightLog.remarks,
-            model_type = updatedFlightLog.modelType,
-        )
 
-        // Respond with a success message
-        call.respond(HttpStatusCode.OK, "Flight log updated successfully")
-    }
+        post("/complete") {
+            val session = call.sessionOrThrow()
+            val completeRequest = call.receive<CompleteFlightLogRequest>()
 
-    // DELETE request to delete a specific flight log by ID
-    delete("/{id}") {
-        val id = call.parameters["id"]?.toInt()
-            ?: return@delete call.respond(HttpStatusCode.BadRequest, "Missing flight log ID")
+            val flight = database.flightQueries.getFlight(completeRequest.flightId)
+                .awaitSingleOrNull()
+            if (flight == null) {
+                call.respond(HttpStatusCode.NotFound, "Flight log not found")
+                return@post
+            }
+            if (flight.account_id != session.sharedData.userId) {
+                call.respond(HttpStatusCode.Forbidden, "You are not allowed to complete this flight log")
+                return@post
+            }
 
-        // Delete the flight log entry from the database
-        database.flightQueries.deleteFlight(id)
+            val endTime = if (flight.date.toKotlinLocalDate() == Clock.System.today()) {
+                Clock.System.time()
+            } else {
+                LocalTime.parse("23:59", LocalTime.Formats.ISO)
+            }
 
-        // Respond with a success message
-        call.respond(HttpStatusCode.OK, "Flight log deleted successfully")
+            val updatedFlightId = database.flightQueries.completeFlight(
+                flightId = completeRequest.flightId,
+                accountId = session.sharedData.userId,
+                flightEnd = endTime.toJavaLocalTime(),
+                remarks = completeRequest.remarks ?: flight.remarks,
+            ).awaitSingleOrNull()
+
+            if (updatedFlightId == null) {
+                call.respond(HttpStatusCode.InternalServerError, "Failed to complete flight log")
+            } else {
+                call.respond(HttpStatusCode.OK, updatedFlightId)
+            }
+        }
+
+        // DELETE request to delete a specific flight log by ID
+        delete("/{id}") {
+            val id = call.parameters["id"]?.toInt()
+                ?: return@delete call.respond(HttpStatusCode.BadRequest, "Missing flight log ID")
+
+            // Delete the flight log entry from the database
+            database.flightQueries.deleteFlight(id)
+
+            // Respond with a success message
+            call.respond(HttpStatusCode.OK, "Flight log deleted successfully")
+        }
     }
 
     authenticate("auth-session") {

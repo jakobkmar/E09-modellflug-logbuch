@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import MouseCanvas from '@/components/MouseCanvas.vue'
 import { useRouter } from 'vue-router'
-import { getDateToday, getDateYesterday, getTimeString } from '@/utils/timeutil'
+import { getDateStringToday, getDateStringYesterday, getTimeString } from '@/utils/timeutil'
 import { backendRequest } from '@/networking'
 import { CreateFlightLogRequest } from 'modellflug-logbuch-common-data'
+import { IconEngine, IconCarTurbine, IconBatteryAutomotive, IconDetails, IconAlertTriangle } from '@tabler/icons-vue'
 
 const router = useRouter()
 
@@ -12,20 +13,30 @@ function showDatePicker() {
   (document.getElementById('datepicker') as HTMLInputElement).showPicker()
 }
 
-const dateInput = ref(getDateToday())
+const dateInput = ref(getDateStringToday())
 const timeInput = ref(getTimeString())
+const checkedFirstAid = ref<boolean>()
+const modelType = ref<string | null>(null)
 
 const signatureCanvas = ref<InstanceType<typeof MouseCanvas>>()
 
+const submitting = ref(false)
+
 async function submitProtocol() {
+  if (modelType.value == null) {
+    console.error('Cannot submit protocol because model type is not set')
+    return
+  }
+
   const requestData: CreateFlightLogRequest = {
-    flightStart: `${dateInput.value}T${timeInput.value}`,
-    checkedFirstAid: true, // TODO get from user input
-    modelType: 'TODO', // TODO get from user input
-    // this is the longest, so put it last to avoid other data being truncated in dev tools
-    // signature: new Int8Array(signatureCanvas.value!.getImageData()),
+    date: dateInput.value,
+    flightStart: timeInput.value,
+    checkedFirstAid: checkedFirstAid.value!,
+    modelType: modelType.value,
     signature: signatureCanvas.value!.getDataUrl(),
   }
+
+  submitting.value = true
   const response = await backendRequest('/api/v1/flightlog/create', {
     method: 'POST',
     headers: {
@@ -33,16 +44,24 @@ async function submitProtocol() {
     },
     body: JSON.stringify(requestData),
   })
+  submitting.value = false
+
   if (response.status == 201 /* Created */) {
     const flightId = (await response.json()) as number
-    console.debug('Created flight log with id', flightId)
+    console.debug(`Created flight log with id ${flightId}`)
   } else if (response.ok) {
     console.warn(`Received unexpected status '${response.status} ${response.statusText}' when creating flight log`)
   } else {
     console.error(`Failed to create flight log: ${response.status} ${response.statusText}`)
+    return
   }
+
   await router.push('/protocol/list')
 }
+
+onMounted(() => {
+  checkedFirstAid.value = true
+})
 </script>
 
 <template>
@@ -68,13 +87,13 @@ async function submitProtocol() {
         </div>
         <div style="display: flex; gap: 0.4em; align-content: stretch;">
           <button
-            @click="dateInput = getDateToday()"
-            class="btn" :class="{ 'btn-azure': dateInput == getDateToday() }"
+            @click="dateInput = getDateStringToday()"
+            class="btn" :class="{ 'btn-azure': dateInput == getDateStringToday() }"
             style="flex-grow: 1;"
           >Heute</button>
           <button
-            @click="dateInput = getDateYesterday()"
-            class="btn" :class="{ 'btn-azure': dateInput == getDateYesterday() }"
+            @click="dateInput = getDateStringYesterday()"
+            class="btn" :class="{ 'btn-azure': dateInput == getDateStringYesterday() }"
             style="flex-grow: 1;"
           >Gestern</button>
         </div>
@@ -88,16 +107,57 @@ async function submitProtocol() {
         </div>
         <div class="column" style="align-items: center; gap: 0.1em">
           <div class="dropdown">
-            <div class="btn dropdown-toggle" data-bs-toggle="dropdown">manuell abmelden</div>
-            <div class="dropdown-menu">
-              <div class="dropdown-item">manuell abmelden</div>
-              <div class="dropdown-item">in 1h</div>
-              <div class="dropdown-item">in 2h</div>
-              <div class="dropdown-item">in 3h</div>
-              <div class="dropdown-item">in 4h</div>
-            </div>
+            <div class="btn">manuell abmelden</div>
+            <!-- TODO time select bei flug in vergangenheit -->
           </div>
           <div style="font-size: 0.8em">bis</div>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Metadaten -->
+    <fieldset class="form-fieldset" style="display: flex; flex-direction: column; gap: 1.5em;">
+      <div>
+        <label class="form-label">Flugzeugtyp</label>
+        <p class="card-subtitle">Welches Modell fliegst du heute?</p>
+        <div class="form-selectgroup plane-type-select">
+          <label class="form-selectgroup-item">
+            <input type="radio" v-model="modelType" value="Kolben" class="form-selectgroup-input">
+            <span class="form-selectgroup-label"><IconEngine/> Kolben</span>
+          </label>
+          <label class="form-selectgroup-item">
+            <input type="radio" v-model="modelType" value="Turbine" class="form-selectgroup-input" />
+            <span class="form-selectgroup-label"><IconCarTurbine/> Turbine</span>
+          </label>
+          <label class="form-selectgroup-item">
+            <input type="radio" v-model="modelType" value="Elektro" class="form-selectgroup-input" />
+            <span class="form-selectgroup-label"><IconBatteryAutomotive/> Elektro</span>
+          </label>
+          <label class="form-selectgroup-item">
+            <input type="radio" v-model="modelType" value="Segler" class="form-selectgroup-input" />
+            <span class="form-selectgroup-label"><IconDetails/> Segler</span>
+          </label>
+        </div>
+      </div>
+
+      <div>
+        <label class="form-label">Erste Hilfe</label>
+        <p class="card-subtitle">Ist die Erste Hilfe-Ausrüstung vorhanden und geprüft?</p>
+        <div style="display: flex; flex-direction: row; align-items: center; gap: 0.5em;">
+          <input type="checkbox" class="form-check-input" id="first-aid-checkbox" v-model="checkedFirstAid" />
+          <label for="first-aid-checkbox">Ja, überprüft</label>
+        </div>
+        <div v-if="checkedFirstAid == false"
+             class="alert alert-warning" role="alert" style="margin-top: 1em; margin-bottom: 0;">
+          <div class="d-flex">
+            <div style="margin-right: 1em;">
+              <IconAlertTriangle size="2em"/>
+            </div>
+            <div>
+              <h4 class="alert-title">Bitte demnächst nachholen!</h4>
+              <div class="text-secondary">Erste Hilfe-Ausrüstung ist gesetzlich vorgeschrieben.</div>
+            </div>
+          </div>
         </div>
       </div>
     </fieldset>
@@ -113,13 +173,12 @@ async function submitProtocol() {
       </div>
     </fieldset>
 
-    <!-- Flugzeugdaten -->
-
     <!-- Abschicken / Beenden -->
     <fieldset class="form-fieldset">
       <label class="form-label">Abschließen</label>
       <div style="display: flex; gap: 0.5em">
-        <button @click="submitProtocol" class="btn btn-primary" type="button">
+        <button @click="submitProtocol" class="btn btn-primary" type="button" :disabled="submitting">
+          <span v-if="submitting" class="spinner-border spinner-border-sm me-2" role="status"></span>
           Protokoll erstellen
         </button>
         <a href="#" class="btn btn-outline-danger">Abbrechen</a>
@@ -138,6 +197,22 @@ form {
   .card-subtitle {
     margin-bottom: 0.8em;
     font-size: 0.9em;
+  }
+
+  .plane-type-select {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+
+    .form-selectgroup-label {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5em;
+
+      .tabler-icon {
+        height: 1.5em;
+      }
+    }
   }
 }
 </style>
