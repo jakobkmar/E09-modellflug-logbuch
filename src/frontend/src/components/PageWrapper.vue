@@ -22,7 +22,7 @@ function logout() {
       <div v-if="sessionStore.loginSession != null" class="logout-link" @click="logout">Logout</div>
     </div>
   </div>
-  <div class="flex-center" style="margin-bottom: 3em;">
+  <div class="flex-center">
     <div class="content-wrapper">
       <slot />
     </div>
@@ -77,5 +77,9 @@ function logout() {
 :root {
   font-size: 1.1em;
   --tblr-font-sans-serif: 'Inter var', 'Segoe UI', sans-serif;
+}
+
+#app {
+  padding-bottom: 2em;
 }
 </style>

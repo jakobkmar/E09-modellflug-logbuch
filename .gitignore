@@ -16,5 +16,5 @@
 src/backend/**/build/
 
 # Project
-config/database.properties
+**/config/database.properties
 data/sessions/

@@ -1,13 +1,9 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
 import { ref } from 'vue'
 import { backendRequest } from '@/networking'
-import { FlightDirectorResponse } from 'modellflug-logbuch-common-data'
-import { IconEdit, IconTrash } from '@tabler/icons-vue'
+import { CurrentFlightDirectorResponse } from 'modellflug-logbuch-common-data'
 
-const router = useRouter()
-
-const director = ref<FlightDirectorResponse | null | undefined>(undefined)
+const director = ref<CurrentFlightDirectorResponse | null | undefined>(undefined)
 const errorResponse = ref<string | null>(null)
 
 async function requestFlightDirector() {
@@ -28,7 +24,7 @@ async function requestFlightDirector() {
     return
   }
 
-  director.value = (await response.json()) as FlightDirectorResponse
+  director.value = (await response.json()) as CurrentFlightDirectorResponse
 }
 
 requestFlightDirector()
