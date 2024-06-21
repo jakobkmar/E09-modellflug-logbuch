@@ -1,9 +1,9 @@
 package de.mfcrossendorf.logbook.routes
 
-import de.mfcrossendorf.Flight
-import de.mfcrossendorf.logbook.NewFlightLog
+import de.mfcrossendorf.logbook.CreateFlightLogRequest
 import de.mfcrossendorf.logbook.database.awaitSingleOrNull
 import de.mfcrossendorf.logbook.database.database
+import de.mfcrossendorf.logbook.session.sessionOrThrow
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.auth.*
@@ -12,7 +12,6 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.toJavaLocalDateTime
-import kotlin.random.Random
 
 data class UpdatedFlightLog(
     val protocolId: String,
@@ -25,17 +24,7 @@ data class UpdatedFlightLog(
     val modelType: String,
 )
 
-    // TODO Anpassung dass man Zeiträume auswählen kann
-    // TODO check ob Local Time richtig funktioniert
-    // TODO eventuell Admin Route nach get("/{id}") migrieren
-
 fun Route.flightLogRoutes() = route("/flightlog") {
-//    post("/create") {
-//        val protocol = call.receive<Protocol>()
-//        database.flightQueries.createProtocol(protocol)
-//        call.respond(HttpStatusCode.Created, protocol)
-//    }
-
     // fetch details of a specific flight log by ID
     get("/{id}") {
         val id = call.parameters["id"]!!.toInt()
@@ -50,40 +39,28 @@ fun Route.flightLogRoutes() = route("/flightlog") {
         call.respond(HttpStatusCode.OK, protocol)
     }
 
-    // POST request to create a new flight log
-    post("/create") {
-        // Receive data for the new flight log from the request body
-        val requestBody = call.receive<NewFlightLog>()
+    authenticate("auth-session") {
+        // creates a new flight log entry
+        post("/create") {
+            val session = call.sessionOrThrow()
+            val createRequest = call.receive<CreateFlightLogRequest>()
 
-        println(requestBody)
+            val flightId = database.flightQueries.createFlight(
+                account_id = session.sharedData.userId,
+                flight_start = createRequest.flightStart.toJavaLocalDateTime(),
+                flight_end = null,
+                signature = createRequest.signature.toByteArray(Charsets.UTF_8),
+                checked_first_aid = createRequest.checkedFirstAid,
+                remarks = null,
+                model_type = createRequest.modelType,
+                model = null,
+            ).awaitSingleOrNull()
 
-        // Validate the received data (e.g., ensure all required fields are present)
-        if (requestBody.creatorId.toString().isEmpty() || requestBody.flightStart.toString().isEmpty() ||
-            requestBody.flightEnd.toString().isEmpty() || requestBody.signature.isEmpty() ||
-            requestBody.checkedFirstAid.toString().isEmpty() || requestBody.modelType.isEmpty()) {
-            call.respond(HttpStatusCode.BadRequest, "All required fields must be filled")
-            return@post
-        }
-
-        val flight = Flight(
-            flight_id = Random.nextInt(10000),
-            account_id = requestBody.creatorId,
-            flight_start = requestBody.flightStart.toJavaLocalDateTime(),
-            flight_end = requestBody.flightEnd.toJavaLocalDateTime(),
-            signature = requestBody.signature.toByteArray(),
-            checked_first_aid = requestBody.checkedFirstAid,
-            remarks = requestBody.remarks,
-            model_type = requestBody.modelType,
-            model = null,
-        )
-
-        val flightId = database.flightQueries.createFlight(flight)
-            .awaitSingleOrNull()
-
-        if (flightId == null) {
-            call.respond(HttpStatusCode.InternalServerError, "Failed to create flight log")
-        } else {
-            call.respond(HttpStatusCode.Created, flightId)
+            if (flightId == null) {
+                call.respond(HttpStatusCode.InternalServerError, "Failed to create flight log")
+            } else {
+                call.respond(HttpStatusCode.Created, flightId)
+            }
         }
     }
 

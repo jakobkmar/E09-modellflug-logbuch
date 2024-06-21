@@ -23,7 +23,7 @@ getFlight:
 SELECT * FROM flight WHERE flight_id = ?;
 
 createFlight:
-INSERT INTO flight VALUES ?
+INSERT INTO flight VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?)
 RETURNING flight_id;
 
 updateFlight:
