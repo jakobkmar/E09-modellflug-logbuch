@@ -8,6 +8,10 @@ import ManageUsersPage from './pages/admin/ManageUsersPage.vue'
 import PageNotFound from '@/pages/PageNotFound.vue'
 import CreateUserPage from './pages/admin/CreateUserPage.vue'
 import ListOwnFlightsPage from '@/pages/protocol/ListOwnFlightsPage.vue'
+import FlightDirectorHistoryPage from '@/pages/director/FlightDirectorHistoryPage.vue'
+import ShowFlightDirectorPage from './pages/director/ShowFlightDirectorPage.vue'
+import LoginFlightDirectorPage from '@/pages/director/LoginFlightDirectorPage.vue'
+import LogoutFlightDirectorPage from './pages/director/LogoutFlightDirectorPage.vue'
 
 export const routes = [
   { path: '/', component: HomePage },
@@ -25,10 +29,10 @@ export const routes = [
   {
     path: '/flightdirector',
     children: [
-      { path: 'login', component: PageNotFound },
-      { path: 'logout', component: PageNotFound },
-      { path: 'current', component: PageNotFound },
-      { path: 'history', component: PageNotFound },
+      { path: 'login', component: LoginFlightDirectorPage },
+      { path: 'logout', component: LogoutFlightDirectorPage },
+      { path: 'current', component: ShowFlightDirectorPage },
+      { path: 'history', component: FlightDirectorHistoryPage },
     ],
   },
   {

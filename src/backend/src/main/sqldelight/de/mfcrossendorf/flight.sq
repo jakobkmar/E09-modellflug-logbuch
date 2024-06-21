@@ -15,10 +15,17 @@ CREATE TABLE flight (
 );
 
 
+-- Indexes --
+
+CREATE INDEX flight_accountId_idx ON flight (account_id);
+CREATE INDEX flight_date_idx ON flight (date);
+
+
 -- Queries --
 
 getFlights:
-SELECT * FROM flight;
+SELECT * FROM flight
+ORDER BY date DESC, flight_start DESC;
 
 getFlight:
 SELECT * FROM flight WHERE flight_id = ?;
@@ -33,23 +40,26 @@ JOIN account ON flight.account_id = account.account_id
 WHERE flight.account_id = :accountId AND
       date >= :startDate AND
       date <= :endDate
-ORDER BY date DESC;
+ORDER BY date DESC, flight_start DESC;
 
 getOpenFlights:
 SELECT flight.*, account.first_name, account.last_name FROM flight
 JOIN account ON flight.account_id = account.account_id
-WHERE flight_end IS NULL AND date = :date;
+WHERE flight_end IS NULL AND date = :date
+ORDER BY flight_start DESC;
 
 getOpenFlightByAccountId:
 SELECT flight.*, account.first_name, account.last_name FROM flight
 JOIN account ON flight.account_id = account.account_id
 WHERE flight.account_id = :accountId AND flight_end IS NULL AND date = :date
+ORDER BY flight_start DESC
 LIMIT 1;
 
 getCompletedFlights:
 SELECT flight.*, account.first_name, account.last_name FROM flight
 JOIN account ON flight.account_id = account.account_id
-WHERE flight_end IS NOT NULL AND date = :date;
+WHERE flight_end IS NOT NULL AND date = :date
+ORDER BY flight_start DESC;
 
 getActivePilots:
 SELECT account_id FROM flight

@@ -37,6 +37,9 @@ RETURNING password_hash;
 checkAdminById:
 SELECT is_admin FROM account WHERE account_id = :id;
 
+checkCanSeeAllLogsById:
+SELECT can_see_all_logs FROM account WHERE account_id = :id;
+
 createAccount:
 INSERT INTO account VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?)
 RETURNING account_id;

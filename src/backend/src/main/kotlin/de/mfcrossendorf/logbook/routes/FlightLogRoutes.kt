@@ -8,7 +8,7 @@ import de.mfcrossendorf.logbook.database.awaitList
 import de.mfcrossendorf.logbook.database.awaitSingleOrNull
 import de.mfcrossendorf.logbook.database.database
 import de.mfcrossendorf.logbook.session.sessionOrThrow
-import de.mfcrossendorf.logbook.util.time
+import de.mfcrossendorf.logbook.util.currentTimeOrEndOfDay
 import de.mfcrossendorf.logbook.util.today
 import de.mfcrossendorf.logbook.validation.validateAndTrim
 import io.ktor.http.*
@@ -72,17 +72,10 @@ fun Route.flightLogRoutes() = route("/flightlog") {
                 return@post
             }
 
-            val endTime = if (flight.date.toKotlinLocalDate() == Clock.System.today()) {
-                val now = Clock.System.time()
-                LocalTime(hour = now.hour, minute = now.minute, second = now.second)
-            } else {
-                LocalTime.parse("23:59", LocalTime.Formats.ISO)
-            }
-
             val updatedFlightId = database.flightQueries.completeFlight(
                 flightId = completeRequest.flightId,
                 accountId = session.sharedData.userId,
-                flightEnd = endTime.toJavaLocalTime(),
+                flightEnd = flight.date.toKotlinLocalDate().currentTimeOrEndOfDay().toJavaLocalTime(),
                 remarks = completeRequest.remarks ?: flight.remarks,
             ).awaitSingleOrNull()
 

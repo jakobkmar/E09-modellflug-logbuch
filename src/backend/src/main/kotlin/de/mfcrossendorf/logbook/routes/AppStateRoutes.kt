@@ -15,12 +15,16 @@ import kotlinx.datetime.toJavaLocalDate
 fun Route.appStateRoutes() = route("/appstate") {
     authenticate("auth-session") {
         webSocket("/live") {
+            val today = Clock.System.today().toJavaLocalDate()
+
             val activePilots = async {
-                database.flightQueries.getActivePilots(date = Clock.System.today().toJavaLocalDate())
+                database.flightQueries
+                    .getActivePilots(date = today)
                     .awaitList().distinct()
             }
             val flightDirector = async {
-                database.flightDirectorQueries.getCurrentFlightDirector()
+                database.flightDirectorQueries
+                    .getCurrentFlightDirectorAccountId(date = today)
                     .awaitSingleOrNull()
             }
 

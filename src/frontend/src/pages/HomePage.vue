@@ -134,7 +134,7 @@ onUnmounted(() => {
           <div>Nutzerprofile erstellen und anpassen.</div>
         </div>
       </RouterLink>
-      <RouterLink to="/admin/manage-models" class="btn btn-outline-purple" style="margin-top: 1em;">
+      <RouterLink to="/admin/manage-models" class="btn btn-outline-purple disabled" style="margin-top: 1em;">
         <div style="padding-top: 0.4em; padding-bottom: 0.4em;">
           <h3>Modellverwaltung</h3>
           <div>Flugmodelle erstellen und verwalten.</div>

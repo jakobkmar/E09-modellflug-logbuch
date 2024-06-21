@@ -44,7 +44,7 @@ loadFlights()
   <h2 style="margin-bottom: 0.4em;">Deine Flüge</h2>
   <p class="card-subtitle">Hier findest du alle Flüge, die du bisher eingetragen hast.</p>
 
-  <div style="display: flex; flex-direction: row; gap: 1em; flex-wrap: wrap;">
+  <div style="display: flex; flex-direction: row; gap: 0.6em; flex-wrap: wrap;">
     <div style="flex-grow: 1;">
       <label class="form-label">von <span style="font-weight: normal">Datum</span></label>
       <input type="date" v-model="startDate" class="form-control" />
@@ -54,16 +54,16 @@ loadFlights()
       <input type="date" v-model="endDate" class="form-control" />
     </div>
   </div>
-  <div style="display: flex; flex-direction: row; gap: 0.3em; margin-top: 0.6em;">
-    <button type="button" class="btn" :class="{ 'btn-indigo': startDate == getDateStringToday() && endDate == getDateStringToday() }"
+  <div style="display: flex; flex-direction: row; gap: 0.6em; margin-top: 0.6em;">
+    <button type="button" class="btn btn-sm" :class="{ 'btn-indigo': startDate == getDateStringToday() && endDate == getDateStringToday() }"
             @click="startDate = getDateStringToday(); endDate = getDateStringToday();">
       Heute
     </button>
-    <button type="button" class="btn" :class="{ 'btn-indigo': startDate == getDateStringWeekAgo() && endDate == getDateStringToday() }"
+    <button type="button" class="btn btn-sm" :class="{ 'btn-indigo': startDate == getDateStringWeekAgo() && endDate == getDateStringToday() }"
             @click="startDate = getDateStringWeekAgo(); endDate = getDateStringToday();">
       Diese Woche
     </button>
-    <button type="button" class="btn" :class="{ 'btn-indigo': startDate == getDateStringMonthAgo() && endDate == getDateStringToday() }"
+    <button type="button" class="btn btn-sm" :class="{ 'btn-indigo': startDate == getDateStringMonthAgo() && endDate == getDateStringToday() }"
             @click="startDate = getDateStringMonthAgo(); endDate = getDateStringToday();">
       Diesen Monat
     </button>

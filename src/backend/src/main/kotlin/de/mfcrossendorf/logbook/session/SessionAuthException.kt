@@ -11,6 +11,7 @@ sealed class SessionAuthException(val msg: String) : Exception(msg) {
     class NotAuthenticated(msg: String = "Not authenticated") : SessionAuthException(msg)
     class InvalidSession(msg: String = "Invalid session") : SessionAuthException(msg)
     class UnknownUser(msg: String = "Unknown user") : SessionAuthException(msg)
+    class InsufficientPermissions(msg: String = "Insufficient permissions") : SessionAuthException(msg)
     class NoAdmin(msg: String = "Admin rights required") : SessionAuthException(msg)
 }
 
@@ -20,6 +21,7 @@ fun StatusPagesConfig.sessionAuthExceptionHandler() {
             is SessionAuthException.InvalidCredentials -> call.respond(HttpStatusCode.Unauthorized, cause.msg)
             is SessionAuthException.UnknownUser -> call.respond(HttpStatusCode.Unauthorized, cause.msg)
             is SessionAuthException.NoAdmin -> call.respond(HttpStatusCode.Forbidden, cause.msg)
+            is SessionAuthException.InsufficientPermissions -> call.respond(HttpStatusCode.Forbidden, cause.msg)
             is SessionAuthException.NotAuthenticated -> call.respond(HttpStatusCode.Unauthorized, cause.msg)
             is SessionAuthException.InvalidSession -> {
                 call.response.cookies.append(Cookie(
