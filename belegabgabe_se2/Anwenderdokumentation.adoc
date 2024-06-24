@@ -1,0 +1,46 @@
+= Anwenderdokumentation: elektronisches Logbuch
+
+[%always]
+<<<
+
+. Webapp aufrufen
+. An- und Abmeldung
+. Flugprotokoll anlegen
+. Flugleiterregelment
+.. Flugleiterrolle abgeben
+. Flugprotokolle einsehen und bearbeiten
+
+Zuständige Personen:
+
+- Herr Professor Doktor Iwe, Tel.: +49 0000000000
+- Herr Römer, Tel.: +49 0000000000
+
+[%always]
+<<<
+
+In dieser Anleitung wird die Bedienung der Webapp für Piloten erläutert. Bei Ausfällen, Fragen oder Anmerkungen wenden Sie sich bitte an die zuständigen Personen.
+
+## 1. Aufruf der Webapp
+Die Webbapp ist entweder von der Webseite des Modellflugvereins aufrufbar oder kann durch das Scannen des ausgehängten QR-Codes auf dem Flugplatz erreicht werden. Es wird ein internetfähiges Smartphone benötigt.
+
+## 2. An- und Abmeldung
+Wenn Sie als Nutzer im System eingetragen sind, wird Ihnen Ihr Admin die Daten für einen Erstzugang geben. Wenn Sie sich das erste Mal anmelden, werden Sie aufgefordert, sich ein eigenes Passwort zu geben. Bitte beachten Sie, dass das Passwort mindestens 6 Zeichen haben muss. Den Benutzernamen können Sie weiterhin verwenden.
+
+Hinweis: Falls Sie Ihr Passwort vergessen haben, richten Sie sich bitte an eine zuständige Person. Diese setzt Ihr Passwort zurück. Daraufhin können Sie sich wie oben beschrieben anmelden.
+
+## 3. Flugeinträge anlegen
+Ein Flugeintrag sollte beim Antreten einer Flugsitzung erstellt werden.
+Sollte es nötig sein, dann ist ein Flugeintrag auch im Nachhinein anlegbar.
+Durch das Betätigen des Buttons “Flugeintrag anlegen”, öffnet sich eine Formularansicht, in der man alle benötigten Daten für einen Flugeintrag eintragen kann. Pflichtangaben sind die Folgenden: Datum, Uhrzeit Flugbeginn, Uhrzeit Flugende, Flugleiterrolle getragen, Unterschrift, benutztes Modell.
+Weiterhin können Angaben zur Überprüfung der Erste-Hilfe-Station und weitere Bemerkungen gemacht werden.
+Am Ende des Tages werden alle Flugeinträge aller an diesem Tag anwesenden Piloten automatisch zu einem Flugprotokoll zusammengefasst.
+
+## 4. Flugleiterregelment
+Da stets ein Flugleiter anwesend sein muss, wird, wenn noch Pilot auf dem Flugplatz ist, der erste Pilot, der sich anmeldet, zum Flugleiter bestimmt. Er darf vorerst noch selber fliegen.
+Ab einer Anzahl von 3 Piloten ändert sich das jedoch. Dann darf der Flugleiter nicht mehr selbst fliegen. Um wieder fliegen zu dürfen, muss ein Pilot die Flugleiterrolle an einen anderen Piloten abgeben.
+
+### a. Flugleiterrolle abgeben
+Wenn ein Pilot seine Flugleiterrolle abgeben will, dann muss er den Button für das “Flugleiterrollen abgeben” betätigen. Daraufhin bekommen alle angemeldeten Piloten eine Meldung, in der sie die Abgabe annehmen oder ablehnen können. Sollte ein anderer Pilot den Rollenwechsel annehmen, dann kann der ursprüngliche Pilot die Abgabe noch bestätigen. Der Pilot der die Flugleiterrolle annimmt, muss seinen Flug beenden, um die Flugleiterrolle ausüben zu dürfen. Der abgebende Pilot darf nach Durchführung des Rollenwechsels wieder fliegen.
+
+## 5. Flugeinträge einsehen und bearbeiten
+Wenn Sie im Nachhinein einen bereits angelegten Flugeintrag ansehen oder bearbeiten möchten, müssen Sie dafür im Hauptmenü den Button “Flugeinträge ansehen” betätigen. Sie sehen nun eine Liste aller Ihrer Flugeinträge. Wenn Sie einen davon auswählen, können Sie Ihre gegebenen Angaben untersuchen und bei Bedarf Fehler korrigieren.
