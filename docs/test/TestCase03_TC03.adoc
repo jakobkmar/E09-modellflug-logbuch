@@ -1,0 +1,34 @@
+= Test Case 3 - Anmeldung eines Piloten
+
+[cols="1,1,2,2,2", options="header"]
+|===
+| TID
+| Testart
+| Vorbedingung
+| Durchführung
+| Nachbedingung
+
+| 1
+| Positiv, manuell
+| Der Pilot besitzt ein gültiges, nicht gesperrtes Konto und kennt seine Zugangsdaten.
+| Der Pilot gibt seine korrekten Benutzerdaten ein und drückt auf 'Anmelden'.
+| Das System authentifiziert den Piloten, gewährt Zugang zum Dashboard und zeigt eine Willkommensnachricht.
+
+| 2
+| Positiv, manuell
+| Der Pilot hat kürzlich sein Passwort zurückgesetzt.
+| Der Pilot loggt sich mit dem neuen Passwort ein.
+| System erkennt das neue Passwort, erlaubt Zugriff auf das Benutzerprofil und aktualisiert den Sicherheitslog.
+
+| 3
+| Positiv, manuell
+| Pilotenaccount ist aktiv und der Pilot verwendet die Zwei-Faktor-Authentifizierung.
+| Pilot gibt Benutzername und Passwort ein; anschließend wird der zweite Authentifizierungsfaktor angefordert.
+| Pilot bestätigt die Authentifizierung erfolgreich; System gibt Zugang frei und zeichnet den Login-Versuch auf.
+
+| 4
+| Positiv, manuell
+| Pilot verwendet eine gesicherte Verbindung (HTTPS) zum Zugriff auf das Anmeldeportal.
+| Einloggen mit korrekten Anmeldedaten über eine sichere Verbindung.
+| Anmeldung erfolgreich; System protokolliert den sicheren Login und zeigt alle Pilotenfeatures.
+|===
