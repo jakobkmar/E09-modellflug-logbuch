@@ -42,19 +42,27 @@ Diese regelmäßigen Meetings fanden jeden zweiten Mittwoch statt, und bei Bedar
 Die erfolgreiche Umsetzung der iterativen Arbeitsweise lässt sich direkt auf die Prinzipien des OpenUP zurückführen. OpenUP fördert die kontinuierliche Verbesserung und Anpassung durch kurze Entwicklungszyklen und regelmäßige Überprüfungen. Unsere Iterationsplanung und -reflexion entsprechen diesen Prinzipien und ermöglichten es uns, schnell auf Veränderungen zu reagieren und unsere Arbeitsprozesse laufend zu optimieren. Durch die klare Dokumentation der Aufgaben und Risiken konnten wir Transparenz schaffen und die Zusammenarbeit im Team stärken. Die Nutzung von GitHub Issues unterstützte uns dabei, die Aufgabenverteilung effizient zu gestalten und den Fortschritt jederzeit nachvollziehbar zu halten. Diese methodische Herangehensweise hat maßgeblich zu unserem Projekterfolg beigetragen und zeigt die Effektivität des iterativen Entwicklungsprozesses im Rahmen von OpenUP.
 
 
-== 3. Erfolg - Anforderungsanalyse
+== 3. Erfolg - Software
 
 -- missing content --
 
-== 1. Misserfolg - Gleichmäßige Verteilung der Arbeitsbelastung / Workforce Management
+=== Ursachen und OpenUP-Relevanz
 
-Ein bedeutender Misserfolg war die ungleiche und unfaire Verteilung der Arbeitsbelastung unter den Teammitgliedern. Das Prinzip der Aufgabenzuteilung im Rahmen der Iterations-Meetings nach persönlicher Kapazität und vorhandenen Fähigkeiten führte dazu, dass Mitglieder mit umfassenden Kenntnissen in Programmierung und Tools übermäßig belastet wurden. Ein umfassender Aufbau von Fähigkeiten bei anderen Teammitgliedern fand nicht im erforderlichen Maße statt, da der eigentlich relativ kurzfristige Schulungsaufwand uns als nicht notwendig erschien und wir die langfristigen Vorteile der Arbeitsentlastung nicht erkannten. So waren wir am Ende stark an unser Themengebiet gebunden und wenn es zum Beispiel im Frontend nichts mehr zu bearbeiten gab, konnten diese Mitglieder weder im Backend noch bei den komplexeren Managementaufgaben helfen, da sie sich zuvor nie ausreichend damit beschäftigen konnten.
+Die erzielte Softwarequalität lässt sich nicht nur auf die Erfahrung und Kompetenz im Entwicklerteam, sondern auch auf die agilen Entwicklungsprozesse auf Basis des OpenUP zurückführen. Ein Schlüssel ist hierbei die rechtzeitige Identifizierung und zweckmäßige Involvieren aller Steakholder. Die Notation der Anforderungen in Form von User Stories bietet in der Softwareentwicklung eine gute Schnittstelle zwischen Anforderungssteller und Softwareentwickler.  Der Grundsatz der wiederholten Überprüfung und Feedbacks unter Einbeziehung aller relevanten Stakeholder ermöglichte eine schnelle Reaktion auf sich ändernde Anforderungen, bei verhältnismäßig geringem Arbeitsaufwand.
 
-Die Konsequenz war nicht nur ein Ungleichgewicht in der Aufgabenbelastung, sondern auch ein erhebliches Projektrisiko. Der Ausfall eines Schlüsselmitglieds hätte den Verlust einer wichtigen Kompetenz bedeutet. Backup-Rollen waren theoretisch angelegt, wurden in der Praxis jedoch zu wenig gelebt.
+-- Ergänzen um Architektur und Deployment --
+
+
+== 1. Misserfolg - Weiterbildung und Schulung/ Skill Management 
+
+Ein großer Misserfolg, mit weitreichenden Konsequenzen auf dem Projektverlauf, Motivation und Gruppenkohäsion, war ein mangelndes Management von Kompetenzen und der Aufbau dieser Kompetenzen im Projektverlauf.
+Der Anfang des Projektes wurde dadurch begünstigt das ein Gruppenmitglied bereits umfassende Erfahrungen in der Programmierung komplexer Systeme und der Softwareentwicklung mitbrachte. Mittel und Langfristig führt jedoch die unmittelbare Verfügbarkeit von Skills, wenn auch nur auf wenige Köpfe beschränkt, dass kurzfristige Zeitaufwendungen für Schulungen als nicht notwendig betrachtet wurden, da die Skills bereits durch erfahrene Gruppenmitglieder abgebildet wurden.  Die langfristigen Vorteile für potentiale in der Arbeitsentlastung und Risikominimierung wurden zu spät erkannt.
+Die Konsequenz war nicht nur ein Ungleichgewicht in der Aufgabenbelastung, sondern auch ein erhebliches Projektrisiko. Der Ausfall eines Schlüsselmitglieds hätte den Verlust einer wichtigen Kompetenz bedeutet. Backup-Rollen waren theoretisch angelegt, wurden in der Praxis jedoch zu wenig gelebt. Das bedeutet das Inhaber einer Backup Rolle teilwiese nicht die erforderlichen Skills der Rolle abbilden konnten.
+
 
 === Ursachen und OpenUP-Relevanz
 
-Dieser Misserfolg ist teilweise auf ein unzureichendes Management von Fähigkeiten und Arbeitskräften zurückzuführen, was im Widerspruch zu den OpenUP-Prinzipien steht. OpenUP betont die Notwendigkeit, Risiken zu managen und kontinuierlich Wissen im Team zu verbreiten. Die fehlende Implementierung effektiver Backup-Rollen und die mangelnde Schulung der Teammitglieder widersprachen diesen Prinzipien und führten zu einer instabilen Projektstruktur.
+Eine Ursache für diese Fehlleistung besteht unter anderem darin das im Projektmanagement kein hinreichender Fokus auf den Aufbau und zukünftige Bedarfe von Fähigkeiten gelegt wurde. Tatsächlich erschwert eine agile Entwicklung mittels Iterativer Arbeitsweise gemäß dem OpenUP eine Langfristige Planung von Fähigkeitsbedarfen. Dieses Problem sollte zwar als Risiko aufgeführt werden, geht jedoch im OpenUP Prozess leicht unter. 
 
 === Lösungsansätze
 
@@ -67,8 +75,30 @@ Um dieses Problem zukünftig zu vermeiden, sollten mehrere Maßnahmen ergriffen 
 
 Diese Maßnahmen stehen im Einklang mit den OpenUP-Prinzipien, die auf kontinuierliche Verbesserung, Wissenstransfer und Risikomanagement abzielen. Eine bessere Verteilung der Arbeitsbelastung und die Sicherstellung von Backup-Kompetenzen würden die Projektstabilität erhöhen und die Belastung gleichmäßiger verteilen.
 
+>>Damit sollte der Arbeitsprozess im Wohle Team Ansatz verbessert werden, und Problem 2 verhütet.<< #Satz bitte verbessern!!
 
-== Flop 2 - Planung auf Ebene des Projektlebenszyklus
+== 2. Misserfolg - Gleichmäßige Verteilung der Arbeitsbelastung / Workforce Management
+
+Ein bedeutender Misserfolg war die ungleiche und unfaire Verteilung der Arbeitsbelastung unter den Teammitgliedern. Das Prinzip der Aufgabenzuteilung im Rahmen der Iterations-Meetings nach persönlicher Kapazität und vorhandenen Fähigkeiten führte dazu, dass Mitglieder mit umfassenden Kenntnissen in Programmierung und Tools übermäßig belastet wurden. Ein umfassender Aufbau von Fähigkeiten bei anderen Teammitgliedern fand, wie bereits im 1. Misserfolg thematisiert,  nicht im erforderlichen Maße statt. 
+Letztendlich nahm uns der Mangel an befähigten Teammitgliedern ein großes Maß an Flexibilität in der Aufgabenverteilung und führte dazu, dass sich Belastungsspitzen sich teilweise einseitig auf einzelne Gruppenmitglieder auswirkten. 
+Deses Problem wurde teilweise dadurch verschlechtert, das betroffene Gruppenmitglieder eine übermäßige Belastung auf sich nahmen ohne dies nur zu erwähnen, oder Unterstützung frühzeitig einzufordern.
+Die Vergabe allein auf Basis der persönlichen Bereitschaft der Teammitglieder war in unserem Fall, dank außerordentlicher Einsatzbereitschaft einzelner möglich,  in Zukünftigen Projekten birgt diese Art der Aufgabenverteilung allerdings Risiken, und ist eine Einladung für Gruppenmitglieder sich durch Enthaltung vor Arbeit zu drücken. 
+
+=== Ursachen und OpenUP-Relevanz
+
+Dieser Misserfolg bezieht sich wie auch Misserfolg 1 auf eine Unzulänglichkeit in der Anwendung des Whole-Team Ansatzes des OpenUP, eine Überbetonung auf die selbst Organisation im Team führte dazu das keine Nachhaltig, durchaltbare Arbeitsbelastung für einzelne Teammitglieder bestand.  
+
+=== Lösungsansätze
+
+Um dieses Problem zukünftig zu vermeiden, sollte zuallererst Misserfolg 1 abgestellt werden, darüber hinaus könnten folgende Maßnahmen dabei unterstützen Arbeit gleichmäßig zu verteilen:
+
+- **Abschätzung des Arbeitsaufwands bei Aufgabenvergabe**: Der mit einem Work-Item verbundene Arbeitsaufwand sollte bereits bei Vergabe einer Aufgabe, idealerwiese durch ein erfahrenes Teammitglied, im Aufwand eingeschätzt werden. Diese Methode könnte dem Projektmanagement ein Werkzeug geben, um ein…
+- **Tracking der Arbeitsbelastung**: …durchzuführen, um einer Überlastung einzelner Gruppenmitglieder zuvorzukommen, und, falls erforderlich mehr Mitarbeit von anderen einzufordern. 
+
+
+Diese Maßnahmen stehen im Einklang mit den OpenUP-Prinzipien, die auf kontinuierliche Verbesserung, Wissenstransfer und Risikomanagement abzielen. Eine bessere Verteilung der Arbeitsbelastung und die Sicherstellung von Backup-Kompetenzen würden die Projektstabilität erhöhen und die Belastung gleichmäßiger verteilen.
+
+== 3. Misserfolg - Planung auf Ebene des Projektlebenszyklus
 
 Ein weiterer Misserfolg in diesem Projekt war die unzureichende Planung über mehrere Iterationen hinweg. Obwohl im Rahmen der iterativen Arbeitsweise einzelne Arbeitspakete identifiziert, definiert und zugewiesen wurden, fehlte es an einer übergeordneten Planung und dem Setzen von Wegmarken zum Tracking des Projektfortschritts. Dies führte zu einer großen Unsicherheit über den aktuellen Projektstatus im Verhältnis zu den erforderlichen Abgabeterminen. Die fehlende Nachverfolgung des Fortschritts resultierte darin, dass am Ende jedes Semesters erhebliche Mehrarbeiten notwendig waren, um die Projektziele fristgerecht zu erreichen.
 
@@ -90,9 +120,7 @@ Um diese Problematiken zukünftig zu vermeiden, sollten folgende Maßnahmen ergr
 Diese Maßnahmen sind im Einklang mit den OpenUP-Prinzipien, die sowohl Flexibilität als auch strukturierte Planung und Risikomanagement betonen. Durch die konsequente Umsetzung dieser Maßnahmen kann die langfristige Planung verbessert und Mehrarbeiten am Semesterende reduziert werden.
 
 
-== Flop 3 - Kommunikation und Teamkultur
 
--- Konflikt mit top 1 --
 
 
 == Fazit
