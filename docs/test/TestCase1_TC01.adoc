@@ -1,0 +1,34 @@
+= Test Case 1 - Pilotenregistrierung Validierung
+
+[cols="1,1,2,2,2", options="header"]
+|===
+| TID
+| Testart
+| Vorbedingung
+| Durchführung
+| Nachbedingung
+
+| 1
+| Positiv, manuell
+| Administrator ist im System angemeldet und auf der Benutzerverwaltungsseite.
+| Der Administrator gibt gültige Namen, Vornamen, Passwort und andere erforderliche Daten ein und klickt auf 'Speichern'.
+| Das System prüft die Daten auf Gültigkeit, erstellt das Konto und zeigt eine Bestätigungsmeldung: "Pilot erfolgreich registriert".
+
+| 2
+| Positiv, manuell
+| Administrator besitzt erforderliche Berechtigungen zur Pilotenregistrierung.
+| Gültige Pilotendaten werden in das Registrierungsformular eingegeben und das Formular wird abgesendet.
+| System legt das neue Pilotenkonto an und sendet eine Bestätigungs-E-Mail an den Piloten.
+
+| 3
+| Positiv, manuell
+| Administratorseite ist geladen und reagiert auf Eingaben ohne Verzögerung.
+| Der Administrator füllt das Formular vollständig aus, inklusive aktivierter Checkboxen für zusätzliche Optionen.
+| Konto wird erstellt; zusätzliche Optionen wie Newsletter sind im Profil des Piloten markiert.
+
+| 4
+| Positiv, manuell
+| Keine vorherigen Fehlermeldungen im Log bezüglich Datenbankproblemen.
+| Einreichung des vollständig ausgefüllten Formulars über einen sicheren Kanal.
+| Datenbanktransaktion wird bestätigt, Kontoaktivierungslink wird generiert und dem Benutzer bereitgestellt.
+|===
