@@ -1,0 +1,34 @@
+= Test Case 2 - Fehlerhafte Pilotenregistrierung
+
+[cols="1,1,2,2,2", options="header"]
+|===
+| TID
+| Testart
+| Vorbedingung
+| Durchführung
+| Nachbedingung
+
+| 1
+| Negativ, manuell
+| Administrator ist angemeldet und das Formular zur Pilotenregistrierung ist geöffnet.
+| Administrator gibt absichtlich fehlerhafte Daten ein: unvollständige Namen, fehlende Passwortbestätigung.
+| Das System erkennt die Fehler, verhindert die Registrierung und zeigt spezifische Fehlermeldungen für jedes Problem.
+
+| 2
+| Negativ, manuell
+| Kein aktiver Internetzugang auf dem Terminal des Administrators.
+| Versuch, das Registrierungsformular mit korrekten Daten abzusenden.
+| Das System zeigt eine Netzwerkfehlermeldung; die Daten werden nicht übermittelt.
+
+| 3
+| Negativ, manuell
+| Registrierungspage ist nach einem Backend-Update langsam.
+| Administrator versucht, das Formular mehrmals hintereinander schnell abzusenden.
+| System erkennt mehrfache Einreichungen und blockiert die Aktion nach der ersten gültigen Übermittlung, zeigt eine Warnung.
+
+| 4
+| Negativ, manuell
+| Administrator ist neu und nicht vollständig in der Benutzung des Systems geschult.
+| Eingabe von Daten in falsche Formularfelder und Versuch der Einreichung.
+| System validiert die Eingabe nicht und zeigt Fehlermeldungen: „Falsches Format“ oder „Erforderliches Feld fehlt“.
+|===
