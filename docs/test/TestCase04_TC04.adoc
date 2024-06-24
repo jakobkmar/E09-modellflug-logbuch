@@ -1,0 +1,34 @@
+= Test Case 4 - Pilotenanmeldung mit falschen Daten
+
+[cols="1,1,2,2,2", options="header"]
+|===
+| TID
+| Testart
+| Vorbedingung
+| Durchführung
+| Nachbedingung
+
+| 1
+| Negativ, manuell
+| Zugriff auf die Anmeldeseite ist gewährleistet.
+| Der Pilot gibt absichtlich falschen Benutzernamen und/oder Passwort ein und versucht sich anzumelden.
+| Das System verweigert die Anmeldung und zeigt eine spezifische Fehlermeldung an, dass Benutzername oder Passwort ungültig sind.
+
+| 2
+| Negativ, manuell
+| Keine Netzwerkunterbrechungen; System ist online.
+| Ein Versuch, sich mit einem veralteten oder kürzlich geänderten Passwort anzumelden.
+| System erkennt das nicht aktuelle Passwort und verhindert den Zugang, bietet an, das Passwort zurückzusetzen.
+
+| 3
+| Negativ, manuell
+| Keine vorherigen Anmeldeversuche, die zu einer Kontosperre führten.
+| Mehrfache, schnelle Eingabe falscher Anmeldedaten durch den Piloten.
+| System aktiviert nach mehreren fehlgeschlagenen Versuchen eine temporäre Kontosperre und informiert den Benutzer.
+
+| 4
+| Negativ, manuell
+| Der Pilot hat korrekte Anmeldedaten, verwendet jedoch einen nicht unterstützten Browser.
+| Anmeldung über einen veralteten oder inkompatiblen Webbrowser.
+| Das System zeigt eine Kompatibilitätsfehlermeldung und verweigert die Anmeldung.
+|===
