@@ -1,0 +1,34 @@
+= Test Case 6 - Abbruch der Protokollerstellung
+
+[cols="1,1,2,2,2", options="header"]
+|===
+| TID
+| Testart
+| Vorbedingung
+| Durchführung
+| Nachbedingung
+
+| 1
+| Negativ, manuell
+| Pilot beginnt die Erstellung eines Protokolls, ist jedoch unsicher über die Richtigkeit der Daten.
+| Der Pilot bricht den Erstellungsprozess über den "Abbrechen"-Button ab.
+| Das System speichert keine der eingegebenen Daten und informiert den Piloten, dass der Vorgang abgebrochen wurde.
+
+| 2
+| Negativ, manuell
+| Zugriff auf das Protokollformular ohne vorherige Datensicherung.
+| Unterbrechung der Sitzung durch Schließen des Browsers oder Verlust der Internetverbindung.
+| Das System erkennt den unvollständigen Zustand und speichert keine Daten; es gibt keinen Wiederherstellungsmechanismus.
+
+| 3
+| Negativ, manuell
+| Pilot ist abgelenkt und verlässt das Gerät, ohne die Sitzung ordnungsgemäß zu beenden.
+| Automatische Timeout-Funktion des Systems beendet die Sitzung nach Inaktivität.
+| Das System speichert keine Daten und setzt die Sitzung zurück, fordert bei erneutem Zugriff erneut zur Anmeldung.
+
+| 4
+| Negativ, manuell
+| Protokollerstellung wird gestartet, jedoch mit unzureichenden oder inkorrekten Daten.
+| Pilot entscheidet sich während der Dateneingabe, den Vorgang zu stoppen.
+| Das System reagiert auf den Abbruch, indem es keine Daten speichert und den Benutzer auf die Hauptseite zurückführt.
+|===
