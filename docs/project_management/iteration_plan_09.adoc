@@ -70,14 +70,18 @@ _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
 |===
 | Assessment Ziel | Iteration 9
 
-| Assessment Datum | 19.06.2024
+| Assessment Datum | 24.06.2024
 | Teilnehmer | Projektmanagement, Jakob Kretzschmar, Julian Neidert, Laurin Wobeda, Lukas Trogisch, Conrad Caffier, Abdallah Alherani
-| Projektstatus	| gelb
+| Projektstatus	| grün
 |===
 
 *Beurteilung im Vergleich zu den Zielen*
 
-TODO
+* externe Datenbank wurde eingerichtet
+* SQL Requests sind erarbeitet
+* User Creation Page ist funktionstüchtig
+* Sequenz-/Zustandsdiagramme sind fertiggestellt
+* Fachaustausch mit anderen Gruppen wurde durchgeführt
 
 *Projektfortschritt*
 

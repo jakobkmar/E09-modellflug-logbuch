@@ -60,14 +60,17 @@ https://github.com/users/jakobkmar/projects/2/views/3?filterQuery=iteration%3A%2
 |===
 | Assessment Ziel | Iteration 10
 
-| Assessment Datum | 19.06.2024
+| Assessment Datum | 26.06.2024
 | Teilnehmer | Projektmanagement, Jakob Kretzschmar, Julian Neidert, Laurin Wobeda, Lukas Trogisch, Conrad Caffier, Abdallah Alherani
-| Projektstatus	| gelb
+| Projektstatus	| grün
 |===
 
 *Beurteilung im Vergleich zu den Zielen*
 
-TODO
+* Einzel- und Gruppenreflexion wurden abgeschlossen
+* Implementierung der Software wurde abgeschlossen
+* Dokumentationen wurden abgeschlossen
+* Projektbericht wurde abgeschlossen
 
 *Projektfortschritt*
 
