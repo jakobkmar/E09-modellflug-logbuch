@@ -1,4 +1,4 @@
-= Test Case 6 - Abbruch der Protokollerstellung
+== Test Case 6 - Abbruch der Protokollerstellung
 
 [cols="1,1,2,2,2", options="header"]
 |===
@@ -32,3 +32,71 @@
 | Pilot entscheidet sich während der Dateneingabe, den Vorgang zu stoppen.
 | Das System reagiert auf den Abbruch, indem es keine Daten speichert und den Benutzer auf die Hauptseite zurückführt.
 |===
+
+=== TestCases Durchführung
+
+.TID 1
+
+[%header, cols=4*]
+|===
+|Eingegebene Werte
+|Erfolgreich?
+|Nachgebessert
+|Akzeptanztest
+
+| Eingabe aller nötigen Informationen. Abbruch der Protokollerstellung
+| Erfolgreich
+| /
+| Erfolgreich
+
+|===
+
+.TID 2
+
+[%header, cols=4*]
+|===
+|Eingegebene Werte
+|Erfolgreich?
+|Nachgebessert
+|Akzeptanztest
+
+| Eingabe aller nötigen Informationen. Abbruch der Protokollerstellung
+| Erfolgreich
+| /
+| Erfolgreich
+
+|===
+
+.TID 3
+
+[%header, cols=4*]
+|===
+|Eingegebene Werte
+|Erfolgreich?
+|Nachgebessert
+|Akzeptanztest
+
+| Eingabe aller nötigen Informationen. Abbruch der Protokollerstellung
+| Erfolgreich
+| /
+| Erfolgreich
+
+|===
+
+.TID 4
+
+[%header, cols=4*]
+|===
+|Eingegebene Werte
+|Erfolgreich?
+|Nachgebessert
+|Akzeptanztest
+
+| Eingabe aller nötigen Informationen. Abbruch der Protokollerstellung
+| Erfolgreich
+| /
+| Erfolgreich
+
+|===
+
+
