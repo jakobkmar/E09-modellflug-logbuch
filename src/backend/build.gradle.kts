@@ -60,8 +60,19 @@ tasks {
         }
     }
 
+    register("installFrontend") {
+        group = "fullstack"
+        dependsOn(build)
+        doLast {
+            exec {
+                workingDir(projectDir.resolveSibling("frontend"))
+                commandLine("pnpm", "install")
+            }
+        }
+    }
+
     val buildFrontend by registering {
-        group = "distribution"
+        group = "fullstack"
         doFirst {
             exec {
                 workingDir(projectDir.resolveSibling("frontend"))
@@ -71,13 +82,13 @@ tasks {
     }
 
     register("packageFullstackApp") {
-        group = "distribution"
+        group = "fullstack"
         dependsOn(buildFrontend)
         finalizedBy(build, assembleDist)
     }
 
     register("runFullstackApp") {
-        group = "application"
+        group = "fullstack"
         dependsOn(buildFrontend)
         finalizedBy(build, run)
     }
