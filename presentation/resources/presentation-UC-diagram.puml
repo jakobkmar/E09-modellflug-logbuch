@@ -1,0 +1,33 @@
+
+@startuml UC-model
+left to right direction
+"Admin" as ac01
+"Pilot" as ac02
+package Benutzerbereich {
+    "UC02 Pilot anmelden" as (uc02) 
+    "UC03 Flugeintrag anlegen" as (uc03)
+    "UC04 Flugeinträge einsehen" as (uc04)
+    "UC05 Flugleiter anmelden" as (uc05)
+    "UC06 Pilot abmelden" as (uc06)
+    "UC09 Flugeintrag bearbeiten" as (uc09)
+}
+
+package Administrationsbereich {
+    "UC01 Pilot registrieren" as (uc01)
+    "UC07 Pilotendaten modifizieren" as (uc07)
+    "UC08 Pilot deaktivieren" as (uc08)
+
+}
+ac01 -d-> uc01
+ac01 -u-> uc04
+ac01 -d-> uc07
+ac01 -d-> uc08
+ac01 -u-> uc09
+ac02 -d-> uc02
+ac02 -d-> uc06
+ac02 -u-> uc09
+ac02 -u-> uc04
+uc02 .l.> uc03 :include
+uc03 .l.> uc05 :extends
+uc06 .r.> uc05 :include
+@enduml

@@ -3,7 +3,7 @@
 * Modelflugplatz
 * Logbuchpflicht für Piloten zu führen
 * bisherigen Bemühungen waren zu umständlich
-    * --> Logen wurde vernachlässigt
+    * --> Loggen wurde vernachlässigt
 * Produkt verfolgt moderner Ansatz
     * Webapp für Smartphones
     * effektivere, funktionellere Lösung
@@ -20,8 +20,8 @@
 
 * Use-Cases:
     * Pilot anmelden
-    * Protokoll anlegen
-    * Flugleiter bestimmen ?
+    * Flugprotokoll anlegen
+    * Flugleiter bestimmen
     * Protokoll einsehen
     * Pilot abmelden
 
