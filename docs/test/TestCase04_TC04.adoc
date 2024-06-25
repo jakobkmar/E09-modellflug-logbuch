@@ -1,4 +1,4 @@
-= Test Case 4 - Pilotenanmeldung mit falschen Daten
+== Test Case 4 - Protkolle einsehen
 
 [cols="1,1,2,2,2", options="header"]
 |===
@@ -9,26 +9,125 @@
 | Nachbedingung
 
 | 1
-| Negativ, manuell
-| Zugriff auf die Anmeldeseite ist gewährleistet.
-| Der Pilot gibt absichtlich falschen Benutzernamen und/oder Passwort ein und versucht sich anzumelden.
-| Das System verweigert die Anmeldung und zeigt eine spezifische Fehlermeldung an, dass Benutzername oder Passwort ungültig sind.
+| Positiv, manuell
+| Es wurden Protkolle vorher erstellt. Der Pilot ist angemeldet
+| Es wird nach allen Protkollen ohne Einschränkung gesucht
+| Das System zeigt alle gespeicherten Protokolle an.
 
 | 2
-| Negativ, manuell
-| Keine Netzwerkunterbrechungen; System ist online.
-| Ein Versuch, sich mit einem veralteten oder kürzlich geänderten Passwort anzumelden.
-| System erkennt das nicht aktuelle Passwort und verhindert den Zugang, bietet an, das Passwort zurückzusetzen.
+| Positiv, manuell
+| Es wurden Protokolle vorher erstellt. Der Pilot ist angemeldet
+| Es wird nach Protkollen vor einem bestimmten Datum gesucht.
+| Das System zeigt alle Protokolle vor dem bestimmten Datum an.
 
 | 3
-| Negativ, manuell
-| Keine vorherigen Anmeldeversuche, die zu einer Kontosperre führten.
-| Mehrfache, schnelle Eingabe falscher Anmeldedaten durch den Piloten.
-| System aktiviert nach mehreren fehlgeschlagenen Versuchen eine temporäre Kontosperre und informiert den Benutzer.
+| Positiv, manuell
+| Es wurden Protokolle vorher erstellt. Der Pilot ist angemeldet
+| Es wird nach Protkollen von einem bestimmten Modell gesucht.
+| Das System zeigt alle Protokolle von dem bestimmten Modell an.
 
 | 4
+| Positiv, manuell
+| Es wurden Protokolle vorher erstellt. Der Pilot ist angemeldet
+| Es wird nach Protkollen von einem bestimmten Piloten gesucht.
+| Das System zeigt alle Protokolle von dem bestimmten Pilot an.
+
+| 5
 | Negativ, manuell
-| Der Pilot hat korrekte Anmeldedaten, verwendet jedoch einen nicht unterstützten Browser.
-| Anmeldung über einen veralteten oder inkompatiblen Webbrowser.
-| Das System zeigt eine Kompatibilitätsfehlermeldung und verweigert die Anmeldung.
+| Es wurden Protokolle vorher erstellt. Der Pilot ist angemeldet
+| Es wird nach Protkollen vor und nach einem bestimmten Datum gesucht. Diese sind jedoch vetauscht (Beginn des Zeitraums nach Ende des Zeitraums)
+| Das System zeigt eine Fehlermeldung an und verweigert die Suche.
+|===
+
+
+=== TestCases
+
+.TID 1
+
+[%header, cols=4*]
+|===
+|Eingegebene Werte
+|Erfolgreich?
+|Nachgebessert
+|Akzeptanztest
+
+|Keine weiteren Kriterien eingegeben
+| Erfolgreich
+| /
+| Erfolgreich
+
+|===
+
+.TID 2
+
+[%header, cols=4*]
+|===
+|Eingegebene Werte
+|Erfolgreich?
+|Nachgebessert
+|Akzeptanztest
+
+a|
+* Daten
+** 22.05.2024
+** 01.04.2024
+** 01.01.2024
+| Erfolgreich
+| /
+| Erfolgreich
+
+|===
+
+.TID 3
+
+[%header, cols=4*]
+|===
+|Eingegebene Werte
+|Erfolgreich?
+|Nachgebessert
+|Akzeptanztest
+
+| Eingabe verschiedener Modellbezeichnungen als Suchkriterium
+| Erfolgreich
+| /
+| Erfolgreich
+
+|===
+
+.TID 4
+
+[%header, cols=4*]
+|===
+|Eingegebene Werte
+|Erfolgreich?
+|Nachgebessert
+|Akzeptanztest
+
+a|
+* Piloten:
+** Peter Müller
+** Conrad Caffier
+** Conrad Müller
+| Erfolgreich
+| /
+| Erfolgreich
+
+|===
+
+.TID 5
+
+[%header, cols=4*]
+|===
+|Eingegebene Werte
+|Erfolgreich?
+|Nachgebessert
+|Akzeptanztest
+
+a|
+* Eingabe falscher Zeiträume:
+** von 01.12.2024 bis 01.01.2024
+| Nicht Erfolgreich(Keine Fehlermeldung - Suche findet statt)
+| Nachgebssert durch Jakob
+| Erfolgreich
+
 |===
