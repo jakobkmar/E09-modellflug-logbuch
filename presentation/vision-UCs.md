@@ -6,8 +6,8 @@
     * --> Loggen wurde vernachlässigt
 * Produkt verfolgt moderner Ansatz
     * Webapp für Smartphones
-    * effektivere, funktionellere Lösung
         * jede Person besitzt Smartphone
+    * effektivere, funktionellere Lösung
 
 
 
@@ -20,9 +20,9 @@
 
 * Use-Cases:
     * Pilot anmelden
-    * Flugprotokoll anlegen
-    * Flugleiter bestimmen
-    * Protokoll einsehen
+    * Flugeintrag anlegen
+    * Flugleiter anmelden
+    * Flugeinträge einsehen
     * Pilot abmelden
 
-![UC-Diagramm](/docs\requirements\images\use_case_diagram.png "Use Cases des mobilen Logbuchs")
+![UC-Diagramm](/presentation\images\UC-model.png "Use Cases des mobilen Logbuchs")
