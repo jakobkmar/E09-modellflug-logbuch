@@ -77,7 +77,7 @@ Ein Beispiel für die Konfiguration wäre:
 # The time zone to use for the application.
 # If not set, the system default is used.
 # See https://kotlinlang.org/api/kotlinx-datetime/kotlinx-datetime/kotlinx.datetime/-time-zone/-companion/of.html for more information.
-timeZone = null
+# timeZone = null
 
 [database]
   serverName = "localhost"
