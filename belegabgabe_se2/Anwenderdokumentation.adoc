@@ -23,20 +23,20 @@ In dieser Anleitung wird die Bedienung der Webapp für Piloten erläutert. Bei A
 ## 1. Aufruf der Webapp
 Die Webbapp ist entweder von der Webseite des Modellflugvereins aufrufbar oder kann durch das Scannen des ausgehängten QR-Codes auf dem Flugplatz erreicht werden. Es wird ein internetfähiges Smartphone benötigt.
 
-## 2. An- und Abmeldung
-Wenn Sie als Nutzer im System eingetragen sind, wird Ihnen Ihr Admin die Daten für einen Erstzugang geben. Wenn Sie sich das erste Mal anmelden, werden Sie aufgefordert, sich ein eigenes Passwort zu geben. Bitte beachten Sie, dass das Passwort mindestens 6 Zeichen haben muss. Den Benutzernamen können Sie weiterhin verwenden.
+## 2. Aaccountan- und abmeldung
+Wenn Sie als Nutzer im System eingetragen sind, wird Ihnen Ihr Admin die Daten für einen Erstzugang geben. Wenn Sie sich das erste Mal anmelden, wird das erste Passwort das Sie eingeben, Ihr zukünftiges Passwort. Bitte beachten Sie, dass das Passwort mindestens 6 Zeichen haben muss.
 
 Hinweis: Falls Sie Ihr Passwort vergessen haben, richten Sie sich bitte an eine zuständige Person. Diese setzt Ihr Passwort zurück. Daraufhin können Sie sich wie oben beschrieben anmelden.
 
 ## 3. Flugeinträge anlegen
-Ein Flugeintrag sollte beim Antreten einer Flugsitzung erstellt werden.
+Einen Flugeintrag sollte beim Antreten einer Flugsitzung erstellt werden.
 Sollte es nötig sein, dann ist ein Flugeintrag auch im Nachhinein anlegbar.
-Durch das Betätigen des Buttons “Flugeintrag anlegen”, öffnet sich eine Formularansicht, in der man alle benötigten Daten für einen Flugeintrag eintragen kann. Pflichtangaben sind die Folgenden: Datum, Uhrzeit Flugbeginn, Uhrzeit Flugende, Flugleiterrolle getragen, Unterschrift, benutztes Modell.
+Durch das Betätigen des Buttons “Als Pilot anmelden”, öffnet sich eine Formularansicht, in der man alle benötigten Daten für einen Flugeintrag eintragen kann. Pflichtangaben sind die Folgenden: Datum, Uhrzeit Flugbeginn, Uhrzeit Flugende, Flugleiterrolle getragen, Unterschrift, benutztes Modell.
 Weiterhin können Angaben zur Überprüfung der Erste-Hilfe-Station und weitere Bemerkungen gemacht werden.
 Am Ende des Tages werden alle Flugeinträge aller an diesem Tag anwesenden Piloten automatisch zu einem Flugprotokoll zusammengefasst.
 
 ## 4. Flugleiterregelment
-Da stets ein Flugleiter anwesend sein muss, wird, wenn noch Pilot auf dem Flugplatz ist, der erste Pilot, der sich anmeldet, zum Flugleiter bestimmt. Er darf vorerst noch selber fliegen.
+Mit dem Button "Als Flugleiter anmelden" können Sie sich als Flugleiter eintragen. Solange die Anzahl der Piloten unter drei liegt, darf ein Flugleiter noch fliegen. 
 Ab einer Anzahl von 3 Piloten ändert sich das jedoch. Dann darf der Flugleiter nicht mehr selbst fliegen. Um wieder fliegen zu dürfen, muss ein Pilot die Flugleiterrolle an einen anderen Piloten abgeben.
 
 ### a. Flugleiterrolle abgeben
