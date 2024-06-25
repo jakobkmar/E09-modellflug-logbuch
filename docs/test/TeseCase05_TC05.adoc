@@ -15,20 +15,88 @@
 | Das System speichert das Protokoll erfolgreich und zeigt eine Bestätigungsnachricht.
 
 | 2
-| Positiv, manuell
-| Der Pilot hat Zugriff auf aktuelle und relevante Fluginformationen.
-| Eingabe von Flugdetails wie Flugnummer, Zeit, Datum und zusätzlichen Notizen in das Protokoll.
-| Das Protokoll wird in der Datenbank gespeichert und ist für den Piloten zur späteren Einsicht verfügbar.
+| Negativ, manuell
+| Der Pilot ist angemeldet und hat Zugriff auf das Formular zur Protokollerstellung.
+| Eingabe von Flugdetails mit fehlerhafter Eingabe.
+| Das Protokoll wird nicht gespeichert. Der Pilot kriegt eine Fehlermeldung und wird zur Überarbeitung der Daten aufgefordert.
 
 | 3
 | Positiv, manuell
-| System unterstützt das Hochladen von Begleitdokumenten zum Protokoll.
+| System unterstützt das Hochladen von Begleitdokumenten zum Protokoll. Der Pilot ist angemeldet und hat Zugriff auf das Formular zur Protokollerstellung.
 | Der Pilot hängt zusätzliche Dokumente wie Wetterberichte oder Flugpläne an das Protokoll an.
 | System verarbeitet und speichert die Anhänge korrekt mit dem Protokoll, zeigt eine visuelle Bestätigung.
 
 | 4
-| Positiv, manuell
-| Vorhandensein einer stabilen Internetverbindung und keiner Systemwartung.
-| Durchführung der Dateneingabe und Absendung unter optimalen Systembedingungen.
-| Protokoll wird ohne Verzögerung gespeichert und der Pilot erhält eine sofortige Rückmeldung.
+| Negativ, manuell
+| Der Pilot hat keine ausreichende Internetverbidnung
+| Der Pilot füllt das Protokollformular vollständig aus, inklusive aller erforderlichen und zusätzlichen Informationen, und sendet es ab.
+| Das Formular kann nicht gesendet werden. Die fehlende Internetverbindung verhindert das übermitteln.
 |===
+
+== Durchführung der TestCases
+
+.TID 1
+[%header, cols=4*]
+|===
+| Eingegeben
+| Erfolgreich
+| Nachgebessert
+| Erfolgreich
+
+| Eingabe aller nötigen Informationen
+| Erfolgreich
+| /
+| Erfolgreich
+
+|===
+
+.TID 2
+[%header, cols=4*]
+|===
+| Eingegeben
+| Erfolgreich
+| Nachgebessert
+| Erfolgreich
+
+| Eingabe einzelner Werte(nicht alle nötigen ausgefüllt)
+| Nicht Erfolgreich(Trotzdem abgeschickt)
+| Nachgebssert durch Jakob
+| Erfolgreich
+
+|===
+
+.TID 3
+[%header, cols=4*]
+|===
+| Eingegeben
+| Erfolgreich
+| Nachgebessert
+| Erfolgreich
+
+| Eingabe aller nötigen Informationen und Anhang von Zusatzdokumenten
+| Erfolgreich
+| /
+| Erfolgreich
+
+|===
+
+.TID 4
+[%header, cols=4*]
+|===
+| Eingegeben
+| Erfolgreich
+| Nachgebessert
+| Erfolgreich
+
+| Eingabe aller nötigen Informationen.
+| Erfolgreich(verhindert)
+| /
+| Erfolgreich
+
+|===
+
+
+
+
+
+
