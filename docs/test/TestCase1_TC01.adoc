@@ -40,10 +40,10 @@
 |Das System speichert den Piloten korrekt ab (zweimal der gleiche Vor- und Nachname in der Datenbank). Jeder der beiden Piloten hat einen eindeutigen Nutzernamen für den Login des Systems erhalten. Beide Piloten können so das System vollumfänglich nutzen.
 
 |6
-| Positiv, manuell
-| Pilot wurde erfolgreich erstellt und das Terminal hat eine aktive Internetverbindung
+| Negativ, manuell
+| Pilot wurde erfolgreich erstellt und das Terminal hat keine aktive Internetverbindung
 | Die Internetverbindung des Terminals wird unterbrochen.
-| Der erstellte Pilot wurde in der lokalen DB des Terminals eingetragen. Eine Anmeldung des Piloten am Terminal ist erfolgreich möglich.
+| Das System zeigt eine Netzwerkfehlermeldung, die Daten werden nicht übermittelt
 |===
 
 ==== Durchführung des TestCases
@@ -204,7 +204,7 @@ a|
 * Conrad Caffier
 * Adminrechte: nein
 * Passwörter: übereinstimmend
-| Erfolgreich
+| Erfolgreich (nicht übermittlelt)
 | /
 | Erfolgreich
 
