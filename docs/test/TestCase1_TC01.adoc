@@ -1,6 +1,6 @@
-= Test Case 1 - Pilotenregistrierung Validierung
+=== Test Case 1 - Pilotenregistrierung Validierung
 
-[cols="1,1,2,2,2", options="header"]
+[cols="5*", options="header"]
 |===
 | TID
 | Testart
@@ -10,25 +10,203 @@
 
 | 1
 | Positiv, manuell
-| Administrator ist im System angemeldet und auf der Benutzerverwaltungsseite.
-| Der Administrator gibt gültige Namen, Vornamen, Passwort und andere erforderliche Daten ein und klickt auf 'Speichern'.
+| Administrator besitzt erforderliche Berechtigungen zur Pilotenregistrierung und ist auf dem Webserver eingeloggt.
+| Erstellung eines Piloten mit gültigen Attributen
 | Das System prüft die Daten auf Gültigkeit, erstellt das Konto und zeigt eine Bestätigungsmeldung: "Pilot erfolgreich registriert".
 
-| 2
-| Positiv, manuell
-| Administrator besitzt erforderliche Berechtigungen zur Pilotenregistrierung.
-| Gültige Pilotendaten werden in das Registrierungsformular eingegeben und das Formular wird abgesendet.
-| System legt das neue Pilotenkonto an und sendet eine Bestätigungs-E-Mail an den Piloten.
+|2
+| Negativ, manuell
+| Administrator besitzt erforderliche Berechtigungen zur Pilotenregistrierung und ist auf dem Webserver eingeloggt.
+| Erstellung eines Piloten mit ungültigen Attributen (z.B. leerer Name oder ungleiche Passwörter)
+| Das Speichern wird verhindert und der Nutzer auf den Fehler aufmerksam gemacht
+
 
 | 3
 | Positiv, manuell
-| Administratorseite ist geladen und reagiert auf Eingaben ohne Verzögerung.
+| Administrator besitzt erforderliche Berechtigungen zur Pilotenregistrierung und ist auf dem Webserver eingeloggt.
 | Der Administrator füllt das Formular vollständig aus, inklusive aktivierter Checkboxen für zusätzliche Optionen.
-| Konto wird erstellt; zusätzliche Optionen wie Newsletter sind im Profil des Piloten markiert.
+| Konto wird erstellt; zusätzliche Optionen wie Administatorrechte sind im Profil des Piloten markiert und in der Datenbank erfasst.
 
 | 4
 | Positiv, manuell
-| Keine vorherigen Fehlermeldungen im Log bezüglich Datenbankproblemen.
+| Keine vorherigen Fehlermeldungen der Datenbank.
 | Einreichung des vollständig ausgefüllten Formulars über einen sicheren Kanal.
 | Datenbanktransaktion wird bestätigt, Kontoaktivierungslink wird generiert und dem Benutzer bereitgestellt.
+
+|5
+| Negativ, manuell
+| Administrator besitzt erforderliche Berechtigungen zur Pilotenregistrierung und ist auf dem Webserver eingeloggt. Pilot wurde erfolgreich erstellt.
+|Erstellung eines neuen Piloten mit dem selben Vor- und Nachnamen
+|Das System speichert den Piloten korrekt ab (zweimal der gleiche Vor- und Nachname in der Datenbank). Jeder der beiden Piloten hat einen eindeutigen Nutzernamen für den Login des Systems erhalten. Beide Piloten können so das System vollumfänglich nutzen.
+
+|6
+| Positiv, manuell
+| Pilot wurde erfolgreich erstellt und das Terminal hat eine aktive Internetverbindung
+| Die Internetverbindung des Terminals wird unterbrochen.
+| Der erstellte Pilot wurde in der lokalen DB des Terminals eingetragen. Eine Anmeldung des Piloten am Terminal ist erfolgreich möglich.
 |===
+
+==== Durchführung des TestCases
+
+.TID 1
+
+[%header, cols=4*]
+|===
+| Eingegebene Werte
+| Erfolgreich?
+| Nachgebessert
+| Akzeptanztest
+
+a|
+* Conrad Caffier
+* Adminrechte: nein
+* Passwörter: übereinstimmend
+| Erfolgreich
+| /
+| Erfolgreich
+
+a|
+* Peter Müller
+* Adminrechte: nein
+* Passwörter: übereinstimmend
+| Erfolgreich
+| /
+| Erfolgreich
+
+a|
+* Conrad Müller
+* Adminrechte: nein
+* Passwörter: übereinstimmend
+| Erfolgreich
+| /
+| Erfolgreich
+
+|===
+
+.TID 2
+[%header, cols=4*]
+|===
+| Eingegebene Werte
+| Erfolgreich?
+| Nachgebessert
+| Akzeptanztest
+
+| Con/rad Caffier
+| Erfolgreich (verhindert)
+| /
+| Erfolgreich
+
+| a B
+| Erfolgreich (verhindert)
+| /
+| Erfolgreich
+
+| Conradfdsaf (200+ weitere Zeichen) asdf Caffier
+| Erfolgreich (verhindert)
+| /
+| Erfolgreich
+
+| Conrad Caf/fier
+| Erfolgreich (verhindert)
+| /
+| Erfolgreich
+
+| (leer)
+| Erfolgreich (verhindert)
+| /
+| Erfolgreich
+
+|===
+
+
+.TID 3
+[%header, cols=4*]
+|===
+| Eingegebene Werte
+| Erfolgreich?
+| Nachgebessert
+| Akzeptanztest
+
+
+a|
+* Conrad Caffier
+* Adminrechte: ja
+* Passwörter: übereinstimmend
+| Erfolgreich
+| /
+| Erfolgreich
+
+|===
+
+.TID 4
+[%header, cols=4*]
+|===
+| Eingegebene Werte
+| Erfolgreich?
+| Nachgebessert
+| Akzeptanztest
+
+a |
+* Conrad Caffier
+* Adminrechte: nein
+* Passwörter: übereinstimmend
+| Erfolgreich
+| /
+| Erfolgreich
+
+a |
+* Conrad Müller
+* Adminrechte: ja
+* Passwörter: übereinstimmend
+| Erfolgreich
+| /
+| Erfolgreich
+
+|===
+
+
+
+.TID 5
+[%header, cols=4*]
+|===
+| Eingegebene Werte
+| Erfolgreich?
+| Nachgebessert
+| Akzeptanztest
+
+a|
+* Pilot 1:
+** Conrad Caffier
+** Adminrechte: nein
+** Passwörter: übereinstimmend
+
+* Pilot 2:
+** Conrad Caffier
+** Adminrechte: nein
+** Passwörter: übereinstimmend
+| Erfolgreich
+| /
+| Erfolgreich
+
+|===
+
+
+
+.TID 6
+[%header, cols=4*]
+|===
+| Eingegebene Werte
+| Erfolgreich?
+| Nachgebessert
+| Akzeptanztest
+
+a|
+* Conrad Caffier
+* Adminrechte: nein
+* Passwörter: übereinstimmend
+| Erfolgreich
+| /
+| Erfolgreich
+
+|===
+
