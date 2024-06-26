@@ -1,4 +1,8 @@
-# Aufgabenstellung
+# E09 Modellflug Logbuch
+
+![Beispielbild für den Modellflugclub](/!presentation\images\beispielbild2.jpg "Beispielbild für den Modellflugclub")
+
+## Aufgabenstellung
 
 * Modelflugplatz
 * Logbuchpflicht für Piloten zu führen
@@ -11,7 +15,7 @@
 
 
 
-# Use Cases und Akteure
+## Use Cases und Akteure
 
 * Pilot
     * regulärer Benutzer
