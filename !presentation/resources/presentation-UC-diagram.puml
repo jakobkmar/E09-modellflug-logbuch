@@ -27,7 +27,6 @@ ac02 -d-> uc02
 ac02 -d-> uc06
 ac02 -u-> uc09
 ac02 -u-> uc04
-uc02 .l.> uc03 :include
-uc03 .l.> uc05 :extends
-uc06 .r.> uc05 :include
+uc02 -l-> uc03
+ac02 -d-> uc05
 @enduml
