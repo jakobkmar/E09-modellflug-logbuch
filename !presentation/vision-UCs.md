@@ -4,8 +4,8 @@
 
 ## Aufgabenstellung
 
-* Modelflugplatz
-* Logbuchpflicht für Piloten zu führen
+* Modellflugclub Rossendorf
+* Logbuchpflicht für Piloten
 * bisherigen Bemühungen waren zu umständlich
     * --> Loggen wurde vernachlässigt
 * Produkt verfolgt moderner Ansatz
@@ -30,3 +30,5 @@
     * Pilot abmelden
 
 ![UC-Diagramm](/!presentation\images\UC-model.png "Use Cases des mobilen Logbuchs")
+
+
