@@ -2,6 +2,7 @@ package de.mfcrossendorf.logbook.validation
 
 import de.mfcrossendorf.logbook.CreateFlightLogRequest
 import de.mfcrossendorf.logbook.util.simplify
+import de.mfcrossendorf.logbook.util.time
 import de.mfcrossendorf.logbook.util.today
 import kotlinx.datetime.Clock
 
@@ -26,6 +27,8 @@ private fun CreateFlightLogRequest.validate() {
             add("Cannot create flight log for future date")
         if (flightEnd != null && flightStart > flightEnd!!)
             add("Flight start time cannot be after flight end time")
+        if (flightEnd != null && date == Clock.System.today() && flightEnd!! > Clock.System.time())
+            add("Flight end time cannot be in the future")
     }.ifEmpty { null }
 
     if (issues != null) {
