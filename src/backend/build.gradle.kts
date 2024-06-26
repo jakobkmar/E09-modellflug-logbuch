@@ -72,6 +72,7 @@ tasks {
     }
 
     val buildFrontend by registering {
+        dependsOn(installFrontend)
         group = "fullstack"
         doFirst {
             exec {
@@ -81,27 +82,16 @@ tasks {
         }
     }
 
-    val ensureCommonData by registering {
-        group = "fullstack"
-        onlyIf {
-            !project(":common-data")
-                .layout.buildDirectory
-                .dir("dist/js/productionLibrary")
-                .get().asFile.exists()
-        }
-        dependsOn(installFrontend)
-    }
-
     register("packageFullstackApp") {
         group = "fullstack"
-        dependsOn(installFrontend, buildFrontend)
-        finalizedBy(build, assembleDist)
+        dependsOn(buildFrontend)
+        finalizedBy(assembleDist)
     }
 
     register("runFullstackApp") {
         group = "fullstack"
-        dependsOn(ensureCommonData, buildFrontend)
-        finalizedBy(build, run)
+        dependsOn(buildFrontend)
+        finalizedBy(run)
     }
 }
 
