@@ -7,5 +7,6 @@ import kotlin.js.JsExport
 @JsExport
 data class AppState(
     val activePilots: List<Int>,
+    val openPilots: List<Int>,
     val currentFlightDirector: Int?,
 )

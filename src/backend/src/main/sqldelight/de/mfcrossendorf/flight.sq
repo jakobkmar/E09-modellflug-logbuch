@@ -42,10 +42,12 @@ WHERE flight.account_id = :accountId AND
       date <= :endDate
 ORDER BY date DESC, flight_start DESC;
 
-getOpenFlights:
+getActiveFlights:
 SELECT flight.*, account.first_name, account.last_name FROM flight
 JOIN account ON flight.account_id = account.account_id
-WHERE flight_end IS NULL AND date = :date
+WHERE
+  (flight_end IS NULL OR flight_end > :currentTime) AND
+  date = :date
 ORDER BY flight_start DESC;
 
 getOpenFlightByAccountId:
@@ -58,13 +60,18 @@ LIMIT 1;
 getCompletedFlights:
 SELECT flight.*, account.first_name, account.last_name FROM flight
 JOIN account ON flight.account_id = account.account_id
-WHERE flight_end IS NOT NULL AND date = :date
+WHERE
+  (flight_end IS NOT NULL AND flight_end < :currentTime) AND
+  date = :date
 ORDER BY flight_start DESC;
 
 getActivePilots:
 SELECT account_id FROM flight
+WHERE (flight_end IS NULL OR flight_end > :currentTime) AND date = :date;
+
+getOpenPilots:
+SELECT account_id FROM flight
 WHERE flight_end IS NULL AND date = :date;
--- SELECT DISTINCT account_id FROM flight WHERE flight_end IS NULL; -- supported in SQLDelight 2.1.0
 
 completeFlight:
 UPDATE flight SET flight_end = :flightEnd, remarks = :remarks

@@ -11,7 +11,7 @@ const flightData = ref<FlightData | null | undefined>(null)
 const additionalNotes = ref<string | null>(null)
 
 async function loadFlightlog() {
-  const response = await backendRequest('/api/v1/flightlog/active', {
+  const response = await backendRequest('/api/v1/flightlog/open', {
     method: 'GET',
   })
   if (!response.ok) {

@@ -9,6 +9,7 @@ import de.mfcrossendorf.logbook.database.awaitSingleOrNull
 import de.mfcrossendorf.logbook.database.database
 import de.mfcrossendorf.logbook.session.sessionOrThrow
 import de.mfcrossendorf.logbook.util.currentTimeOrEndOfDay
+import de.mfcrossendorf.logbook.util.time
 import de.mfcrossendorf.logbook.util.today
 import de.mfcrossendorf.logbook.validation.validateAndTrim
 import io.ktor.http.*
@@ -41,7 +42,7 @@ fun Route.flightLogRoutes() = route("/flightlog") {
                 account_id = session.sharedData.userId,
                 date = createRequest.date.toJavaLocalDate(),
                 flight_start = createRequest.flightStart.toJavaLocalTime(),
-                flight_end = null,
+                flight_end = createRequest.flightEnd?.toJavaLocalTime(),
                 checked_first_aid = createRequest.checkedFirstAid,
                 remarks = null,
                 model_type = createRequest.modelType,
@@ -86,8 +87,8 @@ fun Route.flightLogRoutes() = route("/flightlog") {
             }
         }
 
-        route("/active") {
-            // Fetch the currently active flight log for the logged-in user
+        route("/open") {
+            // Fetch the currently open flight log for the logged-in user
             get {
                 val session = call.sessionOrThrow()
 
@@ -113,13 +114,17 @@ fun Route.flightLogRoutes() = route("/flightlog") {
                     ))
                 }
             }
+        }
 
+        route("/active") {
             // Fetch all active flight logs by all users
             get("/allUsers") {
                 call.sessionOrThrow()
 
                 val openFlights = database.flightQueries
-                    .getOpenFlights(date = Clock.System.today().toJavaLocalDate())
+                    .getActiveFlights(
+                        date = Clock.System.today().toJavaLocalDate(),
+                        currentTime = Clock.System.time().toJavaLocalTime())
                     .awaitList()
                     .map { dbFlight ->
                         FlightData(
@@ -146,7 +151,9 @@ fun Route.flightLogRoutes() = route("/flightlog") {
                     call.sessionOrThrow()
 
                     val completedFlights = database.flightQueries
-                        .getCompletedFlights(date = Clock.System.today().toJavaLocalDate())
+                        .getCompletedFlights(
+                            date = Clock.System.today().toJavaLocalDate(),
+                            currentTime = Clock.System.time().toJavaLocalTime())
                         .awaitList()
                         .map { dbFlight ->
                             FlightData(

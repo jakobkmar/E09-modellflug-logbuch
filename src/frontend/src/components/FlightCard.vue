@@ -1,14 +1,18 @@
 <script setup lang="ts">
 import { FlightData } from 'modellflug-logbuch-common-data'
 import { computed } from 'vue'
-import { getDateStringToday } from '@/utils/timeutil'
+import { getDateStringToday, getTimeString } from '@/utils/timeutil'
 
 const props = defineProps<{
   flight: FlightData,
 }>()
 
 const active = computed(() => {
-  return props.flight.flightEnd == null && props.flight.date == getDateStringToday()
+  if (props.flight.date != getDateStringToday()) {
+    return false
+  }
+  return props.flight.flightEnd == null ||
+    props.flight.flightEnd > getTimeString()
 })
 </script>
 
@@ -77,18 +81,20 @@ const active = computed(() => {
     </div>
     <div v-if="flight.signature != null || flight.remarks != null" style="margin-top: 0.8em;">
       <div class="hr-text" style="margin: 0 0 0.8em; color: #a7b2ba">Anhang</div>
-      <div
-        v-if="flight.remarks != null && flight.remarks.length > 0"
-        class="datagrid-item">
-        <label class="datagrid-title">Anmerkungen</label>
-        <div class="datagrid-content">{{ flight.remarks }}</div>
-      </div>
-      <div v-if="flight.signature != null" class="datagrid-item">
-        <label class="datagrid-title">Unterschrift</label>
-        <img
-          :src="flight.signature" alt="Unterschrift"
-          class="card"
-          style="max-width: 200px;" />
+      <div style="display: flex; flex-direction: column; gap: 0.2em;">
+        <div
+          v-if="flight.remarks != null && flight.remarks.length > 0"
+          class="datagrid-item">
+          <label class="datagrid-title">Anmerkungen</label>
+          <div class="datagrid-content">{{ flight.remarks }}</div>
+        </div>
+        <div v-if="flight.signature != null" class="datagrid-item">
+          <label class="datagrid-title">Unterschrift</label>
+          <img
+            :src="flight.signature" alt="Unterschrift"
+            class="card"
+            style="max-width: 200px;" />
+        </div>
       </div>
     </div>
   </div>

@@ -15,9 +15,12 @@ fun Clock.time(): LocalTime {
 
 fun LocalDate.currentTimeOrEndOfDay(): LocalTime {
     return if (this == Clock.System.today()) {
-        val now = Clock.System.time()
-        LocalTime(hour = now.hour, minute = now.minute, second = now.second)
+        Clock.System.time().simplify()
     } else {
         LocalTime.parse("23:59", LocalTime.Formats.ISO)
     }
+}
+
+fun LocalTime.simplify(): LocalTime {
+    return LocalTime(hour = hour, minute = minute, second = second)
 }

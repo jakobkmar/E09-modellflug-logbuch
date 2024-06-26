@@ -14,6 +14,8 @@ class CreateFlightLogRequest(
     val date: LocalDate,                     // since it is represented by an ISO 8601 string
     @Suppress("NON_EXPORTABLE_TYPE")
     val flightStart: LocalTime,
+    @Suppress("NON_EXPORTABLE_TYPE")
+    val flightEnd: LocalTime?,
     val signature: String,
     val checkedFirstAid: Boolean,
     val modelType: String,

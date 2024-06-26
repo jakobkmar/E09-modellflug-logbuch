@@ -10,6 +10,9 @@ const appState = ref<AppState | null>(null)
 const activePilots = computed((): number[] => {
   return appState.value?.activePilots ?? []
 })
+const openPilots = computed((): number[] => {
+  return appState.value?.openPilots ?? []
+})
 const flightLogCount = ref<number | null | undefined>(null)
 
 let appStateSocket: WebSocket
@@ -58,7 +61,7 @@ onUnmounted(() => {
     <div class="card group-card">
       <h1 style="align-self: center;">Flüge</h1>
       <div class="btn-column loading-block" :class="{ 'loading': appState == null }">
-        <RouterLink v-if="!activePilots.includes(sessionStore.loginSession.sessionData.userId)"
+        <RouterLink v-if="!openPilots.includes(sessionStore.loginSession.sessionData.userId)"
                     to="/flight/create" class="btn btn-indigo">
           <div style="padding-top: 1em; padding-bottom: 1em;">
             <h2>Als Pilot anmelden</h2>
@@ -69,7 +72,7 @@ onUnmounted(() => {
             </div>
           </div>
         </RouterLink>
-        <RouterLink to="/flight/complete" class="btn btn-orange" v-else>
+        <RouterLink v-else to="/flight/complete" class="btn btn-orange">
           <div style="padding-top: 1em; padding-bottom: 1em;">
             <h2>Als Pilot abmelden</h2>
             <div>Damit schließt du den aktuellen Flug ab.</div>
