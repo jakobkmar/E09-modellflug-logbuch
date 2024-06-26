@@ -2,6 +2,8 @@
 
 ![Beispielbild für den Modellflugclub](/!presentation\images\beispielbild2.jpg "Beispielbild für den Modellflugclub")
 
+<div style="page-break-after: always;"></div>
+
 ## Aufgabenstellung
 
 * Modellflugclub Rossendorf
@@ -13,7 +15,7 @@
         * jede Person besitzt Smartphone
     * effektivere, funktionellere Lösung
 
-
+<div style="page-break-after: always;"></div>
 
 ## Use Cases und Akteure
 
@@ -21,6 +23,8 @@
     * regulärer Benutzer
 * Admin
     * verwaltet Software und Benutzer
+
+<div style="page-break-after: always;"></div>
 
 * Use-Cases:
     * Pilot anmelden
@@ -32,22 +36,28 @@
 ![UC-Diagramm](/!presentation\images\UC-model.png "Use Cases des mobilen Logbuchs")
 
 
+==========================================================================
+
+
 # Sprachnotizen Laurin
-* präsentieren euch heute das Projekt der Gruppe "E09 Modellflug Logbuch"
-* bevor Demonstration der Software, beginne ich mit der Aufgabenstellung und der Erklärung des Sachverhaltes anhand von Akteuern und Use-Cases
+* Einleitung
+    * wir sind Jakob und Laurin
+    * präsentieren euch heute das Projekt der Gruppe "E09 Modellflug Logbuch"  
+    * vor Demonstration der Software, beginne ich mit der Aufgabenstellung und der Erklärung des Sachverhaltes anhand von Akteuern und Use-Cases
 
 * Aufgabenstellung
     * unser Auftraggeber: Modellflugclub Rossendorf
     * da auf Flugplatz Luftverkehr mit Modellfliegern, Dronen und Raketen herrscht:
-        * vorgeschriebene Logbuchpflicht des Gesetzgeber
+        * durch Gesetzgeber vorgeschriebene Logbuchpflicht
     * bisherige Bemühungen dem nachzukommen konnten nicht zufriedenstellend durchgesetzt werden
         * zwei Probleme: 
             * das Clubgebäude befindet sich nicht direkt am Flugplatz
-            * daher vernachlässigung der physischen Logbuchpflicht
+            * daher Vernachlässigung der Logbuchpflicht mit Stift und Papier
             * außerdem: vorhandenes Terminal für elektronisches Logbuch ist aufgrund des Anschlusses an hissige Wetterstation nur alle 10 Minuten kurz online
-    * um diese Probleme zu vermeiden und das Logbuchführen zu fördern, gab der Auftraggeber dieses Projekt in Auftrag:
+    * um diese Probleme zu vermeiden und das Führen des Logbuchs zu fördern, gab der Auftraggeber dieses Projekt in Auftrag:
         * Logbuch als vom Smartphone benutzbare App
         * wir entschieden uns diese als Webapp zu verwirklichen
+            * Plattformunabhängigkeit von Android, iOS, etc.
 
 * Akteure
     * Pilot
@@ -72,3 +82,5 @@
         * alle Flugeinträge einsehen
         * alle Flugeinträge bearbeiten
         * Piloten erstellen, modifizieren und deaktivieren
+
+* Jakob fährt mit Präsentation des Produktes fort
