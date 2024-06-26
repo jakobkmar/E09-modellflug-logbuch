@@ -1,1 +1,6 @@
-export const backendUrl = 'http://localhost:8080'
+import { ref, watch } from 'vue'
+
+export const backendUrl = ref<string>(localStorage.getItem('backendUrl') ?? '')
+watch(backendUrl, (newVal) => {
+  localStorage.setItem('backendUrl', newVal)
+})

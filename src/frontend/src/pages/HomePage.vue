@@ -144,6 +144,11 @@ onUnmounted(() => {
         </div>
       </RouterLink>
     </div>
+    <div style="text-align: center; margin-top: 0.2em;">
+      <RouterLink to="/config" class="btn btn-sm btn-ghost-indigo">
+        Konfiguration
+      </RouterLink>
+    </div>
   </div>
 </template>
 

@@ -3,7 +3,6 @@ import CreateProtocolPage from './pages/protocol/CreateProtocolPage.vue'
 import ListProtocolsPage from './pages/protocol/ListProtocolsPage.vue'
 import CompleteProtocolPage from './pages/protocol/CompleteProtocolPage.vue'
 import LoginPage from './pages/LoginPage.vue'
-import RegistrationPage from './pages/RegistrationPage.vue'
 import ManageUsersPage from './pages/admin/ManageUsersPage.vue'
 import PageNotFound from '@/pages/PageNotFound.vue'
 import CreateUserPage from './pages/admin/CreateUserPage.vue'
@@ -12,11 +11,11 @@ import FlightDirectorHistoryPage from '@/pages/director/FlightDirectorHistoryPag
 import ShowFlightDirectorPage from './pages/director/ShowFlightDirectorPage.vue'
 import LoginFlightDirectorPage from '@/pages/director/LoginFlightDirectorPage.vue'
 import LogoutFlightDirectorPage from './pages/director/LogoutFlightDirectorPage.vue'
+import ConfigPage from '@/pages/ConfigPage.vue'
 
 export const routes = [
   { path: '/', component: HomePage },
   { path: '/login', component: LoginPage },
-  { path: '/register', component: RegistrationPage },
   {
     path: '/flight',
     children: [
@@ -43,5 +42,6 @@ export const routes = [
       { path: 'manage-models', component: PageNotFound },
     ],
   },
+  { path: '/config', component: ConfigPage },
   { path: '/:pathMatch(.*)*', component: PageNotFound },
 ]
