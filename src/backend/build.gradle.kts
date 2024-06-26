@@ -60,9 +60,9 @@ tasks {
         }
     }
 
-    register("installFrontend") {
+    val installFrontend by registering {
         group = "fullstack"
-        dependsOn(build)
+        dependsOn(project(":common-data").tasks.build)
         doLast {
             exec {
                 workingDir(projectDir.resolveSibling("frontend"))
@@ -81,15 +81,26 @@ tasks {
         }
     }
 
+    val ensureCommonData by registering {
+        group = "fullstack"
+        onlyIf {
+            !project(":common-data")
+                .layout.buildDirectory
+                .dir("dist/js/productionLibrary")
+                .get().asFile.exists()
+        }
+        dependsOn(installFrontend)
+    }
+
     register("packageFullstackApp") {
         group = "fullstack"
-        dependsOn(buildFrontend)
+        dependsOn(installFrontend, buildFrontend)
         finalizedBy(build, assembleDist)
     }
 
     register("runFullstackApp") {
         group = "fullstack"
-        dependsOn(buildFrontend)
+        dependsOn(ensureCommonData, buildFrontend)
         finalizedBy(build, run)
     }
 }
