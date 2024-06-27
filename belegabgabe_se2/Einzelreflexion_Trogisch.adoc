@@ -1,0 +1,22 @@
+= Einzelreflexion Lucas Trogisch – Projektmanagement - 
+
+== Aufbau und Entwicklung gemeinsamer Kommunikationswege im Team
+
+=== Einleitung
+Das Ziel dieser Reflexion ist es, meinen spezifischen Beitrag zum Projekt der Gruppe E09 zu analysieren. Dabei werde ich die Herausforderungen beschreiben, die Lösungswege darlegen und meine persönlichen Lernerfahrungen und Erkenntnisse reflektieren.
+
+=== Ausgangssituation
+Zu Beginn des Semesters wurden wir als Team der Gruppe E09 zusammengeführt. Es war unsere Aufgabe, ohne vorangegangene Kenntnisse im Projektmanagement oder in der Koordinierung von Projekten dieses Maßstabs und dieser Teamgröße, ein erfolgreiches Projekt zu realisieren. Im Management war es erforderlich, das Team als solches "an Bord" zu holen und eine Arbeits- und Entwicklungsumgebung zu schaffen.
+
+=== Lösungsweg
+Zuallererst war es notwendig, als Team zusammenzufinden und stabile Kommunikationswege zu etablieren. Dazu habe ich die Plattform Discord ausgewählt und einen Server allein für dieses Projekt erstellt. Discord wurde als Plattform ausgewählt, da sie sowohl das Veranstalten von virtuellen Meetings unterstützt als auch strukturierten schriftlichen Verkehr ermöglicht. Somit konnte die gesamte interne projektbezogene Kommunikation auf diese eine Plattform konsolidiert werden, mit dem Ziel, alle Informationen für alle Teammitglieder verfügbar, strukturiert und übersichtlich anzubieten, um Kommunikationsschwierigkeiten vorzubeugen. Für die Planung von Work Items wurde die GitHub Work Items List genutzt.
+
+Nachdem eine Kommunikationsplattform aufgebaut war, war es erforderlich, ein gemeinsames "Way of Working" zu etablieren. Als Grundlage diente hierzu die iterative Arbeitsweise gemäß dem OpenUP. Der genaue von mir erarbeitete Ablauf dieses Prozesses in seinem Design ist im Projektplan aus dem ersten Semester dokumentiert.
+
+=== Bewertung
+Die Konsolidierung der Kommunikation auf Discord erwies sich als sehr erfolgreich, da es teamintern selten zu Verständigungsschwierigkeiten kam und die Verfügbarkeit und Antwortzeiten von Teammitgliedern sich als außerordentlich gut erwiesen. Problematisch gestaltete sich dagegen die Verwaltung und Inklusion von Externen, da für den Lehrbetrieb Opal und für den Auftraggeber E-Mail für den Schriftverkehr und MS Teams für Meetings verwendet wurden.
+
+Diese letztendlich deutlich größere Anzahl an Plattformen führte naturgemäß zu einem längeren Antwortintervall auf sekundären Plattformen für die Kommunikation mit dem Auftraggeber. In Zukunft sollten auch hier möglichst wenige Kommunikationsplattformen genutzt werden. Darüber hinaus brachte die Kommunikation über Discord nicht nur Vorteile mit sich. Die angenehme Möglichkeit, virtuelle Meetings zu veranstalten, reduzierte den persönlichen Kontakt auf ein absolutes Minimum. In der Retrospektive ist festzustellen, dass für gegenseitiges Verständnis und Vertrauen eine regelmäßige direkte Kommunikation nur schwer zu ersetzen ist. Auch durchgeführte Teambuilding-Events können alltägliche Kommunikation in Person meiner Auffassung nach nicht ersetzen, da man sich immer noch eher fremd bleibt.
+
+=== Lernerfahrungen
+Zu meinen persönlichen Erkenntnissen gehört, dass Team und Kommunikation Schlüsselfaktoren für den Projekterfolg sind. Eine wichtige Verbesserung für zukünftige Projekte wäre, mehr persönliche Interaktionen zu fördern, um ein besseres Teamgefühl zu entwickeln und das gegenseitige Vertrauen zu stärken.
