@@ -24,10 +24,24 @@ CREATE UNIQUE INDEX flightDirector_onlyOneActive_idx
 -- Queries --
 
 getFlightDirectors:
-SELECT flightDirector.*, account.username FROM flightDirector
+SELECT
+  flightDirector.*,
+  account.username,
+  account.first_name, account.last_name
+FROM flightDirector
 JOIN account ON flightDirector.account_id = account.account_id
 ORDER BY date DESC, start_time DESC
 LIMIT :limit;
+
+getFlightDirectorsOnDate:
+SELECT
+  flightDirector.*,
+  account.username,
+  account.first_name, account.last_name
+FROM flightDirector
+JOIN account ON flightDirector.account_id = account.account_id
+WHERE date = ?
+ORDER BY start_time DESC;
 
 getCurrentFlightDirector:
 SELECT account.* FROM flightDirector

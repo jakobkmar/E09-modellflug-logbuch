@@ -17,7 +17,7 @@ function logout() {
   <div class="flex-center">
     <div class="top-bar card mb-2">
       <RouterLink to="/">Startseite</RouterLink>
-      <RouterLink to="/protocol/list">Protokollierung</RouterLink>
+      <RouterLink to="/protocol">Protokollierung</RouterLink>
       <div style="width: 100%"></div>
       <div v-if="sessionStore.loginSession != null" class="logout-link" @click="logout">Logout</div>
     </div>

@@ -7,8 +7,9 @@ import kotlin.js.JsExport
 
 @Serializable
 @JsExport
-class FlightDirectorResponse(
+class FlightDirectorData(
     val username: String,
+    val fullName: String,
     @Suppress("NON_EXPORTABLE_TYPE")
     val date: LocalDate,
     @Suppress("NON_EXPORTABLE_TYPE")

@@ -1,17 +1,19 @@
-import HomePage from './pages/HomePage.vue'
-import CreateProtocolPage from './pages/protocol/CreateProtocolPage.vue'
-import ListProtocolsPage from './pages/protocol/ListProtocolsPage.vue'
-import CompleteProtocolPage from './pages/protocol/CompleteProtocolPage.vue'
-import LoginPage from './pages/LoginPage.vue'
-import ManageUsersPage from './pages/admin/ManageUsersPage.vue'
+import HomePage from '@/pages/HomePage.vue'
+import CreateProtocolPage from '@/pages/flight/CreateFlightPage.vue'
+import ListProtocolsPage from '@/pages/flight/ListTodayFlightsPage.vue'
+import CompleteProtocolPage from '@/pages/flight/CompleteFlightPage.vue'
+import LoginPage from '@/pages/LoginPage.vue'
+import ManageUsersPage from '@/pages/admin/ManageUsersPage.vue'
 import PageNotFound from '@/pages/PageNotFound.vue'
-import CreateUserPage from './pages/admin/CreateUserPage.vue'
-import ListOwnFlightsPage from '@/pages/protocol/ListOwnFlightsPage.vue'
+import CreateUserPage from '@/pages/admin/CreateUserPage.vue'
+import ListOwnFlightsPage from '@/pages/flight/ListOwnFlightsPage.vue'
 import FlightDirectorHistoryPage from '@/pages/director/FlightDirectorHistoryPage.vue'
-import ShowFlightDirectorPage from './pages/director/ShowFlightDirectorPage.vue'
+import ShowFlightDirectorPage from '@/pages/director/ShowFlightDirectorPage.vue'
 import LoginFlightDirectorPage from '@/pages/director/LoginFlightDirectorPage.vue'
-import LogoutFlightDirectorPage from './pages/director/LogoutFlightDirectorPage.vue'
+import LogoutFlightDirectorPage from '@/pages/director/LogoutFlightDirectorPage.vue'
 import ConfigPage from '@/pages/ConfigPage.vue'
+import CreateDayProtocol from '@/pages/protocol/CreateDayProtocol.vue'
+import ShowDateProtocol from '@/pages/protocol/ShowDateProtocol.vue'
 
 export const routes = [
   { path: '/', component: HomePage },
@@ -32,6 +34,13 @@ export const routes = [
       { path: 'logout', component: LogoutFlightDirectorPage },
       { path: 'current', component: ShowFlightDirectorPage },
       { path: 'history', component: FlightDirectorHistoryPage },
+    ],
+  },
+  {
+    path: '/protocol',
+    children: [
+      { path: '', component: CreateDayProtocol },
+      { path: 'day/:date', component: ShowDateProtocol, props: true },
     ],
   },
   {

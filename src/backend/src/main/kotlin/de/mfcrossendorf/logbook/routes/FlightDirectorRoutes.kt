@@ -2,7 +2,7 @@ package de.mfcrossendorf.logbook.routes
 
 import de.mfcrossendorf.logbook.CurrentFlightDirectorResponse
 import de.mfcrossendorf.logbook.FlightDirectorFilterRequest
-import de.mfcrossendorf.logbook.FlightDirectorResponse
+import de.mfcrossendorf.logbook.FlightDirectorData
 import de.mfcrossendorf.logbook.database.awaitList
 import de.mfcrossendorf.logbook.database.awaitSingleOrNull
 import de.mfcrossendorf.logbook.database.database
@@ -95,8 +95,9 @@ fun Route.flightDirectorRoutes() = route("/flightdirector") {
                     .getFlightDirectors(limit = filterRequest.limit.toLong())
                     .awaitList()
                     .map { dbDirector ->
-                        FlightDirectorResponse(
+                        FlightDirectorData(
                             username = dbDirector.username,
+                            fullName = "${dbDirector.first_name} ${dbDirector.last_name.orEmpty()}".trim(),
                             date = dbDirector.date.toKotlinLocalDate(),
                             startTime = dbDirector.start_time.toKotlinLocalTime(),
                             endTime = dbDirector.end_time?.toKotlinLocalTime(),

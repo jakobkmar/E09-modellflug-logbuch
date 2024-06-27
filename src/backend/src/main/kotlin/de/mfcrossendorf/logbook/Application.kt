@@ -4,10 +4,7 @@ import de.mfcrossendorf.logbook.config.ConfigManager
 import de.mfcrossendorf.logbook.database.database
 import de.mfcrossendorf.logbook.database.driver
 import de.mfcrossendorf.logbook.db.Database
-import de.mfcrossendorf.logbook.routes.accountRoutes
-import de.mfcrossendorf.logbook.routes.appStateRoutes
-import de.mfcrossendorf.logbook.routes.flightDirectorRoutes
-import de.mfcrossendorf.logbook.routes.flightLogRoutes
+import de.mfcrossendorf.logbook.routes.*
 import de.mfcrossendorf.logbook.session.configureSessionAuth
 import de.mfcrossendorf.logbook.session.configureSessionCookie
 import de.mfcrossendorf.logbook.session.sessionAuthExceptionHandler
@@ -95,6 +92,7 @@ fun main() {
                 flightDirectorRoutes()
                 flightLogRoutes()
                 appStateRoutes()
+                protocolRoutes()
             }
             singlePageApplication {
                 useResources = true
