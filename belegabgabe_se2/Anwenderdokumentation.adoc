@@ -115,7 +115,7 @@ image::images/benutzerErstellen.PNG[Formular der Benutzererstellung]
 
 Bereits bestehende Nutzer können zudem bearbeitet oder gelöscht werden.
 
-= FAQ
+# FAQ
 
 ### Wie kann ich mich registrieren?
 Ein Admin muss einen Account für Sie erstellen. Sobald er Ihnen Ihre Anmeldedaten gegeben hat, können Sie sich anmelden.
@@ -129,3 +129,5 @@ Wenn Sie die Berechtigung "Protokolleur" oder "Administrator" besitzen, können 
 ### Wie kann ich einen neuen Nutzer erstellen?
 Wenn Sie die Berechtigung "Administrator" besitzen, können Sie im Hauptmenü weiter unten über die Schaltfläche "Nutzerverwaltung" die Nutzerverwaltung aufrufen. Durch Betätigen der Schaltfläche "+ Neuer Nutzer" wird eine Formularansicht geöffnet, über die Sie einen neuen Nutzer erstellen können.
 
+### Wie kann ich mein Passwort ändern?
+Wenn Sie Ihr Passwort ändern möchten, wenden Sie sich bitte an einen Administrator oder eine sonstige zuständige Person. Diese setzt Ihr Passwort zurück und Sie können sich mit einem neuen Passwort anmelden.
