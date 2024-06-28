@@ -1,0 +1,19 @@
+= Einzelreflexionen des Teams Mobiles Logbuch für Modellflugplatz (E09)
+
+<<<
+include::reflexion_abdallah_alherani.adoc[]
+
+<<<
+include::reflexion_conrad_caffier.adoc[]
+
+<<<
+include::reflexion_jakob_kretzschmar.adoc[]
+
+<<<
+include::reflexion_julian_neidert.adoc[]
+
+<<<
+include::reflexion_laurin_wobeda.adoc[]
+
+<<<
+include::reflexion_lucas_trogisch.adoc[]
