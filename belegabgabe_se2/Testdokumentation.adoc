@@ -39,11 +39,16 @@
 - **Testablauf**: Der Administrator gibt Daten ein und sendet das Formular.
 - **Erwartetes Ergebnis**: Das System erstellt das Konto und zeigt eine Erfolgsmeldung.
 
+==== *Ergebnis* link:https://github.com/jakobkmar/E09-modellflug-logbuch/blob/main/docs/test/TestCase1_TC01.adoc[(->)]:
+
+
 === TC02 - Dynamische Flugleiterzuweisung und -verwaltung
 - **Vorbedingungen**: Piloten sind aktiv auf dem Flugplatz
 - **Testdaten**: Fehlerender Flugleiter/Zuweisung Flugleiter
 - **Testablauf**: Das System weißt einen Flugleiter zu.
 - **Erwartetes Ergebnis**: Flugleiter sollte korrekt zugewiesen sein.
+
+==== *Ergebnis* link:https://github.com/jakobkmar/E09-modellflug-logbuch/blob/main/docs/test/TestCase02_TC02.adoc[(->)]:
 
 === TC03 - Anmeldung eines Piloten
 - **Vorbedingungen**: Existenz eines gültigen Pilotenkontos.
@@ -51,11 +56,15 @@
 - **Testablauf**: Der Pilot gibt seine Anmeldedaten ein und bestätigt.
 - **Erwartetes Ergebnis**: Der Pilot wird erfolgreich angemeldet und erhält Zugriff auf das Dashboard.
 
+==== *Ergebnis* link:https://github.com/jakobkmar/E09-modellflug-logbuch/blob/main/docs/test/TestCase03_TC03.adoc[(->)]:
+
 === TC04 - Protkollsuche
 - **Vorbedingungen**: Bereits Protokolle erstellt
 - **Testdaten**: korrekte Suche der Protkolle nach Kriterien
 - **Testablauf**: Der Nutzer gibt verschiedene Kriterien an, nach denen die Protokolle gefiltert und gesucht werden.
 - **Erwartetes Ergebnis**: Das System gibt die korrekten Protkolle zur Suchabfrage aus.
+
+==== *Ergebnis* link:https://github.com/jakobkmar/E09-modellflug-logbuch/blob/main/docs/test/TestCase04_TC04.adoc[(->)]:
 
 === TC05 - Protokollerstellung durch Piloten
 - **Vorbedingungen**: Der Pilot ist eingeloggt und auf der Seite zur Protokollerstellung.
@@ -63,9 +72,13 @@
 - **Testablauf**: Der Pilot füllt das Protokollformular aus und sendet es ab.
 - **Erwartetes Ergebnis**: Das Protokoll wird erfolgreich gespeichert und bestätigt.
 
+==== *Ergebnis* link:https://github.com/jakobkmar/E09-modellflug-logbuch/blob/main/docs/test/TeseCase05_TC05.adoc[(->)]:
+
 === TC06 - Abbruch der Protokollerstellung
 - **Vorbedingungen**: Pilot beginnt mit der Erstellung eines Protokolls.
 - **Testablauf**: Der Pilot bricht den Erstellungsprozess ab.
 - **Erwartetes Ergebnis**: Das System speichert keine Daten, und der Pilot wird informiert.
+
+==== *Ergebnis* link:https://github.com/jakobkmar/E09-modellflug-logbuch/blob/main/docs/test/TestCase06_TC06.adoc[(->)]:
 
 
