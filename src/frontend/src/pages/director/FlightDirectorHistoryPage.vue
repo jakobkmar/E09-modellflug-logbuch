@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { backendRequest } from '@/networking'
-import { FlightDirectorFilterRequest, FlightDirectorResponse } from 'modellflug-logbuch-common-data'
+import { FlightDirectorFilterRequest, FlightDirectorData } from 'modellflug-logbuch-common-data'
 
-const flightDirectors = ref<FlightDirectorResponse[] | null | undefined>(null)
+const flightDirectors = ref<FlightDirectorData[] | null | undefined>(null)
 const requestLimit = 1000
 
 async function loadFlightDirectors() {
@@ -25,7 +25,7 @@ async function loadFlightDirectors() {
     return
   }
 
-  flightDirectors.value = (await response.json()) as FlightDirectorResponse[]
+  flightDirectors.value = (await response.json()) as FlightDirectorData[]
 }
 
 loadFlightDirectors()
