@@ -42,6 +42,9 @@ fun VersionCatalogBuilder.libs() {
     library(
         "ktor.server.websockets",
         "io.ktor:ktor-server-websockets:$ktorVersion")
+    library(
+        "ktor.server.test",
+        "io.ktor:ktor-server-test-host:$ktorVersion")
 
     val ktomlVersion = "0.5.1"
     library(

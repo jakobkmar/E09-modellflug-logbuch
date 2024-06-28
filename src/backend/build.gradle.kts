@@ -30,6 +30,7 @@ dependencies {
     implementation(libs.ktor.server.cors)
     implementation(libs.ktor.server.statusPages)
     implementation(libs.ktor.server.websockets)
+    testImplementation(libs.ktor.server.test)
 
     implementation(libs.ktoml.core)
 
