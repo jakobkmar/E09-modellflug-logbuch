@@ -22,7 +22,7 @@
 
 | 3
 | Positiv, manuell
-| System unterstützt das Hochladen von Begleitdokumenten zum Protokoll. Der Pilot ist angemeldet und hat Zugriff auf das Formular zur Protokollerstellung.
+| System unterstützt das Hochladen von Zusatzdaten zum Protokoll. Der Pilot ist angemeldet und hat Zugriff auf das Formular zur Protokollerstellung.
 | Der Pilot hängt zusätzliche Dokumente wie Wetterberichte oder Flugpläne an das Protokoll an.
 | System verarbeitet und speichert die Anhänge korrekt mit dem Protokoll, zeigt eine visuelle Bestätigung.
 
@@ -73,7 +73,7 @@
 | Nachgebessert
 | Erfolgreich
 
-| Eingabe aller nötigen Informationen und Anhang von Zusatzdokumenten
+| Eingabe aller nötigen Informationen und Anhang von Zusatzdaten
 | Erfolgreich
 | /
 | Erfolgreich
