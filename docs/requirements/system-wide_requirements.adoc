@@ -46,16 +46,10 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 * *NFAU-1:* Im Hauptmenü sollten alle möglichen Aktionen auf einen Blick übersehbar sein
 ** Zur Überprüfung wird das fertige Hauptmenü in einer realistischen Umgebung aufgerufen und untersucht, ob alle Aktionen auf einen Blick erfassbar sind.
 
-* *NFAU-2:* Der Text muss auf einem Smartphone auf bequemer Armlängenentfernung lesbar sein
+* *NFAU-2:* Texte müss auf einem Smartphone auf bequemer Armlängenentfernung lesbar und Funktionen benutzbar sein
 ** Zur Überprüfung wird ein Testnutzer einige Anwendungsfälle auf seinem Smartphone auf Armlänge gehalten durchführen.
 
-* *NFAU-3:* Die Buttons müssen für Touchscreens angepasst sein und einfach benutzbar sein
-** Zur Überprüfung wird ein Testnutzer alle Buttons einmal auf einem Smartphone mit Touchscreen benutzen und über die Angepasstheit Bericht erstatten.
-
-* *NFAU-4:* Die Protokollerstellung sollte übersichtlich gestaltet sein
-** Zur Überprüfung wird die fertige Protokollerstellung in einer realistischen Umgebung aufgerufen und untersucht, ob die Protokollerstellung übersichtlich gestaltet ist.
-
-* *NFAU-5:* Die Benutzung des Systems sollte selbst für technische Laien verständlich sein
+* *NFAU-3:* Die Benutzung des Systems sollte selbst für technische Laien verständlich sein
 ** Zur Überprüfung wird ein Testnutzer, der nicht gewohnt ist mit technischen Geräten umzugehen, einige Anwendungsfälle in dem System durchführen, ohne dabei Anwendungshilfe zu erhalten.
 
 * *NFAU-6:* Der Benutzer sollte nach Öffnen der Anwendung mit 2 Klicks bereits ein Protokoll erstellen können
@@ -79,18 +73,14 @@ NOTE: Die funktionalen Anforderungen, die sich aus der Interaktion von Nutzern m
 // tag::nfap2[]
 * *NFAP-2:* Seitenwechsel in der Anwendung müssen schnell erfolgen, sodass kein gravierender Unterschied zu einer nativen Mobile-App feststellbar ist
 // end::nfap2[]
-** Zur Überprüfung können ganz schnell die Seiten gewechselt werden und gleichzeitig der Progress-Indicator des Browsers beobachtet werden
+** Zur Überprüfung könnten ganz schnell die Seiten gewechselt werden und gleichzeitig der Progress-Indicator des Browsers beobachtet werden
 
 === Wartbarkeit (Supportability)
 // Dieser Bereich beschreibt sämtliche Anforderungen welche die Supportfähigkeit oder Wartbarkeit des zu entwickelnden Systems verbessern, einschließlich Anpassungsfähigkeit und Erweiterbarkeit, Kompatibilität, Skalierbarkeit und Anforderungen bezüglich der System Installation sowie Maß an Support und Wartbarkeit.
 
 // tag::nfas1[]
-* *NFAS-1:* Das System sollte in der Lage sein, neue Sprachen zu integrieren
+* *NFAS-1:* Das System sollte mit wenig Zeitaufwand administrierbar sein
 // end::nfas1[]
-** Zur Überprüfung werden alle Anzeigetexte zu einer anderen Sprache übersetzt.
-// tag::nfas2[]
-* *NFAS-2:* Das System sollte mit wenig Zeitaufwand administrierbar sein
-// end::nfas2[]
 ** Zur Überprüfung wird eine Wartungssitzung simuliert und überprüft, dass der Zeitaufwand für diese im Rahmen bleibt. (2h-4h pro Saison?)
 
 

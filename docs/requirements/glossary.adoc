@@ -23,33 +23,37 @@ include::../_includes/default-attributes.inc.adoc[]
 
 == Begriffe
 [%header]
-[cols="1,3,1"]
+[cols="1,4,1"]
 |===
 |Begriff|	Definition und Erläuterung|	Synonyme
 
 |Vereinsmitglied
 |ein Mitglied des Vereins, welches ein Pilot und/oder Admin sein kann
-|Mitglied
+|Mitglied, Vereinsangehöriger
 
 |Pilot
 |ein Mitglied, welches den Flugplatz nutzt und Modellflugzeuge führen darf, er kann Veränderungen an seinem Profil vornehmen, jedoch nicht am Gesamtsystem.
-|Fernpilot, Steuerer
+|Fernpilot, Steuerer, Flugzeugführer, Flugmodellführer, Flugzeugpilot, Modellflugpilot
 
 |Administrator
-|ein Pilot, welcher spezielle Zugriffsrechte auf die Verwaltung des Systems hat
-|Admin
+|eine Person, welche Zugang zu einem Admin-Account hat, welcher spezielle Zugriffsrechte auf die Verwaltung gibt; für Deployment und Betrieb der Software zuständig
+|Admin, Systemadministrator, Systembetreuer
 
+|Protokolleur
+| normaler Nutzer, der alle Protokolle von allen Nutzern einsehen kann und Tagesprotokolle erstellen kann.
+|Protokollführer, Protokollant, Protokollschreiber
 
 |Flugleiter
 a|
-* muss genau 1 mal existieren solange der Flugplatz in Bertieb ist
-* wird mit dem Zugang zum Flugplatz bestimmmt
+* ab 8 aktiven Piloten auf dem Flugplatz ist ein Flugleiter Pflicht
+* ab 3 aktiven Piloten ist ein Flugleiter stark empfohlen
+* wird unter Absprache der aktivenPiloten bestimmt und über die App protokolliert
 * übernimmt die Verantwortung für die Flüge auf dem Platz, fliegt jedoch selbst nicht
-|Startleiter
+|Startleiter, Flugplatzleiter, Flugplatzwart, Flugplatzverantwortlicher
 
 |Besucher
 |eine Person, die kein Vereinsmitglied ist und kein Flugzeug fliegt
-|-
+|Zuschauer
 
 |Gast
 |eine Person, welche kein Vereinsmitglied ist, aber den Flugplatz nutzt
@@ -57,7 +61,7 @@ a|
 
 |Flug
 |die Tätigkeit des Fliegens der Modellflugzeuge auf dem Flugplatz
-|-
+|Flugaktivität, Flugvorgang
 
 |Modellflug
 | bezeichnet den Umgang mit Flugmodellen in seiner Gesamtheit und all seinen Belangen
@@ -104,6 +108,10 @@ a|
 *   Vermerke über besondere Vorkommnisse
 |-
 
+|Protokoll
+|beschreibt das Formular, welches ein Nutzer mit der Software anlegen kann, um seinen Flug zu dokumentieren
+|Flugeintrag
+
 |Gesetzgeber
 |ein Stakeholder, der die Betreiber des Vereins dazu verpflichtet ein Flugbuch über die Aktivitäten auf dem Flugplatz zu führen 
 |-
@@ -144,21 +152,22 @@ a|
 | Bezeichnung | Definition | Format | Gültigkeitsregeln | Aliase
 
 | Anmeldedaten
-| Zusammensetzung von Benutzername und Passwort.
+| Zusammensetzung von Nutzername und Passwort.
 | String
-| Emailadresse muss `@`-Zeichen und `.` Punkt enthalten.
+a|
+    * Nutzername darf keinen Whitespace enthalten, muss mindestens 3 Zeichen lang sein
+    * Passwort darf keinen Whitespace enthalten
 | Login
 
-|Protokolldaten
-|Einträge in ein Flugprotokoll
-|mehrere: Date, Boolean, String
+|Flightlog
+|Eintrag eines Fluges mit spezifischen Zeitangaben und zusätzlichen Informationen
+|siehe link:https://github.com/jakobkmar/E09-modellflug-logbuch/blob/main/src/backend/src/main/sqldelight/de/mfcrossendorf/flight.sq[Datenbankschema]
 |nur angemeldete Piloten und Flugleiter können ein Protokoll erstellen
-|Protokoll
+|Flugeintrag
 
-|Pilotendaten
-|Vorname, Nachname, Pilot-ID
-|String, Integer
-|gleiche Piloten-ID darf nicht vergeben werden
-|-
-
+|Accountdaten
+|Alle relevanten Daten zur Identifizierung von Nutzern und Verwaltung derer Berechtigungen
+|siehe link:https://github.com/jakobkmar/E09-modellflug-logbuch/blob/main/src/backend/src/main/sqldelight/de/mfcrossendorf/account.sq[Datenbankschema]
+|gleiche Registrierungsnummer darf nicht vergeben werden
+|Nutzerdaten
 |===

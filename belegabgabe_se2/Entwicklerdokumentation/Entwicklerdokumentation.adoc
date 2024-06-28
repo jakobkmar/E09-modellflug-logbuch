@@ -16,6 +16,8 @@ include::{docs}/_includes/default-attributes.inc.adoc[]
 
 include::{docs}/architecture/architecture_notebook.adoc[leveloffset=2]
 
+<<<
+
 include::{docs}/development/design.adoc[leveloffset=2]
 
 == Softwaredokumentation
@@ -37,4 +39,5 @@ Die Dokumentation wurde mit link:https://github.com/Kotlin/dokka[Dokka] generier
 
 Dies sieht dann wie folgt aus:
 
+:imagesdir: images
 image::software_doku_vorschau.png[]
