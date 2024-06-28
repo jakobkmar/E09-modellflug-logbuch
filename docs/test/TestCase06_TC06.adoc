@@ -30,7 +30,7 @@
 | Negativ, manuell
 | Protokollerstellung wird gestartet, jedoch mit unzureichenden oder inkorrekten Daten.
 | Pilot entscheidet sich während der Dateneingabe, den Vorgang zu stoppen.
-| Das System reagiert auf den Abbruch, indem es keine Daten speichert und den Benutzer auf die Hauptseite zurückführt.
+| Das System reagiert und zeigt eine Warnung an, welche Daten inkorrekt sind. Es wird kein Protokoll gespeichert.
 |===
 
 === TestCases Durchführung
