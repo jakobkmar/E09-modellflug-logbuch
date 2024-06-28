@@ -11,6 +11,7 @@
 . Flugeinträge einsehen
 . Aktive Piloten einsehen
 . Flugleiter
+. Tagesprotokoll anlegen
 . Nutzerverwaltung in der Webapp
 
 Zuständige Personen:
@@ -79,14 +80,39 @@ image::images/aktuellerFlugleiter.PNG[Ansicht des aktuellen Flugleiters]
 
 image::images/flugleiterHistorie.PNG[Ansicht der Flugleiterhistorie]
 
+## 7. Tagesprotokoll anlegen
+Über die Verlinkung Protokollierung am oberen Ende des Hauptmenüs kann ein Benutzer mit mindestens der Berechtigung "Protokolleur" ein Tagesprotokoll aus den Flugeinträgen eines Tages erstellen lassen. Er kann einen beliebigen Tag in der Vergangenheit auswählen.
+
+image::images/tagesProtokoll1.PNG[Erstellung des Tagesprotokolls]
+
+Nach Betätigen der Schaltfläche "Tagesprotokoll anfragen", werden die Flugeinträge zusammengefasst und ein Tagesprotokoll erstellt. Dieses wird dann in der Druckansicht geöffnet. Man kann es sowohl ausdrucken lassen, als auch als PDF speichern.
+
+image::images/tagesProtokoll2.PNG[Druckausgabe des Tagesprotokolls]
+
+
 [%always]
 <<<
 
-## 7. Nutzerverwaltung in der Webapp
+## 8. Nutzerverwaltung in der Webapp
 Nutzern mit Adminrechten ist es möglich innerhalb der Webapp die Nutzerverwaltung durchzuführen. Sie kann über die Schaltfläche "Nutzerverwaltung" aufgerufen werden.
-Hier können nun neue Nutzer erstellt werden oder bereits bestehende Nutzer bearbeitet oder gelöscht werden.
 
 image::images/Nutzerverwaltung1.PNG[Schaltfläche für Nutzerverwaltung]
+
+Hier können über die Schaltfläche "+ Neuer Nutzer" ein neuer Nutzer erstellt werden.
+
 image::images/Nutzerverwaltung2.PNG[Ansicht der Nutzerverwaltung]
+
+Es öffnet sich eine Formularansicht und es können folgende Daten eingegeben werden:
+Nutzernamen, Passwort, Vorname. Nachname, Vereinsnummer und Berechtigungsrolle.
+
+Wenn das Passwort nicht eingegeben wird, dann wird das erste Passwort, dass der Benutzer beim Anmelden verwendet als Passwort gesetzt.
+
+Wird keine Berechtigungsrolle ausgewählt, dann wird die Rolle "Regulär" gesetzt. Ansonsten sind die Berechtigungsrollen "Administrator" und "alle Protokolle sehen", also "Protokolleur", auswählbar.
+Protokolleure haben die gleichen Berechtigungen wie Regulär, können aber zusätzlich Tagesprotokolle erstellen und alle Flugeinträge einsehen.
+Administratoren haben alle Berechtigungen wie Regulär und Protokolleur, können aber zusätzlich Nutzer erstellen, bearbeiten und löschen.
+
+image::images/benutzerErstellen.PNG[Formular der Benutzererstellung]
+
+Bereits bestehende Nutzer können zudem bearbeitet oder gelöscht werden.
 
 
