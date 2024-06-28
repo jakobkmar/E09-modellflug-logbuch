@@ -1,0 +1,22 @@
+@startuml component_diagramm
+
+node "Proxmox Server" {
+    package "LXC Container" {
+        readsWrites -u- [Database]
+        communicates -u- [Backend]
+    }
+}
+
+node "Smartphone" {
+    [Frontend]
+}
+
+requestsData -l- [WeatherStation]
+
+
+Backend .l. requestsData
+Backend .u. readsWrites
+"Public API" -r- Backend
+Frontend .u. communicates
+SQLServerManagement -r- Database
+@enduml
