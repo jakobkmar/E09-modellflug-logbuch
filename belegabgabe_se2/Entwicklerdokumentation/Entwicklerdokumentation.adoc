@@ -14,11 +14,11 @@ include::{docs}/_includes/default-attributes.inc.adoc[]
 
 == Entwurfsdokumentation
 
-include::{docs}/architecture/architecture_notebook.adoc[leveloffset=2]
+include::{docs}/architecture/architecture_notebook.adoc[leveloffset=+2]
 
 <<<
 
-include::{docs}/development/design.adoc[leveloffset=2]
+include::{docs}/development/design.adoc[leveloffset=+2]
 
 == Softwaredokumentation
 

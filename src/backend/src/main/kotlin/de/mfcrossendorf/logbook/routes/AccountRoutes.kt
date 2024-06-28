@@ -18,14 +18,17 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 
 fun Route.accountRoutes() = route("/account") {
+    // Login call for non-authenticated users
     post("/login") {
         handleLoginCall()
     }
+    // Logout call for any users
     post("/logout") {
         handleLogoutCall()
     }
 
     authenticate("auth-session") {
+        // Get all accounts, only for admins
         get("/all") {
             call.adminSessionOrThrow()
             val accounts = database.accountQueries.getAllAccounts()
@@ -44,6 +47,7 @@ fun Route.accountRoutes() = route("/account") {
             call.respond(HttpStatusCode.OK, accounts)
         }
 
+        // Create a new account, only for admins
         post("/create") {
             call.adminSessionOrThrow()
             val createRequest = call.receive<CreateAccountRequest>()

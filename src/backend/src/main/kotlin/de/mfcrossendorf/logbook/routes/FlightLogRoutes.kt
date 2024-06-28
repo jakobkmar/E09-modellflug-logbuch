@@ -147,6 +147,7 @@ fun Route.flightLogRoutes() = route("/flightlog") {
 
         route("/completed") {
             route("/allUsers") {
+                // Fetch all completed flight logs by all users for today
                 get("/today") {
                     call.sessionOrThrow()
 
@@ -175,6 +176,7 @@ fun Route.flightLogRoutes() = route("/flightlog") {
             }
         }
 
+        // Fetch the count of all flight logs by the logged-in user
         get("/count") {
             val session = call.sessionOrThrow()
 

@@ -55,6 +55,28 @@ Aus dem Entwurf der Architektur wurde sich nun final auf die folgenden Technolog
 
 Die Rest-API wird über Ktor bereitgestellt. Die Routen werden deklarativ definiert, ausgehend von der `routing` Funktion in `Application.kt`, von welcher sofort mittels Extension-Functions in einen separaten Scope in einer anderen Datei gewechselt wird.
 
+Diese API haben wir mittels einer OpenAPI Spezifikation definiert. Dadurch ist der genaue Aufbau jederzeit allen Teammitgliedern klar, und die Schemata der Requests und Responses sind immer klar.
+
+==== Swagger
+
+Diese Spezifikation kann auch in Swagger UI geladen werden, um eine interaktive Dokumentation zu erhalten. Dies geht sowohl lokal auf dem eigenen Rechner, als auch durch das Backend selbst, welches die Spezifikation unter `/api` bereitstellt.
+
+.Übersicht aller Routen in Swagger
+:imagedir: {docs-development}/images
+image::swagger_overview.png[]
+
+In Swagger können dann die spezifischen Routen aufgeklappt werden, um genauere Informationen zu erhalten:
+
+.Übersicht aller Routen in Swagger
+:imagedir: {docs-development}/images
+image::swagger_create_flightlog.png[]
+
+==== Genaue Spezifikation
+
+Die genaue Spezifikation ist unter https://jakobkmar.github.io/E09-modellflug-logbuch/swagger zu finden, und wird zusammen mit der Softwaredokumentation auf GitHub Pages gehosted.
+
+<<<
+
 == Komponenten und Struktur
 
 === Aufbau des Backends

@@ -27,6 +27,7 @@ fun Route.appStateRoutes() = route("/appstate") {
             }
         }
 
+        // WebSocket for live application state updates
         webSocket("/live") {
             appStateFlow.emit(requestAppState())
             appStateFlow.collect { sendSerialized(it) }
