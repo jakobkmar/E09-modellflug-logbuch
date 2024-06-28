@@ -16,6 +16,8 @@ include::{docs}/_includes/default-attributes.inc.adoc[]
 
 include::{docs}/architecture/architecture_notebook.adoc[leveloffset=2]
 
+include::{docs}/development/design.adoc[leveloffset=2]
+
 == Softwaredokumentation
 
 Die Softwaredokumentation ist in HTML Form mit GitHub Pages zur Verfügung gestellt:

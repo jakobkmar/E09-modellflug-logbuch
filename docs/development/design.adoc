@@ -1,12 +1,20 @@
-= Design: {project-name}
-Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
-{localdatetime}
-include::../_includes/default-attributes.inc.adoc[]
-// Platzhalter für weitere Dokumenten-Attribute
+= Design
 
+ifndef::docs-requirements[:docs-requirements: ../requirements]
+ifndef::docs-development[:docs-development: ../development]
 
-== Allgemeine Informationen
+Dieses Dokument beschreibt den Feinentwurf von Komponenten, also Schnittstellen, Paketen, Klassen usw.
 
-Beim Design  geht es um den Feinentwurf von Komponenten, also Schnittstellen, Paketen, Klassen usw.
+== Diagramm
 
-Die Ausarbeitung dieser steht für Anfang nächstes Semester an.
+Das ER-Diagramm zeigt die Beziehungen zwischen den Entitäten des Systems. Jede Entität ist eine Tabelle in der Datenbank.
+
+[plantuml, "diagrams/er_diagram", svg]
+....
+include::resources/er_diagram.puml[]
+....
+
+Hier noch eine alternative Ansicht aus IntelliJ:
+
+:imagesdir: {docs-development}/images
+image::er_diagram_intellij.png[]

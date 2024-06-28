@@ -1,0 +1,55 @@
+@startuml
+
+entity account {
+    account_id: INT
+    username: VARCHAR(32)
+    first_name: TEXT
+    last_name: TEXT
+    registration_number: TEXT
+    password_hash: TEXT
+    is_admin: BOOLEAN
+    can_see_all_logs: BOOLEAN
+}
+
+entity flight {
+    flight_id: INT
+    account_id: INT
+    date: DATE
+    flight_start: TIME
+    flight_end: TIME
+    checked_first_aid: BOOLEAN
+    remarks: TEXT
+    model_type: TEXT
+    model: INT
+    signature: BYTEA
+}
+
+entity flightDirector {
+    director_id: INT
+    account_id: INT
+    active: BOOLEAN
+    date: DATE
+    start_time: TIME
+    end_time: TIME
+}
+
+entity model {
+    model_id: INT
+    description: TEXT
+    classification: TEXT
+    owner_id: INT
+}
+
+entity session {
+    id: TEXT
+    data: JSON
+    created_at: TIMESTAMP
+}
+
+
+model ||--o{ flight : "uses"
+account ||--o{ flight : "has"
+account ||--o{ flightDirector : "has"
+account ||--o{ model : "owns"
+
+@enduml
