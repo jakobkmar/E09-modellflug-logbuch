@@ -4,6 +4,7 @@ plugins {
     id("app.cash.sqldelight") version "2.0.2"
     idea
     application
+    id("org.jetbrains.dokka") version "1.9.20"
 }
 
 allprojects {
@@ -13,6 +14,10 @@ allprojects {
     repositories {
         mavenCentral()
     }
+}
+
+subprojects {
+    apply(plugin = "org.jetbrains.dokka")
 }
 
 dependencies {
