@@ -24,6 +24,24 @@ Smartphone der Piloten"*.
 <img src="docs/architecture/images/draft_informal.png" width="100%"
      alt="Architecture Diagram">
 
+## Aufbau des Repositories
+
+```tree
+.
+├── belegabgabe_se1
+├── belegabgabe_se2
+├── docs
+│   ├── architecture
+│   ├── development
+│   ├── deployment
+│   ├── requirements
+│   ├── project_management
+│   └── test
+└── src
+    ├── backend
+    └── frontend
+```
+
 ## Lizenz
 
 This repository is licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). Individual subdirectories may be subject to other free licenses.
