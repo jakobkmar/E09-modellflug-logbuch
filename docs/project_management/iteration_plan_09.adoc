@@ -18,12 +18,13 @@ include::../_includes/default-attributes.inc.adoc[]
 
 
 == Wesentliche Ziele
+//Nennen Sie 1-5 wesentliche Ziele für die Iteration.
 
-* Erstellung der User Creattion Page im Frontend, verknüpfung dieser mit dem Backend
-* Einrichten von externer Datenbank
-* Erstellung eines Sequenz-/Zustandsdiagramms für die Flugleiterthematik
-* Erweiterung des Projektberichts um Themen des 2. Semesters
-* Teilnahme am Fachaustausch Entwurf
+* externe Datenbank einrichten
+* SQL Request ausarbeiten
+* User Creation Page, sowie zugehöriges Protokoll erstellen und mit Backend verbinden
+* Einzelreflexionen beginnen
+* Sequenz-/Zustandsdiagramme für Flugleiterthematik erstellen
 
 
 == Aufgabenzuordnung
@@ -31,12 +32,16 @@ include::../_includes/default-attributes.inc.adoc[]
 
 Die in dieser Iteration geplanten Aufgaben sind in der Work Items List dargestellt:
 
-siehe *https://github.com/users/jakobkmar/projects/2/views/3?filterQuery=iteration%3A%22Iteration+2%22[Work Item List - Iteration 9]*
+https://github.com/users/jakobkmar/projects/2/views/3?filterQuery=iteration%3A%22Iteration+9%22[Work Item List - Iteration 9]
 
 _alternativ:_ Die folgenden Aufgaben werden in dieser Iteration bearbeitet:
+[%header, cols="3,1,1,1,2,1,1,1,1"]
+|===
+| Aufgabe bzw. Beschreibung | Priorität | Schätzung der Größe (Punkte) |Status | Referenzen | geplante Iteration | Zugewiesen (Name) | Gearbeite Stunden | Schätzung der verbleibenden Stunden
 
-.Work Item List: Iteration 9
-noch einzufügen
+| x | x | x | x | x | x | x | x | x
+|===
+
 
 == Probleme (optional)
 //Optional: Führen Sie alle Probleme auf, die in dieser Iteration adressiert werden sollen. Aktualisieren Sie den Status, wenn neue Probleme bei den täglichen / regelmäßigen Abstimmungen berichtet werden.
@@ -63,20 +68,20 @@ noch einzufügen
 |===
 | Assessment Ziel | Iteration 9
 
-| Assessment Datum | TBD
-| Teilnehmer | Projektmanagement, TBD
+| Assessment Datum | 24.06.2024
+| Teilnehmer | Projektmanagement, Jakob Kretzschmar, Julian Neidert, Laurin Wobeda, Lukas Trogisch, Conrad Caffier, Abdallah Alherani
+| Projektstatus	| grün
 |===
 
 *Beurteilung im Vergleich zu den Zielen*
 
-* Der Fachaustausch war _________
-* 
+* externe Datenbank wurde eingerichtet
+* SQL Requests sind erarbeitet
+* User Creation Page ist funktionstüchtig
+* Sequenz-/Zustandsdiagramme sind fertiggestellt
+* Fachaustausch mit anderen Gruppen wurde durchgeführt
 
 *Projektfortschritt*
 
-Durch genannte Fortschritte insbesondere im der bewertungsrelevanten Dokumentation konnte das projekt vorangebracht werden. 
-In dieser Iteration litt dadurch jedoch deie Praktische Arbeit im Projekt, Feier- und Brücken-Tage hatten hier ebenfalls einen Anteil. 
+Implementierung, Projektbericht, Einzel- und Gruppenreflexionen sind in Arbeit. Aus dem kürzlichen Auftraggebermeeting am 06.05.2024, wurden Impulse aufgenommen und in der Planung umgesetzt. Der Auftraggeber wurde zudem über den geplanten Zeitpunkt der Fertigstellung des Projekts informiert.
 
-.Projektfortschritt: Iteration 9
-
-ToDo
