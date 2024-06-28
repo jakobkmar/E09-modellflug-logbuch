@@ -63,6 +63,7 @@ image::images/aktivePiloten.PNG[Ansicht aller derzeit aktiven Piloten]
 
 ## 6. Flugleiter
 Mit der Schaltfläche "Flugleiter werden" können Sie sich als Flugleiter melden. Solange kein Flugleiter anwesend ist, ist das an der Anzeigefläche "Aktueller Flugleiter fehlt" zu erkennen.
+Nach Betätigen der Schaltfläche "Flugleiter werden" muss dies noch ebstätigt werden. Danach ist man als Flugleiter eingetragen.
 
 image::images/flugleiterWerden1.PNG[Schaltfläche für das Anmelden als Flugleiter]
 
