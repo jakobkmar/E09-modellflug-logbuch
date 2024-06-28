@@ -1,0 +1,64 @@
+= Testdokumentation für das Pilotenmanagementsystem
+
+== 1. Testkonzept
+
+=== 1.1. Testobjekte
+- **Benutzerverwaltung**: Verwaltung und Authentifizierung von Pilotenkonten.
+- **Flugprotokollsystem**: Erstellung, Bearbeitung und Verwaltung von Flugprotokollen.
+- **Flugleiterzuweisung**: Automatisches Zuweisen und Verwalten der Rolle des Flugleiters.
+
+=== 1.2. Testmethoden
+
+==== 1.2.1. Modultests
+- **Ziel**: Sicherstellung, dass einzelne Komponenten des Systems wie vorgesehen funktionieren.
+- **Methodik**: Entwickler führen isolierte Tests der einzelnen Module durch, um ihre korrekte Funktionalität zu überprüfen.
+
+==== 1.2.2. Integrationstest
+- **Ziel**: Überprüfung der korrekten Interaktion und Datenintegration zwischen verschiedenen Modulen des Systems.
+- **Methodik**: Tests werden durchgeführt, um die Schnittstellen und den Datenaustausch zwischen den Modulen nach der Integration zu validieren.
+
+==== 1.2.3. Systemtest
+- **Ziel**: Bestätigung, dass das Gesamtsystem die spezifizierten Anforderungen erfüllt.
+- **Methodik**: Durchführung umfassender Tests, die das System als Ganzes unter realen Bedingungen testen, um die Einsatzbereitschaft sicherzustellen.
+
+== 2. Testfallbeschreibung & Testergebnisse
+
+=== TC01 - Pilotenregistrierung Validierung
+- **Vorbedingungen**: Administratorzugang zum Registrierungsmodul.
+- **Testdaten**: Gültige Pilotendaten (Name, Vorname, Passwort).
+- **Testablauf**: Der Administrator gibt Daten ein und sendet das Formular.
+- **Erwartetes Ergebnis**: Das System erstellt das Konto und zeigt eine Erfolgsmeldung.
+
+=== TC02 - Fehlerhafte Pilotenregistrierung
+- **Vorbedingungen**: Administrator auf der Registrierungsseite.
+- **Testdaten**: Fehlerhafte oder unvollständige Pilotendaten.
+- **Testablauf**: Der Administrator gibt ungültige Daten ein und versucht, sie zu speichern.
+- **Erwartetes Ergebnis**: Das System zeigt Fehlermeldungen und verhindert die Registrierung.
+
+=== TC03 - Anmeldung eines Piloten
+- **Vorbedingungen**: Existenz eines gültigen Pilotenkontos.
+- **Testdaten**: Korrekte Benutzername und Passwort.
+- **Testablauf**: Der Pilot gibt seine Anmeldedaten ein und bestätigt.
+- **Erwartetes Ergebnis**: Der Pilot wird erfolgreich angemeldet und erhält Zugriff auf das Dashboard.
+
+=== TC04 - Pilotenanmeldung mit falschen Daten
+- **Vorbedingungen**: Zugriff auf die Anmeldeseite.
+- **Testdaten**: Falscher Benutzername und/oder Passwort.
+- **Testablauf**: Der Pilot gibt falsche Anmeldedaten ein und versucht sich anzumelden.
+- **Erwartetes Ergebnis**: Das System verweigert die Anmeldung und zeigt eine Fehlermeldung.
+
+=== TC05 - Protokollerstellung durch Piloten
+- **Vorbedingungen**: Der Pilot ist eingeloggt und auf der Seite zur Protokollerstellung.
+- **Testdaten**: Vollständige Fluginformationen und zusätzliche Daten.
+- **Testablauf**: Der Pilot füllt das Protokollformular aus und sendet es ab.
+- **Erwartetes Ergebnis**: Das Protokoll wird erfolgreich gespeichert und bestätigt.
+
+=== TC06 - Abbruch der Protokollerstellung
+- **Vorbedingungen**: Pilot beginnt mit der Erstellung eines Protokolls.
+- **Testablauf**: Der Pilot bricht den Erstellungsprozess ab.
+- **Erwartetes Ergebnis**: Das System speichert keine Daten, und der Pilot wird informiert.
+
+=== TC07 - Dynamische Flugleiterzuweisung und -verwaltung
+- **Vorbedingungen**: Drei Piloten sind auf dem Flugplatz angemeldet.
+- **Testablauf**: Überwachung der Zuweisung der Flugleiterrolle an den dritten angemeldeten Piloten.
+- **Erwartetes Ergebnis**: Der dritte Pilot wird automatisch zum Flugleiter ernannt; spezielle Berechtigungen werden aktiviert.

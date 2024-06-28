@@ -1,0 +1,28 @@
+-- session table, used to store session data for users logged
+-- in to the frontend
+CREATE TABLE session (
+  id TEXT NOT NULL PRIMARY KEY UNIQUE,
+  data JSON NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+-- Indexes --
+
+CREATE INDEX session_created_at_idx ON session(created_at);
+
+
+-- Queries --
+
+getSessionData:
+SELECT data FROM session WHERE id = :id;
+
+upsertSession:
+INSERT INTO session (id, data) VALUES (:id, :data)
+ON CONFLICT (id) DO
+  UPDATE SET data = :data
+RETURNING id;
+
+deleteSession:
+DELETE FROM session WHERE id = :id
+RETURNING id;

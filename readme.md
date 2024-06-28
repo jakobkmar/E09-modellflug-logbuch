@@ -14,6 +14,8 @@ Smartphone der Piloten"*.
 
 ## Linkverzeichnis
 
+- [**Deployment**](belegabgabe_se2/DeploymentGuide.adoc)
+- [Entwicklerdokumentation](belegabgabe_se2/Entwicklerdokumentation.adoc)
 - [Work Item List](https://github.com/users/jakobkmar/projects/2/views/3)
 - [Ursprüngliche README.md](readme_old.md)
 
