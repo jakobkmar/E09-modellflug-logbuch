@@ -1,10 +1,10 @@
 ifndef::main-document[include::../_includes/default-attributes.inc.adoc[]]
 
 
-== Use-Case: UC02 Pilot anmelden
+== Use-Case: UC02 Account Login
 
 === Kurzbeschreibung
-In diesem Use-Case wird der Vorgang bei der Anmeldung eines *Piloten* beim Betreten des Flugplatzes beschrieben.
+In diesem Use-Case wird der Vorgang bei der Anmeldung eines *Accounts* beim Betreten des Flugplatzes beschrieben.
 
 === Kurzbeschreibung der Akteure
 
@@ -12,19 +12,26 @@ In diesem Use-Case wird der Vorgang bei der Anmeldung eines *Piloten* beim Betre
 Ein Pilot ist der Benutzer des Systems und des Flugplatzes.
 Er kann Veränderungen an seinem Profil vornehmen, jedoch nicht am Gesamtsystem.
 
+==== Admin
+Ein Admin ist der Verwalter des Gesamtsystems.
+Er pflegt dieses und kann Änderungen vornehmen.
+
+==== Protokolleur
+normaler Nutzer, der alle Protokolle von allen Nutzern einsehen kann und Tagesprotokolle erstellen kann.
+
 === Vorbedingungen
 . UC01 ist erfüllt
-. *Pilot* ist noch nicht angemeldet
-. *Pilot* kennt seinen Nutzernamen und sein Passwort
+. *Akteur* ist noch nicht angemeldet
+. *Akteur* kennt seinen Nutzernamen und sein Passwort
 
 === Standardablauf (Basic Flow)
 
-. Der Use Case beginnt, wenn *Pilot* die Webapp öffnet um sich anzumelden. Die Webapp kann über einen QR Code geöffnet werden.
-. Der *Pilot* gibt seinen Nutzernamen ein.
-. Der *Pilot* gibt sein Passwort ein.
+. Der Use Case beginnt, wenn *Akteur* die Webapp öffnet um sich anzumelden. Die Webapp kann über einen QR Code geöffnet werden.
+. Der *Akteur* gibt seinen Nutzernamen ein.
+. Der *Akteur* gibt sein Passwort ein.
 . In der Datenbank wird überprüft, ob es einen solchen Nutzer (definiert durch Nutzername und Passwort) gibt.
-. IF *Pilot* existiert
-.. Der *Pilot* wird angemeldet.
+. WENN *Akteur* existiert
+.. Der *Akteur* wird angemeldet.
 . Die Anmeldung wird protokolliert.
 . Der Use Case ist abgeschlossen.
 
@@ -32,27 +39,27 @@ Er kann Veränderungen an seinem Profil vornehmen, jedoch nicht am Gesamtsystem.
 
 
 ==== Nutzer existiert nicht (Schritt 5)
-. IF *Pilot* existiert nicht
+. WENN *Akteur* existiert nicht
 .. Ausgabe Fehlermeldung, Anmeldung erfolgt nicht
 
 === Wesentliche Szenarios
 
 
 ==== Standartmäßige Anmeldung
-. Sc1: *Pilot* XX trifft auf dem Flugplatz ein. XX öffnet die Webapp über einen Browser oder mithilfe des QR Codes. XX gibt seine Nutzerdaten ein und wird bei deren Richtigkeit angemeldet. Die Anmeldung wird protokolliert und er kann den Flugplatz bis zu seiner Abmeldung nutzen, solange UC05 nichts anderes festlegt.
+. Sc1: *Akteur* XX trifft auf dem Flugplatz ein. XX öffnet die Webapp über einen Browser oder mithilfe des QR Codes. XX gibt seine Nutzerdaten ein und wird bei deren Richtigkeit angemeldet. Die Anmeldung wird protokolliert und er kann den Flugplatz bis zu seiner Abmeldung nutzen.
 
 ==== fehlgeschlagene Anmeldung
-. Sc2: *Pilot* XX trifft auf dem Flugplatz ein. XX öffnet die Webapp über einen Browser oder mithilfe des QR Codes. XX gibt seine Nutzerdaten ein und versucht sich anzumelden. Die Anmeldung schlägt aufgrund falscher Anmeldedaten fehl. Eine Fehlermeldung wird ausgegeben.
+. Sc2: *Akteur* XX trifft auf dem Flugplatz ein. XX öffnet die Webapp über einen Browser oder mithilfe des QR Codes. XX gibt seine Nutzerdaten ein und versucht sich anzumelden. Die Anmeldung schlägt aufgrund falscher Anmeldedaten fehl. Eine Fehlermeldung wird ausgegeben.
 
 === Nachbedingung
-Der Pilot ist angemeldet und kann alle Funktionalitäten nutzen, zu denen ein Pilot berechtigt ist. Im Backend muss nun bekannt sein, dass sich mindestens ein Pilot auf dem Flugplatz befindet.
+Der Akteur ist angemeldet und kann alle Funktionalitäten nutzen, zu denen er nach seinen Berechtigungen berechtigt ist. Im Backend muss nun bekannt sein, dass sich mindestens eine Person auf dem Flugplatz befindet.
 
 === Besondere Anforderungen
 
 ==== Usability
-* Der Use Case gehört zu der grundlegenden Funktionalität des _Systems_ und muss daher für jeden *Piloten* einfach und verständlich sein.
+* Der Use Case gehört zu der grundlegenden Funktionalität des _Systems_ und muss daher für jeden der oben aufgeführten *Akteure* einfach und verständlich sein.
 
----
+'''
 
 (Zur Erstellung des Use Cases wurde sich am Use Case 01 des Vorgängerprojektes orientiert)
 
