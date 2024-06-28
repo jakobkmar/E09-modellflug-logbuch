@@ -1,0 +1,96 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:de.mfcrossendorf.logbook.config////PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.config/index.html
+$dokka.location:de.mfcrossendorf.logbook.config/AppConfig.DatabaseConfig///PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.config/-app-config/-database-config/index.html
+$dokka.location:de.mfcrossendorf.logbook.config/AppConfig.DatabaseConfig/DatabaseConfig/#kotlin.String#kotlin.Int#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.config/-app-config/-database-config/-database-config.html
+$dokka.location:de.mfcrossendorf.logbook.config/AppConfig.DatabaseConfig/databaseName/#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.config/-app-config/-database-config/database-name.html
+$dokka.location:de.mfcrossendorf.logbook.config/AppConfig.DatabaseConfig/password/#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.config/-app-config/-database-config/password.html
+$dokka.location:de.mfcrossendorf.logbook.config/AppConfig.DatabaseConfig/port/#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.config/-app-config/-database-config/port.html
+$dokka.location:de.mfcrossendorf.logbook.config/AppConfig.DatabaseConfig/serverName/#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.config/-app-config/-database-config/server-name.html
+$dokka.location:de.mfcrossendorf.logbook.config/AppConfig.DatabaseConfig/username/#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.config/-app-config/-database-config/username.html
+$dokka.location:de.mfcrossendorf.logbook.config/AppConfig.ServerConfig///PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.config/-app-config/-server-config/index.html
+$dokka.location:de.mfcrossendorf.logbook.config/AppConfig.ServerConfig/ServerConfig/#kotlin.Int#kotlin.Boolean/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.config/-app-config/-server-config/-server-config.html
+$dokka.location:de.mfcrossendorf.logbook.config/AppConfig.ServerConfig/developmentMode/#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.config/-app-config/-server-config/development-mode.html
+$dokka.location:de.mfcrossendorf.logbook.config/AppConfig.ServerConfig/port/#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.config/-app-config/-server-config/port.html
+$dokka.location:de.mfcrossendorf.logbook.config/AppConfig///PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.config/-app-config/index.html
+$dokka.location:de.mfcrossendorf.logbook.config/AppConfig/AppConfig/#kotlinx.datetime.TimeZone?#de.mfcrossendorf.logbook.config.AppConfig.DatabaseConfig#de.mfcrossendorf.logbook.config.AppConfig.ServerConfig/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.config/-app-config/-app-config.html
+$dokka.location:de.mfcrossendorf.logbook.config/AppConfig/database/#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.config/-app-config/database.html
+$dokka.location:de.mfcrossendorf.logbook.config/AppConfig/server/#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.config/-app-config/server.html
+$dokka.location:de.mfcrossendorf.logbook.config/AppConfig/timeZone/#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.config/-app-config/time-zone.html
+$dokka.location:de.mfcrossendorf.logbook.config/ConfigManager///PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.config/-config-manager/index.html
+$dokka.location:de.mfcrossendorf.logbook.config/ConfigManager/config/#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.config/-config-manager/config.html
+$dokka.location:de.mfcrossendorf.logbook.config/ConfigManager/isDevelopmentMode/#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.config/-config-manager/is-development-mode.html
+$dokka.location:de.mfcrossendorf.logbook.config/ConfigManager/loadConfig/#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.config/-config-manager/load-config.html
+$dokka.location:de.mfcrossendorf.logbook.data////PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.data/index.html
+$dokka.location:de.mfcrossendorf.logbook.data/UserSession.UserSessionSerializer///PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.data/-user-session/-user-session-serializer/index.html
+$dokka.location:de.mfcrossendorf.logbook.data/UserSession.UserSessionSerializer/deserialize/#kotlin.String/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.data/-user-session/-user-session-serializer/deserialize.html
+$dokka.location:de.mfcrossendorf.logbook.data/UserSession.UserSessionSerializer/serialize/#de.mfcrossendorf.logbook.data.UserSession/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.data/-user-session/-user-session-serializer/serialize.html
+$dokka.location:de.mfcrossendorf.logbook.data/UserSession///PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.data/-user-session/index.html
+$dokka.location:de.mfcrossendorf.logbook.data/UserSession/UserSession/#de.mfcrossendorf.logbook.SharedSessionData/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.data/-user-session/-user-session.html
+$dokka.location:de.mfcrossendorf.logbook.data/UserSession/sharedData/#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.data/-user-session/shared-data.html
+$dokka.location:de.mfcrossendorf.logbook.database////PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.database/index.html
+$dokka.location:de.mfcrossendorf.logbook.database//awaitList/app.cash.sqldelight.ExecutableQuery[TypeParam(bounds=[kotlin.Any])]#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.database/await-list.html
+$dokka.location:de.mfcrossendorf.logbook.database//awaitSingleOrNull/app.cash.sqldelight.ExecutableQuery[TypeParam(bounds=[kotlin.Any])]#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.database/await-single-or-null.html
+$dokka.location:de.mfcrossendorf.logbook.database//database/#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.database/database.html
+$dokka.location:de.mfcrossendorf.logbook.database//driver/de.mfcrossendorf.logbook.db.Database#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.database/driver.html
+$dokka.location:de.mfcrossendorf.logbook.routes////PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.routes/index.html
+$dokka.location:de.mfcrossendorf.logbook.routes//accountRoutes/io.ktor.server.routing.Route#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.routes/account-routes.html
+$dokka.location:de.mfcrossendorf.logbook.routes//appStateRoutes/io.ktor.server.routing.Route#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.routes/app-state-routes.html
+$dokka.location:de.mfcrossendorf.logbook.routes//flightDirectorRoutes/io.ktor.server.routing.Route#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.routes/flight-director-routes.html
+$dokka.location:de.mfcrossendorf.logbook.routes//flightLogRoutes/io.ktor.server.routing.Route#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.routes/flight-log-routes.html
+$dokka.location:de.mfcrossendorf.logbook.routes//protocolRoutes/io.ktor.server.routing.Route#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.routes/protocol-routes.html
+$dokka.location:de.mfcrossendorf.logbook.session////PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/index.html
+$dokka.location:de.mfcrossendorf.logbook.session//adminSessionOrThrow/io.ktor.server.application.ApplicationCall#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/admin-session-or-throw.html
+$dokka.location:de.mfcrossendorf.logbook.session//argon2Encoder/#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/argon2-encoder.html
+$dokka.location:de.mfcrossendorf.logbook.session//canSeeAllLogsSessionOrThrow/io.ktor.server.application.ApplicationCall#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/can-see-all-logs-session-or-throw.html
+$dokka.location:de.mfcrossendorf.logbook.session//configureSessionAuth/io.ktor.server.auth.AuthenticationConfig#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/configure-session-auth.html
+$dokka.location:de.mfcrossendorf.logbook.session//configureSessionCookie/io.ktor.server.sessions.SessionsConfig#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/configure-session-cookie.html
+$dokka.location:de.mfcrossendorf.logbook.session//handleLoginCall/io.ktor.util.pipeline.PipelineContext[*,io.ktor.server.application.ApplicationCall]#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/handle-login-call.html
+$dokka.location:de.mfcrossendorf.logbook.session//handleLogoutCall/io.ktor.util.pipeline.PipelineContext[*,io.ktor.server.application.ApplicationCall]#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/handle-logout-call.html
+$dokka.location:de.mfcrossendorf.logbook.session//sessionAuthExceptionHandler/io.ktor.server.plugins.statuspages.StatusPagesConfig#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/session-auth-exception-handler.html
+$dokka.location:de.mfcrossendorf.logbook.session//sessionCookieName/#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/session-cookie-name.html
+$dokka.location:de.mfcrossendorf.logbook.session//sessionOrThrow/io.ktor.server.application.ApplicationCall#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/session-or-throw.html
+$dokka.location:de.mfcrossendorf.logbook.session/DatabaseSessionStorage///PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/-database-session-storage/index.html
+$dokka.location:de.mfcrossendorf.logbook.session/DatabaseSessionStorage/DatabaseSessionStorage/#de.mfcrossendorf.logbook.db.Database/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/-database-session-storage/-database-session-storage.html
+$dokka.location:de.mfcrossendorf.logbook.session/DatabaseSessionStorage/invalidate/#kotlin.String/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/-database-session-storage/invalidate.html
+$dokka.location:de.mfcrossendorf.logbook.session/DatabaseSessionStorage/read/#kotlin.String/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/-database-session-storage/read.html
+$dokka.location:de.mfcrossendorf.logbook.session/DatabaseSessionStorage/write/#kotlin.String#kotlin.String/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/-database-session-storage/write.html
+$dokka.location:de.mfcrossendorf.logbook.session/SessionAuthException.InsufficientPermissions///PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/-session-auth-exception/-insufficient-permissions/index.html
+$dokka.location:de.mfcrossendorf.logbook.session/SessionAuthException.InsufficientPermissions/InsufficientPermissions/#kotlin.String/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/-session-auth-exception/-insufficient-permissions/-insufficient-permissions.html
+$dokka.location:de.mfcrossendorf.logbook.session/SessionAuthException.InvalidCredentials///PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/-session-auth-exception/-invalid-credentials/index.html
+$dokka.location:de.mfcrossendorf.logbook.session/SessionAuthException.InvalidCredentials/InvalidCredentials/#kotlin.String/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/-session-auth-exception/-invalid-credentials/-invalid-credentials.html
+$dokka.location:de.mfcrossendorf.logbook.session/SessionAuthException.InvalidSession///PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/-session-auth-exception/-invalid-session/index.html
+$dokka.location:de.mfcrossendorf.logbook.session/SessionAuthException.InvalidSession/InvalidSession/#kotlin.String/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/-session-auth-exception/-invalid-session/-invalid-session.html
+$dokka.location:de.mfcrossendorf.logbook.session/SessionAuthException.NoAdmin///PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/-session-auth-exception/-no-admin/index.html
+$dokka.location:de.mfcrossendorf.logbook.session/SessionAuthException.NoAdmin/NoAdmin/#kotlin.String/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/-session-auth-exception/-no-admin/-no-admin.html
+$dokka.location:de.mfcrossendorf.logbook.session/SessionAuthException.NotAuthenticated///PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/-session-auth-exception/-not-authenticated/index.html
+$dokka.location:de.mfcrossendorf.logbook.session/SessionAuthException.NotAuthenticated/NotAuthenticated/#kotlin.String/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/-session-auth-exception/-not-authenticated/-not-authenticated.html
+$dokka.location:de.mfcrossendorf.logbook.session/SessionAuthException.UnknownUser///PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/-session-auth-exception/-unknown-user/index.html
+$dokka.location:de.mfcrossendorf.logbook.session/SessionAuthException.UnknownUser/UnknownUser/#kotlin.String/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/-session-auth-exception/-unknown-user/-unknown-user.html
+$dokka.location:de.mfcrossendorf.logbook.session/SessionAuthException///PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/-session-auth-exception/index.html
+$dokka.location:de.mfcrossendorf.logbook.session/SessionAuthException/msg/#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.session/-session-auth-exception/msg.html
+$dokka.location:de.mfcrossendorf.logbook.util////PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.util/index.html
+$dokka.location:de.mfcrossendorf.logbook.util//currentTimeOrEndOfDay/kotlinx.datetime.LocalDate#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.util/current-time-or-end-of-day.html
+$dokka.location:de.mfcrossendorf.logbook.util//log/#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.util/log.html
+$dokka.location:de.mfcrossendorf.logbook.util//simplify/kotlinx.datetime.LocalTime#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.util/simplify.html
+$dokka.location:de.mfcrossendorf.logbook.util//time/kotlinx.datetime.Clock#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.util/time.html
+$dokka.location:de.mfcrossendorf.logbook.util//today/kotlinx.datetime.Clock#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.util/today.html
+$dokka.location:de.mfcrossendorf.logbook.util/Logger///PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.util/-logger/index.html
+$dokka.location:de.mfcrossendorf.logbook.validation////PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.validation/index.html
+$dokka.location:de.mfcrossendorf.logbook.validation//validateAndTrim/de.mfcrossendorf.logbook.CreateAccountRequest#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.validation/validate-and-trim.html
+$dokka.location:de.mfcrossendorf.logbook.validation//validateAndTrim/de.mfcrossendorf.logbook.CreateFlightLogRequest#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.validation/validate-and-trim.html
+$dokka.location:de.mfcrossendorf.logbook.validation//validationExceptionHandler/io.ktor.server.plugins.statuspages.StatusPagesConfig#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.validation/validation-exception-handler.html
+$dokka.location:de.mfcrossendorf.logbook.validation/ValidationException///PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.validation/-validation-exception/index.html
+$dokka.location:de.mfcrossendorf.logbook.validation/ValidationException/ValidationException/#kotlin.String/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.validation/-validation-exception/-validation-exception.html
+$dokka.location:de.mfcrossendorf.logbook.validation/ValidationException/msg/#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook.validation/-validation-exception/msg.html
+$dokka.location:de.mfcrossendorf.logbook////PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook/index.html
+$dokka.location:de.mfcrossendorf.logbook//main/#/PointingToDeclaration/modellflug-logbuch/de.mfcrossendorf.logbook/main.html
+de.mfcrossendorf.logbook
+de.mfcrossendorf.logbook.config
+de.mfcrossendorf.logbook.data
+de.mfcrossendorf.logbook.database
+de.mfcrossendorf.logbook.routes
+de.mfcrossendorf.logbook.session
+de.mfcrossendorf.logbook.util
+de.mfcrossendorf.logbook.validation
+
