@@ -3,10 +3,12 @@ package de.mfcrossendorf.logbook.routes
 import de.mfcrossendorf.logbook.CompleteFlightLogRequest
 import de.mfcrossendorf.logbook.CreateFlightLogRequest
 import de.mfcrossendorf.logbook.FlightData
+import de.mfcrossendorf.logbook.FlightLogFilterRequest
 import de.mfcrossendorf.logbook.database.awaitList
 import de.mfcrossendorf.logbook.database.awaitSingleOrNull
 import de.mfcrossendorf.logbook.database.database
 import de.mfcrossendorf.logbook.session.sessionOrThrow
+import de.mfcrossendorf.logbook.util.currentTimeOrEndOfDay
 import de.mfcrossendorf.logbook.util.time
 import de.mfcrossendorf.logbook.util.today
 import de.mfcrossendorf.logbook.validation.validateAndTrim
@@ -40,7 +42,7 @@ fun Route.flightLogRoutes() = route("/flightlog") {
                 account_id = session.sharedData.userId,
                 date = createRequest.date.toJavaLocalDate(),
                 flight_start = createRequest.flightStart.toJavaLocalTime(),
-                flight_end = null,
+                flight_end = createRequest.flightEnd?.toJavaLocalTime(),
                 checked_first_aid = createRequest.checkedFirstAid,
                 remarks = null,
                 model_type = createRequest.modelType,
@@ -71,17 +73,10 @@ fun Route.flightLogRoutes() = route("/flightlog") {
                 return@post
             }
 
-            val endTime = if (flight.date.toKotlinLocalDate() == Clock.System.today()) {
-                val now = Clock.System.time()
-                LocalTime(hour = now.hour, minute = now.minute, second = now.second)
-            } else {
-                LocalTime.parse("23:59", LocalTime.Formats.ISO)
-            }
-
             val updatedFlightId = database.flightQueries.completeFlight(
                 flightId = completeRequest.flightId,
                 accountId = session.sharedData.userId,
-                flightEnd = endTime.toJavaLocalTime(),
+                flightEnd = flight.date.toKotlinLocalDate().currentTimeOrEndOfDay().toJavaLocalTime(),
                 remarks = completeRequest.remarks ?: flight.remarks,
             ).awaitSingleOrNull()
 
@@ -92,8 +87,8 @@ fun Route.flightLogRoutes() = route("/flightlog") {
             }
         }
 
-        route("/active") {
-            // Fetch the currently active flight log for the logged-in user
+        route("/open") {
+            // Fetch the currently open flight log for the logged-in user
             get {
                 val session = call.sessionOrThrow()
 
@@ -119,13 +114,17 @@ fun Route.flightLogRoutes() = route("/flightlog") {
                     ))
                 }
             }
+        }
 
+        route("/active") {
             // Fetch all active flight logs by all users
             get("/allUsers") {
                 call.sessionOrThrow()
 
                 val openFlights = database.flightQueries
-                    .getOpenFlights(date = Clock.System.today().toJavaLocalDate())
+                    .getActiveFlights(
+                        date = Clock.System.today().toJavaLocalDate(),
+                        currentTime = Clock.System.time().toJavaLocalTime())
                     .awaitList()
                     .map { dbFlight ->
                         FlightData(
@@ -152,7 +151,9 @@ fun Route.flightLogRoutes() = route("/flightlog") {
                     call.sessionOrThrow()
 
                     val completedFlights = database.flightQueries
-                        .getCompletedFlights(date = Clock.System.today().toJavaLocalDate())
+                        .getCompletedFlights(
+                            date = Clock.System.today().toJavaLocalDate(),
+                            currentTime = Clock.System.time().toJavaLocalTime())
                         .awaitList()
                         .map { dbFlight ->
                             FlightData(
@@ -196,19 +197,41 @@ fun Route.flightLogRoutes() = route("/flightlog") {
 
         route("/all") {
             // Fetch all flight logs by the logged-in user
-            get {
-                // TODO: Implement this route
+            post("/filtered") {
+                val session = call.sessionOrThrow()
+                val filterRequest = call.receive<FlightLogFilterRequest>()
+
+                val flightLogs = database.flightQueries.getFlightsByAccountId(
+                    accountId = session.sharedData.userId,
+                    startDate = filterRequest.startDate.toJavaLocalDate(),
+                    endDate = filterRequest.endDate.toJavaLocalDate(),
+                ).awaitList().map { dbFlight ->
+                    FlightData(
+                        flightId = dbFlight.flight_id,
+                        accountId = dbFlight.account_id,
+                        fullPilotName = "${dbFlight.first_name} ${dbFlight.last_name.orEmpty()}".trim(),
+                        date = dbFlight.date.toKotlinLocalDate(),
+                        flightStart = dbFlight.flight_start.toKotlinLocalTime(),
+                        flightEnd = dbFlight.flight_end?.toKotlinLocalTime(),
+                        signature = dbFlight.signature.toString(Charsets.UTF_8),
+                        checkedFirstAid = dbFlight.checked_first_aid,
+                        remarks = dbFlight.remarks,
+                        modelType = dbFlight.model_type,
+                    )
+                }
+
+                call.respond(HttpStatusCode.OK, flightLogs)
             }
 
             // Fetch all flight logs by a specific user
             get("/{userId}") {
-                // TODO: Implement this route
+                TODO("Implement this route")
             }
         }
 
         // Delete a specific flight log entry
         delete("/{id}") {
-            // TODO: Implement this route
+            TODO("Implement this route")
         }
     }
 }

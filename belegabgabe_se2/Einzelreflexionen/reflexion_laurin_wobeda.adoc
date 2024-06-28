@@ -1,0 +1,31 @@
+# Einzelreflexion
+Laurin Wobeda; s85641
+Teamrolle Analyse/Protokollführung
+
+Seit dem ersten Semester war ich im Bereich Analyse tätig, was auch die Kommunikation mit dem Auftraggeber beinhaltet.
+Dass diese unerlässlich sein werden, war mir auch vor Beginn des Projektes klar und das nicht nur, weil es in Lehrveranstaltungen uns so gelehrt wurde.
+ Ein Auftraggeberprojekt bedarf stetigem Austauschs mit dem Auftraggeber, während sich unsere Vision von der Umsetzung des Projekts entwickelt, um diese mit der Vision des Auftraggebers abzugleichen.
+
+Speziell in unserem Projekt, haben wir uns daher mit dem Auftraggeber für Meetings alle zwei Wochen, also einmal pro Iteration, entschieden, um immer unseren Iterationsfortschritt vorzustellen,
+ aufgekommene Fragen zu klären und unsere Visionen anzugleichen.
+Um getroffene Absprachen im Nachhinein nicht zu vergessen und gewünschte Features und Details im Kopf zu behalten, habe ich ein teaminternes Protokoll für alle Auftraggebermeetings geführt.
+ In folgenden Teammeetings war dieses Protokoll dann Grundlage für das Aufstellen von zu erledigten Aufgaben und bei Bedarf Neuorientierung von bereits geplanter Arbeit.
+
+Um dem Auftraggeber unseren Fortschritt und unsere Vorstellung visualisieren zu können, wurden diverse Modelle vorbereitet.
+ Darunter Use-Case-Diagramme, um allgemein Funktionen der Webapp darstellen zu können, Zustands- und Sequenzdiagramme, um spezifische, kritische Features
+  richtig zu erfassen, SQL-Schemata, um Inhalte und Datentypen, z.B. vom Flugprotokoll, zu erfassen und Wireframe-Modelle, um dem Auftraggeber von unseren Plänen ein konkretes Bild zu geben.
+   Für das Verwenden von visualisierenden Modellen haben wir uns zudem auch entschieden, da wir der Auffassung waren, dass Einsichten in den konkreten Code
+    für unseren nicht-fachlich geläufigen Auftraggeber weniger produktiv gewesen wäre und auch die Länge von Meetings unnötig hinaus gezogen hätte.
+Auf diese Art gaben wir dem Auftraggeber einen Einblick in unseren Projektfortschritt, konnten mit ihm konkrete Visionen herausarbeiten und anfolgend selbst im Team umzusetzen.
+
+Jedoch lief auch nicht alles rund. Eines der Meetings verpasste ich selbstverschuldet, da ich mir fälschlicherweise eine andere Treffzeit aufschrieb.
+ Ein anderes Mal erschien keiner der Auftraggeber, da der Auftraggeber eine explizite, rechtzeitige Einladung zum Meeting per E-Mail erwartete,
+  obwohl der Termin im vorherigen Meeting ausdrücklich besprochen wurde und eben kein Wunsch nach einer expliziten Einladung per E-Mail ausgesprochen wurde.
+   Wieder bei anderen Meetings konnten Teilnehmer aufgrund von technischen Schwierigkeiten nicht teilnehmen.
+    Diese Schwierigkeiten dürften aufgrund von Bugs oder zumindest ungewohnter Handhabung der Meeting-Software “Microsoft Teams” entstanden sein, einer Meeting-Software,
+     die von einem der Ansprechpartner der Auftraggeber präferiert wurde, aber wohl vielen, sowohl in unserem Team, als auch unter den Ansprechpartnern kaum in der Praxis bekannt war.
+      Probleme wie diese führten zu Verzögerungen in unserer Projektarbeit, waren jedoch niemals so kritisch, dass wir in ernsthafte Schwierigkeiten geraten.
+
+Während wir wenig Einfluss darauf hatten, dass Teilnehmer Schwierigkeiten mit der Meeting-Software hatten, haben wir zumindest unser Bestes versucht,
+ per Troubleshooting die Teilnahme zu ermöglichen. Nach meinem selbstverschuldeten Verpassen eines Meetings, glich ich seit dem den folgenden Termin mehrmals mit dem Team ab
+  und auch die explizite Einladung per E-Mail führten wir ein.

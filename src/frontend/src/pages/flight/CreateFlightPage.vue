@@ -1,11 +1,20 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import MouseCanvas from '@/components/MouseCanvas.vue'
 import { useRouter } from 'vue-router'
 import { getDateStringToday, getDateStringYesterday, getTimeString } from '@/utils/timeutil'
 import { backendRequest } from '@/networking'
 import { CreateFlightLogRequest } from 'modellflug-logbuch-common-data'
-import { IconAlertTriangle, IconBatteryAutomotive, IconCarTurbine, IconDetails, IconEngine, IconExclamationCircle } from '@tabler/icons-vue'
+import {
+  IconAlertTriangle,
+  IconBatteryAutomotive,
+  IconCarTurbine,
+  IconClock,
+  IconDetails,
+  IconEngine,
+  IconExclamationCircle,
+  IconLogout,
+} from '@tabler/icons-vue'
 import AlertCard from '@/components/AlertCard.vue'
 
 const router = useRouter()
@@ -16,8 +25,14 @@ function showDatePicker() {
 
 const dateInput = ref(getDateStringToday())
 const timeInput = ref(getTimeString())
+const timeInputEnd = ref<string>('')
 const checkedFirstAid = ref<boolean>()
 const modelType = ref<string | null>(null)
+
+const chooseSpecificTime = ref(false)
+const requireSpecificEndTime = computed(() => {
+  return dateInput.value != getDateStringToday() || chooseSpecificTime.value
+})
 
 const signatureCanvas = ref<InstanceType<typeof MouseCanvas>>()
 
@@ -26,6 +41,11 @@ const submitting = ref(false)
 
 async function submitFlightlog() {
   const issues: string[] = []
+  if (requireSpecificEndTime.value) {
+    if (timeInputEnd.value == null || timeInputEnd.value.length == 0) {
+      issues.push('Gib einen Zeitpunkt für das Flugende an!')
+    }
+  }
   if (modelType.value == null) {
     issues.push('Gib einen Flugzeugtyp an!')
   }
@@ -40,6 +60,7 @@ async function submitFlightlog() {
   const requestData: CreateFlightLogRequest = {
     date: dateInput.value,
     flightStart: timeInput.value,
+    flightEnd: requireSpecificEndTime.value ? timeInputEnd.value : null,
     checkedFirstAid: checkedFirstAid.value!,
     modelType: modelType.value!,
     signature: signatureCanvas.value!.getDataUrl(),
@@ -123,14 +144,27 @@ onMounted(() => {
       <p class="card-subtitle">In welchem Zeitraum möchtest du fliegen?</p>
       <div style="display: flex; gap: 0.5em; align-items: end;">
         <div class="column" style="align-items: center; gap: 0.1em">
-          <input type="time" v-model="timeInput" class="form-control" style="min-width: 8em; text-align: center;" />
+          <input type="time" v-model="timeInput"
+                 class="form-control" style="min-width: 8em; text-align: center;" />
           <div style="font-size: 0.8em;">von</div>
         </div>
         <div class="column" style="align-items: center; gap: 0.1em">
-          <div class="dropdown">
-            <div class="btn">manuell abmelden</div>
-            <!-- TODO time select bei flug in vergangenheit -->
+          <div v-if="!requireSpecificEndTime" class="dropdown">
+            <div class="btn dropdown-toggle" data-bs-toggle="dropdown">Abmeldung</div>
+            <div class="dropdown-menu">
+              <span class="dropdown-header">Zeit für Flugende</span>
+              <div class="dropdown-item">
+                <IconLogout size="1.5em" style="margin-right: 0.5em;" />
+                manuelle Abmeldung
+              </div>
+              <div class="dropdown-item" @click="chooseSpecificTime = true">
+                <IconClock size="1.5em" style="margin-right: 0.5em;" />
+                Uhrzeit wählen (für Nachtragung)
+              </div>
+            </div>
           </div>
+          <input v-else type="time" v-model="timeInputEnd"
+                 class="form-control" style="min-width: 8em; text-align: center;" />
           <div style="font-size: 0.8em">bis</div>
         </div>
       </div>
@@ -202,7 +236,7 @@ onMounted(() => {
           <span v-if="submitting" class="spinner-border spinner-border-sm me-2" role="status"></span>
           Flug erstellen
         </button>
-        <a href="#" class="btn btn-outline-danger">Abbrechen</a>
+        <RouterLink to="/" class="btn btn-outline-danger">Abbrechen</RouterLink>
       </div>
     </fieldset>
   </form>
@@ -230,9 +264,16 @@ form {
       align-items: center;
       gap: 0.5em;
 
+      /*noinspection CssUnusedSymbol*/
       .tabler-icon {
         height: 1.5em;
       }
+    }
+  }
+
+  .dropdown-item {
+    &:hover {
+      background-color: #eaf0f3;
     }
   }
 }

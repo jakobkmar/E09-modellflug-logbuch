@@ -19,8 +19,8 @@ include::../_includes/default-attributes.inc.adoc[]
 
 == Wesentliche Ziele
 
-* 2.Termin mit Auftraggeber durchführen, vortsellen des Arbeitsstands
-* Anfordrungen/ Änderungswünsche des Auftaggebers in Anforderungen aufnehmen, die vorhandene implentierung anpasen oder implementieren
+* 2.Termin mit Auftraggeber durchführen, Vorstellen des Arbeitsstands
+* Anforderungen/ Änderungswünsche des Auftaggebers in Anforderungen aufnehmen, die vorhandene Implementierung anpassen oder implementieren
 * 2.Termin mit Coach durchführen
 * Implementierung fortsetzten
 * Durchführung eines Teambuildingevents
@@ -54,8 +54,8 @@ noch einzufügen
 
 * Das Teambuildingevent stärkt das Verantwortungsbewusstsein aller Teammitglieder für das gesamte Team, persönliche Gespräche verbessern die Atmosphäre für kommende Meetings
 * Der Auftraggeber ist mit dem aktellen Arbeitsstand zufrieden, keine Substantiellen Änderungen sind erforderlich
-* Es wurden substantiellen fortschritte ebi der Implementierung von Frontend (insbes. UI) und Backend erzielt. 
-* Im Choach Termin konnten wesentliuche Anforderungen und Bewertungskriterien an dieses Projekt identifiziert werden
+* Es wurden substantiellen Fortschritte bei der Implementierung von Frontend (insbes. UI) und Backend erzielt
+* Im Choach Termin konnten wesentliche Anforderungen und Bewertungskriterien an dieses Projekt identifiziert werden
 
 
 == Assessment
@@ -64,12 +64,13 @@ noch einzufügen
 |===
 | Assessment Ziel | Iteration 7
 
-| Assessment Datum | TBD
-| Teilnehmer | Projektmanagement, TBD
+| Assessment Datum | 19.06.2024
+| Teilnehmer | Projektmanagement, Jakob Kretzschmar, Julian Neidert, Laurin Wobeda, Lukas Trogisch, Conrad Caffier, Abdallah Alherani
 |===
 
 *Beurteilung im Vergleich zu den Zielen*
-beit im Teammeeting funktioniert, die arbeit am Projekt konnte erfolgreich fortgesetzt werden. 
+Arbeit im Teammeeting funktioniert, die Arbeit am Projekt konnte erfolgreich fortgesetzt werden.
+Teambuildingevent wurde, wenn auch nicht mit vollständigem Team, durchgeführt und hat die Teamatmosphäre verbessert.
 
 ToDo
 
@@ -77,6 +78,3 @@ ToDo
 
 ToDo
 
-.Projektfortschritt: Iteration 5
-
-ToDo

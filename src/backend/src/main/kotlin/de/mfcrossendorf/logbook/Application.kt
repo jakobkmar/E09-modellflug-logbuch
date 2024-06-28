@@ -1,12 +1,10 @@
 package de.mfcrossendorf.logbook
 
+import de.mfcrossendorf.logbook.config.ConfigManager
 import de.mfcrossendorf.logbook.database.database
 import de.mfcrossendorf.logbook.database.driver
 import de.mfcrossendorf.logbook.db.Database
-import de.mfcrossendorf.logbook.routes.accountRoutes
-import de.mfcrossendorf.logbook.routes.appStateRoutes
-import de.mfcrossendorf.logbook.routes.flightDirectorRoutes
-import de.mfcrossendorf.logbook.routes.flightLogRoutes
+import de.mfcrossendorf.logbook.routes.*
 import de.mfcrossendorf.logbook.session.configureSessionAuth
 import de.mfcrossendorf.logbook.session.configureSessionCookie
 import de.mfcrossendorf.logbook.session.sessionAuthExceptionHandler
@@ -17,6 +15,7 @@ import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
 import io.ktor.server.auth.*
 import io.ktor.server.engine.*
+import io.ktor.server.http.content.*
 import io.ktor.server.netty.*
 import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.server.plugins.cors.routing.*
@@ -31,6 +30,9 @@ import kotlin.time.Duration.Companion.minutes
 import kotlin.time.Duration.Companion.seconds
 
 fun main() {
+    // load configuration from file
+    ConfigManager.loadConfig()
+
     // connect to the database
     database
 
@@ -49,9 +51,11 @@ fun main() {
     }
 
     // configure and start the server
-    embeddedServer(Netty, port = 8080) {
-        val isProduction = !developmentMode
-        log.info("Running application in ${if (isProduction) "production" else "development"} mode")
+    embeddedServer(
+        factory = Netty, port = ConfigManager.config.server.port,
+
+    ) {
+        log.info("Running application in ${if (ConfigManager.isDevelopmentMode) "development" else "production"} mode")
 
         install(ContentNegotiation) {
             json()
@@ -60,8 +64,10 @@ fun main() {
             sessionAuthExceptionHandler()
             validationExceptionHandler()
         }
-        if (developmentMode) {
+        if (ConfigManager.isDevelopmentMode) {
             install(CORS) {
+                allowHost("localhost:${ConfigManager.config.server.port}")
+                allowHost("127.0.0.1:${ConfigManager.config.server.port}")
                 allowHost("localhost:5173") // vue / vite dev server
                 allowHeader(HttpHeaders.ContentType)
                 allowCredentials = true
@@ -72,7 +78,7 @@ fun main() {
             configureSessionAuth()
         }
         install(Sessions) {
-            configureSessionCookie(isProduction)
+            configureSessionCookie()
         }
         install(WebSockets) {
             contentConverter = KotlinxWebsocketSerializationConverter(Json)
@@ -86,6 +92,12 @@ fun main() {
                 flightDirectorRoutes()
                 flightLogRoutes()
                 appStateRoutes()
+                protocolRoutes()
+            }
+            singlePageApplication {
+                useResources = true
+                filesPath = "frontend"
+                defaultPage = "index.html"
             }
         }
     }.start(wait = true)

@@ -1,17 +1,23 @@
 plugins {
-    kotlin("jvm") version "1.9.23"
-    kotlin("plugin.serialization") version "1.9.23"
+    kotlin("jvm") version "1.9.24"
+    kotlin("plugin.serialization") version "1.9.24"
     id("app.cash.sqldelight") version "2.0.2"
     idea
+    application
+    id("org.jetbrains.dokka") version "1.9.20"
 }
 
 allprojects {
     group = "de.mfcrossendorf"
-    version = "0.0.1"
+    version = "0.0.2"
 
     repositories {
         mavenCentral()
     }
+}
+
+subprojects {
+    apply(plugin = "org.jetbrains.dokka")
 }
 
 dependencies {
@@ -29,6 +35,9 @@ dependencies {
     implementation(libs.ktor.server.cors)
     implementation(libs.ktor.server.statusPages)
     implementation(libs.ktor.server.websockets)
+    testImplementation(libs.ktor.server.test)
+
+    implementation(libs.ktoml.core)
 
     // logging
     implementation(libs.slf4j.simple)
@@ -43,13 +52,57 @@ dependencies {
 }
 
 kotlin {
-    jvmToolchain(21)
+    jvmToolchain(17)
 }
 
 tasks {
     test {
         useJUnitPlatform()
     }
+
+    processResources {
+        from(projectDir.resolveSibling("frontend").resolve("dist")) {
+            into("frontend")
+        }
+    }
+
+    val installFrontend by registering {
+        group = "fullstack"
+        dependsOn(project(":common-data").tasks.build)
+        doLast {
+            exec {
+                workingDir(projectDir.resolveSibling("frontend"))
+                commandLine("pnpm", "install")
+            }
+        }
+    }
+
+    val buildFrontend by registering {
+        dependsOn(installFrontend)
+        group = "fullstack"
+        doFirst {
+            exec {
+                workingDir(projectDir.resolveSibling("frontend"))
+                commandLine("pnpm", "run", "build")
+            }
+        }
+    }
+
+    register("packageFullstackApp") {
+        group = "fullstack"
+        dependsOn(buildFrontend)
+        finalizedBy(assembleDist)
+    }
+
+    register("runFullstackApp") {
+        group = "fullstack"
+        dependsOn(buildFrontend)
+        finalizedBy(run)
+    }
+}
+
+application {
+    mainClass.set("de.mfcrossendorf.logbook.ApplicationKt")
 }
 
 idea {

@@ -45,14 +45,14 @@ loadFlights()
   </div>
   <div v-else-if="activeFlights.length > 0" style="display: flex; flex-direction: column; gap: 1em;">
     <div v-for="flight in activeFlights" :key="flight.flightId">
-      <FlightCard :flight="flight" :active="true" />
+      <FlightCard :flight="flight" />
     </div>
   </div>
   <div v-else class="card" style="padding: 1em;">
     Aktuell sind keine aktiven Piloten registriert.
   </div>
 
-  <h2 style="margin-top: 1em; margin-bottom: 0.2em;">Heute abgeschlossene Flüge</h2>
+  <h2 style="margin-top: 1.5em; margin-bottom: 0.2em;">Heute abgeschlossene Flüge</h2>
   <p class="card-subtitle">Die folgenden Flugeinträge wurden <strong>heute</strong> erstellt.</p>
   <div v-if="finishedFlights === undefined">
     Es ist ein Fehler beim Laden der abgeschlossenen Protokolle aufgetreten.
@@ -62,7 +62,7 @@ loadFlights()
   </div>
   <div v-else-if="finishedFlights.length > 0" style="display: flex; flex-direction: column; gap: 1em;">
     <div v-for="flight in finishedFlights" :key="flight.flightId">
-      <FlightCard :flight="flight" :active="false" />
+      <FlightCard :flight="flight" />
     </div>
   </div>
   <div v-else class="card" style="padding: 1em;">

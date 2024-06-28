@@ -1,13 +1,16 @@
 package de.mfcrossendorf.logbook.validation
 
 import de.mfcrossendorf.logbook.CreateFlightLogRequest
+import de.mfcrossendorf.logbook.util.simplify
+import de.mfcrossendorf.logbook.util.time
 import de.mfcrossendorf.logbook.util.today
 import kotlinx.datetime.Clock
 
 fun CreateFlightLogRequest.validateAndTrim(): CreateFlightLogRequest {
     return CreateFlightLogRequest(
         date = date,
-        flightStart = flightStart,
+        flightStart = flightStart.simplify(),
+        flightEnd = flightEnd?.simplify(),
         signature = signature.trim(),
         checkedFirstAid = checkedFirstAid,
         modelType = modelType.trim(),
@@ -22,6 +25,10 @@ private fun CreateFlightLogRequest.validate() {
             add("Model type must not be empty")
         if (date > Clock.System.today())
             add("Cannot create flight log for future date")
+        if (flightEnd != null && flightStart > flightEnd!!)
+            add("Flight start time cannot be after flight end time")
+        if (flightEnd != null && date == Clock.System.today() && flightEnd!! > Clock.System.time())
+            add("Flight end time cannot be in the future")
     }.ifEmpty { null }
 
     if (issues != null) {

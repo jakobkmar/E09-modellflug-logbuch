@@ -1,8 +1,4 @@
-= Architecture Notebook: {project-name}
-Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
-{localdatetime}
-include::../_includes/default-attributes.inc.adoc[]
-// Platzhalter für weitere Dokumenten-Attribute
+= Architecture Notebook
 
 ifndef::docs-requirements[:docs-requirements: ../requirements]
 ifndef::docs-architecture[:docs-architecture: ../architecture]
@@ -81,10 +77,11 @@ include::../requirements/system-wide_requirements.adoc[tag=nfas2]
 . Wir nutzen TypeScript im Frontend, da
 .. somit häufige Fehlerquellen aus JavaScript vermieden werden
 .. die IDE Unterstützung besser ist
-. Wir nutzen eine relationale SQL Datenbank (Entscheidung zwischen SQLite oder PostgreSQL steht noch aus), da
+. Wir nutzen die relationale SQL Datenbank PostgreSQL, da
 .. alle Teammitglieder und der Auftraggeber mit der Query-Language vertraut sind
 .. die zukünftige Wartung wahrscheinlich sicher ist
-.. diese Softwares als robust und gut optimiert gelten
+.. diese Software als robust und gut optimiert gilt
+.. die Einrichtung und Wartung einfach und gut dokumtiert ist, und es viel Hilfe im Internet gibt
 . Wir nutzen Kotlin mit Ktor im Backend, da
 .. die Erfahrung aus Java mitgenutzt werden kann
 ... die Sprache aber flexibler als Java ist
@@ -177,27 +174,45 @@ image::c4model.png[C4 Modell, width=65%]
 :imagesdir: {docs-architecture}/images
 image::draft_informal.png[Informelles Architektur Diagramm, width=80%]
 
+<<<
+
 === Use cases
 //Eine Liste oder ein Diagramm der Use Cases, die architektur-relevante Anforderungne enthalten.
 
 Alle von uns identifizierten Use Cases haben eine Auswirkung auf die Architektur.
 
-So unteranderem:
+So unter anderem:
 
-* UC01 Pilot registrieren, UC03 Protokoll anlegen
-** es wird eine persistente Datenbank benötigt
-* UC02 Pilot anmelden, UC06 Pilot abmelden
-** es muss eine Session gehalten werden
-* UC04 Protokoll einsehen, UC09 Protokoll bearbeiten
-** es muss eine Authentifizierung geben
-** Daten müssen über das Backend aus der Datenbank abfragbar sein
-* UC05 Flugbegleiter bestimmen
-** es muss eine Websocket Verbindung offen gehalten werden, um alle Piloten zu fragen
-* UC07 Pilotendaten modifizieren, UC08 Pilot deaktivieren
-** es muss einen abgetrennten Administratorbereich geben
+* *UC01*: Account registrieren, *UC07*: Accountdaten modifizieren, *UC08*: Account deaktivieren
+** Der Account bzw. die Änderungen werden in der Datenbank gespeichert
+** Der Admin, welcher den Account erstellt, muss authentifiziert sein
+* *UC03*: Protokoll anlegen, *UC04*: Protokoll einsehen, *UC09*: Protokoll bearbeiten
+** Das Protokoll bzw. die Änderungen werden in der Datenbank gespeichert
+* *UC05*: Flugleiter bestimmen
+** Es darf nur einen Flugleiter geben
+** Es muss über die Notwendigkeit eines Flugleiters informiert werden
+*** Live-Update des Frontends
+* *UC02*: Account Login, *UC06*: Account abmelden
+** Es muss eine Session Authentication stattfinden
+** Das Passwort solche sicher übertragen und gespeichert werden
+* *UC10*: Tagesprotokoll erstellen
+** Es muss eine effiziente Aggregierung möglich sein
 
 Somit ist für die Architektur das gesamte Use-Case-Diagramm relevant.
 
 .Use-Case-Diagramm
 :imagesdir: {docs-requirements}/images
-image::use_case_diagram.png[Use Case Diagram]
+image::use_case_diagram.png[Use Case Diagramm]
+
+<<<
+
+=== Komponentendiagramm
+
+Für die abgebildeten Interfaces ergibt sich folgende Legende:
+
+* durchgehende Linie -> stellt Interface bereit
+* gestrichelte Linie -> benötigt Interface
+
+.Component-Diagramm
+:imagesdir: {docs-architecture}/images
+image::component_diagramm.png[Komponenten-Diagramm]

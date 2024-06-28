@@ -15,10 +15,13 @@ CREATE TABLE flight (
 );
 
 
--- Queries --
+-- Indexes --
 
-getFlights:
-SELECT * FROM flight;
+CREATE INDEX flight_accountId_idx ON flight (account_id);
+CREATE INDEX flight_date_idx ON flight (date);
+
+
+-- Queries --
 
 getFlight:
 SELECT * FROM flight WHERE flight_id = ?;
@@ -28,28 +31,49 @@ INSERT INTO flight VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 RETURNING flight_id;
 
 getFlightsByAccountId:
-SELECT * FROM flight WHERE account_id = :id;
-
-getOpenFlights:
 SELECT flight.*, account.first_name, account.last_name FROM flight
 JOIN account ON flight.account_id = account.account_id
-WHERE flight_end IS NULL AND date = :date;
+WHERE flight.account_id = :accountId AND
+      date >= :startDate AND
+      date <= :endDate
+ORDER BY date DESC, flight_start DESC;
+
+getFlightsOnDate:
+SELECT flight.*, account.first_name, account.last_name FROM flight
+JOIN account ON flight.account_id = account.account_id
+WHERE date = ?
+ORDER BY date DESC, flight_start DESC;
+
+getActiveFlights:
+SELECT flight.*, account.first_name, account.last_name FROM flight
+JOIN account ON flight.account_id = account.account_id
+WHERE
+  (flight_end IS NULL OR flight_end > :currentTime) AND
+  date = :date
+ORDER BY flight_start DESC;
 
 getOpenFlightByAccountId:
 SELECT flight.*, account.first_name, account.last_name FROM flight
 JOIN account ON flight.account_id = account.account_id
 WHERE flight.account_id = :accountId AND flight_end IS NULL AND date = :date
+ORDER BY flight_start DESC
 LIMIT 1;
 
 getCompletedFlights:
 SELECT flight.*, account.first_name, account.last_name FROM flight
 JOIN account ON flight.account_id = account.account_id
-WHERE flight_end IS NOT NULL AND date = :date;
+WHERE
+  (flight_end IS NOT NULL AND flight_end < :currentTime) AND
+  date = :date
+ORDER BY flight_start DESC;
 
 getActivePilots:
 SELECT account_id FROM flight
+WHERE (flight_end IS NULL OR flight_end > :currentTime) AND date = :date;
+
+getOpenPilots:
+SELECT account_id FROM flight
 WHERE flight_end IS NULL AND date = :date;
--- SELECT DISTINCT account_id FROM flight WHERE flight_end IS NULL; -- supported in SQLDelight 2.1.0
 
 completeFlight:
 UPDATE flight SET flight_end = :flightEnd, remarks = :remarks

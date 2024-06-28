@@ -1,12 +1,69 @@
-= Design: {project-name}
-Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
-{localdatetime}
-include::../_includes/default-attributes.inc.adoc[]
-// Platzhalter für weitere Dokumenten-Attribute
+= Design
+
+ifndef::docs-requirements[:docs-requirements: ../requirements]
+ifndef::docs-development[:docs-development: ../development]
+
+Dieses Dokument beschreibt den Feinentwurf von Komponenten, also Schnittstellen, Paketen, Klassen usw.
+
+== Diagramm
+
+Das ER-Diagramm zeigt die Beziehungen zwischen den Entitäten des Systems. Jede Entität ist eine Tabelle in der Datenbank.
+
+.ER-Diagramm für das Datenbankschema
+[plantuml, "diagrams/er_diagram", svg]
+....
+include::resources/er_diagram.puml[]
+....
+
+Hier noch eine alternative Ansicht aus IntelliJ:
+
+.ER-Diagramm mit IntelliJ generiert (nachträglich)
+:imagesdir: {docs-development}/images
+image::er_diagram_intellij.png[]
 
 
-== Allgemeine Informationen
+== Verwendete Technologien
 
-Beim Design  geht es um den Feinentwurf von Komponenten, also Schnittstellen, Paketen, Klassen usw.
+Aus dem Entwurf der Architektur wurde sich nun final auf die folgenden Technologien festgelegt:
 
-Die Ausarbeitung dieser steht für Anfang nächstes Semester an.
+=== Backend
+
+* Kotlin
+** kotlinx.serialization (JSON Serialization)
+** kotlinx.datetime (Date and Time)
+** Gradle (Build Tool)
+* Ktor (Web Framework)
+** Websockets (Live App State Updates)
+* SQLDelight (SQL Queries)
+** PostgreSQL Dialect
+** HikariCP (Connection Pooling)
+* slf4j (Logging)
+
+=== Frontend
+
+* Vue.js
+** Vite (Build Tool)
+** Vue Router (Routing)
+** Pinia (State Management)
+* TypeScript
+** pnpm (Package Manager)
+
+
+== Schnittstellen
+
+=== Rest-API
+
+Die Rest-API wird über Ktor bereitgestellt. Die Routen werden deklarativ definiert, ausgehend von der `routing` Funktion in `Application.kt`, von welcher sofort mittels Extension-Functions in einen separaten Scope in einer anderen Datei gewechselt wird.
+
+== Komponenten und Struktur
+
+=== Aufbau des Backends
+
+Das Backend nutzt vor allem einen deklarativen und funktionalen Programmierstil, wodurch existierenden Klassen und Funktionen klein und spezialisiert sind. +
+Hauptsächlich wird bei Kotlin in Dateien strukturiert, welche jeweils in Paketen angeordnet sind.
+
+.Paketdiagramm für das Backend
+[plantuml, "diagrams/package_diagram", svg]
+....
+include::resources/package_diagram.puml[]
+....

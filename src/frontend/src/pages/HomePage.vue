@@ -10,6 +10,9 @@ const appState = ref<AppState | null>(null)
 const activePilots = computed((): number[] => {
   return appState.value?.activePilots ?? []
 })
+const openPilots = computed((): number[] => {
+  return appState.value?.openPilots ?? []
+})
 const flightLogCount = ref<number | null | undefined>(null)
 
 let appStateSocket: WebSocket
@@ -32,7 +35,7 @@ requestInfo()
 onMounted(() => {
   appStateSocket = new WebSocket('ws://localhost:8080/api/v1/appstate/live')
   appStateSocket.onopen = () => {
-    console.debug("Opened WebSocket connection to app state")
+    // console.debug("Opened WebSocket connection to app state")
   }
   appStateSocket.onerror = () => {
     console.error("AppState websocket failed")
@@ -58,7 +61,7 @@ onUnmounted(() => {
     <div class="card group-card">
       <h1 style="align-self: center;">Flüge</h1>
       <div class="btn-column loading-block" :class="{ 'loading': appState == null }">
-        <RouterLink v-if="!activePilots.includes(sessionStore.loginSession.sessionData.userId)"
+        <RouterLink v-if="!openPilots.includes(sessionStore.loginSession.sessionData.userId)"
                     to="/flight/create" class="btn btn-indigo">
           <div style="padding-top: 1em; padding-bottom: 1em;">
             <h2>Als Pilot anmelden</h2>
@@ -69,7 +72,7 @@ onUnmounted(() => {
             </div>
           </div>
         </RouterLink>
-        <RouterLink to="/flight/complete" class="btn btn-orange" v-else>
+        <RouterLink v-else to="/flight/complete" class="btn btn-orange">
           <div style="padding-top: 1em; padding-bottom: 1em;">
             <h2>Als Pilot abmelden</h2>
             <div>Damit schließt du den aktuellen Flug ab.</div>
@@ -134,11 +137,16 @@ onUnmounted(() => {
           <div>Nutzerprofile erstellen und anpassen.</div>
         </div>
       </RouterLink>
-      <RouterLink to="/admin/manage-models" class="btn btn-outline-purple" style="margin-top: 1em;">
+      <RouterLink to="/admin/manage-models" class="btn btn-outline-purple disabled" style="margin-top: 1em;">
         <div style="padding-top: 0.4em; padding-bottom: 0.4em;">
           <h3>Modellverwaltung</h3>
           <div>Flugmodelle erstellen und verwalten.</div>
         </div>
+      </RouterLink>
+    </div>
+    <div style="text-align: center; margin-top: 0.2em;">
+      <RouterLink to="/config" class="btn btn-sm btn-ghost-indigo">
+        Konfiguration
       </RouterLink>
     </div>
   </div>

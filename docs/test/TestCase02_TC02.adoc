@@ -1,0 +1,103 @@
+== Test Case 7 - Dynamische Flugleiterzuweisung und -verwaltung
+
+[cols="1,1,2,2,2", options="header"]
+|===
+| TID
+| Testart
+| Vorbedingung
+| Durchführung
+| Nachbedingung
+
+| 1
+| Positiv, manuell
+| Drei Piloten sind aktiv auf dem Flugplatz angemeldet.
+| Überwachung der automatischen Zuweisung der Flugleiterrolle, sobald der dritte Pilot sich anmeldet.
+| Das System informiert alle Piloten über die Notwendigkeit eines Flugleiters; spezielle Berechtigungen und Verantwortlichkeiten werden aktiviert.
+
+| 2
+| Positiv, manuell
+| Zwei Piloten sind bereits angemeldet, und ein dritter Pilot meldet sich an.
+| Beobachtung der Reaktion des Systems auf die Anmeldung eines dritten Piloten.
+| Der neu angemeldete Pilot erhält die Flugleiterrolle angeboten.
+
+| 3
+| Positiv, manuell
+| Ein Flugleiter ist bereits bestimmt, aber ein weiterer Pilot kommt hinzu.
+| Das System prüft, ob eine Neuzuweisung der Flugleiterrolle notwendig ist.
+| Wenn nötig, Neuzuweisung der Flugleiterroller basierend auf vordefinierten Kriterien. System informiert den neuen Flugleiter.
+
+| 4
+| Positiv, manuell
+| Flugleiter muss den Flugplatz verlassen und überträgt seine Rolle.
+| Überwachung des Prozesses zur Übertragung der Flugleiterrolle an einen anderen angemeldeten Piloten.
+| Das System ermöglicht die reibungslose Übertragung der Rolle und bestätigt beiden Piloten die Änderung.
+
+
+|===
+
+=== TestCases Durchführung
+
+.TID 1
+
+[%header, cols=4*]
+|===
+|Eingegebene Werte
+|Erfolgreich?
+|Nachgebessert
+|Akzeptanztest
+
+| /
+| Erfolgreich
+| /
+| Erfolgreich
+
+|===
+
+.TID 2
+
+[%header, cols=4*]
+|===
+|Eingegebene Werte
+|Erfolgreich?
+|Nachgebessert
+|Akzeptanztest
+
+| /
+| Erfolgreich
+| /
+| Erfolgreich
+
+|===
+
+.TID 3
+
+[%header, cols=4*]
+|===
+|Eingegebene Werte
+|Erfolgreich?
+|Nachgebessert
+|Akzeptanztest
+
+| /
+| Erfolgreich
+| /
+| Erfolgreich
+
+|===
+
+.TID 4
+
+[%header, cols=4*]
+|===
+|Eingegebene Werte
+|Erfolgreich?
+|Nachgebessert
+|Akzeptanztest
+
+| /
+| Nicht Erfolgreich
+| Nachgebessert durch Jakob
+| Erfolgreich
+
+|===
+

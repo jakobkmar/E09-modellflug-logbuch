@@ -14,6 +14,8 @@ Smartphone der Piloten"*.
 
 ## Linkverzeichnis
 
+- [**Betriebsdokumentation** inklusive Deployment Guide](belegabgabe_se2/Betriebsdokumentation/Betriebsdokumentation.adoc)
+- [Entwicklerdokumentation](belegabgabe_se2/Entwicklerdokumentation.adoc)
 - [Work Item List](https://github.com/users/jakobkmar/projects/2/views/3)
 - [Ursprüngliche README.md](readme_old.md)
 
@@ -21,6 +23,24 @@ Smartphone der Piloten"*.
 
 <img src="docs/architecture/images/draft_informal.png" width="100%"
      alt="Architecture Diagram">
+
+## Aufbau des Repositories
+
+```tree
+.
+├── belegabgabe_se1
+├── belegabgabe_se2
+├── docs
+│   ├── architecture
+│   ├── development
+│   ├── deployment
+│   ├── requirements
+│   ├── project_management
+│   └── test
+└── src
+    ├── backend
+    └── frontend
+```
 
 ## Lizenz
 

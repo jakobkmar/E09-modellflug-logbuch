@@ -16,5 +16,5 @@
 src/backend/**/build/
 
 # Project
-config/database.properties
+**/config/config.toml
 data/sessions/

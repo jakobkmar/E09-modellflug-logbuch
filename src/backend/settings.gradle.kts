@@ -14,7 +14,7 @@ fun VersionCatalogBuilder.libs() {
         "kotlinx.datetime",
         "org.jetbrains.kotlinx:kotlinx-datetime:0.6.0")
 
-    val ktorVersion = "2.3.11"
+    val ktorVersion = "2.3.12"
     library(
         "ktor.server.core",
         "io.ktor:ktor-server-core:$ktorVersion")
@@ -42,6 +42,17 @@ fun VersionCatalogBuilder.libs() {
     library(
         "ktor.server.websockets",
         "io.ktor:ktor-server-websockets:$ktorVersion")
+    library(
+        "ktor.server.test",
+        "io.ktor:ktor-server-test-host:$ktorVersion")
+
+    val ktomlVersion = "0.5.1"
+    library(
+        "ktoml.core",
+        "com.akuleshov7:ktoml-core:$ktomlVersion")
+    library(
+        "ktoml.file",
+        "com.akuleshov7:ktoml-file:$ktomlVersion")
 
     library(
         "slf4j.simple",

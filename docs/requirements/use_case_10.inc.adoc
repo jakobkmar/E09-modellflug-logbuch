@@ -1,0 +1,57 @@
+//Nutzen Sie dieses Template als Grundlage für die Spezifikation *einzelner* Use-Cases. Diese lassen sich dann per Include in das Use-Case Model Dokument einbinden (siehe Beispiel dort).
+ifndef::main-document[include::../_includes/default-attributes.inc.adoc[]]
+
+ifndef::docs-requirements[:docs-requirements: ../requirements]
+
+== Use-Case: UC10 Tagesprotokoll erstellen
+
+=== Kurzbeschreibung
+In diesem Use Case wird beschrieben, wie ein Admin oder ein Protokolleur ein Tagesprotokoll erstellen kann.
+
+=== Kurzbeschreibung der Akteure
+
+==== Admin
+Ein Admin ist der Verwalter des Gesamtsystems.
+Er pflegt dieses und kann Änderungen vornehmen.
+
+==== Protokolleur
+normaler Nutzer, der alle Protokolle von allen Nutzern einsehen kann und Tagesprotokolle erstellen kann.
+
+=== Vorbedingungen
+//Vorbedingungen müssen erfüllt, damit der Use Case beginnen kann, z.B. Benutzer ist angemeldet, Warenkorb ist nicht leer...
+
+Der Akteur ist angemeldet.
+
+=== Standardablauf (Basic Flow)
+//Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
+
+. Der Use Case beginnt, wenn ein *Akteur* ein Tagesprotokoll erstellen möchte.
+. Der *Akteur* wählt im Hauptmenü die Option "Protokollierung" aus.
+. Der *Akteur* kann in dem sich öffnenden Formular den Tag auswählen, für den das Protokoll erstellt werden soll.
+. Der *Akteur* drückt den Button "Tagesprotokoll anfragen"
+. Es öffnet sich automatisch der Browser Print Dialog, in welchem alle Flugeinträge des Tages und alle Flugleiter des Tages aufgelistet und sortiert sind.
+. Der *Akteur* drückt den Button "Drucken" mit der Einstellung "als PDF drucken" und das Tagesprotokoll wird gedruckt / als Datei PDF-Datei angelegt.
+. Der Use Case ist abgeschlossen.
+
+=== Alternative Abläufe
+//Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
+
+Bricht man den Use Case zu irgendeinem Zeitpunkt ab, beispielsweise indem man zur Startseite zurückkehrt oder den Browser Print Dialog schließt, dann wird das Tagesprotokoll nicht erstellt.
+
+=== Wesentliche Szenarios
+//Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
+
+==== Standartmäßige Protokollerstellung
+Sc.1: Ein Admin möchte ein Tagesprotokoll erstellen. Er wählt im Hauptmenü die Option "Protokollierung" aus. Er kann in dem sich öffnenden Formular den Tag auswählen, für den das Protokoll erstellt werden soll. Er drückt den Button "Tagesprotokoll anfragen". Es öffnet sich automatisch der Browser Print Dialog, in welchem alle Flugeinträge des Tages und alle Flugleiter des Tages aufgelistet und sortiert sind. Der Admin drückt den Button "Drucken" mit der Einstellung "als PDF drucken" und das Tagesprotokoll wird als Datei PDF-Datei angelegt.
+
+=== Nachbedingungen
+
+Die PDF-Datei des Tagesprotokolls wurde erstellt und kann eingesehen werden.
+
+
+
+=== Besondere Anforderungen
+//Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.
+
+==== Usability
+* Der Use Case gehört zu der grundlegenden Funktionalität des _Systems_ und muss daher für jeden berechtigten *Akteur* einfach und fehlerfrei ausführbar sein.

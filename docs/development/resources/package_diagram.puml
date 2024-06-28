@@ -1,0 +1,72 @@
+@startuml
+
+left to right direction
+
+package "Ktor Backend" {
+    [Application.kt]
+
+    package config {
+      [AppConfig.kt]
+      [ConfigManager.kt]
+    }
+
+    package data {
+      [UserSession.kt]
+    }
+
+    package routes {
+      [AccountRoutes.kt] --> sqldelight.account.sq : getAccount, createAccount
+      [AppStateRoutes.kt] --> sqldelight.session.sq : getSessionData, upsertSession, deleteSession
+      [FlightDirectorRoutes.kt] --> sqldelight.flightDirector.sq : getFlightDirectors, addFlightDirector, removeFlightDirector
+      [FlightLogRoutes.kt] --> sqldelight.flight.sq : getOpenFlightByAccountId, createFlight, completeFlight
+      [ProtocolRoutes.kt] --> sqldelight.flight.sq : getProtocolData
+    }
+
+    package validation {
+      [ValidationException.kt]
+      [AccountDataValidator.kt] --> [ValidationException.kt] : "throws"
+      [FlightDataValidator.kt] --> [ValidationException.kt] : "throws"
+    }
+
+    [FlightLogRoutes.kt] --> [FlightDataValidator.kt]
+    [AccountRoutes.kt] --> [AccountDataValidator.kt]
+
+    package session {
+      [DatabaseSessionStorage.kt]
+      [SessionAuth.kt] --> [UserSession.kt] : "uses type"
+      [SessionAuth.kt] --> [DatabaseSessionStorage.kt] : "reads / writes"
+      [SessionAuthException.kt]
+      [SessionCheck.kt] --> [SessionAuth.kt] : "requires"
+      [SessionCheck.kt] --> [SessionAuthException.kt] : "throws"
+      [SessionAuth.kt] --> [SessionAuthException.kt] : "throws"
+    }
+
+    package database {
+      [DatabaseExtensions.kt]
+      [DatabaseHandler.kt]
+    }
+
+    database --> sqldelight : "uses ORM"
+
+    [Application.kt] --> "OpenAPI Documentation" : "serves"
+    [Application.kt] --> config : "creates and reads"
+
+    package util {
+      [Logging.kt]
+      [TimeUtil.kt]
+    }
+}
+
+package "OpenAPI Documentation" {
+  [documentation.yaml]
+}
+
+package sqldelight {
+  [account.sq]
+  [flight.sq]
+  [flightDirector.sq]
+  [model.sq]
+  [session.sq]
+}
+
+@enduml

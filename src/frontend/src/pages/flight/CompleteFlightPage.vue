@@ -11,7 +11,7 @@ const flightData = ref<FlightData | null | undefined>(null)
 const additionalNotes = ref<string | null>(null)
 
 async function loadFlightlog() {
-  const response = await backendRequest('/api/v1/flightlog/active', {
+  const response = await backendRequest('/api/v1/flightlog/open', {
     method: 'GET',
   })
   if (!response.ok) {
@@ -70,7 +70,7 @@ onMounted(() => {
   <h1>Flug abschließen</h1>
   <div v-if="flightData != null">
     <div class="card-subtitle mt-3 mb-2">Du kannst den folgenden Flugeintrag abschließen:</div>
-    <FlightCard :flight="flightData" :active="true" />
+    <FlightCard :flight="flightData" />
     <div class="card-subtitle mt-3 mb-2">Gab es besondere Ereignisse während des Flugbetriebs?</div>
     <textarea v-model="additionalNotes" class="form-control" placeholder="Notizen"/>
     <button class="btn btn-teal mt-3" @click="completeFlightlog">Abschließen</button>

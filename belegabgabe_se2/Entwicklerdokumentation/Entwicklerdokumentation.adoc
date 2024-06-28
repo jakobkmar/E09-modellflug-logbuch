@@ -1,0 +1,43 @@
+:doctype: book
+:docs: ../../docs
+include::{docs}/_includes/default-attributes.inc.adoc[]
+:chapter-signifier:
+:toclevels: 3
+
+:docs-requirements: {docs}/requirements
+:docs-project-management: {docs}/project_management
+:docs-architecture: {docs}/architecture
+:docs-test: {docs}/test
+:docs-development: {docs}/development
+
+= Entwicklerdokumentation: {project-name}
+
+== Entwurfsdokumentation
+
+include::{docs}/architecture/architecture_notebook.adoc[leveloffset=2]
+
+<<<
+
+include::{docs}/development/design.adoc[leveloffset=2]
+
+== Softwaredokumentation
+
+Die Softwaredokumentation ist in HTML Form mit GitHub Pages zur Verfügung gestellt:
+
+https://jakobkmar.github.io/E09-modellflug-logbuch/
+
+Dabei werden insbesondere die folgenden zwei Module angeboten:
+
+* link:https://jakobkmar.github.io/E09-modellflug-logbuch/common-data/[*Common Data*]
+** hier befinden sich alle geteilten Datenstrukturen (data classes etc.) welche sowohl durch das Frontend als auch das Backend verwendet werden
+** es handelt sich hautpsächlich um immutable und serialisierbare Klassen, welche auch zu `.d.ts` Typdefinitionen kompiliert werden können
+* link:https://jakobkmar.github.io/E09-modellflug-logbuch/backend/[*Backend*]
+** hier befindet sich der gesamte Backend-Code, welcher in Kotlin geschrieben ist
+** insbesondere die Routen sind hier deklarativ gegeben
+
+Die Dokumentation wurde mit link:https://github.com/Kotlin/dokka[Dokka] generiert, welches die offizielle API documentation engine für Kotlin ist.
+
+Dies sieht dann wie folgt aus:
+
+:imagesdir: images
+image::software_doku_vorschau.png[]

@@ -6,7 +6,7 @@ include::../_includes/default-attributes.inc.adoc[]
 
 
 == Einführung
-Der Zweck dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäten des Systems {project-name} zu sammeln, zu analysieren und zu definieren. Der Fokus liegt auf den Fähigkeiten, die von Stakeholdern und adressierten Nutzern benötigt werden, und der Begründung dieser Bedarfe. Die  Details, wie das System {project-name} diese Bedarfe erfüllt, werden in der Use-Case und Supplementary Specification beschrieben.
+Der Zweck dieses Dokuments ist es, die wesentlichen Bedarfe und Funktionalitäten des Systems {project-name} zu sammeln, zu analysieren und zu definieren. Der Fokus liegt auf den Fähigkeiten, die von Stakeholdern und adressierten Nutzern benötigt werden, und der Begründung dieser Bedarfe. Die  Details, wie das System {project-name} diese Bedarfe erfüllt, werden in den Use-Cases beschrieben.
 
 === Zweck
 Der Zweck dieses Dokuments ist es, die wesentlichen Anforderungen an das System aus Sicht und mit den Begriffen der künftigen Anwender zu beschreiben.
@@ -22,7 +22,7 @@ Siehe <<#glossary, Glossar>>.
 == Positionierung
 
 === Fachliche Motivation
-Um einen kontrollierten Betrieb des Vereinsflugplatzes zu gewährleisten, gibt es einige gesetzlich festgelegte bürokratische Maßnahmen zu beachten. Eine davon ist die Erfassung/Protokollierung der anwesenden Piloten. Aktuell wird der Vorgang analog über ein zentrales Flugbuch geregelt, in welches sich beim Betreten und Verlassen eingetragen werden muss. Diese Protokollierung ist notwendig, um abgesichert zu sein und die Nachvollziehbarkeit im Fall eines Schadens oder bei möglichen Beschwerden über Lärm oder Sachschädigung zu gewährleisten.
+Um einen kontrollierten Betrieb des Vereinsflugplatzes zu gewährleisten, gibt es einige gesetzlich festgelegte bürokratische Maßnahmen zu beachten. Eine davon ist die Erfassung/Protokollierung der anwesenden Piloten. Aktuell wird der Vorgang analog über ein zentrales Flugbuch geregelt, in welches sich beim Betreten und Verlassen des Platzes eingetragen werden muss. Diese Protokollierung ist notwendig, um abgesichert zu sein und die Nachvollziehbarkeit im Falle eines Schadens oder bei möglichen Beschwerden über Lärm oder Sachschädigung zu gewährleisten.
 
 Im Rahmen unserer Projektarbeit im Fach "Software Engineering I / Requirements Engineering" haben wir den Auftrag vom "Vereinsflugplatz des Mfc-Rossendorf" bekommen, diese Vorgänge zu digitalisieren. In Zukunft sollen sich die Piloten mit ihrem Smartphone auf einer Webapp anmelden bzw. abmelden können. Jeder Pilot soll auf der Webapp sein Logbuch erstellen und einsehen können. So soll ein simples digitales System entstehen, dass von jedem Vereinsmitglied genutzt werden kann und frei von bürokratischem Aufwand ist.
 
@@ -50,7 +50,7 @@ Container-Technologie eines Proxmox-Servers basiert, kann hier eine nachhaltige 
 [cols="1,3"]
 |===
 | Für | Modelflugplatz Rossendorf
-| der / die | ... eine effektivere Lösung für das logen von Piloten und Flügen benötigt.
+| der / die | ... eine effektivere Lösung für das Logen von Piloten und Flügen benötigt.
 | Das Produkt / die Lösung ist eine | ... Applikation für Mobiltelefone...
 | Die / Das | ... sehr viel mobiler ist und weniger Strom verbraucht...
 | Im Gegensatz zu | ... dem bisher verwendeten stationären Terminal.
@@ -67,11 +67,11 @@ Container-Technologie eines Proxmox-Servers basiert, kann hier eine nachhaltige 
 [%header, cols="1,3,3"]
 |===
 | Typ | Beschreibung | Verantwortlichkeiten
-| extern  | Piloten des Flugplatz  | benutzt System  
+| extern  | Piloten des Flugplatz  | benutzt System
 | extern  | Verwaltung des Flugplatz  | benutzt System und verwaltet es
-| extern  | Gäste auf dem Flugplatz  |     
+| extern  | Gäste auf dem Flugplatz  |
 | extern  | Gesetzgeber  | fordert die Führung des Logbuches für jeglichen Flugverkehr
-| intern  | Coaches und Dozenten  | würden sich über gute Arbeit der Entwickler/Studenten freuen  
+| intern  | Coaches und Dozenten  | würden sich über gute Arbeit der Entwickler/Studenten freuen
 | extern  | Betreiber eines weiteren Flugplatzes | möchte auch ein digitales Logbuch implementieren oder nutzt es bereits und will beide Systeme koppeln, um Informationen live auszutauschen
 |===
 
@@ -79,26 +79,25 @@ Container-Technologie eines Proxmox-Servers basiert, kann hier eine nachhaltige 
 
 ==== Systemplattform:
 
-.Aktuelle Systemplattform: 
+.Aktuelle Systemplattform:
 * momentan gibt es ein Protokolldokument in Papierform vor Ort (Mfc Rossendorf)
-* problematisch dabei ist, dass der Gesetzgeber mittlerweile eine digitale Lösung fordert und die Eintragung in das Protokoll in Papierform nur sperrlich von den Mitgliedern ausgeführt wird
+* problematisch dabei ist, dass der Gesetzgeber mittlerweile eine digitale Lösung fordert und die Eintragung in das Protokoll in Papierform nur spärlich von den Mitgliedern ausgeführt wird
 
 .Zukünftige Systemplattform:
 * zukünftig soll ein digitales System das physische System ersetzen
 * es soll über eine Webapp Daten eintragen lassen, verarbeiten und sicher einsehbar und verwaltbar machen
 
 ==== zu integrierende Anwendungen:
-
-* es existiert bereits eine Wetterstation, deren Daten dem Benutzer über die Webapp zur Verfügung stehen sollen
+* (es existiert bereits eine Wetterstation, deren Daten dem Benutzer über die Webapp zur Verfügung stehen sollen)
 * zusätzlich existiert bereits ein vereinseigener Webserver und ein proxmox Server, der durch netcup gehostet wird
 
 ==== Administratoren
 
 * sind Vereinsmitglieder des Mfc-Rossendorf
-** es gibt 3 bekannte Administratoren 
+** es gibt 3 bekannte Administratoren
 * der Gesetzgeber setzt voraus, dass die Anwesenheit der Piloten erfasst & protokolliert werden
 * sind autorisiert sowohl auf Protokoll- und Pilotendaten zuzugreifen, einzusehen und auch zu bearbeiten
-* besitzen besondere Zugangsrechte und Bearbeitungsmöglichkeiten: 
+* besitzen besondere Zugangsrechte und Bearbeitungsmöglichkeiten:
 ** Bearbeitung von Pilotendaten (Hinzufügen, Ändern, Deaktivieren)
 ** ändern von Protokollen noch nach dem Einreichen
 * verantwortungsbewusster Umgang mit den Rechten
@@ -112,11 +111,11 @@ Container-Technologie eines Proxmox-Servers basiert, kann hier eine nachhaltige 
 ** der Platz wird von ca. 5-10 Personen gleichzeitig genutzt (Fliegen von Modellflugzeugen)
 ** im Durchschnitt wird jede Woche 1 Gast von einem Piloten mitgebracht
 * aus rechtlichen Gründen haben die Piloten beim Betreten des Flugplatzes die Aufgabe, sich "anzumelden"
-** in der Vergangenheit: 
+** in der Vergangenheit:
 *** manuelles Eintragen in ein physisches Protokollblatt vor Ort
 *** war für jeden einsehbar und durch äußere Einflüsse ungeschützt
 *** tatsächliches Eintragen konnte wenig bis gar nicht überprüft werden weshalb viele Eintragungen fehlen
-** zukünftig mit unserem System:  
+** zukünftig mit unserem System:
 *** kann sich mit dem eigenen Smartphone mit der Webapp im System anmelden
 *** benötigt keine extra Karten o.ä. für die Authentifizierung, die er jedes Mal mitführen muss
 *** kann das derzeitige Aufkommen der auf dem Flugplatz über eine Webanwendung einsehen
@@ -129,45 +128,45 @@ Container-Technologie eines Proxmox-Servers basiert, kann hier eine nachhaltige 
 === Bedarfe und Hauptfunktionen
 //Vermeiden Sie Angaben zum Entwurf. Nennen wesentliche Features (Produktmerkmale) auf allgemeiner Ebene. Fokussieren Sie sich auf die benötigten Fähigkeiten des Systems und warum (nicht wie!) diese realisiert werden sollen. Geben Sie die von den Stakeholdern vorgegebenen Prioritäten und das geplante Release für die Veröffentlichung der Features an.
 
-[%header, cols="1,1,4,1"]
+[%header, cols="1,1,4"]
 |===
-| Bedarf | Priorität | Features | Geplantes Release
-| Logbuch | 21 | mobiles, elektronisches Logbuch | xx
-| Administration |  5 | Administrator kann Nutzer bearbeiten und Webapp pflegen und bearbeiten |
-| Webserver | 21 | Webserver auf dem proxmox Server des Vereins |
-| Synchronität | 13  | Synchronisation zwischen Smartphone und Webserver | xx
-| benutzer-Oberfläche | 21 | Benutzeroberfläche, über die sich Piloten ein- und austragen können | xx
-| Datenbank | 21 | Datenbank zur Speicherung und Verwaltung der Logbuchdaten | xx
-| sichere Kommunikation | 13  | sichere Kommunikation zwischen mobilen Endgeräten und Webserver sowie Schutz der Daten | xx
-| Admin-Benutzeroberfläche | 5  | Benutzeroberfläche und Backend-Logik zur Verwaltung des Logbuchs | xx
-| Login/Authentifizierung | 5  | Login/Authentifizierung | xx
-| 2FA | 3  | 2-Faktor-Authentifizierung | xx
-| Zugriffskontrolle | 2  | rollenbasierte Zugriffskontrolle | xx
-| Passwortrichtlinien | 2  | Passwortrichtlinien | xx
-| Authentifizierungsprotokolle | 1  | Authentifizierungsprotokolle | xx
-| Sessionverwaltung | 1  | Sessionverwaltung | xx
-| Wiederherstellungsmöglichkeiten | 1  | Wiederherstellungsmöglichkeiten | xx
-| Internationalität | 5  | Sprache Deutsch                                                        |
-| Internationalität | 5  | Sprache Englisch                                                       |
-| Wetteransage | 2  | Wetterdaten werden automazisch erfasst sobald Wetterstation online ist |
-| Backend | 8  | Funktionierendes Backend                                               |
-| Frontend | 8  | Funktionierendes Frontend                                              |
+| Bedarf                    | Priorität     | Features
+| Logbuch                   | 21            | mobiles, elektronisches Logbuch
+| Administration            |  5            | Administrator kann Nutzer bearbeiten und Webapp pflegen und bearbeiten
+| Webserver                 | 21            | Webserver auf dem proxmox Server des Vereins
+| Synchronität              | 13            | Synchronisation zwischen Smartphone und Webserver
+| benutzer-Oberfläche       | 21            | Benutzeroberfläche, über die sich Piloten ein- und austragen können
+| Datenbank                 | 21            | Datenbank zur Speicherung und Verwaltung der Logbuchdaten
+| sichere Kommunikation     | 13            | sichere Kommunikation zwischen mobilen Endgeräten und Webserver sowie Schutz der Daten
+| Admin-Benutzeroberfläche  | 5             | Benutzeroberfläche und Backend-Logik zur Verwaltung des Logbuchs
+| Login/Authentifizierung   | 5             | Login/Authentifizierung
+| 2FA                       | 3             | 2-Faktor-Authentifizierung
+| Zugriffskontrolle         | 2             | rollenbasierte Zugriffskontrolle
+| Passwortrichtlinien       | 2             | Passwortrichtlinien
+| Authentifizierungsprotokolle | 1          | Authentifizierungsprotokolle
+| Session-verwaltung        | 1             | Session-verwaltung
+| Wiederherstellungsmöglichkeiten | 1       | Wiederherstellungsmöglichkeiten
+| Internationalität         | 5             | Sprache Deutsch
+| Internationalität         | 5             | Sprache Englisch
+| Wetteransage              | 2             | Wetterdaten werden automatisch erfasst sobald Wetterstation online ist
+| Backend                   | 8             | Funktionierendes Backend
+| Frontend                  | 8             | Funktionierendes Frontend
 |===
 
 == Zusätzliche Produktanforderungen
 //Zutreffendes angeben, nicht zutreffendes streichen oder auskommentieren
 
-[%header, cols="4,1,1"]
+[%header, cols="4,1"]
 |===
-| Anforderung | Priorität | Geplantes Release
-| die Webanwendung muss leicht bedienbar sein | hoch | xx
-| die geltenden Datenschutzvorgaben müssen vom System berücksichtigt werden | hoch | xx
-| eine Datenbank Migration in neuere Versionen muss möglich sein | hoch | xx
-| Synchronisation zwischen Webanwendung und Webserver | hoch | xx
-| Betriebssystemunabhängigkeit der Webapp | hoch | xx
-| Webapp kann auf Deutsch oder Englisch angezeigt werden | hoch | xx
-| Backups werden auf einen externen proxmox Server hochgeladen | hoch | xx
-| moderne und barrierefreie Gestaltung der Weboberfläche | mittel | xx
-| Offline Eintragungen von Daten in das Logbuch | mittel | xx
-| Grafana wird benötigt, um Wetterdaten grafisch darzustellen | mittel | xx
+| Anforderung | Priorität
+| die Webanwendung muss leicht bedienbar sein | hoch
+| die geltenden Datenschutzvorgaben müssen vom System berücksichtigt werden | hoch
+| eine Datenbank Migration in neuere Versionen muss möglich sein | hoch
+| Synchronisation zwischen Webanwendung und Webserver | hoch
+| Betriebssystemunabhängigkeit der Webapp | hoch
+| Backups werden auf einen externen proxmox Server hochgeladen | mittel
+| Webapp kann auf Deutsch oder Englisch angezeigt werden | mittel
+| moderne und barrierefreie Gestaltung der Weboberfläche | gering
+| Offline Eintragungen von Daten in das Logbuch | gering
+| Grafana wird benötigt, um Wetterdaten grafisch darzustellen | gering
 |===

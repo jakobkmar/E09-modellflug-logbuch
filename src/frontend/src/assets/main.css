@@ -9,3 +9,13 @@
     font-weight: 100 900;
     font-display: swap;
 }
+
+.id-display {
+    font-family: monospace;
+    color: #05557c;
+    background-color: #e4eef3;
+    line-height: 1;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    border-radius: 5px;
+}
