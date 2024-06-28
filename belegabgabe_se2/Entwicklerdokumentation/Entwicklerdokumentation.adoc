@@ -1,99 +1,38 @@
-:source-highlighter: rouge
+:doctype: book
+:docs: ../../docs
+include::{docs}/_includes/default-attributes.inc.adoc[]
+:chapter-signifier:
+:toclevels: 3
 
-= Entwicklerdokumentation
+:docs-requirements: {docs}/requirements
+:docs-project-management: {docs}/project_management
+:docs-architecture: {docs}/architecture
+:docs-test: {docs}/test
+:docs-development: {docs}/development
 
-== Entwicklungsumgebung
+= Entwicklerdokumentation: {project-name}
 
-Nachfolgend sind die Tools aufgelistet, die für die Entwicklung der Anwendung benötigt werden. Teilweise sind Anweisungen für die Installation unter Windows enthalten. Auf Linux können die Pakete über den Paketmanager installiert werden.
+== Entwurfsdokumentation
 
-=== Backend
+include::{docs}/architecture/architecture_notebook.adoc[leveloffset=2]
 
-- IntelliJ IDEA (Ultimate Edition wenn auch Frontend)
-- Java 17+ `winget install EclipseAdoptium.Temurin.21.JDK`
-- Gradle
+== Softwaredokumentation
 
-=== Frontend
+Die Softwaredokumentation ist in HTML Form mit GitHub Pages zur Verfügung gestellt:
 
-- IntelliJ IDEA (Ultimate Edition)
-- **und/oder** Visual Studio Code
-- Node.js `winget install OpenJS.NodeJS`
-- pnpm `winget install pnpm.pnpm`
+https://jakobkmar.github.io/E09-modellflug-logbuch/
 
-=== Datenbank
+Dabei werden insbesondere die folgenden zwei Module angeboten:
 
-- PostgreSQL mit Docker https://docs.docker.com/get-docker/
+* link:https://jakobkmar.github.io/E09-modellflug-logbuch/common-data/[*Common Data*]
+** hier befinden sich alle geteilten Datenstrukturen (data classes etc.) welche sowohl durch das Frontend als auch das Backend verwendet werden
+** es handelt sich hautpsächlich um immutable und serialisierbare Klassen, welche auch zu `.d.ts` Typdefinitionen kompiliert werden können
+* link:https://jakobkmar.github.io/E09-modellflug-logbuch/backend/[*Backend*]
+** hier befindet sich der gesamte Backend-Code, welcher in Kotlin geschrieben ist
+** insbesondere die Routen sind hier deklarativ gegeben
 
-Nachfolgend die `docker-compose.yml` Datei für die Datenbank:
+Die Dokumentation wurde mit link:https://github.com/Kotlin/dokka[Dokka] generiert, welches die offizielle API documentation engine für Kotlin ist.
 
-[source,yaml]
-----
-services:
-  db:
-    image: postgres
-    # set shared memory limit when using docker-compose
-    shm_size: 128mb
-    environment:
-      POSTGRES_USER: logbook
-      POSTGRES_PASSWORD: logbook
-      POSTGRES_DB: logbook
-    ports:
-      - 5432:5432
-    volumes:
-      - ./postgres-data:/var/lib/postgresql/data
+Dies sieht dann wie folgt aus:
 
-  adminer:
-    image: adminer
-    ports:
-      - 8081:8080
-----
-
-Diese an eine geeignete Stelle auf dem eigenen Rechner speichern und mit `docker-compose up -d` starten.
-
-Nun ist die Datenbank unter `localhost:5432` und das Admin-Interface unter `localhost:8081` erreichbar.
-
-== Starten der Anwendung in der Entwicklungsumgebung
-
-Im Terminal in den Projektordner wechseln. Dann in den `backend` Ordner wechseln und die Anwendung starten.
-
-[source,shell]
-----
-cd src/backend
-----
-
-[source,shell]
-----
-# auf Linux
-./gradlew runFullstackApp
-# auf Windows
-./gradlew.bat runFullstackApp
-----
-
-=== Konfiguration nach dem ersten Start
-
-Mit dem ersten Start wird eine `config.toml` im `config` Ordner erstellt. Diese Datei enthält die Konfiguration für die Anwendung. Hier können die Einstellungen für die Datenbankverbindung und den Serverport angepasst werden, sowie der **Entwicklungmodus** aktiviert werden.
-
-Ein Beispiel für die Konfiguration wäre:
-
-[source,toml]
-----
-# The time zone to use for the application.
-# If not set, the system default is used.
-# See https://kotlinlang.org/api/kotlinx-datetime/kotlinx-datetime/kotlinx.datetime/-time-zone/-companion/of.html for more information.
-# timeZone = null
-
-[database]
-  serverName = "localhost"
-  # The PostgreSQL default port is 5432.
-  port = 5432
-  username = "logbook"
-  password = "logbook"
-  # The name of the database to use. (You chose this during database setup.)
-  databaseName = "logbook"
-
-[server]
-  # The port the server should listen on.
-  port = 8080
-  # In development mode the server runs without many security features.
-  # This is useful for testing and debugging in local environments.
-  developmentMode = true
-----
+image::software_doku_vorschau.png[]
