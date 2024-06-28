@@ -108,6 +108,10 @@ a|
 *   Vermerke über besondere Vorkommnisse
 |-
 
+|Protokoll
+|beschreibt das Formular, welches ein Nutzer mit der Software anlegen kann, um seinen Flug zu dokumentieren
+|Flugeintrag
+
 |Gesetzgeber
 |ein Stakeholder, der die Betreiber des Vereins dazu verpflichtet ein Flugbuch über die Aktivitäten auf dem Flugplatz zu führen 
 |-
