@@ -27,12 +27,12 @@ Die Webbapp ist entweder von der Webseite des Modellflugvereins aufrufbar oder k
 ## 2. Accountanmeldung
 Wenn Sie als Nutzer im System eingetragen sind, wird Ihnen Ihr Admin die Daten für einen Erstzugang geben. Wenn Sie sich das erste Mal anmelden, wird das erste Passwort das Sie eingeben, Ihr zukünftiges Passwort. Bitte beachten Sie, dass das Passwort mindestens 6 Zeichen haben muss.
 
-image::images/Accountanmeldung.png[vor der Anmeldung]
+image::images/Accountanmeldung.PNG[vor der Anmeldung]
 image::images/Login.PNG[Loginseite]
 
 Hinweis: Falls Sie Ihr Passwort vergessen haben, richten Sie sich bitte an eine zuständige Person. Diese setzt Ihr Passwort zurück. Daraufhin können Sie sich wie oben beschrieben anmelden.
 
-image::images/hauptmenu.png[Ansicht des Hauptmenüs der Webapp]
+image::images/hauptmenu.PNG[Ansicht des Hauptmenüs der Webapp]
 
 ## 3. Flugeinträge anlegen
 Einen Flugeintrag sollte beim Antreten einer Flugsitzung erstellt werden.
@@ -42,41 +42,41 @@ Sollte es nötig sein, dann ist ein Flugeintrag auch im Nachhinein anlegbar. Am 
 Durch das Betätigen des Buttons “Als Pilot anmelden”, öffnet sich eine Formularansicht, in der man alle benötigten Daten für einen Flugeintrag eintragen kann. Pflichtangaben sind die Folgenden: Datum, Uhrzeit Flugbeginn, Flugzeugtyp und Unterschrift.
 Weiterhin können Angaben zur Überprüfung der Erste-Hilfe-Station.
 
-image::images/flugeintrag1.png[Formularansicht]
-image::images/flugeintrag2.png[Formularansicht]
+image::images/flugeintrag1.PNG[Formularansicht1]
+image::images/flugeintrag2.PNG[Formularansicht2]
 
 ### b. Flugeintrag beenden
 Wenn ein Flug begonnen wurde, dann wird die Schaltfläche "Als Pilot anmelden" durch "Als Pilot abmelden" ersetzt. Durch das Betätigen dieser kann man nun den Flugeintrag abschließen. Abschließend kann man zudem noch Bemerkungen anhängen, wenn Bedarf besteht.
 
-image::images/flugAbmeldung1.png[Schaltfläche für das Abmelden des Fluges]
-image::images/flugAbmeldung2.png[Formularansicht]
+image::images/flugAbmeldung1.PNG[Schaltfläche für das Abmelden des Fluges]
+image::images/flugAbmeldung2.PNG[Formularansicht1]
 
 ## 4. Flugeinträge einsehen
 Über die Schaltfläche "Meine Flüge" können Sie sich alle Ihre erstellten Flugeinträge ansehen.
 
-image::images/meineFluege.png[Ansicht der eigenen Flüge]
+image::images/meineFluege.PNG[Ansicht der eigenen Flüge]
 
 ## 5. Aktive Piloten einsehen
 Über die Schaltfläche "Aktive Piloten" können Sie sich alle aktiven Piloten anzeigen lassen.
 
-image::images/aktivePiloten.png[Ansicht aller derzeit aktiven Piloten]
+image::images/aktivePiloten.PNG[Ansicht aller derzeit aktiven Piloten]
 
 ## 6. Flugleiter
 Mit der Schaltfläche "Flugleiter werden" können Sie sich als Flugleiter melden. Solange kein Flugleiter anwesend ist, ist das an der Anzeigefläche "Aktueller Flugleiter fehlt" zu erkennen.
 
-image::images/flugleiterWerden1.png[Schaltfläche für das Anmelden als Flugleiter]
+image::images/flugleiterWerden1.PNG[Schaltfläche für das Anmelden als Flugleiter]
 
 Solange die Anzahl der Piloten unter drei liegt, darf ein Flugleiter noch fliegen. 
 Ab einer Anzahl von 3 Piloten ändert sich das jedoch. Dann darf der Flugleiter nicht mehr selbst fliegen. Um wieder fliegen zu dürfen, muss ein Pilot die Flugleiterrolle an einen anderen Piloten abgeben.
 Wenn man Flugleiter ist, kann man sich über die Schaltfläche "Als Flugleiter abmelden" wieder abmelden.
 Wenn ein Flugleiter anwesend ist, kann dieser durch Betätigen der Schaltfläche "Aktueller Flugleiter präsent" angezeigt werden.
 
-image::images/Flugleiter2.png[Abmeldung vom Flugleiter und präsenter Flugleiter]
-image::images/aktuellerFlugleiter.png[Ansicht des aktuellen Flugleiters]
+image::images/Flugleiter2.PNG[Abmeldung vom Flugleiter und präsenter Flugleiter]
+image::images/aktuellerFlugleiter.PNG[Ansicht des aktuellen Flugleiters]
 
 Über die Schaltfläche "Historie" kann angezeigt werden, wer in der Vergangenheit Flugleiter war.
 
-image::images/flugleiterHistorie.png[Ansicht der Flugleiterhistorie]
+image::images/flugleiterHistorie.PNG[Ansicht der Flugleiterhistorie]
 
 [%always]
 <<<
@@ -85,7 +85,7 @@ image::images/flugleiterHistorie.png[Ansicht der Flugleiterhistorie]
 Nutzern mit Adminrechten ist es möglich innerhalb der Webapp die Nutzerverwaltung durchzuführen. Sie kann über die Schaltfläche "Nutzerverwaltung" aufgerufen werden.
 Hier können nun neue Nutzer erstellt werden oder bereits bestehende Nutzer bearbeitet oder gelöscht werden.
 
-image::images/Nutzerverwaltung1.png[Schaltfläche für Nutzerverwaltung]
-image::images/Nutzerverwaltung2.png[Ansicht der Nutzerverwaltung]
+image::images/Nutzerverwaltung1.PNG[Schaltfläche für Nutzerverwaltung]
+image::images/Nutzerverwaltung2.PNG[Ansicht der Nutzerverwaltung]
 
 
