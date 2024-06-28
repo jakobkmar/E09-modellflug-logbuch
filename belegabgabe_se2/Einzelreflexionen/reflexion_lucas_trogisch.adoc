@@ -18,5 +18,16 @@ Die Konsolidierung der Kommunikation auf Discord erwies sich als sehr erfolgreic
 
 Diese letztendlich deutlich größere Anzahl an Plattformen führte naturgemäß zu einem längeren Antwortintervall auf sekundären Plattformen für die Kommunikation mit dem Auftraggeber. In Zukunft sollten auch hier möglichst wenige Kommunikationsplattformen genutzt werden. Darüber hinaus brachte die Kommunikation über Discord nicht nur Vorteile mit sich. Die angenehme Möglichkeit, virtuelle Meetings zu veranstalten, reduzierte den persönlichen Kontakt auf ein absolutes Minimum. In der Retrospektive ist festzustellen, dass für gegenseitiges Verständnis und Vertrauen eine regelmäßige direkte Kommunikation nur schwer zu ersetzen ist. Auch durchgeführte Teambuilding-Events können alltägliche Kommunikation in Person meiner Auffassung nach nicht ersetzen, da man sich immer noch eher fremd bleibt.
 
+Letztendlich  wurde im Rahmen dieses Projektes deutlich, welchen hohen Stellenwert die konstruktive Zusammenarbeit im ganzen Team einnimmt. Gemeinsame, funktionale Kommunikationswege, sind dafür entscheidend, da jede Barriere in der Kommunikation, die effektive Zusammenarbeit im „wohle Team“ Prinzip gemäß  OpenUP behindert. 
+
 === Lernerfahrungen
 Zu meinen persönlichen Erkenntnissen gehört, dass Team und Kommunikation Schlüsselfaktoren für den Projekterfolg sind. Eine wichtige Verbesserung für zukünftige Projekte wäre, mehr persönliche Interaktionen zu fördern, um ein besseres Teamgefühl zu entwickeln und das gegenseitige Vertrauen zu stärken.
+
+
+==== Referenzen:
+
+- *`Discord Server`* link:https://github.com/jakobkmar/E09-modellflug-logbuch/blob/nolan2019-Einzelreflexion_Trogisch_update/belegabgabe_se2/Einzelreflexionen/images/Lucas/Screenshot_Discord.PNG[(->)]:
+
+- *`Projetplan`* link:https://github.com/jakobkmar/E09-modellflug-logbuch/blob/main/docs/project_management/project_plan.adoc[(->)]:
+
+
