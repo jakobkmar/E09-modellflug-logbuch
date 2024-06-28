@@ -7,7 +7,7 @@ ifndef::docs-requirements[:docs-requirements: ../requirements]
 
 === Kurzbeschreibung
 //<Kurze Beschreibung des Use Case>
-In diesem Use-Case wird das Anlegen des Use-Cases behandelt.
+In diesem Use-Case wird das Anlegen der Dokumentation eines einzelnen Fluges beschrieben.
 
 === Kurzbeschreibung der Akteure
 
@@ -23,58 +23,49 @@ Ein Pilot muss existieren und sich angemeldet haben.
 === Standardablauf (Basic Flow)
 //Der Standardablauf definiert die Schritte für den Erfolgsfall ("Happy Path")
 
-. Der Use Case beginnt, wenn ein Pilot sich angemeldet hat und ein Protokoll anlegen will
-. Der Pilot initiiert den Vorgang des Anlegen
+. Der Pilot initiiert den Vorgang des Anlegens mit Click auf den Button "als Pilot anmelden"
 . Der Pilot gibt alle erforderlichen Daten ein
-. Der Pilot gibt optionale Daten ein
-. Der Pilot bestätigt seine Angaben
+. Der Pilot unterschreibt das Protokoll
+. Der Pilot drückt den Button "Flug erstellen"
+. Der Pilot fliegt, bis er den Button "als Pilot abmelden" betätigt
+. Der Pilot kann zusätzliche Anmerkungen hinzufügen
+. Der Pilot betätigt den Button "Abschließen"
 . Protokoll wird ans Backend überreicht
 . Der Use Case ist abgeschlossen.
 
 === Alternative Abläufe
 //Nutzen Sie alternative Abläufe für Fehlerfälle, Ausnahmen und Erweiterungen zum Standardablauf
 
-Wenn der Pilot im Schritt 3-4 des Standardablauf das Protokoll anlegen abbricht, dann
-. werden die Schritte 3-7 nicht ausgeführt
-. Der Use Case wird im Schritt 8 fortgesetzt.
+Wenn der Pilot vor Punkt 4 abbricht, dann werden seine Einträge verworfen.
+Sollte ein Pilot sich abmelden bevor er sein Protokoll abgeschlossen hat, dann gilt das Protokoll ab 0:00 Uhr als abgeschlossen. Es wird nicht verworfen.
 
 === Unterabläufe (subflows)
 //Nutzen Sie Unterabläufe, um wiederkehrende Schritte auszulagern
 
-==== Unterablauf
-. Der Pilot betätigt im Hauptmenü der Webapp den button "Protokoll anlegen"
+==== Unterablauf Daten eingeben (2.)
 . Die Protokollerstellung öffnet sich
 . Der Pilot gibt die Daten ein
-    .. ErstellerID
     .. Flugbeginn
     .. Flugende
     .. Unterschrift
     .. Erste-Hilfe-Einrichtung überprüft
-    .. Bemerkungen
-    .. Flugleiter
     .. Modell
-. Der Pilot bestätigt seine Eingabe
-. Das Protokoll wird ans Backend überreicht
-. Der Use Case ist abgeschlossen.
 
 === Wesentliche Szenarios
 //Szenarios sind konkrete Instanzen eines Use Case, d.h. mit einem konkreten Akteur und einem konkreten Durchlauf der o.g. Flows. Szenarios können als Vorstufe für die Entwicklung von Flows und/oder zu deren Validierung verwendet werden.
 
 ==== Standartmäßige Protokollerstellung
-Sc.1: Der Pilot hat nach der Anmeldung den Button "Protokoll erstellen" betätigt. Es öffnet sich die Protokollerstellung. Der Pilot gibt sämtliche Daten richtig ein und bestätigt zuletzt den Abschluss der Erstellung. Die Accounterstellung wird nicht automatisch geschlossen, aber kann vom Piloten über den "Zurück"-Button verlassen werden. Das erstellte Protokoll wird an den Webserver gesandt, wo es gespeichert wird.
-
-==== falsche Datentyp bei der Protokollerstellung
-Sc.2: Der Pilot hat nach der Anmeldung den Button "Protokoll erstellen" betätigt. Es öffnet sich die Protokollerstellung. Der Pilot gibt sämtliche Daten ein, wählt aber bei einer Option den falschen Datentyp. Er bekommt eine Fehlermeldung und ist weiterhin in der Protokollerstellung, in der er den Fehler berichtigen kann. Er bestätigt zuletzt den Abschluss der Erstellung. Die Accounterstellung wird nicht automatisch geschlossen, aber kann vom Piloten über den "Zurück"-Button verlassen werden. Das erstellte Protokoll wird an den Webserver gesandt, wo es gespeichert wird.
+Sc.1: Der Pilot hat nach der Anmeldung den Button "als Pilot anmelden" betätigt. Es öffnet sich die Protokollerstellung. Der Pilot gibt sämtliche Daten richtig ein und bestätigt zuletzt den Abschluss der Erstellung. Das erstellte Protokoll wird an den Webserver gesandt und anschließend in der Datenbank gespeichert.
 
 ==== Abbruch der Protokollerstellung
-Sc.3: Der Pilot hat nach der Anmeldung den Button "Protokoll erstellen" betätigt. Es öffnet sich die Protokollerstellung. Der Pilot gibt sämtliche Daten ein. Bevor er den Abschluss der Erstellung bestätigt, betätigt er jedoch den "Zurück"-Button. Er erhält ein Dialogfenster, die ihn fragt ob er die Erstellung abbrechen will. Er bestätigt dies. Die Erstellung wird abgebrochen und keine der eingegeben Daten werden gespeichert.
+Sc.2: Der Pilot hat nach der Anmeldung den Button "als Pilot anmelden" betätigt. Es öffnet sich die Protokollerstellung. Der Pilot gibt sämtliche Daten ein. Bevor er den Abschluss der Erstellung bestätigt, betätigt er jedoch den "Abbrechen"-Button. Die Erstellung wird abgebrochen und die eingegebenen Daten werden nicht gespeichert.
 
 === Nachbedingungen
 //Nachbedingungen beschreiben das Ergebnis des Use Case, z.B. einen bestimmten Systemzustand.
 
 ==== Protokoll wurde angelegt
 Es wurde ein Protokoll angelegt.
-Es kann nun modifiziert werden oder eingesehen.
+Es kann nun modifiziert oder eingesehen werden.
 
 === Besondere Anforderungen
 //Besondere Anforderungen können sich auf nicht-funktionale Anforderungen wie z.B. einzuhaltende Standards, Qualitätsanforderungen oder Anforderungen an die Benutzeroberfläche beziehen.

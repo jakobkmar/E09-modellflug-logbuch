@@ -12,28 +12,30 @@ ifndef::docs-requirements[:docs-requirements: ../requirements]
 
 == Identifizierte Use Cases
 // Liste aller identifizierten Use Cases (priorisiert)
-* *UC01*: Pilot registrieren
-* *UC02*: Pilot anmelden
+* *UC01*: Account registrieren
+* *UC02*: Account Login
 * *UC03*: Protokoll anlegen
 * *UC04*: Protokoll einsehen
 * *UC05*: Flugleiter bestimmen
-* *UC06*: Pilot abmelden
-* *UC07*: Pilotendaten modifizieren
-* *UC08*: Pilot deaktivieren
+* *UC06*: Account abmelden
+* *UC07*: Accountdaten modifizieren
+* *UC08*: Account deaktivieren
 * *UC09*: Protokoll bearbeiten
+* *UC10*: Tagesprotokoll erstellen
 
 == Priorisierung
 |===
 | UseCase | Bezeichnung | Priorität
-| UC01 | Pilot registrieren | 3
-| UC02 | Pilot anmelden | 34
+| UC01 | Account registrieren | 21
+| UC02 | Account Login | 21
 | UC03 | Protokoll anlegen | 34
 | UC04 | Protokoll einsehen | 8
-| UC05 | Flugleiter bestimmen | 21
-| UC06 | Pilot abmelden | 13
-| UC07 | Pilotendaten modifizieren | 2
-| UC08 | Pilot deaktivieren | 1
+| UC05 | Flugleiter bestimmen | 13
+| UC06 | Account abmelden | 13
+| UC07 | Accountdaten modifizieren | 2
+| UC08 | Account deaktivieren | 1
 | UC09 | Protokoll bearbeiten | 5
+| UC10 | Tagesprotokoll erstellen | 21
 |===
 
 == Use Case Diagramm
@@ -79,5 +81,7 @@ include::use_case_05.inc.adoc[]
 //<<<
 //include::use_case_09.inc.adoc[]
 
-//<<<
-//include::use_case_10.inc.adoc[]
+<<<
+include::use_case_10.inc.adoc[]
+
+

@@ -12,58 +12,44 @@ Ein Pilot ist der Benutzer des Systems und des Flugplatzes.
 Er kann Veränderungen an seinem Profil vornehmen, jedoch nicht am Gesamtsystem.
 
 ==== Flugleiter
-Der Akteur "Flugleiter" ist ein Pilot, der den Flugplatz nicht aktiv nutzt, sondern die Verantwortung über die Flugaktivitäten aller Piloten auf dem Platz hat. Er darf *nicht selber fliegen*.
+Der Akteur "Flugleiter" ist ein Pilot, der den Flugplatz nicht aktiv nutzt, sondern die Verantwortung über die Flugaktivitäten aller Piloten auf dem Platz hat. Er darf *selber nicht fliegen*.
 
-Befinden sich *weniger als 3 Pilot* auf dem Flugplatz, dann ist der erste Pilot der sich angemeldet hatte der Flugleiter, darf aber *trotzdem fliegen*.
-Es wird erst ab 3 aktiven Piloten auch ein Flugleiter benötigt, der nicht selber fliegen darf.
-
-Flugleiter können sich nur dann abmelden, wenn kein anderer Pilot angemeldet ist.
+Die Piloten müssen sich untereinander apsprechen, wer den Posten übernimmt. Ab 3 Piloten wird in der App eine Meldung angezeigt, dass dringend ein Flugleiter benötigt wird. Erst ab 8 Piloten ist der Flugleiter gesetzlich vorgeschrieben.
 
 === Vorbedingung
-. mindestens 2 Pilot muss sich bereits auf dem Flugplatz angemeldet haben. (UC02 erfüllt) 
+. mehrere Piloten müssen sich auf dem Flugplatz befinden.
 
-=== Standardablauf (1 Pilot)
-. Die Rolle Flugleiter wird dem Piloten automatisch zugewiesen.
-. Der Flugleiter darf fliegen.
-. Die Abmeldung ist ohne Probleme möglich.
-
-=== Standartablauf (mehrere Piloten)
-. Der als dritte angemeldete Pilot bekommt die Rolle Flugleiter automatisch zugewiesen.
-. Der vorherige Flugleiter bekommt eine Nachricht, dass er kein Flugleiter mehr ist.
-. Der Flugleiter darf nicht fliegen.
-. Der Flugleiter kann sich nicht abmelden, erst, wenn er die Rolle Flugleiter abgegeben hat (Alternativer Ablauf 1.6.1), oder wenn er sich allein auf dem Flugplatz befindet. (Standartablauf 1.4 Schritt 3)
+=== Standartablauf
+. Piloten betreten den Flugplatz und melden sich an (UC02)
+. ab 3 Piloten wird die Meldung angezeigt, dass ein Flugleiter benötigt wird
+. Piloten kommunizieren untereinander, wer den Posten übernimmt
+. Der künftige Flugleiter ernennt sich zum Flugleiter, indem er den Button "Als Flugleiter anmelden" betätigt
+. Er liest die Erläuterung und bestätigt mit "Ja, Anmelden" und ist ab dem Zeitpunkt Flugleiter
+. Piloten melden sich nach und nach ab
+. Der Flugleiter meldet sich als Flugleiter mit dem Button "Als Flugleiter abmelden" ab
+. Der Use Case ist abgeschlossen.
 
 === Alternative Abläufe
 
 ==== Flugleiter übertragen
-. Piloten können sich absprechen, wer den Flugleiterposten ausübt. Dafür hat der aktuelle Flugleiter die Möglichkeit diesen zu übertragen.
-. Der Flugleiter fragt über ein Dialogfester bei einen anderen Piloten an, ob dieser den Posten übernehmen möchte.
-. Der andere Pilot kann diese Anfrage annehmen um Flugleiter zu werden. Bei Ablehnung bleibt der alte Flugleiter bestehen.
- 
+. Piloten können sich absprechen, wer den Flugleiterposten ausübt.
+. Der aktuelle Flugleiter meldet sich nach Absprache als Flugleiter ab
+. IF es gibt mehr als 2 Piloten auf dem Flugplatz
+..  Meldung, dass Flugleiter nötig ist, wird angezeigt
+. Der andere Pilot kann sich nun als Flugleiter anmelden
+
+==== 2 Personen wollen sich als Flugleiter anmelden
+. Pilot ist als Flugleiter angemeldet
+. Ein anderer Pilot möchte sich ebenfalls als Flugleiter anmelden
+. zugehöriger Button funktioniert erst, wenn erster Flugleiter abgemeldet ist -> vorheriger Wechsel nicht möglich
 
 === Wesentliche Szenarios
 
-==== 1 Pilot nutzt den Flugplatz
-. Pilot betritt den Flugplatz und meldet sich an (UC02)
-. Pilot bekommt die Rolle Flugleiter zugewiesen
-. Pilot fliegt
-. Pilot meldet sich ab
+==== Standartmäßige Bestimmung des Flugleiters mit Abmeldung
+Sc.1: 3 Piloten betreten den Flugplatz. Sie bekommen die Meldung angezeigt, dass ein Flugleiter benötigt wird. Sie kommunizieren untereinander, wer den Posten übernimmt. Der künftige Flugleiter ernennt sich zum Flugleiter, indem er den Button "Als Flugleiter anmelden" betätigt. Er liest die Erläuterung und bestätigt mit "Ja, Anmelden" und ist ab dem Zeitpunkt Flugleiter. Die anderen Piloten fliegen. Die anderen Piloten melden sich nach und nach ab. Der Flugleiter meldet sich als Flugleiter mit dem Button "Als Flugleiter abmelden" ab.
 
-==== Komplexes Szenario: 3 Piloten mit Übertragung Flugleiter
-. Pilot1 und Pilot2 betreten den Flugplatz und melden sich an (UC02)
-.. Pilot1 bekommt die Rolle Flugleiter zugewiesen
-.. Pilot1 und Pilot2 dürfen fliegen
-. Pilot3 betritt den Flugplatz und meldet sich an (UC02)
-.. Pilot3 bekommt die Rolle Flugleiter zugewiesen
-.. Pilot3 darf nicht fliegen
-. Pilot3 versucht sich abzumelden
-.. Fehlermeldung: "Erst Rolle Flugleiter übertragen"
-. Pilot3 fragt an, ob er die Rolle Flugleiter an Pilot1 übertragen kann
-. Pilot1 bestätigt die Anfrage, wird Flugleiter, darf nicht mehr fliegen
-. Pilot3 meldet sich ab
-.. Pilot1 darf wieder fliegen
-. Pilot1 meldet sich ab
-
+==== Falsche Nutzung des Flugleiters
+Sc.2: 3 Piloten betreten den Flugplatz. Sie bekommen die Meldung angezeigt, dass ein Flugleiter benötigt wird. Sie ignorieren die Meldung und sorgen dadurch dafür, dass der Flugplatz im Nachhinein Probleme bekommen kann. Der Admin kann diese Missachtung im Nachhinein sehen und den Piloten darauf ansprechen, um deratige Vorfälle in Zukunft zu vermeiden.
 
 === Nachbedingungen
 . Bei erfolgreicher Durchführung des Use Case müssen folgende 
@@ -74,4 +60,4 @@ Nachbedingungen erfüllt sein:
 
 ==== Abmeldung Flugleiter
 
-Bevor der aktuelle Flugleiter den Flugplatz verlässt muss er unbedingt seine Rolle an einen anderen Piloten abgeben, es sei denn es gibt weniger als 3 aktive Piloten.
+Bevor der aktuelle Flugleiter den Flugplatz verlässt muss er unbedingt seine Rolle an einen anderen Piloten abgeben (1.5.1. Flugleiter übertragen), es sei denn es gibt weniger als 3 aktive Piloten.
