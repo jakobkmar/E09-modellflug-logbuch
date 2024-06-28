@@ -115,4 +115,17 @@ image::images/benutzerErstellen.PNG[Formular der Benutzererstellung]
 
 Bereits bestehende Nutzer können zudem bearbeitet oder gelöscht werden.
 
+= FAQ
+
+### Wie kann ich mich registrieren?
+Ein Admin muss einen Account für Sie erstellen. Sobald er Ihnen Ihre Anmeldedaten gegeben hat, können Sie sich anmelden.
+
+### Wie kann ich einen Flugeintrag anlegen?
+Sobald Sie sich angemeldet haben, können Sie über die Schaltfläche "Als Pilot anmelden" einen Flugeintrag erstellen.
+
+### Wie kann ich ein Tagesprotokoll erstellen?
+Wenn Sie die Berechtigung "Protokolleur" oder "Administrator" besitzen, können Sie am oberen Ende des Hauptmenüs über "Protokollierung" und anschließend auf "Tagesprotokoll erstellen" ein Tagesprotokoll erstellen. Es wird in der Druckansicht geöffnet und kann ausgedruckt oder als PDF gespeichert werden.
+
+### Wie kann ich einen neuen Nutzer erstellen?
+Wenn Sie die Berechtigung "Administrator" besitzen, können Sie im Hauptmenü weiter unten über die Schaltfläche "Nutzerverwaltung" die Nutzerverwaltung aufrufen. Durch Betätigen der Schaltfläche "+ Neuer Nutzer" wird eine Formularansicht geöffnet, über die Sie einen neuen Nutzer erstellen können.
 
