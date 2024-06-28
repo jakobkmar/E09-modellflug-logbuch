@@ -25,7 +25,7 @@ Zu meinen persönlichen Erkenntnissen gehört, dass Team und Kommunikation Schl�
 
 ==== Referenzen:
 
-- *`Discord Server`* link:https://github.com/jakobkmar/E09-modellflug-logbuch/blob/main/docs/project_management/project_plan.adoc[(->)]:
+- *`Discord Server`* link:https://github.com/jakobkmar/E09-modellflug-logbuch/blob/nolan2019-Einzelreflexion_Trogisch_update/belegabgabe_se2/Einzelreflexionen/images/Lucas/Screenshot_Discord.PNG[(->)]:
 
 - *`Projetplan`* link:https://github.com/jakobkmar/E09-modellflug-logbuch/blob/main/docs/project_management/project_plan.adoc[(->)]:
 
