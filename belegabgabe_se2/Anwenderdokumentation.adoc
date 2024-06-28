@@ -11,6 +11,7 @@
 . Flugeinträge einsehen
 . Aktive Piloten einsehen
 . Flugleiter
+. Tagesprotokoll anlegen
 . Nutzerverwaltung in der Webapp
 
 Zuständige Personen:
@@ -79,10 +80,20 @@ image::images/aktuellerFlugleiter.PNG[Ansicht des aktuellen Flugleiters]
 
 image::images/flugleiterHistorie.PNG[Ansicht der Flugleiterhistorie]
 
+## 7. Tagesprotokoll anlegen
+Über die Verlinkung Protokollierung am oberen Ende des Hauptmenüs kann ein Benutzer mit mindestens der Berechtigung "Protokolleur" ein Tagesprotokoll aus den Flugeinträgen eines Tages erstellen lassen. Er kann einen beliebigen Tag in der Vergangenheit auswählen.
+
+image::images/tagesProtokoll1.PNG[Erstellung des Tagesprotokolls]
+
+Nach Betätigen der Schaltfläche "Tagesprotokoll anfragen", werden die Flugeinträge zusammengefasst und ein Tagesprotokoll erstellt. Dieses wird dann in der Druckansicht geöffnet. Man kann es sowohl ausdrucken lassen, als auch als PDF speichern.
+
+image::images/tagesProtokoll2.PNG[Druckausgabe des Tagesprotokolls]
+
+
 [%always]
 <<<
 
-## 7. Nutzerverwaltung in der Webapp
+## 8. Nutzerverwaltung in der Webapp
 Nutzern mit Adminrechten ist es möglich innerhalb der Webapp die Nutzerverwaltung durchzuführen. Sie kann über die Schaltfläche "Nutzerverwaltung" aufgerufen werden.
 Hier können nun neue Nutzer erstellt werden oder bereits bestehende Nutzer bearbeitet oder gelöscht werden.
 
