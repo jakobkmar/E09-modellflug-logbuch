@@ -22,7 +22,7 @@ Außerdem habe ich nach einem Hinweis von einem Teammitglied die Struktur einer 
 
 . *Integration mit dem Frontend*: Es gab kleine Missverständnisse bezüglich der erwarteten API-Responses und es wurden Kleinigkeiten an der Datenbankstruktur angepasst. Diese Probleme konnten aber sehr schnell nach kurzer Absprache mit den zuständigen Teammitgliedern gelöst werden.
 
-== Bewertung und Fazit
+=== Bewertung und Fazit
 
 Meine Lösung funktionierte bei meinen Überprüfungen mithilfe der Fehleranalyse von IntelliJ und nach den zu dem Zeitpunkt mir bekannten Anforderungen ohne Probleme. Die endgültige Verknüpfung mit dem Frontend hat anschließend ein Teamkollege gemacht. Dabei kam es zu minimalen Anpassungen, weil unter anderem eine Spalte in der Datenbank überarbeitet werden musste, aber die Routen und die API-Responses waren korrekt und mein Teamkollege war sehr zufrieden mit dieser Vorarbeit.
 
