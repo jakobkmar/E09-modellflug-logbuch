@@ -1,3 +1,5 @@
+:source-highlighter: rouge
+
 = Entwicklerdokumentation
 
 == Entwicklungsumgebung
@@ -53,12 +55,12 @@ Nun ist die Datenbank unter `localhost:5432` und das Admin-Interface unter `loca
 
 Im Terminal in den Projektordner wechseln. Dann in den `backend` Ordner wechseln und die Anwendung starten.
 
-[source,bash]
+[source,shell]
 ----
 cd src/backend
 ----
 
-[source,bash]
+[source,shell]
 ----
 # auf Linux
 ./gradlew runFullstackApp
