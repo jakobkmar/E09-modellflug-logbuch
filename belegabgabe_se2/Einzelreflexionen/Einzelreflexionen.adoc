@@ -1,19 +1,25 @@
-= Einzelreflexionen des Teams Mobiles Logbuch für Modellflugplatz (E09)
+:doctype: book
+:docs: ../../docs
+include::{docs}/_includes/default-attributes.inc.adoc[]
+:chapter-signifier:
+:toclevels: 1
+
+= Einzelreflexionen: {project-name}
 
 <<<
-include::reflexion_abdallah_alherani.adoc[]
+include::reflexion_abdallah_alherani.adoc[leveloffset=+1]
 
 <<<
-include::reflexion_conrad_caffier.adoc[]
+include::reflexion_conrad_caffier.adoc[leveloffset=+1]
 
 <<<
-include::reflexion_jakob_kretzschmar.adoc[]
+include::reflexion_jakob_kretzschmar.adoc[leveloffset=+1]
 
 <<<
-include::reflexion_julian_neidert.adoc[]
+include::reflexion_julian_neidert.adoc[leveloffset=+1]
 
 <<<
-include::reflexion_laurin_wobeda.adoc[]
+include::reflexion_laurin_wobeda.adoc[leveloffset=+1]
 
 <<<
-include::reflexion_lucas_trogisch.adoc[]
+include::reflexion_lucas_trogisch.adoc[leveloffset=+1]

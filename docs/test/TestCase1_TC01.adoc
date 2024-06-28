@@ -1,4 +1,4 @@
-=== Test Case 1 - Pilotenregistrierung Validierung
+=== Test Case 01 - Pilotenregistrierung Validierung
 
 [cols="5*", options="header"]
 |===

@@ -1,4 +1,6 @@
-== Reflexion zur Strukturierung und Implementierung der Routen im Backend - Julian Neidert
+= Einzelreflexion: Julian Neidert
+
+== Strukturierung und Implementierung der Routen im Backend
 
 Im Rahmen unseres Software-Projekts bestand eine wesentliche Herausforderung darin, ein effektives und sinnvolles Routing-System im Backend zu implementieren. Dies ist entscheidend für die Verwaltung der verschiedenen Endpunkte unserer API, über die das Frontend auf Daten zugreifen und diese manipulieren kann. Die Komplexität des Projekts erforderte eine sorgfältige Planung und Implementierung der Routen, um eine reibungslose Kommunikation zwischen Frontend, Backend und Datenbank sicherzustellen.
 

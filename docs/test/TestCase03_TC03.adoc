@@ -1,4 +1,4 @@
-== Test Case 3 - Anmeldung eines Piloten
+== Test Case 03 - Anmeldung eines Piloten
 
 [cols="5*", options="header"]
 |===

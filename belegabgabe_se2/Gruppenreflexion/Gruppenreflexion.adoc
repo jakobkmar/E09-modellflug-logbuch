@@ -1,4 +1,9 @@
-= Gruppenreflexion des Projekts "E09-modellflug-logbuch"
+:doctype: book
+:docs: ../../docs
+include::{docs}/_includes/default-attributes.inc.adoc[]
+:chapter-signifier:
+
+= Gruppenreflexion: {project-name}
 
 == Einleitung
 
@@ -10,9 +15,9 @@ Im ersten Teil der Reflexion werden die drei größten Erfolge des Projekts einz
 
 Diese strukturierte Analyse dient nicht nur der internen Verbesserung unserer Arbeitsprozesse, sondern soll auch als Leitfaden für zukünftige Projekte dienen, um die gewonnenen Erkenntnisse effektiv einzusetzen und die Qualität der Projektdurchführung zu erhöhen.
 
+== Erfolge
 
-
-== 1. Erfolg - Team Spirit
+=== Erfolg - Team Spirit
 
 Ein herausragender Erfolg unseres Softwareentwicklungsprozesses über zwei Semester hinweg war das außergewöhnliche Engagement eines Großteils des Teams. In der Anfangsphase des Projekts war es notwendig, ein Team zu formen, gemeinsame Arbeitsmethoden zu etablieren und als Einheit zusammenzuarbeiten. Ein Schlüsselfaktor für diesen Erfolg war die hohe intrinsische Motivation einiger Teammitglieder, die über ein ganzes Jahr hinweg aufrechterhalten werden konnte.
 
@@ -26,7 +31,7 @@ Dennoch erzielten die Veranstaltungen bei den Anwesenden die gesteckten Ziele un
 
 Der Erfolg im Bereich Team Spirit fußt auf Prinzipien des OpenUP, da die Zusammenarbeit und Kommunikation im Team dort umfassend erläutert wird. OpenUP legt großen Wert auf die Rolle des Teams und die Notwendigkeit einer kollaborativen Umgebung. Durch regelmäßige Meetings und eine klare Rollenverteilung wurde sichergestellt, dass alle Teammitglieder ein gemeinsames Ziel verfolgen und ihre individuellen Stärken optimal einsetzen können. Unsere Teambuilding-Events und die Einbindung aller Mitglieder in entscheidende Meetings stehen im Einklang mit diesen Prinzipien und trugen maßgeblich zum Aufbau eines starken Teamgeists bei.
 
-== 2. Erfolg - Iterative Arbeitsweise
+=== Erfolg - Iterative Arbeitsweise
 
 Ein bedeutender Erfolg dieses Projekts war die konsequente Anwendung des Konzepts der iterativen Entwicklung. Durch die agile Methodik, wie sie im OpenUP verankert ist, wurden Praktiken und Arbeitsweisen schrittweise in mehreren Zyklen eingeführt und kontinuierlich erweitert. Dies ermöglichte es, in jeder Iteration nur einzelne Bestandteile des Lösungsprozesses umzusetzen, wodurch das Risiko einer Fehlentwicklung erheblich reduziert wurde und die Erfolgschancen bei der Projektumsetzung deutlich stiegen. Die iterative Arbeitsweise ermöglichte es uns außerdem, schnell auf Veränderungen zu reagieren und die Qualität des Projekts kontinuierlich zu verbessern. Eine Iteration dauerte standardmäßig zwei Wochen, konnte sich jedoch durch Feiertage oder andere Umstände verlängern.
 
@@ -36,7 +41,7 @@ Durch die vielen Meetings haben wir auch schnell gemerkt, wenn ein Teammitglied 
 
 Die regelmäßigen Meetings fanden jeden zweiten Mittwoch statt, und bei Bedarf wurden zusätzliche Termine festgelegt. Alle Inhalte der Meetings wurden detailliert protokolliert und dem Team zur Verfügung gestellt, um Unklarheiten und Missverständnisse zu vermeiden. Zur strukturierten Planung und effektiven Aufgabenzuweisung nutzten wir GitHub Issues als zentrales Instrument. Die Prinzipien des OpenUP, insbesondere die Förderung der kontinuierlichen Verbesserung und Anpassung durch kurze Entwicklungszyklen und regelmäßige Überprüfungen, ermöglichten es uns, schnell auf Veränderungen zu reagieren und unsere Arbeitsprozesse laufend zu optimieren. Durch die klare Dokumentation der Aufgaben und Risiken konnten wir Transparenz schaffen und die Zusammenarbeit im Team stärken. Die Nutzung von GitHub Issues unterstützte uns dabei, die Aufgabenverteilung effizient zu gestalten und den Fortschritt jederzeit nachvollziehbar zu halten.
 
-== 3. Erfolg - Effiziente Tools und Bibliotheken
+=== Erfolg - Effiziente Tools und Bibliotheken
 
 Ein weiterer bedeutender Erfolg unseres Projekts war der strategische Einsatz moderner Technologien, die den Entwicklungsprozess erheblich vereinfacht und die Codequalität sowie -sicherheit erhöht haben. Insbesondere die Wahl von link:https://kotlinlang.org/[Kotlin] und dem zugehörigen offiziellen Webserver link:https://ktor.io/[Ktor], link:https://github.com/cashapp/sqldelight[SQLDelight], link:https://vuejs.org/[Vue.js] mit link:https://www.typescriptlang.org/[TypeScript] erwies sich als äußerst vorteilhaft.
 
@@ -50,13 +55,17 @@ Kotlin als moderne Programmiersprache hat die Entwicklung weiter vereinfacht. Du
 
 Der strategische Einsatz dieser Technologien steht im Einklang mit den Prinzipien des OpenUP. Die methodische und strukturierte Herangehensweise an die Technologieauswahl und -nutzung ermöglichte eine kontinuierliche Verbesserung und Anpassung der Entwicklungsprozesse. Die hohe Typensicherheit und die Möglichkeit, Code zwischen Frontend und Backend zu teilen, trugen maßgeblich zur Vermeidung von Fehlern und zur Sicherstellung der Codekorrektheit bei. Insgesamt hat der Einsatz dieser modernen Technologien unseren Entwicklungsprozess erheblich vereinfacht und die Qualität und Sicherheit des Endprodukts deutlich erhöht.
 
-== 1. Misserfolg - Weiterbildung und Schulung/ Skill Management 
+== Misserfolge
+
+=== Misserfolg - Weiterbildung und Schulung/ Skill Management
 
 Ein großer Misserfolg, mit weitreichenden Konsequenzen auf den Projektverlauf, die Motivation und Gruppenkohäsion, war das mangelhafte Management von Kompetenzen und der Aufbau dieser Kompetenzen im Projektverlauf. Der Anfang des Projekts wurde dadurch begünstigt, dass ein Gruppenmitglied bereits umfassende Erfahrungen in der Programmierung komplexer Systeme und der Softwareentwicklung mitbrachte. Mittel- und langfristig führte jedoch die unmittelbare Verfügbarkeit dieser Skills, wenn auch nur auf wenige Köpfe beschränkt, dazu, dass kurzfristige Zeitaufwendungen für Schulungen als nicht notwendig betrachtet wurden. Die langfristigen Vorteile durch potenzielle Arbeitsentlastung und Risikominimierung wurden zu spät erkannt.
 
 Die Konsequenz war nicht nur ein Ungleichgewicht in der Aufgabenbelastung, sondern auch ein erhebliches Projektrisiko. Der Ausfall eines Schlüsselmitglieds hätte den Verlust einer wichtigen Kompetenz bedeutet. Backup-Rollen waren theoretisch angelegt, wurden in der Praxis jedoch zu wenig gelebt, was bedeutete, dass die Inhaber einer Backup-Rolle teilweise nicht die erforderlichen Skills abbilden konnten.
 
 Eine Ursache für diese Fehlleistung besteht darin, dass im Projektmanagement nicht genügend Wert auf die langfristige Planung und Entwicklung der benötigten Fähigkeiten gelegt wurde. Die agile Entwicklungsmethode, wie sie im OpenUP verwendet wird, erschwert durch ihre iterative Arbeitsweise die langfristige Planung der Fähigkeitsbedarfe. Die Konzentration auf kurzfristige Ziele und die unzureichende Berücksichtigung von Schulungsbedarfen führten dazu, dass die Kompetenzen im Team nicht gleichmäßig verteilt waren und Backup-Rollen nicht effektiv besetzt werden konnten.
+
+==== Lösungsansätze
 
 Um dieses Problem zukünftig zu vermeiden, sollten mehrere Maßnahmen ergriffen werden:
 
@@ -67,14 +76,14 @@ Um dieses Problem zukünftig zu vermeiden, sollten mehrere Maßnahmen ergriffen 
 
 Diese Maßnahmen stehen im Einklang mit den OpenUP-Prinzipien, die auf kontinuierliche Verbesserung, Wissenstransfer und Risikomanagement abzielen. Eine bessere Verteilung der Arbeitsbelastung und die Sicherstellung von Backup-Kompetenzen würden die Projektstabilität erhöhen und die Belastung gleichmäßiger verteilen. Durch diese Maßnahmen kann der Arbeitsprozess im Sinne des Teamansatzes verbessert und ähnliche Probleme in Zukunft vermieden werden.
 
-== 2. Misserfolg - Gleichmäßige Verteilung der Arbeitsbelastung / Workforce Management
+=== Misserfolg - Gleichmäßige Verteilung der Arbeitsbelastung / Workforce Management
 
 Ein weiterer Misserfolg war die ungleiche und unfaire Verteilung der Arbeitsbelastung unter den Teammitgliedern. Das Prinzip der Aufgabenzuteilung im Rahmen der Iterations-Meetings nach persönlicher Kapazität und vorhandenen Fähigkeiten führte dazu, dass Mitglieder mit umfassenden Kenntnissen in Programmierung und Tools übermäßig belastet wurden. Ein umfassender Aufbau von Fähigkeiten bei anderen Teammitgliedern fand, wie bereits im 1. Misserfolg thematisiert,  nicht im erforderlichen Maße statt.
 Letztendlich nahm uns der Mangel an befähigten Teammitgliedern ein großes Maß an Flexibilität in der Aufgabenverteilung und führte dazu, dass sich Belastungsspitzen teilweise einseitig auf einzelne Gruppenmitglieder auswirkten.
 
 Dieses Problem wurde teils dadurch verschlechtert, das betroffene Gruppenmitglieder eine übermäßige Belastung auf sich nahmen, ohne dies nur zu erwähnen, oder Unterstützung frühzeitig einzufordern. Die Vergabe allein auf Basis der persönlichen Bereitschaft der Teammitglieder war in unserem Fall, dank außerordentlicher Einsatzbereitschaft einzelner möglich, in zukünftigen Projekten birgt diese Art der Aufgabenverteilung allerdings Risiken, und ist eine Einladung für Gruppenmitglieder sich durch Enthaltung vor Arbeit zu drücken.
 
-=== Lösungsansätze
+==== Lösungsansätze
 
 Um dieses Problem zukünftig zu vermeiden, sollte zuallererst Misserfolg 1 eliminiert werden, darüber hinaus könnten folgende Maßnahmen dabei unterstützen, Arbeit gleichmäßig zu verteilen:
 
@@ -83,7 +92,7 @@ Um dieses Problem zukünftig zu vermeiden, sollte zuallererst Misserfolg 1 elimi
 
 Diese Maßnahmen sind entscheidend für eine ausgewogene Verteilung der Arbeitslasten, kontinuierliche Verbesserung und das Risikomanagement im Projekt. Eine effektive Verteilung der Arbeitsbelastung und die Entwicklung von Backup-Kompetenzen sind grundlegend für die Stabilität und den Erfolg eines Projekts.
 
-== 3. Misserfolg - Planung auf Ebene des Projektlebenszyklus
+=== Misserfolg - Planung auf Ebene des Projektlebenszyklus
 
 Ein weiterer Misserfolg in diesem Projekt war die unzureichende Planung über mehrere Iterationen hinweg. Obwohl im Rahmen der iterativen Arbeitsweise einzelne Arbeitspakete identifiziert, definiert und zugewiesen wurden, fehlte es an einer übergeordneten Planung und dem Setzen von Wegmarken zum Tracking des Projektfortschritts. Dies führte zu einer großen Unsicherheit über den aktuellen Projektstatus im Verhältnis zu den erforderlichen Abgabeterminen. Die fehlende Nachverfolgung des Fortschritts resultierte darin, dass am Ende jedes Semesters erhebliche Mehrarbeiten notwendig waren, um die Projektziele fristgerecht zu erreichen.
 
@@ -91,7 +100,7 @@ Problematisch war auch, dass sich einige Teammitglieder nicht immer an ihre eige
 
 Die Ursachen für diese Planungsmängel liegen klar in einem Missverständnis des agilen Entwicklungsansatzes, insbesondere im Kontext von OpenUP. Agile Methoden wie OpenUP setzen zwar auf Flexibilität und iterative Verbesserung, aber sie betonen auch die Bedeutung von klaren Phasen und Meilensteinen. OpenUP strukturiert Projekte in Inception-, Elaboration-, Construction- und Transition-Phasen, jede mit spezifischen Zielen und Meilensteinen. Unser Team vernachlässigte diese Struktur, was zu unzureichender langfristiger Planung und Nachverfolgung führte.
 
-=== Lösungsansätze
+==== Lösungsansätze
 
 Um diese Problematiken zukünftig zu vermeiden, sollten folgende Maßnahmen ergriffen werden:
 
@@ -119,8 +128,3 @@ Zusätzlich zu den oben genannten Maßnahmen haben wir aus unseren Erfolgen wich
 - *Iterative Arbeitsweise und OpenUP*: Die iterative Arbeitsweise nach den Prinzipien des OpenUP hat es uns ermöglicht, flexibel auf Veränderungen zu reagieren und die Qualität unseres Projekts kontinuierlich zu verbessern. Durch regelmäßige Iterationsplanungen und -reflexionen konnten wir den Projektfortschritt genau verfolgen und Probleme frühzeitig erkennen und beheben. Die klare Dokumentation der Aufgaben und Risiken trug wesentlich zur Transparenz und Effizienz unserer Arbeitsprozesse bei.
 
 Zusammenfassend lässt sich sagen, dass uns unser Projekt wertvolle Einblicke in die Dynamiken der Teamarbeit und die Wichtigkeit einer klaren, strukturierten Planung gegeben hat. Die Erkenntnisse aus dieser Reflexion werden uns dabei helfen, zukünftige Projekte effizienter und harmonischer zu gestalten, indem wir die gemachten Fehler vermeiden und die erprobten erfolgreichen Strategien weiterentwickeln. Der gezielte Aufbau von Kompetenzen, die gerechte Verteilung der Arbeitslast und die Förderung einer offenen Kommunikationskultur werden zentrale Aspekte unserer zukünftigen Projekte sein. Durch die konsequente Anwendung von OpenUP und die Integration moderner Technologien sind wir zuversichtlich, dass wir in der Lage sein werden, unsere kommenden Projekte im Studium und im späteren Berufsalltag erfolgreich und nachhaltig zu gestalten.
-
-
-
-
-

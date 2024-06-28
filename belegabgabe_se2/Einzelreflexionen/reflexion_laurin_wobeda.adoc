@@ -1,6 +1,6 @@
-# Einzelreflexion
-Laurin Wobeda; s85641
-Teamrolle Analyse/Protokollführung
+= Einzelreflexion: Laurin Wobeda
+
+*Teamrolle:* Analyse/Protokollführung
 
 Seit dem ersten Semester war ich im Bereich Analyse tätig, was auch die Kommunikation mit dem Auftraggeber beinhaltet.
 Dass diese unerlässlich sein werden, war mir auch vor Beginn des Projektes klar und das nicht nur, weil es in Lehrveranstaltungen uns so gelehrt wurde.

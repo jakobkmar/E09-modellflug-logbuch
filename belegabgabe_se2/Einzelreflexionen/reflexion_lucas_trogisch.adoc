@@ -1,6 +1,6 @@
-= Einzelreflexion Lucas Trogisch – Projektmanagement - 
+= Einzelreflexion: Lucas Trogisch
 
-== Aufbau und Entwicklung gemeinsamer Kommunikationswege im Team
+== Projektmanagement: Aufbau und Entwicklung gemeinsamer Kommunikationswege im Team
 
 === Einleitung
 Das Ziel dieser Reflexion ist es, meinen spezifischen Beitrag zum Projekt der Gruppe E09 zu analysieren. Dabei werde ich die Herausforderungen beschreiben, die Lösungswege darlegen und meine persönlichen Lernerfahrungen und Erkenntnisse reflektieren.
@@ -29,5 +29,3 @@ Zu meinen persönlichen Erkenntnissen gehört, dass Team und Kommunikation Schl�
 - *`Discord Server`* link:https://github.com/jakobkmar/E09-modellflug-logbuch/blob/nolan2019-Einzelreflexion_Trogisch_update/belegabgabe_se2/Einzelreflexionen/images/Lucas/Screenshot_Discord.PNG[(->)]:
 
 - *`Projetplan`* link:https://github.com/jakobkmar/E09-modellflug-logbuch/blob/main/docs/project_management/project_plan.adoc[(->)]:
-
-

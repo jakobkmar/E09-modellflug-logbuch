@@ -1,6 +1,6 @@
-== Einzelreflexion
-=== Conrad Caffier; s85241
-.Teamrollen: Implementierung/Tests
+= Einzelreflexion: Conrad Caffier
+
+* Teamrollen: Implementierung/Tests
 
 Im ersten Semester war ich hauptsächlich unterstützend im Bereich Projektleitung aktiv. Dabei war es noch schwierig effizient im Team zusammen zu arbeiten. Wir traffen uns einmal pro Woche, also zwei mal pro Iteration, um Fortschritte, neue Erkenntnisse und die Aufgabenaufteilung abzusprechen. Dabei konnte man beobachten wie Woche für Woche das Team besser zusammen wuchs und sich effektiver abstimmte.
 

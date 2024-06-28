@@ -1,0 +1,808 @@
+openapi: "3.1.0"
+info:
+  title: "Modellflug Logbuch API"
+  description: "Für die Protokollierung von Flügen auf einem Modellflugplatz."
+  version: "1.0.0"
+servers:
+  - url: "http://localhost:8080"
+paths:
+  /api/v1/account/all:
+    get:
+      description: "Get all accounts, only for admins"
+      responses:
+        "401":
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "403":
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/AccountResponse"
+  /api/v1/account/create:
+    post:
+      description: "Create a new account, only for admins"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateAccountRequest"
+        required: true
+      responses:
+        "401":
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "403":
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "400":
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "409":
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+              examples:
+                Example#1:
+                  value: ""
+        "201":
+          description: "Created"
+          content:
+            '*/*':
+              schema:
+                type: "integer"
+                format: "int32"
+        "500":
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+              examples:
+                Example#1:
+                  value: "Account could not be created"
+  /api/v1/account/login:
+    post:
+      description: "Login call for non-authenticated users"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginRequest"
+        required: true
+      responses:
+        "401":
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "403":
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "500":
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+              examples:
+                Example#1:
+                  value: "Login failed"
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/SharedSessionData"
+  /api/v1/account/logout:
+    post:
+      description: "Logout call for any users"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+              examples:
+                Example#1:
+                  value: "No session to log out from"
+                Example#2:
+                  value: "Logged out successfully"
+  /api/v1/appstate/live:
+    get:
+      description: "WebSocket for live application state updates"
+      parameters:
+        - name: "Connection"
+          in: "header"
+          required: true
+          description: "Websocket Connection parameter"
+          schema:
+            type: "string"
+        - name: "Upgrade"
+          in: "header"
+          required: true
+          description: "Websocket Upgrade parameter"
+          schema:
+            type: "string"
+        - name: "Sec-WebSocket-Key"
+          in: "header"
+          required: true
+          description: "Websocket Sec-WebSocket-Key parameter"
+          schema:
+            type: "string"
+      responses:
+        "101":
+          description: "Switching Protocols"
+          headers:
+            Connection:
+              required: true
+              schema:
+                type: "string"
+            Upgrade:
+              required: true
+              schema:
+                type: "string"
+            Sec-WebSocket-Accept:
+              required: true
+              schema:
+                type: "string"
+  /api/v1/flightdirector:
+    get:
+      description: "Get the current flight director"
+      responses:
+        "401":
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "403":
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "200":
+          description: "OK <br> If a current flight director is found, respond with\
+            \ the information"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/CurrentFlightDirectorResponse"
+        "404":
+          description: "Not Found <br> If no flight director is found, respond with\
+            \ a 404"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+              examples:
+                Example#1:
+                  value: "No flight director found"
+  /api/v1/flightdirector/all/filtered:
+    post:
+      description: "Fetch all flight logs by the logged-in user"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FlightDirectorFilterRequest"
+        required: true
+      responses:
+        "401":
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "403":
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/FlightDirectorData"
+  /api/v1/flightdirector/login:
+    post:
+      description: "Register the logged-in user as the flight director"
+      responses:
+        "401":
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "403":
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "409":
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+              examples:
+                Example#1:
+                  value: "Cannot set flight director since one is already set"
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "integer"
+                format: "int32"
+        "500":
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+              examples:
+                Example#1:
+                  value: "Failed to set flight director"
+  /api/v1/flightdirector/logout:
+    post:
+      description: "Unregister the logged-in user as the flight director"
+      responses:
+        "401":
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "403":
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "integer"
+                format: "int32"
+        "404":
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+              examples:
+                Example#1:
+                  value: "The user is not the flight director"
+  /api/v1/flightlog/{id}:
+    delete:
+      description: "Delete a specific flight log entry"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+    get:
+      description: "Get a specific flight log entry"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+  /api/v1/flightlog/active/allUsers:
+    get:
+      description: "Fetch all active flight logs by all users"
+      responses:
+        "401":
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "403":
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/FlightData"
+  /api/v1/flightlog/all/{userId}:
+    get:
+      description: "Fetch all flight logs by a specific user"
+      parameters:
+        - name: "userId"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+  /api/v1/flightlog/all/filtered:
+    post:
+      description: "Fetch all flight logs by the logged-in user"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FlightLogFilterRequest"
+        required: true
+      responses:
+        "401":
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "403":
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/FlightData"
+  /api/v1/flightlog/complete:
+    post:
+      description: "Complete the currently active flight log for the logged-in user"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CompleteFlightLogRequest"
+        required: true
+      responses:
+        "401":
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "403":
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+              examples:
+                Example#1:
+                  value: "You are not allowed to complete this flight log"
+        "404":
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+              examples:
+                Example#1:
+                  value: "Flight log not found"
+        "500":
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+              examples:
+                Example#1:
+                  value: "Failed to complete flight log"
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "integer"
+                format: "int32"
+  /api/v1/flightlog/completed/allUsers/today:
+    get:
+      description: "Fetch all completed flight logs by all users for today"
+      responses:
+        "401":
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "403":
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/FlightData"
+  /api/v1/flightlog/count:
+    get:
+      description: "Fetch the count of all flight logs by the logged-in user"
+      responses:
+        "401":
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "403":
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "500":
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+              examples:
+                Example#1:
+                  value: "Failed to count flight logs"
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "integer"
+                format: "int64"
+  /api/v1/flightlog/create:
+    post:
+      description: "Create a new flight log entry"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateFlightLogRequest"
+        required: true
+      responses:
+        "401":
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "403":
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "400":
+          description: "Bad Request"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "409":
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+              examples:
+                Example#1:
+                  value: "You already have an open flight log"
+        "500":
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+              examples:
+                Example#1:
+                  value: "Failed to create flight log"
+        "201":
+          description: "Created"
+          content:
+            '*/*':
+              schema:
+                type: "integer"
+                format: "int32"
+  /api/v1/flightlog/open:
+    get:
+      description: "Fetch the currently open flight log for the logged-in user"
+      responses:
+        "401":
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "403":
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "404":
+          description: "Not Found"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+              examples:
+                Example#1:
+                  value: "No open flight log found"
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/FlightData"
+  /api/v1/protocol/day:
+    post:
+      description: "Fetches aggregated flight data for a specific day"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GetDayProtocolRequest"
+        required: true
+      responses:
+        "401":
+          description: "Unauthorized"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "403":
+          description: "Forbidden"
+          content:
+            '*/*':
+              schema:
+                type: "string"
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/DayProtocolData"
+components:
+  schemas:
+    AccountResponse:
+      type: "object"
+      properties:
+        userId:
+          type: "integer"
+          format: "int32"
+        username:
+          type: "string"
+        firstName:
+          type: "string"
+        lastName:
+          type: "string"
+        registrationNumber:
+          type: "string"
+        canSeeAllLogsUnsafe:
+          type: "boolean"
+      required:
+        - "username"
+        - "firstName"
+    CreateAccountRequest:
+      type: "object"
+      properties:
+        username:
+          type: "string"
+        password:
+          type: "string"
+        firstName:
+          type: "string"
+        lastName:
+          type: "string"
+        registrationNumber:
+          type: "string"
+        canSeeAllLogs:
+          type: "boolean"
+      required:
+        - "username"
+        - "firstName"
+    LoginRequest:
+      type: "object"
+      properties:
+        username:
+          type: "string"
+        password:
+          type: "string"
+      required:
+        - "username"
+        - "password"
+    SharedSessionData:
+      type: "object"
+      properties:
+        userId:
+          type: "integer"
+          format: "int32"
+        username:
+          type: "string"
+        canSeeAllLogsUnsafe:
+          type: "boolean"
+      required:
+        - "username"
+    CurrentFlightDirectorResponse:
+      type: "object"
+      properties:
+        userId:
+          type: "integer"
+          format: "int32"
+        username:
+          type: "string"
+        fullName:
+          type: "string"
+      required:
+        - "username"
+        - "fullName"
+    FlightDirectorFilterRequest:
+      type: "object"
+      properties:
+        limit:
+          type: "integer"
+          format: "int32"
+    LocalDate:
+      type: "object"
+      properties: {}
+    LocalTime:
+      type: "object"
+      properties: {}
+    FlightDirectorData:
+      type: "object"
+      properties:
+        username:
+          type: "string"
+        fullName:
+          type: "string"
+        date:
+          $ref: "#/components/schemas/LocalDate"
+        startTime:
+          $ref: "#/components/schemas/LocalTime"
+        endTime:
+          $ref: "#/components/schemas/LocalTime"
+      required:
+        - "username"
+        - "fullName"
+        - "date"
+        - "startTime"
+    FlightData:
+      type: "object"
+      properties:
+        flightId:
+          type: "integer"
+          format: "int32"
+        accountId:
+          type: "integer"
+          format: "int32"
+        fullPilotName:
+          type: "string"
+        date:
+          $ref: "#/components/schemas/LocalDate"
+        flightStart:
+          $ref: "#/components/schemas/LocalTime"
+        flightEnd:
+          $ref: "#/components/schemas/LocalTime"
+        signature:
+          type: "string"
+        checkedFirstAid:
+          type: "boolean"
+        remarks:
+          type: "string"
+        modelType:
+          type: "string"
+        dateString:
+          type: "string"
+        timePeriodString:
+          type: "string"
+      required:
+        - "fullPilotName"
+        - "date"
+        - "flightStart"
+        - "modelType"
+        - "dateString"
+        - "timePeriodString"
+    FlightLogFilterRequest:
+      type: "object"
+      properties:
+        startDate:
+          $ref: "#/components/schemas/LocalDate"
+        endDate:
+          $ref: "#/components/schemas/LocalDate"
+      required:
+        - "startDate"
+        - "endDate"
+    CompleteFlightLogRequest:
+      type: "object"
+      properties:
+        flightId:
+          type: "integer"
+          format: "int32"
+        remarks:
+          type: "string"
+    CreateFlightLogRequest:
+      type: "object"
+      properties:
+        date:
+          $ref: "#/components/schemas/LocalDate"
+        flightStart:
+          $ref: "#/components/schemas/LocalTime"
+        flightEnd:
+          $ref: "#/components/schemas/LocalTime"
+        signature:
+          type: "string"
+        checkedFirstAid:
+          type: "boolean"
+        modelType:
+          type: "string"
+      required:
+        - "date"
+        - "flightStart"
+        - "signature"
+        - "modelType"
+    GetDayProtocolRequest:
+      type: "object"
+      properties:
+        date:
+          $ref: "#/components/schemas/LocalDate"
+      required:
+        - "date"
+    DayProtocolData:
+      type: "object"
+      properties:
+        sortedFlights:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/FlightData"
+        sortedFlightDirectors:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/FlightDirectorData"
+      required:
+        - "sortedFlights"
+        - "sortedFlightDirectors"

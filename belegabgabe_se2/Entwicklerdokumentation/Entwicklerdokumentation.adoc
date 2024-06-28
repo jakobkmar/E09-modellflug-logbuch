@@ -41,3 +41,5 @@ Dies sieht dann wie folgt aus:
 
 :imagesdir: images
 image::software_doku_vorschau.png[]
+
+include::HowToSetup.adoc[leveloffset=+1]

@@ -1,0 +1,16 @@
+:doctype: book
+:docs: ../../docs
+include::{docs}/_includes/default-attributes.inc.adoc[]
+:chapter-signifier:
+
+:docs-requirements: {docs}/requirements
+:docs-project-management: {docs}/project_management
+:docs-architecture: {docs}/architecture
+:docs-test: {docs}/test
+:docs-development: {docs}/development
+
+include::{docs}/requirements/vision.adoc[leveloffset=+1]
+include::{docs}/requirements/use-case_model.adoc[leveloffset=+1]
+include::{docs}/requirements/system-wide_requirements.adoc[leveloffset=+1]
+include::{docs}/requirements/glossary.adoc[leveloffset=+1]
+include::{docs}/requirements/domain_model.adoc[leveloffset=+1]
