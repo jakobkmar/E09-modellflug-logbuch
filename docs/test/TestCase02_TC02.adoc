@@ -12,13 +12,13 @@
 | Positiv, manuell
 | Drei Piloten sind aktiv auf dem Flugplatz angemeldet.
 | Überwachung der automatischen Zuweisung der Flugleiterrolle, sobald der dritte Pilot sich anmeldet.
-| Das System weist dem dritten angemeldeten Piloten automatisch die Rolle des Flugleiters zu; spezielle Berechtigungen und Verantwortlichkeiten werden aktiviert.
+| Das System informiert alle Piloten über die Notwendigkeit eines Flugleiters; spezielle Berechtigungen und Verantwortlichkeiten werden aktiviert.
 
 | 2
 | Positiv, manuell
 | Zwei Piloten sind bereits angemeldet, und ein dritter Pilot meldet sich an.
 | Beobachtung der Reaktion des Systems auf die Anmeldung eines dritten Piloten.
-| Der neu angemeldete Pilot erhält die Flugleiterrolle, und das System informiert alle beteiligten Piloten über die neue Rolle.
+| Der neu angemeldete Pilot erhält die Flugleiterrolle angeboten.
 
 | 3
 | Positiv, manuell
