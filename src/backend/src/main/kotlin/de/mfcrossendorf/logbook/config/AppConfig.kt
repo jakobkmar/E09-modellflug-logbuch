@@ -20,10 +20,10 @@ data class AppConfig(
         val serverName: String = "localhost",
         @TomlComments("The PostgreSQL default port is 5432.")
         val port: Int = 5432,
-        val username: String = "logbook",
+        val username: String = "logbook_user",
         val password: String = "SET_PASSWORD_HERE",
         @TomlComments("The name of the database to use. (You chose this during database setup.)")
-        val databaseName: String = "logbook",
+        val databaseName: String = "logbook_db",
     )
 
     @Serializable

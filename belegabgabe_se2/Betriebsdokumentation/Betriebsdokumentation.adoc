@@ -1,0 +1,146 @@
+:doctype: book
+:docs: ../../docs
+include::{docs}/_includes/default-attributes.inc.adoc[]
+:chapter-signifier:
+
+:description: Diese Betriebsdokumentation gilt der Unterstützung des Administrators beim Einrichten, Konfigurieren und Betreuen des Systems.
+
+= Betriebsdokumentation: {project-name}
+
+== Systemvoraussetzungen
+
+*Hardwareanforderungen:*
+
+- CPU: Mindestens Dual-Core-Prozessor (Empfohlen: Quad-Core)
+- RAM: Mindestens 2 GB (Empfohlen: 4 GB)
+- Festplatte: Mindestens 50 GB freier Speicherplatz, jedoch deutlich mehr empfohlen
+- Netzwerk: Stabile Netzwerkverbindung (Empfohlen: Ethernet-Verbindung)
+
+*Softwareanforderungen:*
+
+* Betriebssystem: Linux (z.B. Ubuntu noble 24.04 LTS oder neuer)
+* Datenbank: PostgreSQL 16 oder neuer empfohlen
+* Reverse-Proxy: Nginx (stable) empfohlen
+* Browser: Aktuelle Version von Firefox, Chrome oder Edge
+** auf dem Smartphone den offiziellen Browser des Herstellers, um die PWA installieren zu können
+
+== Systemeinrichtung
+
+include::{docs}/deployment/DeploymentGuide.adoc[leveloffset=+2]
+
+=== Konfigurationsoptionen
+
+==== Allgemeine Einstellungen
+
+_Top Level Scope_
+
+`timeZone`
+
+* Beschreibung: Gibt die Zeitzone an, die von der Anwendung verwendet werden soll. Wenn diese Option nicht gesetzt ist, wird die Standardzeitzone des Systems verwendet.
+* Mögliche Werte: Ein gültiger Zeitzonen-String (z.B. "Europe/Berlin"). Siehe https://kotlinlang.org/api/kotlinx-datetime/kotlinx-datetime/kotlinx.datetime/-time-zone/-companion/of.html[Kotlinx DateTime TimeZone] für mehr Informationen.
+* Standardwert: `null`
+* Beispielwert: `"Europe/Berlin"`
+
+==== Datenbankeinstellungen
+
+*`[database]` Scope*
+
+`serverName`
+
+* Beschreibung: Der Name oder die IP-Adresse des PostgreSQL-Servers.
+* Beispiel: `"localhost"`
+
+`port`
+
+* Beschreibung: Der Port, auf dem PostgreSQL lauscht.
+* Standardwert: `5432`
+
+`username`
+
+* Beschreibung: Der Benutzername, der für die Verbindung zur Datenbank verwendet wird.
+* Beispiel: `"logbook_user"`
+
+`password`
+
+* Beschreibung: Das Passwort für den Datenbankbenutzer.
+* Standardwert: `"SET_PASSWORD_HERE"`
+* muss geändert werden
+
+`databaseName`
+
+* Beschreibung: Der Name der Datenbank, die verwendet werden soll. Dieser Name wurde während der Datenbankeinrichtung festgelegt.
+* Beispiel: `"logbook_db"`
+
+==== Servereinstellungen
+
+*`[server]` Scope*
+
+`port`
+
+* Beschreibung: Der Port, auf dem der Anwendungserver lauschen soll.
+* Beispiel: `8080`
+
+`developmentMode`
+
+* Beschreibung: Wenn auf `true` gesetzt, läuft der Server im Entwicklungsmodus, wobei viele Sicherheitsfunktionen deaktiviert sind. Dies ist nützlich für Tests und Debugging in lokalen Umgebungen.
+* Mögliche Werte: `true` (Entwicklungsmodus) oder `false` (Produktionsmodus)
+* Standardwert: `false`
+
+== Systembetreuung
+
+=== FAQ für Benutzersupport
+
+> Wie kann ich mich einloggen?
+
+Stellen Sie sicher, dass Sie die richtigen Anmeldedaten verwenden. Wenn Sie Ihr Passwort vergessen haben, kontaktieren Sie den Administrator.
+
+> Was tun bei Verbindungsproblemen?
+
+Überprüfen Sie Ihre Netzwerkverbindung und stellen Sie sicher, dass der Server läuft. Überprüfen Sie zusätzlich in der Sektion "Konfiguration" die Einstellung für die Backend-URL.
+
+> Ich bekomme ständig den Fehler 401 Unauthorized. Was kann ich tun?
+
+Deine Session ist wahrscheinlich corrupted. Klicke auf den Logout Button um das Problem zu beheben.
+
+=== Fehlerdiagnose
+
+Überprüfe insbesondere den Status des Systemd Dienstes:
+
+[source,shell]
+----
+sudo systemctl status logbook
+----
+
+Überprüfe die Logdatei des Backends:
+
+[source,shell]
+----
+sudo journalctl -u logbook
+----
+
+Dort werden insbesondere Fehler, der aktuelle Status der Anwendung und Probleme beim Auslesen der Konfigurationsdatei `config.toml` angezeigt.
+
+=== Datensicherung und -wiederherstellung
+
+Die Inhalte der Datebank können z.B. in mittels `pg_dump` in `.sql` Dateien gesichert werden.
+
+*Datensicherung:*
+
+[source,shell]
+----
+pg_dump -U logbook_user logbook_db > /backup/logbook_db_backup.sql
+----
+
+*Datenwiederherstellung:*
+
+[source,shell]
+----
+psql -U logbook_user -d logbook_db -f /backup/logbook_db_backup.sql
+----
+
+== Weiterführende Links
+- Dokumentation von PostgreSQL: https://www.postgresql.org/docs/[PostgreSQL Dokumentation]
+- Dokumentation von Nginx: https://docs.nginx.com/nginx/[Nginx Dokumentation]
+- `systemd` Unit Files Guide: https://wiki.archlinux.org/title/Systemd#Writing_unit_files[Writing unit files]
+- Mfc-Rossendorf: https://www.mfc-rossendorf.de/[Mfc-Rossendorf]
+

@@ -1,6 +1,6 @@
 // Meta
 :project-name: Mobiles Logbuch für Modellflugplatz (E09)
-:project-system-name: <Projektname-System>
+:project-system-name: Modellflug Logbuch
 // Settings:
 :toc:
 :toc-title: Inhaltsverzeichnis

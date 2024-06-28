@@ -10,11 +10,39 @@ Bevor du beginnst, stelle sicher, dass folgende Voraussetzungen erfüllt sind:
 2. Eine funktionierende Internetverbindung.
 3. Möglichkeit der Konfiguration der Firewall.
 
+== Angestrebte Verzeichnisstruktur
+
+Mit den folgenden Schritten soll diese Verzeichnisstruktur erreicht werden:
+
+[source,asciidoc]
+----
+.
+├── /home/logbuch
+│   ├── modellflug-logbuch
+│   │   ├── bin
+│   │   │   └── modellflug-logbuch
+│   │   ├── lib
+│   │   └── config
+│   │       └── config.toml
+└── ...
+----
+
+und das Systemd Unit File bei `/etc/systemd/system/logbuch.service`.
+
+== Schritt 0: Separaten Nutzer anlegen
+
+Es wird empfohlen, einen separaten Nutzer für den Backend-Server zu erstellen:
+
+[source,shell]
+----
+sudo useradd -m logbuch
+----
+
 == Schritt 1: Update und Upgrade des Systems
 
 Führe zuerst ein Update und Upgrade des Systems durch:
 
-[source,bash]
+[source,shell]
 ----
 sudo apt update
 sudo apt upgrade -y
@@ -24,14 +52,14 @@ sudo apt upgrade -y
 
 Der Backend-Server benötigt Java, um ausgeführt zu werden. Installiere OpenJDK:
 
-[source,bash]
+[source,shell]
 ----
 sudo apt install openjdk-17-jdk -y
 ----
 
 Überprüfe die Installation:
 
-[source,bash]
+[source,shell]
 ----
 java --version
 ----
@@ -40,14 +68,14 @@ java --version
 
 Installiere PostgreSQL als Datenbankserver:
 
-[source,bash]
+[source,shell]
 ----
 sudo apt install postgresql -y
 ----
 
 Starte und aktiviere den PostgreSQL-Dienst:
 
-[source,bash]
+[source,shell]
 ----
 sudo systemctl enable --now postgresql
 ----
@@ -56,7 +84,7 @@ sudo systemctl enable --now postgresql
 
 Wechsle zum PostgreSQL-Benutzer und öffne die PostgreSQL-Shell:
 
-[source,bash]
+[source,shell]
 ----
 sudo -i -u postgres
 psql
@@ -66,9 +94,9 @@ Erstelle eine neue Datenbank und einen neuen Benutzer:
 
 [source,sql]
 ----
-CREATE DATABASE mydatabase;
-CREATE USER myuser WITH ENCRYPTED PASSWORD 'mypassword';
-GRANT ALL PRIVILEGES ON DATABASE mydatabase TO myuser;
+CREATE DATABASE logbook_db;
+CREATE USER myuser WITH ENCRYPTED PASSWORD 'SET_PASSWORD_HERE';
+GRANT ALL PRIVILEGES ON DATABASE logbook_db TO logbook_user;
 ----
 
 Beende die PostgreSQL-Shell:
@@ -80,7 +108,7 @@ q
 
 Wechsle zurück zum vorherigen Benutzer:
 
-[source,bash]
+[source,shell]
 ----
 exit
 ----
@@ -89,7 +117,7 @@ exit
 
 Lade das gepackte Backend-Projekt aus den GitHub Releases herunter. Das Projekt liegt als `.tar.gz` oder `.zip` Datei vor. Lade die Datei auf deinen Server hoch und entpacke sie:
 
-[source,bash]
+[source,shell]
 ----
 # für eine .tar.gz Datei
 tar -xvzf releasename.tar.gz
@@ -100,7 +128,7 @@ unzip releasename.zip
 
 Benenne das entpackte Verzeichnis um und navigiere in das Verzeichnis:
 
-[source,bash]
+[source,shell]
 ----
 mv releasename modellflug-logbuch
 cd modellflug-logbuch
@@ -108,7 +136,7 @@ cd modellflug-logbuch
 
 Stelle sicher, dass die Datei `bin/modellflug-logbuch` ausführbar ist:
 
-[source,bash]
+[source,shell]
 ----
 chmod +x bin/modellflug-logbuch
 ----
@@ -117,7 +145,7 @@ chmod +x bin/modellflug-logbuch
 
 Führe den Server einmal manuell aus um die Konfigurationsdatei zu generieren:
 
-[source,bash]
+[source,shell]
 ----
 ./bin/modellflug-logbuch
 ----
@@ -135,10 +163,10 @@ timeZone = "Europe/Berlin"
   serverName = "localhost"
   # The PostgreSQL default port is 5432.
   port = 5432
-  username = "logbook"
+  username = "logbook_user"
   password = "SET_PASSWORD_HERE"
   # The name of the database to use. (You chose this during database setup.)
-  databaseName = "logbook"
+  databaseName = "logbook_db"
 
 [server]
   # The port the server should listen on.
@@ -156,7 +184,7 @@ Es ist ratsam, den Backend-Server als Systemdienst zu konfigurieren, damit er au
 
 Erstelle eine neue Dienstdatei:
 
-[source,bash]
+[source,shell]
 ----
 sudo nano /etc/systemd/system/logbuch.service
 ----
@@ -181,7 +209,7 @@ WantedBy=multi-user.target
 
 Aktualisiere die Systemdienste und starte den Dienst:
 
-[source,bash]
+[source,shell]
 ----
 sudo systemctl daemon-reload
 sudo systemctl enable --now logbuch
@@ -191,7 +219,7 @@ sudo systemctl enable --now logbuch
 
 Überprüfe, ob der Server läuft:
 
-[source,bash]
+[source,shell]
 ----
 sudo systemctl status logbuch
 ----
@@ -201,6 +229,8 @@ Besuche schließlich deine Server-IP oder Domain auf Port 8080 (oder dem in dein
 == Schritt 9: Reverse Proxy (optional)
 
 Wenn du den Ktor-Server über einen Reverse Proxy wie Nginx oder Apache bereitstellen möchtest, konfiguriere den Proxy entsprechend.
+
+Falls der jeweilige Modellflugverein bereits einen Webserver bzw. Reverse Proxy betreibt, sollte dieser genutzt werden.
 
 *Nginx Beispiel*
 
@@ -220,4 +250,19 @@ server {
         proxy_set_header X-Forwarded-Proto $scheme;
     }
 }
+----
+
+*Apache Beispiel*
+
+Erstelle eine neue Konfigurationsdatei und füge z.B. folgendes in die Datei ein:
+
+[source,apache]
+----
+<VirtualHost *:80>
+    ServerName your-domain.com
+
+    ProxyPreserveHost On
+    ProxyPass / http://localhost:8080/
+    ProxyPassReverse / http://localhost:8080/
+</VirtualHost>
 ----
