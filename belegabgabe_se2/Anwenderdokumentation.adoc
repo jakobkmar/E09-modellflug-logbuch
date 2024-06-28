@@ -16,8 +16,8 @@
 
 Zuständige Personen:
 
-- Herr Professor Doktor Iwe, Tel.: +49 0000000000
-- Herr Römer, Tel.: +49 0000000000
+- Herr Professor Doktor Iwe
+- Herr Römer
 
 [%always]
 <<<
@@ -41,7 +41,7 @@ Sollte es nötig sein, dann ist ein Flugeintrag auch im Nachhinein anlegbar. Am 
 
 ### a. Flugeintrag beginnen 
 Durch das Betätigen des Buttons “Als Pilot anmelden”, öffnet sich eine Formularansicht, in der man alle benötigten Daten für einen Flugeintrag eintragen kann. Pflichtangaben sind die Folgenden: Datum, Uhrzeit Flugbeginn, Flugzeugtyp und Unterschrift.
-Weiterhin können Angaben zur Überprüfung der Erste-Hilfe-Station.
+Weiterhin können Angaben zur Überprüfung der Erste-Hilfe-Station getätigt werden.
 
 image::images/flugeintrag1.PNG[Formularansicht1]
 image::images/flugeintrag2.PNG[Formularansicht2]
@@ -96,7 +96,7 @@ image::images/tagesProtokoll2.PNG[Druckausgabe des Tagesprotokolls]
 ## 8. Nutzerverwaltung in der Webapp
 Nutzern mit Adminrechten ist es möglich innerhalb der Webapp die Nutzerverwaltung durchzuführen. Sie kann über die Schaltfläche "Nutzerverwaltung" aufgerufen werden.
 
-image::images/Nutzerverwaltung1.PNG[Schaltfläche für Nutzerverwaltung]
+image::images/nutzerverwaltung1.PNG[Schaltfläche für Nutzerverwaltung]
 
 Hier können über die Schaltfläche "+ Neuer Nutzer" ein neuer Nutzer erstellt werden.
 
