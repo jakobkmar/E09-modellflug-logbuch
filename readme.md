@@ -14,8 +14,12 @@ Smartphone der Piloten"*.
 
 ## Linkverzeichnis
 
-- [**Betriebsdokumentation** inklusive Deployment Guide](belegabgabe_se2/Betriebsdokumentation/Betriebsdokumentation.adoc)
-- [Entwicklerdokumentation](belegabgabe_se2/Entwicklerdokumentation.adoc)
+- [**Betriebsdokumentation** inklusive Deployment Guide](belegabgabe_se2/Betriebsdokumentation/Betriebsdokumentation.pdf)
+- [Entwicklerdokumentation](belegabgabe_se2/Entwicklerdokumentation/Entwicklerdokumentation.pdf)
+- [Softwaredokumentation](https://jakobkmar.github.io/E09-modellflug-logbuch/), mit
+  - OpenAPI Spezifikation
+  - Common Data
+  - Backend
 - [Work Item List](https://github.com/users/jakobkmar/projects/2/views/3)
 - [Ursprüngliche README.md](readme_old.md)
 
