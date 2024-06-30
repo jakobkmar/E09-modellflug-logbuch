@@ -1,0 +1,43 @@
+@startuml C4_Level_3_Component_Diagram
+
+skinparam rectangle {
+    BackgroundColor LightYellow
+    BorderColor Black
+}
+
+' Frontend Components
+component "Registration Page" as RegPage
+component "Login Page" as LoginPage
+component "Home Page" as HomePage
+component "Create Protocol Page" as CreateProtoPage
+component "Complete Protocol Page" as CompleteProtoPage
+component "List Protocols Page" as ListProtosPage
+
+' Backend Components
+component "FlightlogRequest" as FlightlogRequest
+component "ProfileRoutes" as ProfileRoutes
+component "AdminRoutes" as AdminRoutes
+component "Database Handler" as DBHandler
+
+' Database as an External Component
+database "Database" as DB
+
+' Interactions within Frontend
+RegPage -down-> LoginPage : navigates
+LoginPage -down-> HomePage : authenticates
+HomePage -right-> CreateProtoPage : "initiate protocol"
+CreateProtoPage -down-> CompleteProtoPage : "fill details"
+CompleteProtoPage -down-> ListProtosPage : "submit & list"
+
+' Backend Interactions
+FlightlogRequest -[hidden]down-> DBHandler
+ProfileRoutes -[hidden]down-> DBHandler
+AdminRoutes -[hidden]down-> DBHandler
+DBHandler -down-> DB : "CRUD operations"
+
+' Frontend to Backend Communications
+RegPage -right-> FlightlogRequest : "create log"
+LoginPage -right-> ProfileRoutes : "verify user"
+HomePage -right-> AdminRoutes : "access admin"
+
+@enduml
