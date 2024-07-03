@@ -95,18 +95,34 @@ Erstelle eine neue Datenbank und einen neuen Benutzer:
 [source,sql]
 ----
 CREATE DATABASE logbook_db;
-CREATE USER myuser WITH ENCRYPTED PASSWORD 'SET_PASSWORD_HERE';
+CREATE USER logbook_user WITH ENCRYPTED PASSWORD 'SET_PASSWORD_HERE';
 GRANT ALL PRIVILEGES ON DATABASE logbook_db TO logbook_user;
+----
+
+Wechsel zum neuen Benutzer und der neuen Datenbank:
+
+[source,sql]
+----
+set role logbook_user;
+\connect logbook_db
+----
+
+Erstelle einen Admin Account in der `account` Tabelle, falls noch nicht geschehen:
+
+[source,sql]
+----
+INSERT INTO account (username, first_name, last_name, password_hash, is_admin, can_see_all_logs)
+VALUES ('logbook_admin', 'FirstName', 'LastName', NULL, TRUE, TRUE)
 ----
 
 Beende die PostgreSQL-Shell:
 
 [source]
 ----
-q
+\q
 ----
 
-Wechsle zurück zum vorherigen Benutzer:
+Wechsel zurück zum vorherigen Benutzer:
 
 [source,shell]
 ----
@@ -169,6 +185,8 @@ timeZone = "Europe/Berlin"
   databaseName = "logbook_db"
 
 [server]
+  # The host the server will listen on.
+  host = "SERVER_IP_OR_DOMAIN_HERE"
   # The port the server should listen on.
   port = 8080
   # In development mode the server runs without many security features.

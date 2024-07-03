@@ -75,6 +75,11 @@ _Top Level Scope_
 
 *`[server]` Scope*
 
+`host`
+
+* Beschreibung: Die IP-Adresse oder der Hostname, auf dem der Anwendungsserver lauscht.
+* Beispiel: `"127.0.0.1"`
+
 `port`
 
 * Beschreibung: Der Port, auf dem der Anwendungserver lauschen soll.
@@ -137,6 +142,32 @@ pg_dump -U logbook_user logbook_db > /backup/logbook_db_backup.sql
 ----
 psql -U logbook_user -d logbook_db -f /backup/logbook_db_backup.sql
 ----
+
+== Systemupdate
+
+Lade die neueste Version der Anwendung herunter und führe die folgenden Schritte aus:
+
+Stoppe den Systemd-Dienst:
+
+[source,shell]
+----
+sudo systemctl stop logbook
+----
+
+Lade die neueste Version der Anwendung an eine getrennte Stelle herunter, entpacke diese und überschreibe den Ordner `modellflug-logbuch` mit dem neuen Inhalt. Bei größeren Änderungen kann es notwendig sein, die Konfigurationsdatei `config.toml` zu aktualisieren. Nach häufigen Updates empfiehlt es sich auch, einmal `bin` und `lib` zu löschen, da dort alte Bibliotheken liegen könnten.
+
+[source,shell]
+----
+cp -r -T /path/to/new/modellflug-logbuch /path/to/old/modellflug-logbuch
+----
+
+Starte den Systemd-Dienst neu:
+
+[source,shell]
+----
+sudo systemctl start logbook
+----
+
 
 == Weiterführende Links
 - Dokumentation von PostgreSQL: https://www.postgresql.org/docs/[PostgreSQL Dokumentation]
