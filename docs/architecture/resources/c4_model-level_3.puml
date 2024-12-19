@@ -1,0 +1,32 @@
+@startuml
+left to right direction
+
+    package "LXC Container" {
+        [Database] as c1
+        package "Backend" {
+            [AdminRoutes.kt] as c2
+            [FlightlogRequest.kt] as c3
+            [ProfileRoutes.kt] as c4
+            [DatabaseHandler.kt] as c5
+        }
+    }
+    package "Frontend" {
+        [RegistrationPage.vue] as c6
+        [Login.vue] as c7
+        [ListProtocolsPage.vue] as c8
+        [CompleteProtocolPage.vue] as c9
+        [CreateProtocolPage.vue] as c10
+    }
+
+    c2 <-l-> c5
+    c3 <-d-> c5
+    c4 <-d-> c5
+    c5 <-d-> c1
+    c6 <-d-> c4
+    c7 -d-> c4
+    c8 <-d-> c3
+    c9 <-d-> c3
+    c10 -d-> c3
+    c1 <-l-> SQLServerManagement
+
+@enduml
