@@ -28,6 +28,8 @@ data class AppConfig(
 
     @Serializable
     data class ServerConfig(
+        @TomlComments("The host the server will listen on.")
+        val host: String = "0.0.0.0",
         @TomlComments("The port the server should listen on.")
         val port: Int = 8080,
         @TomlComments(

@@ -3,6 +3,7 @@ import { useLoginSessionStore } from '@/session'
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import type { AppState } from 'modellflug-logbuch-common-data'
 import { backendRequest } from '@/networking'
+import { backendUrl } from "@/store";
 
 const sessionStore = useLoginSessionStore()
 
@@ -33,7 +34,8 @@ async function requestInfo() {
 requestInfo()
 
 onMounted(() => {
-  appStateSocket = new WebSocket('ws://localhost:8080/api/v1/appstate/live')
+  const url: string = backendUrl.value ?? window.location.host
+  appStateSocket = new WebSocket('ws://' + url + '/api/v1/appstate/live')
   appStateSocket.onopen = () => {
     // console.debug("Opened WebSocket connection to app state")
   }

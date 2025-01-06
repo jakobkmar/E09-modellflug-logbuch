@@ -1,6 +1,10 @@
 import { ref, watch } from 'vue'
 
-export const backendUrl = ref<string>(localStorage.getItem('backendUrl') ?? '')
+export const backendUrl = ref<string | null>(localStorage.getItem('backendUrl'))
 watch(backendUrl, (newVal) => {
-  localStorage.setItem('backendUrl', newVal)
+  if (newVal == null) {
+    localStorage.removeItem('backendUrl')
+  } else {
+    localStorage.setItem('backendUrl', newVal)
+  }
 })

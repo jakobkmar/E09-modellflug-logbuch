@@ -53,8 +53,9 @@ fun main() {
     // configure and start the server
     embeddedServer(
         factory = Netty, port = ConfigManager.config.server.port,
-
+        host = ConfigManager.config.server.host,
     ) {
+        log.info("Read host ${ConfigManager.config.server.host} and port ${ConfigManager.config.server.port} from configuration")
         log.info("Running application in ${if (ConfigManager.isDevelopmentMode) "development" else "production"} mode")
 
         install(ContentNegotiation) {
